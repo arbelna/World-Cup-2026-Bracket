@@ -1,0 +1,1 @@
+"""Collection pipeline stages."""

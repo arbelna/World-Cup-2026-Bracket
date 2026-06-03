@@ -1,0 +1,128 @@
+= Copa América Centenario 2016      # in USA
+
+
+Group A  |  United States  Colombia   Costa Rica  Paraguay
+Group B  |  Brazil         Ecuador    Haiti       Peru
+Group C  |  Mexico         Uruguay    Jamaica     Venezuela
+Group D  |  Argentina      Chile      Panama      Bolivia
+
+Matchday 1  | Jun/3-Jun/6
+Matchday 2  | Jun/7-Jun/10
+Matchday 3  | Jun/11-Jun/14
+
+
+Group A
+
+
+Jun/3 21:30    United States   0-2   Colombia  @ Levi's Stadium, Santa Clara, California  # EDT (UTC-4)
+                    [-; C. Zapata 8' Rodríguez 42' (pen.)]
+
+Jun/4 17:00    Costa Rica      0-0   Paraguay  @ Camping World Stadium, Orlando, Florida  # EDT (UTC-4)
+
+Jun/7 20:00    United States   4-0   Costa Rica  @ Soldier Field, Chicago, Illinois  # EDT (UTC-4)
+                    [Dempsey 9' (pen.) Jones 37' Wood 42' Zusi 87']
+
+       22:30    Colombia       2-1   Paraguay  @ Rose Bowl, Pasadena, California  # EDT (UTC-4)
+                    [Bacca 12' Rodríguez 30'; Ayala 71']
+
+Jun/11 19:00   United States   1-0   Paraguay  @ Lincoln Financial Field, Philadelphia, Pennsylvania  # EDT (UTC-4)
+                    [Dempsey 27']
+
+       21:00   Colombia        2-3   Costa Rica  @ NRG Stadium, Houston, Texas  # EDT (UTC-4)
+                    [Fabra 6' M. Moreno 73'; Venegas 2' Fabra 34' (o.g.) Borges 58']
+
+
+Group B
+
+Jun/4 19:30    Haiti           0-1   Peru  @ CenturyLink Field, Seattle, Washington  # EDT (UTC-4)
+                    [-; Guerrero 61']
+
+       22:00    Brazil         0-0   Ecuador  @ Rose Bowl, Pasadena, California  # EDT (UTC-4)
+
+Jun/8 19:30    Brazil          7-1   Haiti  @ Camping World Stadium, Orlando, Florida  # EDT (UTC-4)
+                    [Coutinho 14', 29', 90+2' Renato Augusto 35', 86' Gabriel Barbosa 59' Lucas Lima 67'; Marcelin 70']
+
+       22:00    Ecuador        2-2   Peru  @ University of Phoenix Stadium, Glendale, Arizona  # EDT (UTC-4)
+                    [E. Valencia 39' Bolaños 49'; Cueva 5' Flores 13']
+
+Jun/12 18:30   Ecuador         4-0   Haiti  @ MetLife Stadium, East Rutherford, New Jersey  # EDT (UTC-4)
+                    [E. Valencia 11' J. Ayoví 20' Noboa 57' A. Valencia 78']
+
+       20:30   Brazil          0-1   Peru  @ Gillette Stadium, Foxborough, Massachusetts  # EDT (UTC-4)
+                    [-; Ruidíaz 75']
+
+
+Group C
+
+Jun/5 17:00    Jamaica         0-1   Venezuela  @ Soldier Field, Chicago, Illinois  # EDT (UTC-4)
+                    [-; Martínez 15']
+
+       20:00    Mexico         3-1   Uruguay  @ University of Phoenix Stadium, Glendale, Arizona  # EDT (UTC-4)
+                    [Á. Pereira 4' (o.g.) Márquez 85' Herrera 90+2'; Godín 74']
+
+Jun/9 19:30    Uruguay         0-1   Venezuela  @ Lincoln Financial Field, Philadelphia, Pennsylvania  # EDT (UTC-4)
+                    [-; Rondón 36']
+
+       22:00    Mexico         2-0   Jamaica  @ Rose Bowl, Pasadena, California  # EDT (UTC-4)
+                    [Hernández 18' Peralta 81']
+
+Jun/13 20:00   Mexico          1-1   Venezuela  @ NRG Stadium, Houston, Texas  # EDT (UTC-4)
+                    [J. Corona 80'; Velázquez 10']
+
+       22:00   Uruguay         3-0   Jamaica  @ Levi's Stadium, Santa Clara, California  # EDT (UTC-4)
+                    [Hernández 21' Watson 66' (o.g.) Corujo 88']
+
+
+Group D
+
+Jun/6 19:00    Panama          2-1   Bolivia  @ Camping World Stadium, Orlando, Florida  # EDT (UTC-4)
+                    [Pérez 11', 87'; Arce 54']
+
+       22:00    Argentina      2-1   Chile  @ Levi's Stadium, Santa Clara, California  # EDT (UTC-4)
+                    [Di María 51' Banega 59'; Fuenzalida 90+3']
+
+Jun/10 19:00   Chile           2-1   Bolivia  @ Gillette Stadium, Foxborough, Massachusetts  # EDT (UTC-4)
+                    [Vidal 46', 90+10' (pen.); Campos 61']
+
+       21:30   Argentina       5-0   Panama  @ Soldier Field, Chicago, Illinois  # EDT (UTC-4)
+                    [Otamendi 7' Messi 68', 78', 87' Agüero 90']
+
+Jun/14 20:00   Chile           4-2   Panama  @ Lincoln Financial Field, Philadelphia, Pennsylvania  # EDT (UTC-4)
+                    [Vargas 15', 43' Sánchez 50', 89'; Camargo 5' Arroyo 75']
+
+       22:00   Argentina       3-0   Bolivia  @ CenturyLink Field, Seattle, Washington  # EDT (UTC-4)
+                    [Lamela 13' Lavezzi 15' Cuesta 32']
+
+
+Quarter-finals
+
+Jun/16 21:30   United States   2-1   Ecuador  @ CenturyLink Field, Seattle, Washington  # EDT (UTC-4)
+                    [Dempsey 22' Zardes 65'; Arroyo 74']
+
+Jun/17 20:00   Peru            2-4 pen. (0-0)   Colombia  @ MetLife Stadium, East Rutherford, New Jersey  # EDT (UTC-4)
+
+Jun/18 19:00   Argentina       4-1   Venezuela  @ Gillette Stadium, Foxborough, Massachusetts  # EDT (UTC-4)
+                    [Higuaín 8', 28' Messi 60' Lamela 71'; Rondón 70']
+
+       22:00   Mexico          0-7   Chile  @ Levi's Stadium, Santa Clara, California  # EDT (UTC-4)
+                    [-; Puch 15', 87' Vargas 43', 51', 57', 73' Sánchez 48']
+
+
+Semi-finals
+
+Jun/21 21:00   United States   0-4   Argentina  @ NRG Stadium, Houston, Texas  # EDT (UTC-4)
+                    [-; Lavezzi 3' Messi 32' Higuaín 50', 86']
+
+Jun/22 20:00   Colombia        0-2   Chile  @ Soldier Field, Chicago, Illinois  # EDT (UTC-4)
+                    [-; Aránguiz 6' Fuenzalida 10']
+
+
+Third place play-off
+
+Jun/25 20:00   United States   0-1   Colombia  @ University of Phoenix Stadium, Glendale, Arizona  # EDT (UTC-4)
+                    [-; Bacca 31']
+
+
+Final
+
+Jun/26 20:00   Argentina       2-4 pen. (0-0 a.e.t.)   Chile  @ MetLife Stadium, East Rutherford, New Jersey  # EDT (UTC-4)

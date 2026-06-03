@@ -1,0 +1,32 @@
+output_slug: wc2026
+tournament_id: world-cup-2026
+competition: World Cup 2026
+n_groups: 12
+group_labels: [A, B, C, D, E, F, G, H, I, J, K, L]
+advance_per_group: 2
+has_r32: true
+best_third_qualifiers: 8
+first_knockout_stage: R32
+
+train_dataset: data/input/match_dataset_with_wc2026.json
+exclude_tournament_from_train: world-cup-2026
+match_dataset_filter_competition: World Cup 2026
+
+groups_file: data/input/wc2026_groups.json
+knockout_bracket_file: data/input/wc2026_knockout_bracket.json
+r32_scenarios_file: data/input/wc2026_r32_scenarios.json
+pairwise_predictions_file: data/input/wc2026_pairwise_predictions.csv
+
+default_batch_size: 1000
+default_n_sims: 200000
+
+alphas:
+  group_tie: 1.0
+  R32: 0.5
+  R16: 0.5
+  QF: 0.5
+  SF: 0.5
+  third_place: 0.5
+  final: 0.5
+
+stages_tracked: [R32, R16, QF, SF, final, winner]

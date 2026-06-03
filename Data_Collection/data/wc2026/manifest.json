@@ -1,0 +1,71 @@
+{
+  "updated_at": "2026-06-02T08:36:57.414859+00:00",
+  "partition": "wc2026",
+  "last_stage": "match_odds",
+  "counts": {
+    "matched_odds": 724,
+    "unmatched_odds": 0,
+    "dropped_invalid_odds": 0
+  },
+  "stages": {
+    "collect_elo": {
+      "at": "2026-05-28T09:44:42.648690+00:00",
+      "tournament_ids": [
+        "world-cup-2026"
+      ],
+      "counts": {
+        "fixtures": 72,
+        "team_ratings": 48
+      },
+      "synced_at": "2026-06-02T08:36:57.414859+00:00"
+    },
+    "collect_confederations": {
+      "at": "2026-05-28T09:44:53.110863+00:00",
+      "tournament_ids": [
+        "world-cup-2026"
+      ],
+      "counts": {
+        "team_confederations": 222
+      },
+      "synced_at": "2026-06-02T08:36:57.414859+00:00"
+    },
+    "collect_odds_all": {
+      "at": "2026-06-01T14:57:32.735928+00:00",
+      "tournament_ids": [
+        "world-cup-2026"
+      ],
+      "counts": {
+        "oddsportal_raw": 724
+      },
+      "synced_at": "2026-06-02T08:36:57.414859+00:00"
+    },
+    "collect_transfermarkt": {
+      "at": "2026-06-02T07:59:45.655273+00:00",
+      "tournament_ids": [
+        "world-cup-2026"
+      ],
+      "counts": {
+        "squads_players": 1247,
+        "valued_players": 1236,
+        "unmatched_players": 11,
+        "api_calls": 65,
+        "players_updated": 65,
+        "search_resolved": 57,
+        "unmatched_removed": 65
+      },
+      "synced_at": "2026-06-02T08:36:57.414859+00:00"
+    },
+    "match_odds": {
+      "at": "2026-06-02T08:36:56.948764+00:00",
+      "tournament_ids": [
+        "world-cup-2026"
+      ],
+      "counts": {
+        "matched_odds": 724,
+        "unmatched_odds": 0,
+        "dropped_invalid_odds": 0
+      },
+      "synced_at": "2026-06-02T08:36:57.414859+00:00"
+    }
+  }
+}

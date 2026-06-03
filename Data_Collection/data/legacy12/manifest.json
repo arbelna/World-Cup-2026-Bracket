@@ -1,0 +1,157 @@
+{
+  "updated_at": "2026-06-01T11:05:58.279145+00:00",
+  "partition": "legacy12",
+  "last_stage": "resolve_transfermarkt_from_existing",
+  "counts": {
+    "squads_players": 6538,
+    "valued_players": 6418,
+    "unmatched_players": 120,
+    "api_calls": 728,
+    "players_updated": 871,
+    "search_resolved": 816,
+    "unmatched_removed": 871
+  },
+  "stages": {
+    "collect_elo": {
+      "at": "2026-05-28T09:44:17.211574+00:00",
+      "tournament_ids": [
+        "euro-2024",
+        "euro-2020",
+        "euro-2016",
+        "euro-2012",
+        "world-cup-2022",
+        "world-cup-2018",
+        "world-cup-2014",
+        "world-cup-2010",
+        "copa-america-2024",
+        "copa-america-2021",
+        "copa-america-2019",
+        "copa-america-2016"
+      ],
+      "counts": {
+        "fixtures": 558,
+        "team_ratings": 270
+      },
+      "synced_at": "2026-06-01T11:05:58.279145+00:00"
+    },
+    "collect_confederations": {
+      "at": "2026-05-28T09:44:35.545414+00:00",
+      "tournament_ids": [
+        "euro-2024",
+        "euro-2020",
+        "euro-2016",
+        "euro-2012",
+        "world-cup-2022",
+        "world-cup-2018",
+        "world-cup-2014",
+        "world-cup-2010",
+        "copa-america-2024",
+        "copa-america-2021",
+        "copa-america-2019",
+        "copa-america-2016"
+      ],
+      "counts": {
+        "team_confederations": 222
+      },
+      "synced_at": "2026-06-01T11:05:58.279145+00:00"
+    },
+    "collect_odds_all": {
+      "at": "2026-05-28T10:16:45.355033+00:00",
+      "tournament_ids": [
+        "euro-2024",
+        "euro-2020",
+        "euro-2016",
+        "euro-2012",
+        "world-cup-2022",
+        "world-cup-2018",
+        "world-cup-2014",
+        "world-cup-2010",
+        "copa-america-2024",
+        "copa-america-2021",
+        "copa-america-2019",
+        "copa-america-2016"
+      ],
+      "counts": {
+        "oddsportal_raw": 3384
+      },
+      "synced_at": "2026-06-01T11:05:58.279145+00:00"
+    },
+    "match_odds": {
+      "at": "2026-05-28T10:41:53.745062+00:00",
+      "tournament_ids": [
+        "euro-2024",
+        "euro-2020",
+        "euro-2016",
+        "euro-2012",
+        "world-cup-2022",
+        "world-cup-2018",
+        "world-cup-2014",
+        "world-cup-2010",
+        "copa-america-2024",
+        "copa-america-2021",
+        "copa-america-2019",
+        "copa-america-2016"
+      ],
+      "counts": {
+        "matched_odds": 3382,
+        "unmatched_odds": 0,
+        "dropped_invalid_odds": 2
+      },
+      "synced_at": "2026-06-01T11:05:58.279145+00:00"
+    },
+    "collect_transfermarkt": {
+      "at": "2026-05-29T08:25:05.346720+00:00",
+      "tournament_ids": [
+        "euro-2024",
+        "euro-2020",
+        "euro-2016",
+        "euro-2012",
+        "world-cup-2022",
+        "world-cup-2018",
+        "world-cup-2014",
+        "world-cup-2010",
+        "copa-america-2024",
+        "copa-america-2021",
+        "copa-america-2019",
+        "copa-america-2016"
+      ],
+      "counts": {
+        "squads_players": 6538,
+        "valued_players": 6418,
+        "unmatched_players": 120,
+        "api_calls": 735,
+        "players_updated": 871,
+        "search_resolved": 820,
+        "unmatched_removed": 866
+      },
+      "synced_at": "2026-06-01T11:05:58.279145+00:00"
+    },
+    "resolve_transfermarkt_from_existing": {
+      "at": "2026-05-31T10:03:40.296381+00:00",
+      "tournament_ids": [
+        "euro-2024",
+        "euro-2020",
+        "euro-2016",
+        "euro-2012",
+        "world-cup-2022",
+        "world-cup-2018",
+        "world-cup-2014",
+        "world-cup-2010",
+        "copa-america-2024",
+        "copa-america-2021",
+        "copa-america-2019",
+        "copa-america-2016"
+      ],
+      "counts": {
+        "squads_players": 6538,
+        "valued_players": 6418,
+        "unmatched_players": 120,
+        "api_calls": 728,
+        "players_updated": 871,
+        "search_resolved": 816,
+        "unmatched_removed": 871
+      },
+      "synced_at": "2026-06-01T11:05:58.279145+00:00"
+    }
+  }
+}

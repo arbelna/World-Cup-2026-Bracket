@@ -1,0 +1,5350 @@
+[
+  {
+    "match_id": "md__world-cup-2026__czechia__korearepublic__2026-06-11",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-11",
+    "team_a": "Czechia",
+    "team_b": "South Korea",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": -26.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -0.012669833418123375,
+    "z_log_top_15_average_value_team_b": -0.19945865114605602,
+    "odds": [
+      [
+        2.63,
+        3.0,
+        2.63
+      ],
+      [
+        2.75,
+        3.1,
+        2.63
+      ],
+      [
+        2.72,
+        3.05,
+        2.62
+      ],
+      [
+        2.82,
+        3.15,
+        2.74
+      ],
+      [
+        2.72,
+        3.03,
+        2.61
+      ],
+      [
+        2.82,
+        3.15,
+        2.75
+      ],
+      [
+        2.77,
+        3.16,
+        2.67
+      ],
+      [
+        2.7,
+        3.0,
+        2.59
+      ],
+      [
+        2.78,
+        3.15,
+        2.68
+      ],
+      [
+        2.66,
+        3.06,
+        2.61
+      ],
+      [
+        2.75,
+        3.2,
+        2.75
+      ]
+    ],
+    "target_soft": [
+      0.34202832829004237,
+      0.3040560467746658,
+      0.35391562493529194
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__mexico__southafrica__2026-06-11",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-11",
+    "team_a": "Mexico",
+    "team_b": "South Africa",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 336.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": -0.04479903365483859,
+    "z_log_top_15_average_value_team_b": -1.2200684555540484,
+    "odds": [
+      [
+        1.44,
+        4.0,
+        7.0
+      ],
+      [
+        1.44,
+        4.33,
+        7.5
+      ],
+      [
+        1.43,
+        4.2,
+        7.4
+      ],
+      [
+        1.44,
+        4.38,
+        8.0
+      ],
+      [
+        1.41,
+        4.3,
+        7.3
+      ],
+      [
+        1.46,
+        4.35,
+        8.1
+      ],
+      [
+        1.44,
+        4.4,
+        7.54
+      ],
+      [
+        1.4,
+        4.2,
+        7.2
+      ],
+      [
+        1.45,
+        4.3,
+        7.6
+      ],
+      [
+        1.4,
+        4.17,
+        7.38
+      ],
+      [
+        1.46,
+        4.4,
+        7.6
+      ]
+    ],
+    "target_soft": [
+      0.6558959635256296,
+      0.21817201147744952,
+      0.12593202499692088
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__canada__bosniaandherzegovina__2026-06-12",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-12",
+    "team_a": "Canada",
+    "team_b": "Bosnia and Herzegovina",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": 190.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.08743597776363947,
+    "z_log_top_15_average_value_team_b": -0.2872000325705113,
+    "odds": [
+      [
+        1.75,
+        3.5,
+        4.0
+      ],
+      [
+        1.8,
+        3.7,
+        4.33
+      ],
+      [
+        1.81,
+        3.5,
+        4.2
+      ],
+      [
+        1.83,
+        3.73,
+        4.65
+      ],
+      [
+        1.79,
+        3.66,
+        4.0
+      ],
+      [
+        1.85,
+        3.7,
+        4.5
+      ],
+      [
+        1.82,
+        3.78,
+        4.2
+      ],
+      [
+        1.78,
+        3.62,
+        3.99
+      ],
+      [
+        1.84,
+        3.6,
+        4.3
+      ],
+      [
+        1.77,
+        3.5,
+        4.22
+      ],
+      [
+        1.84,
+        3.7,
+        4.4
+      ]
+    ],
+    "target_soft": [
+      0.5195743233983355,
+      0.2596868340192249,
+      0.22073884258243961
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__unitedstates__paraguay__2026-06-12",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-12",
+    "team_a": "United States",
+    "team_b": "Paraguay",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -112.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": 0.5472883423008553,
+    "z_log_top_15_average_value_team_b": -0.1671122418429384,
+    "odds": [
+      [
+        1.95,
+        3.25,
+        3.6
+      ],
+      [
+        1.95,
+        3.4,
+        4.0
+      ],
+      [
+        1.97,
+        3.3,
+        3.75
+      ],
+      [
+        2.02,
+        3.5,
+        3.86
+      ],
+      [
+        1.96,
+        3.34,
+        3.68
+      ],
+      [
+        2.05,
+        3.5,
+        3.85
+      ],
+      [
+        1.99,
+        3.47,
+        3.81
+      ],
+      [
+        1.95,
+        3.31,
+        3.64
+      ],
+      [
+        2.0,
+        3.4,
+        3.85
+      ],
+      [
+        1.94,
+        3.28,
+        3.76
+      ],
+      [
+        2.02,
+        3.4,
+        3.95
+      ]
+    ],
+    "target_soft": [
+      0.4735644348036845,
+      0.2777554810684463,
+      0.24868008412786907
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__australia__turkey__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-13",
+    "team_a": "Australia",
+    "team_b": "Turkey",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": -119.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.8298805830079236,
+    "z_log_top_15_average_value_team_b": 0.7416141713866975,
+    "odds": [
+      [
+        4.4,
+        3.4,
+        1.75
+      ],
+      [
+        4.5,
+        3.5,
+        1.8
+      ],
+      [
+        4.3,
+        3.55,
+        1.78
+      ],
+      [
+        4.67,
+        3.75,
+        1.84
+      ],
+      [
+        4.2,
+        3.64,
+        1.76
+      ],
+      [
+        4.8,
+        3.65,
+        1.8
+      ],
+      [
+        4.37,
+        3.76,
+        1.8
+      ],
+      [
+        4.2,
+        3.6,
+        1.75
+      ],
+      [
+        4.4,
+        3.65,
+        1.81
+      ],
+      [
+        4.33,
+        3.51,
+        1.75
+      ],
+      [
+        4.5,
+        3.6,
+        1.85
+      ]
+    ],
+    "target_soft": [
+      0.2133734000293374,
+      0.26154871637114513,
+      0.5250778835995176
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__brazil__morocco__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-13",
+    "team_a": "Brazil",
+    "team_b": "Morocco",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 162.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 1.2602877673514599,
+    "z_log_top_15_average_value_team_b": 0.7204709055571249,
+    "odds": [
+      [
+        1.6,
+        3.6,
+        5.5
+      ],
+      [
+        1.6,
+        4.0,
+        5.25
+      ],
+      [
+        1.6,
+        3.75,
+        5.4
+      ],
+      [
+        1.63,
+        4.05,
+        5.78
+      ],
+      [
+        1.6,
+        3.67,
+        5.5
+      ],
+      [
+        1.68,
+        3.8,
+        5.75
+      ],
+      [
+        1.63,
+        3.86,
+        5.59
+      ],
+      [
+        1.59,
+        3.62,
+        5.4
+      ],
+      [
+        1.62,
+        3.85,
+        5.6
+      ],
+      [
+        1.57,
+        3.75,
+        5.49
+      ],
+      [
+        1.63,
+        4.0,
+        5.8
+      ]
+    ],
+    "target_soft": [
+      0.5844481741965071,
+      0.24680065387054578,
+      0.16875117193294714
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__haiti__scotland__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-13",
+    "team_a": "Haiti",
+    "team_b": "Scotland",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -235.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.9272176630079504,
+    "z_log_top_15_average_value_team_b": 0.033467541577687984,
+    "odds": [
+      [
+        6.5,
+        4.33,
+        1.4
+      ],
+      [
+        6.0,
+        4.75,
+        1.45
+      ],
+      [
+        6.4,
+        4.5,
+        1.44
+      ],
+      [
+        6.8,
+        4.8,
+        1.47
+      ],
+      [
+        6.0,
+        4.6,
+        1.43
+      ],
+      [
+        7.5,
+        4.65,
+        1.45
+      ],
+      [
+        6.42,
+        4.86,
+        1.45
+      ],
+      [
+        6.0,
+        4.6,
+        1.42
+      ],
+      [
+        6.6,
+        4.6,
+        1.45
+      ],
+      [
+        6.59,
+        4.43,
+        1.41
+      ],
+      [
+        6.8,
+        4.6,
+        1.48
+      ]
+    ],
+    "target_soft": [
+      0.14336346236756936,
+      0.20569540252738217,
+      0.6509411351050485
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__qatar__switzerland__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-13",
+    "team_a": "Qatar",
+    "team_b": "Switzerland",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -464.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -1.8234551857065784,
+    "z_log_top_15_average_value_team_b": 0.4020843784410788,
+    "odds": [
+      [
+        12.0,
+        5.5,
+        1.22
+      ],
+      [
+        12.0,
+        6.25,
+        1.22
+      ],
+      [
+        11.0,
+        5.8,
+        1.23
+      ],
+      [
+        13.0,
+        6.4,
+        1.24
+      ],
+      [
+        10.0,
+        6.0,
+        1.22
+      ],
+      [
+        12.0,
+        6.2,
+        1.27
+      ],
+      [
+        11.17,
+        6.31,
+        1.24
+      ],
+      [
+        10.0,
+        5.9,
+        1.22
+      ],
+      [
+        12.0,
+        6.0,
+        1.24
+      ],
+      [
+        11.56,
+        5.88,
+        1.2
+      ],
+      [
+        12.0,
+        6.4,
+        1.25
+      ]
+    ],
+    "target_soft": [
+      0.08022969413726772,
+      0.15575089031890427,
+      0.764019415543828
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__curacao__germany__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-14",
+    "team_a": "Cura\u00e7ao",
+    "team_b": "Germany",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -487.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -1.45874728638331,
+    "z_log_top_15_average_value_team_b": 1.3104558954643586,
+    "odds": [
+      [
+        41.0,
+        13.0,
+        1.05
+      ],
+      [
+        34.0,
+        17.0,
+        1.04
+      ],
+      [
+        35.0,
+        14.0,
+        1.03
+      ],
+      [
+        36.0,
+        17.0,
+        1.04
+      ],
+      [
+        34.0,
+        13.0,
+        1.03
+      ],
+      [
+        95.0,
+        15.0,
+        1.05
+      ],
+      [
+        46.7,
+        12.9,
+        1.05
+      ],
+      [
+        31.0,
+        12.0,
+        1.03
+      ],
+      [
+        40.0,
+        17.0,
+        1.03
+      ],
+      [
+        50.0,
+        22.0,
+        1.03
+      ]
+    ],
+    "target_soft": [
+      0.02504981364882287,
+      0.06558790112672731,
+      0.90936228522445
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__ecuador__ivorycoast__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-14",
+    "team_a": "Ecuador",
+    "team_b": "Ivory Coast",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 257.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.5811087919031267,
+    "z_log_top_15_average_value_team_b": 0.8071638144571079,
+    "odds": [
+      [
+        2.3,
+        2.75,
+        3.4
+      ],
+      [
+        2.25,
+        2.9,
+        3.6
+      ],
+      [
+        2.28,
+        2.8,
+        3.6
+      ],
+      [
+        2.35,
+        3.0,
+        3.84
+      ],
+      [
+        2.27,
+        2.69,
+        3.73
+      ],
+      [
+        2.42,
+        2.82,
+        3.75
+      ],
+      [
+        2.34,
+        2.81,
+        3.73
+      ],
+      [
+        2.25,
+        2.67,
+        3.69
+      ],
+      [
+        2.32,
+        2.86,
+        3.65
+      ],
+      [
+        2.23,
+        2.84,
+        3.49
+      ],
+      [
+        2.27,
+        3.15,
+        3.55
+      ]
+    ],
+    "target_soft": [
+      0.40856031128404674,
+      0.3326848249027237,
+      0.2587548638132296
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__japan__netherlands__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-14",
+    "team_a": "Japan",
+    "team_b": "Netherlands",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -57.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.23551283454061595,
+    "z_log_top_15_average_value_team_b": 1.1156243353798616,
+    "odds": [
+      [
+        3.6,
+        3.4,
+        1.91
+      ],
+      [
+        3.4,
+        3.75,
+        2.0
+      ],
+      [
+        3.45,
+        3.5,
+        1.99
+      ],
+      [
+        3.72,
+        3.6,
+        2.04
+      ],
+      [
+        3.5,
+        3.5,
+        1.97
+      ],
+      [
+        3.75,
+        3.65,
+        2.02
+      ],
+      [
+        3.54,
+        3.69,
+        2.01
+      ],
+      [
+        3.45,
+        3.45,
+        1.96
+      ],
+      [
+        3.55,
+        3.6,
+        2.02
+      ],
+      [
+        3.48,
+        3.46,
+        1.96
+      ],
+      [
+        3.55,
+        3.65,
+        2.06
+      ]
+    ],
+    "target_soft": [
+      0.26563538890599186,
+      0.2644786624963795,
+      0.46988594859762856
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__sweden__tunisia__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-14",
+    "team_a": "Sweden",
+    "team_b": "Tunisia",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 83.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.6866609832167783,
+    "z_log_top_15_average_value_team_b": -0.813978410865125,
+    "odds": [
+      [
+        1.91,
+        3.2,
+        3.9
+      ],
+      [
+        1.95,
+        3.3,
+        4.0
+      ],
+      [
+        1.92,
+        3.3,
+        4.0
+      ],
+      [
+        1.95,
+        3.4,
+        4.2
+      ],
+      [
+        1.89,
+        3.3,
+        4.0
+      ],
+      [
+        1.98,
+        3.45,
+        4.15
+      ],
+      [
+        1.93,
+        3.46,
+        4.09
+      ],
+      [
+        1.88,
+        3.27,
+        3.97
+      ],
+      [
+        1.95,
+        3.35,
+        4.1
+      ],
+      [
+        1.89,
+        3.26,
+        3.99
+      ],
+      [
+        2.0,
+        3.4,
+        4.1
+      ]
+    ],
+    "target_soft": [
+      0.48617830327416345,
+      0.28171778409186266,
+      0.23210391263397392
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__belgium__egypt__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-15",
+    "team_a": "Belgium",
+    "team_b": "Egypt",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 178.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.7841045395727338,
+    "z_log_top_15_average_value_team_b": -0.24860469801687252,
+    "odds": [
+      [
+        1.65,
+        3.7,
+        4.8
+      ],
+      [
+        1.67,
+        3.8,
+        5.0
+      ],
+      [
+        1.64,
+        3.85,
+        4.9
+      ],
+      [
+        1.68,
+        4.0,
+        5.3
+      ],
+      [
+        1.61,
+        3.87,
+        5.0
+      ],
+      [
+        1.68,
+        4.1,
+        5.05
+      ],
+      [
+        1.65,
+        4.03,
+        5.04
+      ],
+      [
+        1.6,
+        3.83,
+        4.9
+      ],
+      [
+        1.66,
+        3.95,
+        5.0
+      ],
+      [
+        1.69,
+        4.0,
+        5.0
+      ]
+    ],
+    "target_soft": [
+      0.5714872425453023,
+      0.23969833542751143,
+      0.1888144220271862
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__capeverde__spain__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-15",
+    "team_a": "Cape Verde",
+    "team_b": "Spain",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -616.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.9517567220424928,
+    "z_log_top_15_average_value_team_b": 1.447700042077402,
+    "odds": [
+      [
+        23.0,
+        10.0,
+        1.08
+      ],
+      [
+        26.0,
+        11.0,
+        1.07
+      ],
+      [
+        25.0,
+        9.2,
+        1.08
+      ],
+      [
+        26.0,
+        11.5,
+        1.09
+      ],
+      [
+        25.0,
+        9.0,
+        1.08
+      ],
+      [
+        43.0,
+        9.1,
+        1.11
+      ],
+      [
+        28.8,
+        8.34,
+        1.11
+      ],
+      [
+        23.0,
+        8.6,
+        1.07
+      ],
+      [
+        25.0,
+        10.0,
+        1.09
+      ],
+      [
+        29.0,
+        11.0,
+        1.09
+      ]
+    ],
+    "target_soft": [
+      0.03695142641406948,
+      0.09770327000975447,
+      0.8653453035761761
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__iran__newzealand__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-15",
+    "team_a": "Iran",
+    "team_b": "New Zealand",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 175.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 5.0,
+    "z_log_top_15_average_value_team_a": -1.4558276518296462,
+    "z_log_top_15_average_value_team_b": -1.4314295395437369,
+    "odds": [
+      [
+        1.83,
+        3.3,
+        4.2
+      ],
+      [
+        1.9,
+        3.5,
+        4.1
+      ],
+      [
+        1.87,
+        3.35,
+        4.1
+      ],
+      [
+        1.91,
+        3.45,
+        4.34
+      ],
+      [
+        1.86,
+        3.35,
+        4.1
+      ],
+      [
+        1.92,
+        3.5,
+        4.3
+      ],
+      [
+        1.89,
+        3.51,
+        4.19
+      ],
+      [
+        1.84,
+        3.31,
+        4.1
+      ],
+      [
+        1.91,
+        3.45,
+        4.2
+      ],
+      [
+        1.93,
+        3.45,
+        4.3
+      ]
+    ],
+    "target_soft": [
+      0.4985182221775143,
+      0.276688006245181,
+      0.2247937715773047
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__saudiarabia__uruguay__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-15",
+    "team_a": "Saudi Arabia",
+    "team_b": "Uruguay",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -324.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": -1.4529185765502914,
+    "z_log_top_15_average_value_team_b": 0.5942030276278806,
+    "odds": [
+      [
+        6.5,
+        4.0,
+        1.44
+      ],
+      [
+        6.5,
+        4.5,
+        1.48
+      ],
+      [
+        6.2,
+        4.2,
+        1.48
+      ],
+      [
+        7.4,
+        4.35,
+        1.5
+      ],
+      [
+        6.0,
+        4.2,
+        1.48
+      ],
+      [
+        8.1,
+        4.2,
+        1.48
+      ],
+      [
+        6.4,
+        4.41,
+        1.49
+      ],
+      [
+        6.0,
+        4.1,
+        1.47
+      ],
+      [
+        6.4,
+        4.3,
+        1.5
+      ],
+      [
+        6.8,
+        4.5,
+        1.49
+      ]
+    ],
+    "target_soft": [
+      0.14678182064776701,
+      0.2203564425064086,
+      0.6328617368458244
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__algeria__argentina__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-16",
+    "team_a": "Algeria",
+    "team_b": "Argentina",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -370.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": 0.2600485570958719,
+    "z_log_top_15_average_value_team_b": 1.152880608823202,
+    "odds": [
+      [
+        8.0,
+        4.0,
+        1.4
+      ],
+      [
+        7.0,
+        4.5,
+        1.42
+      ],
+      [
+        7.8,
+        4.3,
+        1.4
+      ],
+      [
+        8.4,
+        4.6,
+        1.42
+      ],
+      [
+        7.8,
+        4.2,
+        1.4
+      ],
+      [
+        8.9,
+        4.3,
+        1.44
+      ],
+      [
+        8.03,
+        4.41,
+        1.43
+      ],
+      [
+        7.7,
+        4.1,
+        1.39
+      ],
+      [
+        8.0,
+        4.4,
+        1.42
+      ],
+      [
+        8.0,
+        4.7,
+        1.42
+      ]
+    ],
+    "target_soft": [
+      0.11862634490534289,
+      0.2161466395734997,
+      0.6652270155211574
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__austria__jordan__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-16",
+    "team_a": "Austria",
+    "team_b": "Jordan",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 137.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 0.2652102357033183,
+    "z_log_top_15_average_value_team_b": -2.5173548424852163,
+    "odds": [
+      [
+        1.3,
+        4.8,
+        8.5
+      ],
+      [
+        1.33,
+        5.5,
+        8.0
+      ],
+      [
+        1.32,
+        5.0,
+        8.4
+      ],
+      [
+        1.35,
+        5.44,
+        8.81
+      ],
+      [
+        1.3,
+        5.2,
+        8.4
+      ],
+      [
+        1.35,
+        5.2,
+        9.9
+      ],
+      [
+        1.33,
+        5.4,
+        8.57
+      ],
+      [
+        1.29,
+        5.1,
+        8.2
+      ],
+      [
+        1.34,
+        5.2,
+        8.8
+      ],
+      [
+        1.33,
+        5.6,
+        9.0
+      ]
+    ],
+    "target_soft": [
+      0.71142156563296,
+      0.17876080865035193,
+      0.10981762571668802
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__france__senegal__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-16",
+    "team_a": "France",
+    "team_b": "Senegal",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 203.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 1.5950088899330417,
+    "z_log_top_15_average_value_team_b": 0.7282238219190896,
+    "odds": [
+      [
+        1.44,
+        4.0,
+        6.5
+      ],
+      [
+        1.44,
+        4.5,
+        6.5
+      ],
+      [
+        1.43,
+        4.4,
+        6.8
+      ],
+      [
+        1.44,
+        4.55,
+        7.4
+      ],
+      [
+        1.42,
+        4.3,
+        6.9
+      ],
+      [
+        1.46,
+        4.4,
+        7.9
+      ],
+      [
+        1.45,
+        4.52,
+        7.13
+      ],
+      [
+        1.41,
+        4.2,
+        6.8
+      ],
+      [
+        1.45,
+        4.5,
+        7.0
+      ],
+      [
+        1.46,
+        4.6,
+        7.2
+      ]
+    ],
+    "target_soft": [
+      0.6539309844631073,
+      0.21161757535182438,
+      0.13445144018506838
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__iraq__norway__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-16",
+    "team_a": "Iraq",
+    "team_b": "Norway",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -305.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -1.815440162361949,
+    "z_log_top_15_average_value_team_b": 0.9405931372227804,
+    "odds": [
+      [
+        13.0,
+        5.75,
+        1.2
+      ],
+      [
+        12.0,
+        6.25,
+        1.22
+      ],
+      [
+        11.0,
+        6.0,
+        1.23
+      ],
+      [
+        12.5,
+        6.5,
+        1.24
+      ],
+      [
+        9.5,
+        6.2,
+        1.23
+      ],
+      [
+        16.5,
+        5.85,
+        1.24
+      ],
+      [
+        11.15,
+        6.38,
+        1.24
+      ],
+      [
+        9.3,
+        6.0,
+        1.23
+      ],
+      [
+        11.0,
+        6.2,
+        1.24
+      ],
+      [
+        13.0,
+        6.6,
+        1.24
+      ]
+    ],
+    "target_soft": [
+      0.08162339783857091,
+      0.1513774477916016,
+      0.7669991543698275
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__colombia__uzbekistan__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-17",
+    "team_a": "Colombia",
+    "team_b": "Uzbekistan",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 248.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 0.3904268000348686,
+    "z_log_top_15_average_value_team_b": -0.7749210930553145,
+    "odds": [
+      [
+        1.33,
+        4.5,
+        6.5
+      ],
+      [
+        1.4,
+        4.5,
+        7.5
+      ],
+      [
+        1.4,
+        4.3,
+        7.6
+      ],
+      [
+        1.43,
+        4.6,
+        8.4
+      ],
+      [
+        1.38,
+        4.33,
+        7.9
+      ],
+      [
+        1.43,
+        4.45,
+        8.7
+      ],
+      [
+        1.41,
+        4.58,
+        8.17
+      ],
+      [
+        1.38,
+        4.3,
+        7.7
+      ],
+      [
+        1.42,
+        4.5,
+        8.0
+      ],
+      [
+        1.43,
+        4.7,
+        7.8
+      ]
+    ],
+    "target_soft": [
+      0.6700355327628529,
+      0.21072729635676918,
+      0.11923717088037794
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__croatia__england__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-17",
+    "team_a": "Croatia",
+    "team_b": "England",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -90.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.49746691944038485,
+    "z_log_top_15_average_value_team_b": 1.4824259611422126,
+    "odds": [
+      [
+        4.4,
+        3.5,
+        1.75
+      ],
+      [
+        4.75,
+        3.7,
+        1.73
+      ],
+      [
+        4.5,
+        3.65,
+        1.73
+      ],
+      [
+        4.76,
+        3.85,
+        1.75
+      ],
+      [
+        4.4,
+        3.66,
+        1.72
+      ],
+      [
+        4.8,
+        3.75,
+        1.78
+      ],
+      [
+        4.57,
+        3.82,
+        1.75
+      ],
+      [
+        4.33,
+        3.62,
+        1.71
+      ],
+      [
+        4.6,
+        3.75,
+        1.76
+      ],
+      [
+        4.7,
+        3.8,
+        1.78
+      ]
+    ],
+    "target_soft": [
+      0.2065431438784696,
+      0.2532774732020889,
+      0.5401793829194416
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__drcongo__portugal__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-17",
+    "team_a": "DR Congo",
+    "team_b": "Portugal",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -329.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.15545466407031358,
+    "z_log_top_15_average_value_team_b": 1.2552948347499429,
+    "odds": [
+      [
+        11.0,
+        5.0,
+        1.25
+      ],
+      [
+        9.5,
+        6.0,
+        1.27
+      ],
+      [
+        9.6,
+        5.6,
+        1.26
+      ],
+      [
+        11.0,
+        6.0,
+        1.27
+      ],
+      [
+        10.0,
+        5.4,
+        1.26
+      ],
+      [
+        13.0,
+        5.35,
+        1.3
+      ],
+      [
+        10.56,
+        5.73,
+        1.28
+      ],
+      [
+        9.8,
+        5.3,
+        1.25
+      ],
+      [
+        10.0,
+        5.8,
+        1.28
+      ],
+      [
+        11.0,
+        6.2,
+        1.27
+      ]
+    ],
+    "target_soft": [
+      0.09143667087086607,
+      0.16604743941737765,
+      0.7425158897117563
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__ghana__panama__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-17",
+    "team_a": "Ghana",
+    "team_b": "Panama",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": -234.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 4.0,
+    "z_log_top_15_average_value_team_a": 0.1859699530107812,
+    "z_log_top_15_average_value_team_b": -1.3649830765101911,
+    "odds": [
+      [
+        2.0,
+        3.4,
+        3.4
+      ],
+      [
+        2.0,
+        3.5,
+        3.6
+      ],
+      [
+        1.98,
+        3.45,
+        3.6
+      ],
+      [
+        2.06,
+        3.65,
+        3.75
+      ],
+      [
+        1.95,
+        3.52,
+        3.55
+      ],
+      [
+        1.98,
+        3.6,
+        3.9
+      ],
+      [
+        1.98,
+        3.71,
+        3.61
+      ],
+      [
+        1.93,
+        3.47,
+        3.51
+      ],
+      [
+        2.02,
+        3.5,
+        3.65
+      ],
+      [
+        2.06,
+        3.5,
+        3.75
+      ]
+    ],
+    "target_soft": [
+      0.4717642044098687,
+      0.26785940212487397,
+      0.26037639346525737
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__bosniaandherzegovina__switzerland__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-18",
+    "team_a": "Bosnia and Herzegovina",
+    "team_b": "Switzerland",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -295.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.2872000325705113,
+    "z_log_top_15_average_value_team_b": 0.4020843784410788,
+    "odds": [
+      [
+        5.5,
+        3.9,
+        1.53
+      ],
+      [
+        5.5,
+        4.0,
+        1.57
+      ],
+      [
+        5.6,
+        3.9,
+        1.56
+      ],
+      [
+        5.65,
+        3.96,
+        1.59
+      ],
+      [
+        5.2,
+        3.93,
+        1.58
+      ],
+      [
+        6.2,
+        4.0,
+        1.6
+      ],
+      [
+        5.44,
+        4.14,
+        1.6
+      ],
+      [
+        5.2,
+        3.88,
+        1.57
+      ],
+      [
+        5.6,
+        4.0,
+        1.59
+      ],
+      [
+        5.8,
+        4.1,
+        1.59
+      ]
+    ],
+    "target_soft": [
+      0.16812916012323853,
+      0.23616689321917125,
+      0.5957039466575902
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__canada__qatar__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-18",
+    "team_a": "Canada",
+    "team_b": "Qatar",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": 359.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 0.08743597776363947,
+    "z_log_top_15_average_value_team_b": -1.8234551857065784,
+    "odds": [
+      [
+        1.33,
+        4.6,
+        9.0
+      ],
+      [
+        1.33,
+        4.75,
+        8.5
+      ],
+      [
+        1.33,
+        4.6,
+        9.4
+      ],
+      [
+        1.33,
+        4.76,
+        9.23
+      ],
+      [
+        1.32,
+        4.75,
+        8.9
+      ],
+      [
+        1.35,
+        4.7,
+        12.0
+      ],
+      [
+        1.35,
+        4.85,
+        9.63
+      ],
+      [
+        1.32,
+        4.7,
+        8.7
+      ],
+      [
+        1.34,
+        4.8,
+        9.8
+      ],
+      [
+        1.35,
+        5.0,
+        10.0
+      ]
+    ],
+    "target_soft": [
+      0.7031313738141165,
+      0.19661918166072584,
+      0.10024944452515769
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__czechia__southafrica__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-18",
+    "team_a": "Czechia",
+    "team_b": "South Africa",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 202.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": -0.012669833418123375,
+    "z_log_top_15_average_value_team_b": -1.2200684555540484,
+    "odds": [
+      [
+        1.95,
+        3.1,
+        3.9
+      ],
+      [
+        1.95,
+        3.25,
+        4.1
+      ],
+      [
+        1.96,
+        3.25,
+        3.9
+      ],
+      [
+        1.97,
+        3.26,
+        4.03
+      ],
+      [
+        1.94,
+        3.21,
+        3.93
+      ],
+      [
+        2.0,
+        3.4,
+        4.1
+      ],
+      [
+        2.0,
+        3.28,
+        4.05
+      ],
+      [
+        1.93,
+        3.19,
+        3.88
+      ],
+      [
+        1.99,
+        3.3,
+        4.0
+      ],
+      [
+        2.04,
+        3.3,
+        4.1
+      ]
+    ],
+    "target_soft": [
+      0.47618335594676275,
+      0.2885841946205521,
+      0.23523244943268506
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__mexico__korearepublic__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-18",
+    "team_a": "Mexico",
+    "team_b": "South Korea",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 108.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -0.04479903365483859,
+    "z_log_top_15_average_value_team_b": -0.19945865114605602,
+    "odds": [
+      [
+        1.75,
+        3.3,
+        4.33
+      ],
+      [
+        1.8,
+        3.4,
+        4.5
+      ],
+      [
+        1.81,
+        3.35,
+        4.4
+      ],
+      [
+        1.85,
+        3.55,
+        4.95
+      ],
+      [
+        1.79,
+        3.45,
+        4.33
+      ],
+      [
+        1.8,
+        3.65,
+        4.85
+      ],
+      [
+        1.82,
+        3.58,
+        4.48
+      ],
+      [
+        1.78,
+        3.41,
+        4.3
+      ],
+      [
+        1.84,
+        3.45,
+        4.5
+      ],
+      [
+        1.85,
+        3.5,
+        4.7
+      ]
+    ],
+    "target_soft": [
+      0.5169306672215277,
+      0.27374186395317407,
+      0.20932746882529826
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__brazil__haiti__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-19",
+    "team_a": "Brazil",
+    "team_b": "Haiti",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 452.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 4.0,
+    "z_log_top_15_average_value_team_a": 1.2602877673514599,
+    "z_log_top_15_average_value_team_b": -0.9272176630079504,
+    "odds": [
+      [
+        1.06,
+        11.0,
+        41.0
+      ],
+      [
+        1.06,
+        17.0,
+        26.0
+      ],
+      [
+        1.05,
+        12.0,
+        30.0
+      ],
+      [
+        1.06,
+        13.0,
+        23.0
+      ],
+      [
+        1.05,
+        11.0,
+        31.0
+      ],
+      [
+        1.06,
+        12.5,
+        55.0
+      ],
+      [
+        1.08,
+        9.77,
+        37.01
+      ],
+      [
+        1.04,
+        11.0,
+        29.0
+      ],
+      [
+        1.05,
+        14.0,
+        30.0
+      ],
+      [
+        1.06,
+        14.0,
+        35.0
+      ]
+    ],
+    "target_soft": [
+      0.8919209983629749,
+      0.07746042071277964,
+      0.030618580924245405
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__morocco__scotland__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-19",
+    "team_a": "Morocco",
+    "team_b": "Scotland",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 55.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.7204709055571249,
+    "z_log_top_15_average_value_team_b": 0.033467541577687984,
+    "odds": [
+      [
+        2.05,
+        3.0,
+        3.75
+      ],
+      [
+        1.95,
+        3.2,
+        3.9
+      ],
+      [
+        2.02,
+        3.2,
+        3.8
+      ],
+      [
+        2.01,
+        3.35,
+        4.02
+      ],
+      [
+        1.99,
+        3.09,
+        3.94
+      ],
+      [
+        2.1,
+        3.25,
+        4.0
+      ],
+      [
+        2.06,
+        3.11,
+        4.07
+      ],
+      [
+        1.98,
+        3.06,
+        3.89
+      ],
+      [
+        2.04,
+        3.25,
+        3.85
+      ],
+      [
+        2.06,
+        3.3,
+        3.95
+      ]
+    ],
+    "target_soft": [
+      0.46442126133569334,
+      0.29522742817710657,
+      0.2403513104872001
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__paraguay__turkey__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-19",
+    "team_a": "Paraguay",
+    "team_b": "Turkey",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -69.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.1671122418429384,
+    "z_log_top_15_average_value_team_b": 0.7416141713866975,
+    "odds": [
+      [
+        3.3,
+        2.9,
+        2.2
+      ],
+      [
+        3.4,
+        3.1,
+        2.2
+      ],
+      [
+        3.35,
+        3.1,
+        2.2
+      ],
+      [
+        3.39,
+        3.25,
+        2.22
+      ],
+      [
+        3.35,
+        3.07,
+        2.2
+      ],
+      [
+        3.4,
+        3.2,
+        2.3
+      ],
+      [
+        3.48,
+        3.08,
+        2.27
+      ],
+      [
+        3.31,
+        3.04,
+        2.18
+      ],
+      [
+        3.4,
+        3.15,
+        2.24
+      ],
+      [
+        3.5,
+        3.25,
+        2.25
+      ]
+    ],
+    "target_soft": [
+      0.2771828726949217,
+      0.3008368439802049,
+      0.42198028332487336
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__unitedstates__australia__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-19",
+    "team_a": "United States",
+    "team_b": "Australia",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -62.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 0.5472883423008553,
+    "z_log_top_15_average_value_team_b": -0.8298805830079236,
+    "odds": [
+      [
+        1.7,
+        3.6,
+        4.4
+      ],
+      [
+        1.7,
+        3.5,
+        4.75
+      ],
+      [
+        1.74,
+        3.6,
+        4.5
+      ],
+      [
+        1.78,
+        3.92,
+        4.59
+      ],
+      [
+        1.71,
+        3.88,
+        4.2
+      ],
+      [
+        1.75,
+        3.85,
+        4.85
+      ],
+      [
+        1.74,
+        4.07,
+        4.35
+      ],
+      [
+        1.7,
+        3.83,
+        4.2
+      ],
+      [
+        1.76,
+        3.7,
+        4.6
+      ],
+      [
+        1.79,
+        3.75,
+        4.7
+      ]
+    ],
+    "target_soft": [
+      0.5407225967231127,
+      0.25207726766135097,
+      0.20720013561553624
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__curacao__ecuador__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-20",
+    "team_a": "Cura\u00e7ao",
+    "team_b": "Ecuador",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -497.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": -1.45874728638331,
+    "z_log_top_15_average_value_team_b": 0.5811087919031267,
+    "odds": [
+      [
+        10.0,
+        5.0,
+        1.25
+      ],
+      [
+        10.0,
+        5.25,
+        1.27
+      ],
+      [
+        11.0,
+        5.2,
+        1.26
+      ],
+      [
+        10.5,
+        5.95,
+        1.27
+      ],
+      [
+        8.4,
+        5.9,
+        1.26
+      ],
+      [
+        12.5,
+        5.45,
+        1.29
+      ],
+      [
+        9.27,
+        6.18,
+        1.28
+      ],
+      [
+        8.2,
+        5.8,
+        1.26
+      ],
+      [
+        11.0,
+        5.6,
+        1.28
+      ],
+      [
+        11.0,
+        5.8,
+        1.29
+      ]
+    ],
+    "target_soft": [
+      0.09087075666108999,
+      0.16816079722353003,
+      0.7409684461153799
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__germany__ivorycoast__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-20",
+    "team_a": "Germany",
+    "team_b": "Ivory Coast",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": 247.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 1.3104558954643586,
+    "z_log_top_15_average_value_team_b": 0.8071638144571079,
+    "odds": [
+      [
+        1.53,
+        3.9,
+        5.0
+      ],
+      [
+        1.53,
+        4.1,
+        5.5
+      ],
+      [
+        1.54,
+        4.1,
+        5.4
+      ],
+      [
+        1.53,
+        4.3,
+        5.75
+      ],
+      [
+        1.5,
+        4.3,
+        5.5
+      ],
+      [
+        1.55,
+        4.35,
+        6.1
+      ],
+      [
+        1.54,
+        4.43,
+        5.67
+      ],
+      [
+        1.5,
+        4.2,
+        5.4
+      ],
+      [
+        1.57,
+        4.2,
+        5.6
+      ],
+      [
+        1.55,
+        4.4,
+        6.0
+      ]
+    ],
+    "target_soft": [
+      0.6124223470661216,
+      0.21971664073137018,
+      0.1678610122025081
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__japan__tunisia__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-20",
+    "team_a": "Japan",
+    "team_b": "Tunisia",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 268.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.23551283454061595,
+    "z_log_top_15_average_value_team_b": -0.813978410865125,
+    "odds": [
+      [
+        1.85,
+        3.1,
+        4.0
+      ],
+      [
+        1.83,
+        3.3,
+        4.33
+      ],
+      [
+        1.86,
+        3.3,
+        4.3
+      ],
+      [
+        1.86,
+        3.5,
+        4.47
+      ],
+      [
+        1.82,
+        3.3,
+        4.4
+      ],
+      [
+        1.9,
+        3.45,
+        4.55
+      ],
+      [
+        1.87,
+        3.37,
+        4.53
+      ],
+      [
+        1.81,
+        3.26,
+        4.33
+      ],
+      [
+        1.89,
+        3.35,
+        4.4
+      ],
+      [
+        1.91,
+        3.45,
+        4.5
+      ]
+    ],
+    "target_soft": [
+      0.5057741630737188,
+      0.2807313335817424,
+      0.213494503344539
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__netherlands__sweden__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-20",
+    "team_a": "Netherlands",
+    "team_b": "Sweden",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 242.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 1.1156243353798616,
+    "z_log_top_15_average_value_team_b": 0.6866609832167783,
+    "odds": [
+      [
+        1.62,
+        3.7,
+        4.8
+      ],
+      [
+        1.65,
+        3.9,
+        4.5
+      ],
+      [
+        1.66,
+        3.85,
+        4.7
+      ],
+      [
+        1.65,
+        3.93,
+        4.97
+      ],
+      [
+        1.63,
+        3.9,
+        4.8
+      ],
+      [
+        1.68,
+        3.9,
+        5.35
+      ],
+      [
+        1.65,
+        4.13,
+        4.88
+      ],
+      [
+        1.62,
+        3.85,
+        4.7
+      ],
+      [
+        1.68,
+        3.95,
+        4.8
+      ],
+      [
+        1.68,
+        4.0,
+        5.2
+      ]
+    ],
+    "target_soft": [
+      0.5670111863630057,
+      0.23932489790163558,
+      0.19366391573535868
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__belgium__iran__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-21",
+    "team_a": "Belgium",
+    "team_b": "Iran",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 107.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 0.7841045395727338,
+    "z_log_top_15_average_value_team_b": -1.4558276518296462,
+    "odds": [
+      [
+        1.4,
+        4.33,
+        7.0
+      ],
+      [
+        1.38,
+        4.5,
+        7.0
+      ],
+      [
+        1.43,
+        4.3,
+        7.0
+      ],
+      [
+        1.39,
+        4.6,
+        7.59
+      ],
+      [
+        1.38,
+        4.5,
+        7.5
+      ],
+      [
+        1.43,
+        4.5,
+        8.5
+      ],
+      [
+        1.4,
+        4.81,
+        7.75
+      ],
+      [
+        1.37,
+        4.4,
+        7.4
+      ],
+      [
+        1.45,
+        4.5,
+        7.2
+      ],
+      [
+        1.42,
+        4.8,
+        8.0
+      ]
+    ],
+    "target_soft": [
+      0.6695335980092985,
+      0.20689295631950763,
+      0.12357344567119397
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__capeverde__uruguay__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-21",
+    "team_a": "Cape Verde",
+    "team_b": "Uruguay",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -343.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": -0.9517567220424928,
+    "z_log_top_15_average_value_team_b": 0.5942030276278806,
+    "odds": [
+      [
+        6.5,
+        4.0,
+        1.44
+      ],
+      [
+        7.0,
+        4.5,
+        1.42
+      ],
+      [
+        7.0,
+        4.3,
+        1.43
+      ],
+      [
+        7.4,
+        4.55,
+        1.45
+      ],
+      [
+        7.3,
+        4.4,
+        1.4
+      ],
+      [
+        7.3,
+        4.5,
+        1.47
+      ],
+      [
+        7.32,
+        4.5,
+        1.44
+      ],
+      [
+        7.2,
+        4.33,
+        1.39
+      ],
+      [
+        7.2,
+        4.5,
+        1.45
+      ],
+      [
+        7.2,
+        4.6,
+        1.46
+      ]
+    ],
+    "target_soft": [
+      0.13179432606775907,
+      0.21093480868298187,
+      0.6572708652492592
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__egypt__newzealand__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-21",
+    "team_a": "Egypt",
+    "team_b": "New Zealand",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": 104.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 5.0,
+    "z_log_top_15_average_value_team_a": -0.24860469801687252,
+    "z_log_top_15_average_value_team_b": -1.4314295395437369,
+    "odds": [
+      [
+        1.7,
+        3.5,
+        4.6
+      ],
+      [
+        1.7,
+        3.5,
+        5.0
+      ],
+      [
+        1.71,
+        3.55,
+        4.8
+      ],
+      [
+        1.71,
+        3.8,
+        5.0
+      ],
+      [
+        1.7,
+        3.76,
+        4.4
+      ],
+      [
+        1.72,
+        3.85,
+        5.05
+      ],
+      [
+        1.7,
+        4.04,
+        4.6
+      ],
+      [
+        1.69,
+        3.71,
+        4.4
+      ],
+      [
+        1.73,
+        3.65,
+        4.9
+      ],
+      [
+        1.72,
+        3.7,
+        5.2
+      ]
+    ],
+    "target_soft": [
+      0.5496926948617976,
+      0.2560069420438381,
+      0.19430036309436433
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__saudiarabia__spain__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-21",
+    "team_a": "Saudi Arabia",
+    "team_b": "Spain",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -597.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -1.4529185765502914,
+    "z_log_top_15_average_value_team_b": 1.447700042077402,
+    "odds": [
+      [
+        23.0,
+        8.5,
+        1.11
+      ],
+      [
+        21.0,
+        8.5,
+        1.11
+      ],
+      [
+        25.0,
+        8.0,
+        1.1
+      ],
+      [
+        19.79,
+        9.57,
+        1.11
+      ],
+      [
+        19.0,
+        9.2,
+        1.09
+      ],
+      [
+        31.0,
+        8.3,
+        1.13
+      ],
+      [
+        22.62,
+        9.93,
+        1.1
+      ],
+      [
+        19.0,
+        8.8,
+        1.09
+      ],
+      [
+        25.0,
+        8.8,
+        1.11
+      ],
+      [
+        25.0,
+        9.4,
+        1.12
+      ]
+    ],
+    "target_soft": [
+      0.041466933676157565,
+      0.10637546847420659,
+      0.8521575978496359
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__algeria__jordan__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-22",
+    "team_a": "Algeria",
+    "team_b": "Jordan",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 53.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 0.2600485570958719,
+    "z_log_top_15_average_value_team_b": -2.5173548424852163,
+    "odds": [
+      [
+        1.62,
+        3.6,
+        5.0
+      ],
+      [
+        1.65,
+        3.7,
+        5.0
+      ],
+      [
+        1.64,
+        3.75,
+        5.0
+      ],
+      [
+        1.63,
+        3.85,
+        5.21
+      ],
+      [
+        1.62,
+        3.79,
+        5.0
+      ],
+      [
+        1.65,
+        3.9,
+        5.55
+      ],
+      [
+        1.67,
+        3.85,
+        5.19
+      ],
+      [
+        1.61,
+        3.74,
+        5.0
+      ],
+      [
+        1.66,
+        3.85,
+        5.2
+      ],
+      [
+        1.67,
+        3.9,
+        5.4
+      ]
+    ],
+    "target_soft": [
+      0.5707073859280445,
+      0.2463547532284752,
+      0.18293786084348032
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__argentina__austria__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-22",
+    "team_a": "Argentina",
+    "team_b": "Austria",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 286.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 1.152880608823202,
+    "z_log_top_15_average_value_team_b": 0.2652102357033183,
+    "odds": [
+      [
+        1.62,
+        3.5,
+        5.0
+      ],
+      [
+        1.62,
+        3.75,
+        5.25
+      ],
+      [
+        1.64,
+        3.65,
+        5.2
+      ],
+      [
+        1.64,
+        3.85,
+        5.28
+      ],
+      [
+        1.63,
+        3.64,
+        5.2
+      ],
+      [
+        1.7,
+        3.8,
+        5.35
+      ],
+      [
+        1.67,
+        3.71,
+        5.39
+      ],
+      [
+        1.62,
+        3.6,
+        5.2
+      ],
+      [
+        1.66,
+        3.75,
+        5.4
+      ],
+      [
+        1.68,
+        3.85,
+        5.4
+      ]
+    ],
+    "target_soft": [
+      0.5680753715185536,
+      0.2538907162917379,
+      0.17803391218970854
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__france__iraq__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-22",
+    "team_a": "France",
+    "team_b": "Iraq",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 474.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 1.5950088899330417,
+    "z_log_top_15_average_value_team_b": -1.815440162361949,
+    "odds": [
+      [
+        1.1,
+        8.5,
+        26.0
+      ],
+      [
+        1.1,
+        9.5,
+        19.0
+      ],
+      [
+        1.1,
+        8.4,
+        20.0
+      ],
+      [
+        1.11,
+        8.8,
+        22.72
+      ],
+      [
+        1.09,
+        8.3,
+        21.0
+      ],
+      [
+        1.13,
+        7.9,
+        35.0
+      ],
+      [
+        1.13,
+        8.11,
+        25.0
+      ],
+      [
+        1.09,
+        8.0,
+        21.0
+      ],
+      [
+        1.11,
+        9.2,
+        20.0
+      ],
+      [
+        1.11,
+        9.8,
+        27.0
+      ]
+    ],
+    "target_soft": [
+      0.8474831126893935,
+      0.11003723388039854,
+      0.04247965343020797
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__norway__senegal__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-22",
+    "team_a": "Norway",
+    "team_b": "Senegal",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 34.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.9405931372227804,
+    "z_log_top_15_average_value_team_b": 0.7282238219190896,
+    "odds": [
+      [
+        2.05,
+        3.3,
+        3.3
+      ],
+      [
+        2.1,
+        3.3,
+        3.4
+      ],
+      [
+        2.08,
+        3.35,
+        3.4
+      ],
+      [
+        2.12,
+        3.5,
+        3.34
+      ],
+      [
+        2.05,
+        3.45,
+        3.3
+      ],
+      [
+        2.02,
+        3.65,
+        3.75
+      ],
+      [
+        2.12,
+        3.49,
+        3.41
+      ],
+      [
+        2.04,
+        3.41,
+        3.26
+      ],
+      [
+        2.12,
+        3.4,
+        3.45
+      ],
+      [
+        2.12,
+        3.5,
+        3.55
+      ]
+    ],
+    "target_soft": [
+      0.4492462055939992,
+      0.27434179541925213,
+      0.27641199898674873
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__colombia__drcongo__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-23",
+    "team_a": "Colombia",
+    "team_b": "DR Congo",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 320.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.3904268000348686,
+    "z_log_top_15_average_value_team_b": -0.15545466407031358,
+    "odds": [
+      [
+        1.44,
+        3.8,
+        7.0
+      ],
+      [
+        1.48,
+        3.9,
+        6.5
+      ],
+      [
+        1.47,
+        4.0,
+        6.8
+      ],
+      [
+        1.45,
+        4.19,
+        7.1
+      ],
+      [
+        1.43,
+        4.2,
+        7.0
+      ],
+      [
+        1.48,
+        4.2,
+        8.1
+      ],
+      [
+        1.46,
+        4.32,
+        7.25
+      ],
+      [
+        1.42,
+        4.1,
+        6.9
+      ],
+      [
+        1.49,
+        4.1,
+        7.0
+      ],
+      [
+        1.51,
+        4.2,
+        7.4
+      ]
+    ],
+    "target_soft": [
+      0.6395825727620598,
+      0.22890813266966628,
+      0.1315092945682738
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__croatia__panama__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-23",
+    "team_a": "Croatia",
+    "team_b": "Panama",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": 193.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 4.0,
+    "z_log_top_15_average_value_team_a": 0.49746691944038485,
+    "z_log_top_15_average_value_team_b": -1.3649830765101911,
+    "odds": [
+      [
+        1.5,
+        3.8,
+        6.5
+      ],
+      [
+        1.5,
+        3.9,
+        6.0
+      ],
+      [
+        1.52,
+        3.85,
+        6.4
+      ],
+      [
+        1.54,
+        4.1,
+        6.39
+      ],
+      [
+        1.53,
+        3.7,
+        6.3
+      ],
+      [
+        1.58,
+        3.8,
+        7.1
+      ],
+      [
+        1.58,
+        3.69,
+        6.67
+      ],
+      [
+        1.52,
+        3.65,
+        6.2
+      ],
+      [
+        1.54,
+        3.95,
+        6.6
+      ],
+      [
+        1.55,
+        4.2,
+        6.6
+      ]
+    ],
+    "target_soft": [
+      0.6118831691586447,
+      0.24223005125945107,
+      0.14588677958190413
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__england__ghana__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-23",
+    "team_a": "England",
+    "team_b": "Ghana",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 517.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 1.4824259611422126,
+    "z_log_top_15_average_value_team_b": 0.1859699530107812,
+    "odds": [
+      [
+        1.3,
+        4.8,
+        9.0
+      ],
+      [
+        1.3,
+        5.0,
+        9.0
+      ],
+      [
+        1.31,
+        5.0,
+        8.8
+      ],
+      [
+        1.32,
+        5.3,
+        9.0
+      ],
+      [
+        1.29,
+        5.3,
+        8.6
+      ],
+      [
+        1.33,
+        5.05,
+        12.0
+      ],
+      [
+        1.32,
+        5.38,
+        9.17
+      ],
+      [
+        1.29,
+        5.2,
+        8.4
+      ],
+      [
+        1.33,
+        5.2,
+        9.2
+      ],
+      [
+        1.33,
+        5.4,
+        9.4
+      ]
+    ],
+    "target_soft": [
+      0.7158213666908206,
+      0.1806785972434584,
+      0.10350003606572093
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__portugal__uzbekistan__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-23",
+    "team_a": "Portugal",
+    "team_b": "Uzbekistan",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 257.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 1.2552948347499429,
+    "z_log_top_15_average_value_team_b": -0.7749210930553145,
+    "odds": [
+      [
+        1.22,
+        5.5,
+        11.0
+      ],
+      [
+        1.25,
+        5.75,
+        9.0
+      ],
+      [
+        1.24,
+        5.6,
+        11.0
+      ],
+      [
+        1.24,
+        6.15,
+        10.69
+      ],
+      [
+        1.22,
+        6.2,
+        10.0
+      ],
+      [
+        1.28,
+        5.95,
+        12.0
+      ],
+      [
+        1.24,
+        6.5,
+        10.86
+      ],
+      [
+        1.21,
+        6.0,
+        10.0
+      ],
+      [
+        1.26,
+        6.0,
+        11.0
+      ],
+      [
+        1.27,
+        6.2,
+        11.0
+      ]
+    ],
+    "target_soft": [
+      0.7558326929526666,
+      0.15674909732875947,
+      0.0874182097185739
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__bosniaandherzegovina__qatar__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-24",
+    "team_a": "Bosnia and Herzegovina",
+    "team_b": "Qatar",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 169.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -0.2872000325705113,
+    "z_log_top_15_average_value_team_b": -1.8234551857065784,
+    "odds": [
+      [
+        1.6,
+        3.6,
+        5.0
+      ],
+      [
+        1.57,
+        3.7,
+        5.5
+      ],
+      [
+        1.57,
+        3.8,
+        5.6
+      ],
+      [
+        1.58,
+        3.93,
+        5.98
+      ],
+      [
+        1.58,
+        3.76,
+        5.6
+      ],
+      [
+        1.88,
+        3.5,
+        4.6
+      ],
+      [
+        1.62,
+        3.84,
+        5.77
+      ],
+      [
+        1.57,
+        3.71,
+        5.5
+      ],
+      [
+        1.59,
+        3.95,
+        5.8
+      ],
+      [
+        1.61,
+        4.0,
+        6.0
+      ]
+    ],
+    "target_soft": [
+      0.5872131906446181,
+      0.24718968476120567,
+      0.16559712459417622
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__brazil__scotland__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-24",
+    "team_a": "Brazil",
+    "team_b": "Scotland",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 217.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 1.2602877673514599,
+    "z_log_top_15_average_value_team_b": 0.033467541577687984,
+    "odds": [
+      [
+        1.4,
+        4.4,
+        7.0
+      ],
+      [
+        1.38,
+        4.5,
+        7.5
+      ],
+      [
+        1.34,
+        4.8,
+        8.4
+      ],
+      [
+        1.39,
+        4.65,
+        7.3
+      ],
+      [
+        1.39,
+        4.6,
+        7.0
+      ],
+      [
+        1.42,
+        4.5,
+        8.9
+      ],
+      [
+        1.41,
+        4.74,
+        7.67
+      ],
+      [
+        1.38,
+        4.5,
+        6.9
+      ],
+      [
+        1.35,
+        5.0,
+        8.6
+      ],
+      [
+        1.39,
+        5.0,
+        8.4
+      ]
+    ],
+    "target_soft": [
+      0.6745346069309016,
+      0.20146272147271488,
+      0.12400267159638353
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__canada__switzerland__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-24",
+    "team_a": "Canada",
+    "team_b": "Switzerland",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": -105.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.08743597776363947,
+    "z_log_top_15_average_value_team_b": 0.4020843784410788,
+    "odds": [
+      [
+        3.6,
+        3.1,
+        2.0
+      ],
+      [
+        3.6,
+        3.3,
+        2.0
+      ],
+      [
+        3.55,
+        3.25,
+        2.08
+      ],
+      [
+        3.71,
+        3.26,
+        2.09
+      ],
+      [
+        3.67,
+        3.23,
+        2.01
+      ],
+      [
+        3.75,
+        3.5,
+        2.08
+      ],
+      [
+        3.78,
+        3.26,
+        2.08
+      ],
+      [
+        3.63,
+        3.19,
+        2.0
+      ],
+      [
+        3.6,
+        3.3,
+        2.1
+      ],
+      [
+        3.6,
+        3.35,
+        2.15
+      ]
+    ],
+    "target_soft": [
+      0.25650629858806456,
+      0.28740269969576504,
+      0.45609100171617034
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__haiti__morocco__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-24",
+    "team_a": "Haiti",
+    "team_b": "Morocco",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -290.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": -0.9272176630079504,
+    "z_log_top_15_average_value_team_b": 0.7204709055571249,
+    "odds": [
+      [
+        9.0,
+        4.8,
+        1.3
+      ],
+      [
+        8.5,
+        5.25,
+        1.3
+      ],
+      [
+        9.4,
+        5.2,
+        1.29
+      ],
+      [
+        9.11,
+        5.32,
+        1.3
+      ],
+      [
+        9.0,
+        5.3,
+        1.28
+      ],
+      [
+        11.0,
+        5.25,
+        1.33
+      ],
+      [
+        9.61,
+        5.59,
+        1.3
+      ],
+      [
+        8.9,
+        5.2,
+        1.28
+      ],
+      [
+        9.8,
+        5.4,
+        1.3
+      ],
+      [
+        9.6,
+        5.6,
+        1.33
+      ]
+    ],
+    "target_soft": [
+      0.1013580544787611,
+      0.17646317303683268,
+      0.7221787724844063
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__mexico__czechia__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-24",
+    "team_a": "Mexico",
+    "team_b": "Czechia",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 134.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": -0.04479903365483859,
+    "z_log_top_15_average_value_team_b": -0.012669833418123375,
+    "odds": [
+      [
+        1.95,
+        3.2,
+        3.75
+      ],
+      [
+        1.91,
+        3.3,
+        3.8
+      ],
+      [
+        1.94,
+        3.35,
+        3.85
+      ],
+      [
+        2.04,
+        3.33,
+        3.91
+      ],
+      [
+        1.94,
+        3.29,
+        3.86
+      ],
+      [
+        2.02,
+        3.45,
+        4.0
+      ],
+      [
+        1.98,
+        3.37,
+        3.98
+      ],
+      [
+        1.92,
+        3.25,
+        3.82
+      ],
+      [
+        1.97,
+        3.4,
+        3.95
+      ],
+      [
+        2.01,
+        3.45,
+        3.95
+      ]
+    ],
+    "target_soft": [
+      0.4779066101318069,
+      0.2807365755837424,
+      0.2413568142844506
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__southafrica__korearepublic__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-24",
+    "team_a": "South Africa",
+    "team_b": "South Korea",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": -228.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -1.2200684555540484,
+    "z_log_top_15_average_value_team_b": -0.19945865114605602,
+    "odds": [
+      [
+        3.75,
+        3.25,
+        1.95
+      ],
+      [
+        3.7,
+        3.3,
+        2.0
+      ],
+      [
+        3.8,
+        3.3,
+        1.96
+      ],
+      [
+        3.89,
+        3.33,
+        1.99
+      ],
+      [
+        3.84,
+        3.29,
+        1.94
+      ],
+      [
+        3.1,
+        3.3,
+        2.45
+      ],
+      [
+        3.97,
+        3.3,
+        2.01
+      ],
+      [
+        3.8,
+        3.26,
+        1.92
+      ],
+      [
+        3.9,
+        3.4,
+        1.99
+      ],
+      [
+        3.8,
+        3.4,
+        2.07
+      ]
+    ],
+    "target_soft": [
+      0.24402022728876177,
+      0.2825572733083141,
+      0.4734224994029241
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__australia__paraguay__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-25",
+    "team_a": "Australia",
+    "team_b": "Paraguay",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -50.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": -0.8298805830079236,
+    "z_log_top_15_average_value_team_b": -0.1671122418429384,
+    "odds": [
+      [
+        3.3,
+        3.0,
+        2.15
+      ],
+      [
+        3.4,
+        3.2,
+        2.15
+      ],
+      [
+        3.4,
+        3.15,
+        2.16
+      ],
+      [
+        3.45,
+        3.13,
+        2.2
+      ],
+      [
+        3.4,
+        3.09,
+        2.17
+      ],
+      [
+        3.54,
+        3.12,
+        2.23
+      ],
+      [
+        3.36,
+        3.06,
+        2.15
+      ],
+      [
+        3.45,
+        3.2,
+        2.2
+      ],
+      [
+        3.5,
+        3.3,
+        2.22
+      ]
+    ],
+    "target_soft": [
+      0.2734640935789413,
+      0.29966808239840254,
+      0.4268678240226562
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__curacao__ivorycoast__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-25",
+    "team_a": "Cura\u00e7ao",
+    "team_b": "Ivory Coast",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -240.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": -1.45874728638331,
+    "z_log_top_15_average_value_team_b": 0.8071638144571079,
+    "odds": [
+      [
+        10.0,
+        4.8,
+        1.3
+      ],
+      [
+        8.0,
+        4.75,
+        1.33
+      ],
+      [
+        9.4,
+        5.2,
+        1.29
+      ],
+      [
+        8.3,
+        5.26,
+        1.33
+      ],
+      [
+        7.7,
+        5.2,
+        1.32
+      ],
+      [
+        11.0,
+        5.05,
+        1.34
+      ],
+      [
+        8.26,
+        5.42,
+        1.34
+      ],
+      [
+        7.5,
+        5.1,
+        1.31
+      ],
+      [
+        9.8,
+        5.4,
+        1.31
+      ],
+      [
+        8.6,
+        5.2,
+        1.37
+      ]
+    ],
+    "target_soft": [
+      0.11262393780332763,
+      0.17916205901666224,
+      0.70821400318001
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__ecuador__germany__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-25",
+    "team_a": "Ecuador",
+    "team_b": "Germany",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 10.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.5811087919031267,
+    "z_log_top_15_average_value_team_b": 1.3104558954643586,
+    "odds": [
+      [
+        4.8,
+        3.6,
+        1.67
+      ],
+      [
+        5.0,
+        3.75,
+        1.65
+      ],
+      [
+        5.0,
+        3.85,
+        1.62
+      ],
+      [
+        4.87,
+        3.83,
+        1.67
+      ],
+      [
+        4.8,
+        3.8,
+        1.64
+      ],
+      [
+        6.2,
+        3.95,
+        1.62
+      ],
+      [
+        4.98,
+        3.92,
+        1.68
+      ],
+      [
+        4.75,
+        3.75,
+        1.63
+      ],
+      [
+        5.2,
+        3.95,
+        1.65
+      ],
+      [
+        5.2,
+        4.0,
+        1.68
+      ]
+    ],
+    "target_soft": [
+      0.18905834869739113,
+      0.24435405128297444,
+      0.5665876000196345
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__japan__sweden__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-25",
+    "team_a": "Japan",
+    "team_b": "Sweden",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 185.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.23551283454061595,
+    "z_log_top_15_average_value_team_b": 0.6866609832167783,
+    "odds": [
+      [
+        2.0,
+        3.25,
+        3.5
+      ],
+      [
+        2.05,
+        3.4,
+        3.5
+      ],
+      [
+        2.04,
+        3.35,
+        3.55
+      ],
+      [
+        2.12,
+        3.39,
+        3.56
+      ],
+      [
+        2.02,
+        3.33,
+        3.51
+      ],
+      [
+        2.08,
+        3.39,
+        3.63
+      ],
+      [
+        2.0,
+        3.3,
+        3.47
+      ],
+      [
+        2.06,
+        3.4,
+        3.6
+      ],
+      [
+        2.13,
+        3.45,
+        3.6
+      ]
+    ],
+    "target_soft": [
+      0.45736033025025546,
+      0.27889064481303383,
+      0.26374902493671065
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__netherlands__tunisia__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-25",
+    "team_a": "Netherlands",
+    "team_b": "Tunisia",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 325.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 1.1156243353798616,
+    "z_log_top_15_average_value_team_b": -0.813978410865125,
+    "odds": [
+      [
+        1.53,
+        3.8,
+        5.5
+      ],
+      [
+        1.53,
+        4.1,
+        5.75
+      ],
+      [
+        1.53,
+        4.0,
+        5.8
+      ],
+      [
+        1.52,
+        4.22,
+        6.34
+      ],
+      [
+        1.52,
+        4.1,
+        5.7
+      ],
+      [
+        1.58,
+        4.1,
+        6.3
+      ],
+      [
+        1.56,
+        4.16,
+        5.92
+      ],
+      [
+        1.51,
+        4.0,
+        5.6
+      ],
+      [
+        1.55,
+        4.1,
+        6.0
+      ],
+      [
+        1.57,
+        4.2,
+        6.0
+      ]
+    ],
+    "target_soft": [
+      0.6104730707065482,
+      0.22900883984218834,
+      0.1605180894512634
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__unitedstates__turkey__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-25",
+    "team_a": "United States",
+    "team_b": "Turkey",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -181.0,
+    "stage_binary": 1.0,
+    "host_diff": 1.0,
+    "team_a_confederation_idx": 4.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.5472883423008553,
+    "z_log_top_15_average_value_team_b": 0.7416141713866975,
+    "odds": [
+      [
+        2.45,
+        3.2,
+        2.7
+      ],
+      [
+        2.5,
+        3.4,
+        2.63
+      ],
+      [
+        2.5,
+        3.35,
+        2.66
+      ],
+      [
+        2.53,
+        3.42,
+        2.71
+      ],
+      [
+        2.5,
+        3.35,
+        2.62
+      ],
+      [
+        2.45,
+        3.4,
+        3.05
+      ],
+      [
+        2.54,
+        3.49,
+        2.69
+      ],
+      [
+        2.48,
+        3.32,
+        2.6
+      ],
+      [
+        2.56,
+        3.4,
+        2.7
+      ],
+      [
+        2.55,
+        3.5,
+        2.75
+      ]
+    ],
+    "target_soft": [
+      0.3730804824570809,
+      0.2765657888760353,
+      0.35035372866688375
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__belgium__newzealand__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-26",
+    "team_a": "Belgium",
+    "team_b": "New Zealand",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": 282.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 5.0,
+    "z_log_top_15_average_value_team_a": 0.7841045395727338,
+    "z_log_top_15_average_value_team_b": -1.4314295395437369,
+    "odds": [
+      [
+        1.29,
+        5.0,
+        9.5
+      ],
+      [
+        1.27,
+        5.75,
+        9.0
+      ],
+      [
+        1.26,
+        5.6,
+        9.6
+      ],
+      [
+        1.29,
+        5.66,
+        9.68
+      ],
+      [
+        1.25,
+        5.6,
+        9.6
+      ],
+      [
+        1.3,
+        5.55,
+        12.0
+      ],
+      [
+        1.28,
+        5.83,
+        9.87
+      ],
+      [
+        1.25,
+        5.5,
+        9.4
+      ],
+      [
+        1.28,
+        5.8,
+        10.0
+      ],
+      [
+        1.3,
+        6.0,
+        10.0
+      ]
+    ],
+    "target_soft": [
+      0.7379763409074322,
+      0.16538508172650912,
+      0.09663857736605856
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__capeverde__saudiarabia__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-26",
+    "team_a": "Cape Verde",
+    "team_b": "Saudi Arabia",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -19.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -0.9517567220424928,
+    "z_log_top_15_average_value_team_b": -1.4529185765502914,
+    "odds": [
+      [
+        2.45,
+        3.2,
+        2.63
+      ],
+      [
+        2.5,
+        3.3,
+        2.7
+      ],
+      [
+        2.46,
+        3.35,
+        2.7
+      ],
+      [
+        2.55,
+        3.41,
+        2.82
+      ],
+      [
+        2.4,
+        3.36,
+        2.73
+      ],
+      [
+        2.46,
+        3.57,
+        2.74
+      ],
+      [
+        2.38,
+        3.33,
+        2.71
+      ],
+      [
+        2.52,
+        3.4,
+        2.76
+      ],
+      [
+        2.65,
+        3.35,
+        2.75
+      ]
+    ],
+    "target_soft": [
+      0.3767951406657598,
+      0.27904399621509607,
+      0.34416086311914407
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__egypt__iran__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-26",
+    "team_a": "Egypt",
+    "team_b": "Iran",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -71.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -0.24860469801687252,
+    "z_log_top_15_average_value_team_b": -1.4558276518296462,
+    "odds": [
+      [
+        2.25,
+        2.8,
+        3.4
+      ],
+      [
+        2.25,
+        2.9,
+        3.6
+      ],
+      [
+        2.26,
+        2.9,
+        3.5
+      ],
+      [
+        2.23,
+        2.95,
+        3.75
+      ],
+      [
+        2.21,
+        2.9,
+        3.55
+      ],
+      [
+        2.3,
+        2.87,
+        3.72
+      ],
+      [
+        2.19,
+        2.87,
+        3.51
+      ],
+      [
+        2.3,
+        2.96,
+        3.55
+      ],
+      [
+        2.34,
+        3.05,
+        3.55
+      ]
+    ],
+    "target_soft": [
+      0.41492687518404847,
+      0.3226432506369082,
+      0.2624298741790434
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__france__norway__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-26",
+    "team_a": "France",
+    "team_b": "Norway",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 169.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 1.5950088899330417,
+    "z_log_top_15_average_value_team_b": 0.9405931372227804,
+    "odds": [
+      [
+        1.67,
+        3.6,
+        4.6
+      ],
+      [
+        1.7,
+        3.6,
+        4.75
+      ],
+      [
+        1.68,
+        3.7,
+        4.8
+      ],
+      [
+        1.71,
+        3.72,
+        4.77
+      ],
+      [
+        1.68,
+        3.68,
+        4.7
+      ],
+      [
+        1.75,
+        3.8,
+        4.95
+      ],
+      [
+        1.72,
+        3.76,
+        4.9
+      ],
+      [
+        1.67,
+        3.64,
+        4.6
+      ],
+      [
+        1.7,
+        3.8,
+        4.9
+      ],
+      [
+        1.72,
+        3.85,
+        5.0
+      ]
+    ],
+    "target_soft": [
+      0.5519187720626189,
+      0.2526268764774823,
+      0.19545435145989903
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__iraq__senegal__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-26",
+    "team_a": "Iraq",
+    "team_b": "Senegal",
+    "stage": "group",
+    "venue": "Canada",
+    "elo_diff": -271.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 3.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": -1.815440162361949,
+    "z_log_top_15_average_value_team_b": 0.7282238219190896,
+    "odds": [
+      [
+        7.0,
+        4.0,
+        1.4
+      ],
+      [
+        6.5,
+        4.33,
+        1.44
+      ],
+      [
+        7.2,
+        4.3,
+        1.42
+      ],
+      [
+        7.16,
+        4.38,
+        1.43
+      ],
+      [
+        7.1,
+        4.33,
+        1.41
+      ],
+      [
+        7.27,
+        4.5,
+        1.44
+      ],
+      [
+        7.0,
+        4.3,
+        1.4
+      ],
+      [
+        7.4,
+        4.4,
+        1.44
+      ],
+      [
+        7.2,
+        4.6,
+        1.46
+      ]
+    ],
+    "target_soft": [
+      0.1304924630423595,
+      0.21394370499848211,
+      0.6555638319591583
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__spain__uruguay__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-26",
+    "team_a": "Spain",
+    "team_b": "Uruguay",
+    "stage": "group",
+    "venue": "Mexico",
+    "elo_diff": 273.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 1.0,
+    "z_log_top_15_average_value_team_a": 1.447700042077402,
+    "z_log_top_15_average_value_team_b": 0.5942030276278806,
+    "odds": [
+      [
+        1.62,
+        3.6,
+        5.0
+      ],
+      [
+        1.62,
+        3.9,
+        5.0
+      ],
+      [
+        1.62,
+        3.85,
+        5.0
+      ],
+      [
+        1.64,
+        3.88,
+        5.18
+      ],
+      [
+        1.6,
+        3.84,
+        5.1
+      ],
+      [
+        1.65,
+        3.95,
+        5.45
+      ],
+      [
+        1.64,
+        3.97,
+        5.25
+      ],
+      [
+        1.59,
+        3.79,
+        5.1
+      ],
+      [
+        1.64,
+        3.95,
+        5.2
+      ],
+      [
+        1.64,
+        4.0,
+        5.4
+      ]
+    ],
+    "target_soft": [
+      0.577510239369642,
+      0.24089004418957974,
+      0.18159971644077838
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__algeria__austria__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-27",
+    "team_a": "Algeria",
+    "team_b": "Austria",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -84.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.2600485570958719,
+    "z_log_top_15_average_value_team_b": 0.2652102357033183,
+    "odds": [
+      [
+        3.3,
+        2.9,
+        2.25
+      ],
+      [
+        3.25,
+        3.2,
+        2.25
+      ],
+      [
+        3.4,
+        3.05,
+        2.22
+      ],
+      [
+        3.4,
+        3.1,
+        2.34
+      ],
+      [
+        3.35,
+        2.86,
+        2.31
+      ],
+      [
+        3.54,
+        2.78,
+        2.44
+      ],
+      [
+        3.32,
+        2.84,
+        2.29
+      ],
+      [
+        3.45,
+        3.1,
+        2.26
+      ],
+      [
+        3.4,
+        3.25,
+        2.28
+      ]
+    ],
+    "target_soft": [
+      0.27782799037946176,
+      0.31064016590295207,
+      0.4115318437175861
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__argentina__jordan__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-27",
+    "team_a": "Argentina",
+    "team_b": "Jordan",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 423.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": 1.152880608823202,
+    "z_log_top_15_average_value_team_b": -2.5173548424852163,
+    "odds": [
+      [
+        1.17,
+        6.5,
+        15.0
+      ],
+      [
+        1.17,
+        7.0,
+        12.0
+      ],
+      [
+        1.17,
+        6.8,
+        14.0
+      ],
+      [
+        1.19,
+        7.13,
+        13.17
+      ],
+      [
+        1.16,
+        7.1,
+        13.0
+      ],
+      [
+        1.19,
+        6.7,
+        19.5
+      ],
+      [
+        1.18,
+        7.57,
+        14.13
+      ],
+      [
+        1.15,
+        6.9,
+        13.0
+      ],
+      [
+        1.18,
+        7.2,
+        15.0
+      ],
+      [
+        1.19,
+        7.4,
+        15.0
+      ]
+    ],
+    "target_soft": [
+      0.7999649802551707,
+      0.13286193451561482,
+      0.06717308522921453
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__colombia__portugal__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-27",
+    "team_a": "Colombia",
+    "team_b": "Portugal",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -9.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 1.0,
+    "team_b_confederation_idx": 0.0,
+    "z_log_top_15_average_value_team_a": 0.3904268000348686,
+    "z_log_top_15_average_value_team_b": 1.2552948347499429,
+    "odds": [
+      [
+        3.3,
+        3.0,
+        2.15
+      ],
+      [
+        3.4,
+        3.25,
+        2.15
+      ],
+      [
+        3.35,
+        3.25,
+        2.14
+      ],
+      [
+        3.42,
+        3.24,
+        2.16
+      ],
+      [
+        3.34,
+        3.2,
+        2.14
+      ],
+      [
+        3.45,
+        3.3,
+        2.25
+      ],
+      [
+        3.51,
+        3.15,
+        2.22
+      ],
+      [
+        3.31,
+        3.16,
+        2.12
+      ],
+      [
+        3.45,
+        3.3,
+        2.18
+      ],
+      [
+        3.55,
+        3.35,
+        2.16
+      ]
+    ],
+    "target_soft": [
+      0.27577980520872575,
+      0.28995883019144947,
+      0.43426136459982473
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__croatia__ghana__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-27",
+    "team_a": "Croatia",
+    "team_b": "Ghana",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 427.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 2.0,
+    "z_log_top_15_average_value_team_a": 0.49746691944038485,
+    "z_log_top_15_average_value_team_b": 0.1859699530107812,
+    "odds": [
+      [
+        1.7,
+        3.5,
+        4.75
+      ],
+      [
+        1.67,
+        3.6,
+        4.75
+      ],
+      [
+        1.7,
+        3.6,
+        4.8
+      ],
+      [
+        1.69,
+        3.62,
+        5.12
+      ],
+      [
+        1.68,
+        3.58,
+        4.8
+      ],
+      [
+        1.75,
+        3.7,
+        5.25
+      ],
+      [
+        1.73,
+        3.65,
+        4.98
+      ],
+      [
+        1.67,
+        3.53,
+        4.8
+      ],
+      [
+        1.72,
+        3.7,
+        4.9
+      ],
+      [
+        1.75,
+        3.75,
+        5.0
+      ]
+    ],
+    "target_soft": [
+      0.5490968689741786,
+      0.2587192268848588,
+      0.19218390414096256
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__drcongo__uzbekistan__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-27",
+    "team_a": "DR Congo",
+    "team_b": "Uzbekistan",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": -72.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 2.0,
+    "team_b_confederation_idx": 3.0,
+    "z_log_top_15_average_value_team_a": -0.15545466407031358,
+    "z_log_top_15_average_value_team_b": -0.7749210930553145,
+    "odds": [
+      [
+        2.45,
+        3.1,
+        2.75
+      ],
+      [
+        2.45,
+        3.3,
+        2.8
+      ],
+      [
+        2.46,
+        3.25,
+        2.76
+      ],
+      [
+        2.52,
+        3.3,
+        2.84
+      ],
+      [
+        2.46,
+        3.25,
+        2.74
+      ],
+      [
+        2.48,
+        3.4,
+        2.82
+      ],
+      [
+        2.44,
+        3.21,
+        2.71
+      ],
+      [
+        2.52,
+        3.35,
+        2.82
+      ],
+      [
+        2.55,
+        3.3,
+        2.9
+      ]
+    ],
+    "target_soft": [
+      0.37741189624565086,
+      0.28585209759920027,
+      0.33673600615514887
+    ]
+  },
+  {
+    "match_id": "md__world-cup-2026__england__panama__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "competition": "World Cup 2026",
+    "date": "2026-06-27",
+    "team_a": "England",
+    "team_b": "Panama",
+    "stage": "group",
+    "venue": "United States",
+    "elo_diff": 283.0,
+    "stage_binary": 1.0,
+    "host_diff": 0.0,
+    "team_a_confederation_idx": 0.0,
+    "team_b_confederation_idx": 4.0,
+    "z_log_top_15_average_value_team_a": 1.4824259611422126,
+    "z_log_top_15_average_value_team_b": -1.3649830765101911,
+    "odds": [
+      [
+        1.22,
+        5.5,
+        11.0
+      ],
+      [
+        1.25,
+        6.25,
+        10.0
+      ],
+      [
+        1.23,
+        6.0,
+        11.0
+      ],
+      [
+        1.24,
+        6.05,
+        10.19
+      ],
+      [
+        1.22,
+        6.0,
+        10.0
+      ],
+      [
+        1.26,
+        5.85,
+        13.5
+      ],
+      [
+        1.24,
+        6.55,
+        10.98
+      ],
+      [
+        1.22,
+        5.9,
+        10.0
+      ],
+      [
+        1.24,
+        6.2,
+        11.0
+      ],
+      [
+        1.25,
+        6.4,
+        12.0
+      ]
+    ],
+    "target_soft": [
+      0.7590992063100352,
+      0.15437152651211963,
+      0.08652926717784508
+    ]
+  }
+]

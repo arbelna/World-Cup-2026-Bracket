@@ -1,0 +1,24 @@
+{
+  "r16": [
+    {"home": "1A", "away": "2B"},
+    {"home": "1C", "away": "2D"},
+    {"home": "1E", "away": "2F"},
+    {"home": "1G", "away": "2H"},
+    {"home": "1B", "away": "2A"},
+    {"home": "1D", "away": "2C"},
+    {"home": "1F", "away": "2E"},
+    {"home": "1H", "away": "2G"}
+  ],
+  "qf": [
+    {"home_idx": 0, "away_idx": 1},
+    {"home_idx": 2, "away_idx": 3},
+    {"home_idx": 4, "away_idx": 5},
+    {"home_idx": 6, "away_idx": 7}
+  ],
+  "sf": [
+    {"home_idx": 0, "away_idx": 1},
+    {"home_idx": 2, "away_idx": 3}
+  ],
+  "final": {"home_idx": 0, "away_idx": 1},
+  "third_place": {"home_idx": 0, "away_idx": 1, "losers_from": "sf"}
+}

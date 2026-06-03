@@ -1,0 +1,29 @@
+output_slug: wc2018
+tournament_id: world-cup-2018
+competition: World Cup 2018
+n_groups: 8
+group_labels: [A, B, C, D, E, F, G, H]
+advance_per_group: 2
+has_r32: false
+first_knockout_stage: R16
+
+train_dataset: data/input/match_dataset.json
+exclude_tournament_from_train: world-cup-2018
+match_dataset_filter_competition: World Cup 2018
+
+groups_file: data/input/wc2018_groups.json
+knockout_bracket_file: data/input/wc2018_knockout_bracket.json
+pairwise_predictions_file: data/input/wc2018_pairwise_predictions.csv
+
+default_batch_size: 1000
+default_n_sims: 200000
+
+alphas:
+  group_tie: 1.0
+  R16: 0.5
+  QF: 0.5
+  SF: 0.5
+  third_place: 0.5
+  final: 0.5
+
+stages_tracked: [R16, QF, SF, final, winner]

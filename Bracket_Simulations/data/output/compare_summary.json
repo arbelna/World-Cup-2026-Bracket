@@ -1,0 +1,912 @@
+[
+  {
+    "tournament": "wc2010",
+    "competition": "World Cup 2010",
+    "champion_actual": "Spain",
+    "actual_config": {
+      "R16": [
+        "Argentina",
+        "Brazil",
+        "Chile",
+        "England",
+        "Germany",
+        "Ghana",
+        "Japan",
+        "Mexico",
+        "Netherlands",
+        "Paraguay",
+        "Portugal",
+        "Slovakia",
+        "South Korea",
+        "Spain",
+        "United States",
+        "Uruguay"
+      ],
+      "QF": [
+        "Argentina",
+        "Brazil",
+        "Germany",
+        "Ghana",
+        "Netherlands",
+        "Paraguay",
+        "Spain",
+        "Uruguay"
+      ],
+      "SF": [
+        "Germany",
+        "Netherlands",
+        "Spain",
+        "Uruguay"
+      ],
+      "final": [
+        "Netherlands",
+        "Spain"
+      ],
+      "winner": [
+        "Spain"
+      ]
+    },
+    "market_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 23,
+          "brier": 0.18285363974062502,
+          "logloss": 0.5347185734635561,
+          "topn_hits": 12,
+          "topn_fp": 4
+        },
+        "QF": {
+          "correct_05": 28,
+          "brier": 0.1252254782890625,
+          "logloss": 0.40135111195353795,
+          "topn_hits": 5,
+          "topn_fp": 3
+        },
+        "SF": {
+          "correct_05": 28,
+          "brier": 0.0856954125046875,
+          "logloss": 0.26814460483944597,
+          "topn_hits": 1,
+          "topn_fp": 3
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.0458859454484375,
+          "logloss": 0.14746336177227404,
+          "topn_hits": 1,
+          "topn_fp": 1
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.0241275685890625,
+          "logloss": 0.08202771763024026,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 3e-05,
+          "neg_log_p_actual": 10.41431317630212,
+          "rank_actual": 6758,
+          "top1_correct": false,
+          "n_unique_configs": 60708,
+          "top1_probability": 0.001065,
+          "top1_teams": "Argentina|Brazil|Chile|Denmark|England|France|Germany|Italy|Netherlands|Nigeria|Paraguay|Portugal|Serbia|Spain|United States|Uruguay"
+        },
+        "QF": {
+          "p_joint_actual": 0.00013,
+          "neg_log_p_actual": 8.947976107508692,
+          "rank_actual": 1140,
+          "top1_correct": false,
+          "n_unique_configs": 46322,
+          "top1_probability": 0.00401,
+          "top1_teams": "Argentina|Brazil|England|France|Germany|Italy|Netherlands|Spain"
+        },
+        "SF": {
+          "p_joint_actual": 0.00205,
+          "neg_log_p_actual": 6.18991548583182,
+          "rank_actual": 78,
+          "top1_correct": false,
+          "n_unique_configs": 6180,
+          "top1_probability": 0.02264,
+          "top1_teams": "Argentina|Brazil|England|Spain"
+        },
+        "final": {
+          "p_joint_actual": 0.035765,
+          "neg_log_p_actual": 3.33078551742179,
+          "rank_actual": 6,
+          "top1_correct": false,
+          "n_unique_configs": 428,
+          "top1_probability": 0.06215,
+          "top1_teams": "Brazil|Spain"
+        },
+        "winner": {
+          "p_joint_actual": 0.173875,
+          "neg_log_p_actual": 1.74941862873853,
+          "rank_actual": 2,
+          "top1_correct": false,
+          "n_unique_configs": 31,
+          "top1_probability": 0.174525,
+          "top1_teams": "Brazil"
+        }
+      },
+      "champion_pick": "Brazil",
+      "p_winner_actual": 0.173875
+    },
+    "model_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 21,
+          "brier": 0.19681009630000004,
+          "logloss": 0.5702881174489293,
+          "topn_hits": 11,
+          "topn_fp": 5
+        },
+        "QF": {
+          "correct_05": 26,
+          "brier": 0.15339243581562498,
+          "logloss": 0.476925383694158,
+          "topn_hits": 5,
+          "topn_fp": 3
+        },
+        "SF": {
+          "correct_05": 28,
+          "brier": 0.09634367169375,
+          "logloss": 0.30330508472030593,
+          "topn_hits": 1,
+          "topn_fp": 3
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.04963765322500001,
+          "logloss": 0.16385557441860044,
+          "topn_hits": 1,
+          "topn_fp": 1
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.026358201739062503,
+          "logloss": 0.09240543645880231,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 5e-06,
+          "neg_log_p_actual": 12.206072645530174,
+          "rank_actual": 56847,
+          "top1_correct": false,
+          "n_unique_configs": 78558,
+          "top1_probability": 0.001785,
+          "top1_teams": "Argentina|Brazil|Cameroon|Chile|England|France|Germany|Greece|Italy|Mexico|Netherlands|Portugal|Serbia|Slovakia|Slovenia|Spain"
+        },
+        "QF": {
+          "p_joint_actual": 5e-06,
+          "neg_log_p_actual": 12.206072645530174,
+          "rank_actual": 56842,
+          "top1_correct": false,
+          "n_unique_configs": 60175,
+          "top1_probability": 0.001075,
+          "top1_teams": "Argentina|Brazil|England|Germany|Italy|Mexico|Netherlands|Spain"
+        },
+        "SF": {
+          "p_joint_actual": 0.00064,
+          "neg_log_p_actual": 7.354042381610556,
+          "rank_actual": 336,
+          "top1_correct": false,
+          "n_unique_configs": 7805,
+          "top1_probability": 0.008775,
+          "top1_teams": "Argentina|Brazil|England|Spain"
+        },
+        "final": {
+          "p_joint_actual": 0.02045,
+          "neg_log_p_actual": 3.8897723964933264,
+          "rank_actual": 9,
+          "top1_correct": false,
+          "n_unique_configs": 461,
+          "top1_probability": 0.05587,
+          "top1_teams": "Brazil|Spain"
+        },
+        "winner": {
+          "p_joint_actual": 0.130245,
+          "neg_log_p_actual": 2.038337986801419,
+          "rank_actual": 2,
+          "top1_correct": false,
+          "n_unique_configs": 32,
+          "top1_probability": 0.223135,
+          "top1_teams": "Brazil"
+        }
+      },
+      "champion_pick": "Brazil",
+      "p_winner_actual": 0.130245
+    }
+  },
+  {
+    "tournament": "wc2014",
+    "competition": "World Cup 2014",
+    "champion_actual": "Germany",
+    "actual_config": {
+      "R16": [
+        "Algeria",
+        "Argentina",
+        "Belgium",
+        "Brazil",
+        "Chile",
+        "Colombia",
+        "Costa Rica",
+        "France",
+        "Germany",
+        "Greece",
+        "Mexico",
+        "Netherlands",
+        "Nigeria",
+        "Switzerland",
+        "United States",
+        "Uruguay"
+      ],
+      "QF": [
+        "Argentina",
+        "Belgium",
+        "Brazil",
+        "Colombia",
+        "Costa Rica",
+        "France",
+        "Germany",
+        "Netherlands"
+      ],
+      "SF": [
+        "Argentina",
+        "Brazil",
+        "Germany",
+        "Netherlands"
+      ],
+      "final": [
+        "Argentina",
+        "Germany"
+      ],
+      "winner": [
+        "Germany"
+      ]
+    },
+    "market_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 20,
+          "brier": 0.2446330106703125,
+          "logloss": 0.676723154903596,
+          "topn_hits": 10,
+          "topn_fp": 6
+        },
+        "QF": {
+          "correct_05": 27,
+          "brier": 0.1236361662640625,
+          "logloss": 0.41256914051236926,
+          "topn_hits": 5,
+          "topn_fp": 3
+        },
+        "SF": {
+          "correct_05": 28,
+          "brier": 0.06807308162343749,
+          "logloss": 0.22250024717411754,
+          "topn_hits": 3,
+          "topn_fp": 1
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.044400183595312503,
+          "logloss": 0.14256029963355857,
+          "topn_hits": 0,
+          "topn_fp": 2
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.026464029195312502,
+          "logloss": 0.09111719678216676,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 0.0,
+          "neg_log_p_actual": 34.538776394910684,
+          "rank_actual": 66270,
+          "top1_correct": false,
+          "n_unique_configs": 66269,
+          "top1_probability": 0.000945,
+          "top1_teams": "Argentina|Belgium|Bosnia and Herzegovina|Brazil|Colombia|Croatia|England|France|Germany|Italy|Japan|Netherlands|Portugal|Russia|Spain|Switzerland"
+        },
+        "QF": {
+          "p_joint_actual": 7.5e-05,
+          "neg_log_p_actual": 9.498022444427964,
+          "rank_actual": 2300,
+          "top1_correct": false,
+          "n_unique_configs": 49064,
+          "top1_probability": 0.002895,
+          "top1_teams": "Argentina|Brazil|England|France|Germany|Italy|Portugal|Spain"
+        },
+        "SF": {
+          "p_joint_actual": 0.00525,
+          "neg_log_p_actual": 5.249527202378605,
+          "rank_actual": 15,
+          "top1_correct": false,
+          "n_unique_configs": 6573,
+          "top1_probability": 0.021915,
+          "top1_teams": "Argentina|Brazil|France|Spain"
+        },
+        "final": {
+          "p_joint_actual": 0.0387,
+          "neg_log_p_actual": 3.2519156789464008,
+          "rank_actual": 4,
+          "top1_correct": false,
+          "n_unique_configs": 447,
+          "top1_probability": 0.071375,
+          "top1_teams": "Brazil|Spain"
+        },
+        "winner": {
+          "p_joint_actual": 0.135945,
+          "neg_log_p_actual": 1.9955048868072822,
+          "rank_actual": 3,
+          "top1_correct": false,
+          "n_unique_configs": 32,
+          "top1_probability": 0.199845,
+          "top1_teams": "Brazil"
+        }
+      },
+      "champion_pick": "Brazil",
+      "p_winner_actual": 0.135945
+    },
+    "model_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 22,
+          "brier": 0.21427112772031254,
+          "logloss": 0.6221050987517984,
+          "topn_hits": 11,
+          "topn_fp": 5
+        },
+        "QF": {
+          "correct_05": 28,
+          "brier": 0.14158878002031244,
+          "logloss": 0.48032108465047496,
+          "topn_hits": 5,
+          "topn_fp": 3
+        },
+        "SF": {
+          "correct_05": 28,
+          "brier": 0.08482139918593748,
+          "logloss": 0.2874513681057769,
+          "topn_hits": 2,
+          "topn_fp": 2
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.04837799917187501,
+          "logloss": 0.1623076271959495,
+          "topn_hits": 1,
+          "topn_fp": 1
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.028717531817187492,
+          "logloss": 0.1078595219689904,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 0.0,
+          "neg_log_p_actual": 34.538776394910684,
+          "rank_actual": 92595,
+          "top1_correct": false,
+          "n_unique_configs": 92594,
+          "top1_probability": 0.00061,
+          "top1_teams": "Argentina|Belgium|Brazil|Chile|Colombia|England|France|Germany|Ivory Coast|Mexico|Nigeria|Portugal|Russia|Spain|Switzerland|Uruguay"
+        },
+        "QF": {
+          "p_joint_actual": 0.0,
+          "neg_log_p_actual": 34.538776394910684,
+          "rank_actual": 71276,
+          "top1_correct": false,
+          "n_unique_configs": 71275,
+          "top1_probability": 0.001025,
+          "top1_teams": "Argentina|Belgium|Brazil|England|France|Germany|Spain|Uruguay"
+        },
+        "SF": {
+          "p_joint_actual": 0.000825,
+          "neg_log_p_actual": 7.100127171629593,
+          "rank_actual": 217,
+          "top1_correct": false,
+          "n_unique_configs": 8924,
+          "top1_probability": 0.006375,
+          "top1_teams": "Argentina|Brazil|France|Spain"
+        },
+        "final": {
+          "p_joint_actual": 0.02077,
+          "neg_log_p_actual": 3.874245641094116,
+          "rank_actual": 5,
+          "top1_correct": false,
+          "n_unique_configs": 474,
+          "top1_probability": 0.03646,
+          "top1_teams": "Argentina|Brazil"
+        },
+        "winner": {
+          "p_joint_actual": 0.08273,
+          "neg_log_p_actual": 2.4921729857800456,
+          "rank_actual": 6,
+          "top1_correct": false,
+          "n_unique_configs": 32,
+          "top1_probability": 0.162145,
+          "top1_teams": "Brazil"
+        }
+      },
+      "champion_pick": "Brazil",
+      "p_winner_actual": 0.08273
+    }
+  },
+  {
+    "tournament": "wc2018",
+    "competition": "World Cup 2018",
+    "champion_actual": "France",
+    "actual_config": {
+      "R16": [
+        "Argentina",
+        "Belgium",
+        "Brazil",
+        "Colombia",
+        "Croatia",
+        "Denmark",
+        "England",
+        "France",
+        "Japan",
+        "Mexico",
+        "Portugal",
+        "Russia",
+        "Spain",
+        "Sweden",
+        "Switzerland",
+        "Uruguay"
+      ],
+      "QF": [
+        "Belgium",
+        "Brazil",
+        "Croatia",
+        "England",
+        "France",
+        "Russia",
+        "Sweden",
+        "Uruguay"
+      ],
+      "SF": [
+        "Belgium",
+        "Croatia",
+        "England",
+        "France"
+      ],
+      "final": [
+        "Croatia",
+        "France"
+      ],
+      "winner": [
+        "France"
+      ]
+    },
+    "market_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 28,
+          "brier": 0.11977685582031249,
+          "logloss": 0.4090902583448053,
+          "topn_hits": 14,
+          "topn_fp": 2
+        },
+        "QF": {
+          "correct_05": 25,
+          "brier": 0.1383952481046875,
+          "logloss": 0.4147874794286071,
+          "topn_hits": 4,
+          "topn_fp": 4
+        },
+        "SF": {
+          "correct_05": 27,
+          "brier": 0.0928142606578125,
+          "logloss": 0.26991140474532943,
+          "topn_hits": 1,
+          "topn_fp": 3
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.060047276337500004,
+          "logloss": 0.20004329755533476,
+          "topn_hits": 0,
+          "topn_fp": 2
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.029689004325000004,
+          "logloss": 0.10446714499403394,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 0.000375,
+          "neg_log_p_actual": 7.888584531993863,
+          "rank_actual": 293,
+          "top1_correct": false,
+          "n_unique_configs": 45685,
+          "top1_probability": 0.00561,
+          "top1_teams": "Argentina|Belgium|Brazil|Colombia|Croatia|Denmark|England|France|Germany|Mexico|Poland|Portugal|Russia|Spain|Switzerland|Uruguay"
+        },
+        "QF": {
+          "p_joint_actual": 0.000135,
+          "neg_log_p_actual": 8.910235779525845,
+          "rank_actual": 1099,
+          "top1_correct": false,
+          "n_unique_configs": 32881,
+          "top1_probability": 0.01297,
+          "top1_teams": "Argentina|Belgium|Brazil|England|France|Germany|Portugal|Spain"
+        },
+        "SF": {
+          "p_joint_actual": 0.003,
+          "neg_log_p_actual": 5.809142990314028,
+          "rank_actual": 64,
+          "top1_correct": false,
+          "n_unique_configs": 5029,
+          "top1_probability": 0.02685,
+          "top1_teams": "Brazil|France|Germany|Spain"
+        },
+        "final": {
+          "p_joint_actual": 0.006335,
+          "neg_log_p_actual": 5.0616654652090345,
+          "rank_actual": 34,
+          "top1_correct": false,
+          "n_unique_configs": 398,
+          "top1_probability": 0.10426,
+          "top1_teams": "Brazil|Germany"
+        },
+        "winner": {
+          "p_joint_actual": 0.09414,
+          "neg_log_p_actual": 2.362972243009141,
+          "rank_actual": 4,
+          "top1_correct": false,
+          "n_unique_configs": 31,
+          "top1_probability": 0.224885,
+          "top1_teams": "Germany"
+        }
+      },
+      "champion_pick": "Germany",
+      "p_winner_actual": 0.09414
+    },
+    "model_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 26,
+          "brier": 0.171826381515625,
+          "logloss": 0.5226551411352945,
+          "topn_hits": 13,
+          "topn_fp": 3
+        },
+        "QF": {
+          "correct_05": 26,
+          "brier": 0.11676950140781253,
+          "logloss": 0.3696009187071485,
+          "topn_hits": 5,
+          "topn_fp": 3
+        },
+        "SF": {
+          "correct_05": 28,
+          "brier": 0.07692422103125005,
+          "logloss": 0.24521167061096757,
+          "topn_hits": 3,
+          "topn_fp": 1
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.053962153373437495,
+          "logloss": 0.1841124274056382,
+          "topn_hits": 0,
+          "topn_fp": 2
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.027343071943750002,
+          "logloss": 0.09953489799622357,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 0.0,
+          "neg_log_p_actual": 34.538776394910684,
+          "rank_actual": 88353,
+          "top1_correct": false,
+          "n_unique_configs": 88352,
+          "top1_probability": 0.00128,
+          "top1_teams": "Argentina|Belgium|Brazil|Colombia|Croatia|Denmark|England|France|Germany|Poland|Portugal|Russia|Serbia|Spain|Sweden|Uruguay"
+        },
+        "QF": {
+          "p_joint_actual": 0.000305,
+          "neg_log_p_actual": 8.095198781356862,
+          "rank_actual": 177,
+          "top1_correct": false,
+          "n_unique_configs": 64976,
+          "top1_probability": 0.001865,
+          "top1_teams": "Argentina|Belgium|Brazil|England|France|Germany|Russia|Uruguay"
+        },
+        "SF": {
+          "p_joint_actual": 0.004675,
+          "neg_log_p_actual": 5.365526116241487,
+          "rank_actual": 9,
+          "top1_correct": false,
+          "n_unique_configs": 8605,
+          "top1_probability": 0.009245,
+          "top1_teams": "Argentina|Belgium|England|France"
+        },
+        "final": {
+          "p_joint_actual": 0.01012,
+          "neg_log_p_actual": 4.5932416151228175,
+          "rank_actual": 32,
+          "top1_correct": false,
+          "n_unique_configs": 484,
+          "top1_probability": 0.04346,
+          "top1_teams": "Belgium|England"
+        },
+        "winner": {
+          "p_joint_actual": 0.105355,
+          "neg_log_p_actual": 2.2504196790133664,
+          "rank_actual": 4,
+          "top1_correct": false,
+          "n_unique_configs": 32,
+          "top1_probability": 0.124875,
+          "top1_teams": "England"
+        }
+      },
+      "champion_pick": "England",
+      "p_winner_actual": 0.105355
+    }
+  },
+  {
+    "tournament": "wc2022",
+    "competition": "World Cup 2022",
+    "champion_actual": "Argentina",
+    "actual_config": {
+      "R16": [
+        "Argentina",
+        "Australia",
+        "Brazil",
+        "Croatia",
+        "England",
+        "France",
+        "Japan",
+        "Morocco",
+        "Netherlands",
+        "Poland",
+        "Portugal",
+        "Senegal",
+        "South Korea",
+        "Spain",
+        "Switzerland",
+        "United States"
+      ],
+      "QF": [
+        "Argentina",
+        "Brazil",
+        "Croatia",
+        "England",
+        "France",
+        "Morocco",
+        "Netherlands",
+        "Portugal"
+      ],
+      "SF": [
+        "Argentina",
+        "Croatia",
+        "France",
+        "Morocco"
+      ],
+      "final": [
+        "Argentina",
+        "France"
+      ],
+      "winner": [
+        "Argentina"
+      ]
+    },
+    "market_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 19,
+          "brier": 0.22067448760625,
+          "logloss": 0.6238903676024474,
+          "topn_hits": 9,
+          "topn_fp": 7
+        },
+        "QF": {
+          "correct_05": 27,
+          "brier": 0.11717123654531252,
+          "logloss": 0.37167594778593593,
+          "topn_hits": 6,
+          "topn_fp": 2
+        },
+        "SF": {
+          "correct_05": 27,
+          "brier": 0.10604625867031252,
+          "logloss": 0.3639967184647758,
+          "topn_hits": 2,
+          "topn_fp": 2
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.05027087122656251,
+          "logloss": 0.15861806198299364,
+          "topn_hits": 1,
+          "topn_fp": 1
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.029787525181250003,
+          "logloss": 0.10543576333353127,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 2e-05,
+          "neg_log_p_actual": 10.819778284410283,
+          "rank_actual": 8405,
+          "top1_correct": false,
+          "n_unique_configs": 51686,
+          "top1_probability": 0.00257,
+          "top1_teams": "Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|United States|Uruguay"
+        },
+        "QF": {
+          "p_joint_actual": 0.00031,
+          "neg_log_p_actual": 8.078938260485081,
+          "rank_actual": 399,
+          "top1_correct": false,
+          "n_unique_configs": 38891,
+          "top1_probability": 0.008065,
+          "top1_teams": "Argentina|Brazil|England|France|Germany|Netherlands|Portugal|Spain"
+        },
+        "SF": {
+          "p_joint_actual": 0.000145,
+          "neg_log_p_actual": 8.8387768155437,
+          "rank_actual": 990,
+          "top1_correct": false,
+          "n_unique_configs": 5732,
+          "top1_probability": 0.013135,
+          "top1_teams": "Argentina|Brazil|France|Portugal"
+        },
+        "final": {
+          "p_joint_actual": 0.02904,
+          "neg_log_p_actual": 3.5390810890255415,
+          "rank_actual": 7,
+          "top1_correct": false,
+          "n_unique_configs": 405,
+          "top1_probability": 0.059285,
+          "top1_teams": "Brazil|England"
+        },
+        "winner": {
+          "p_joint_actual": 0.091625,
+          "neg_log_p_actual": 2.3900511187753217,
+          "rank_actual": 6,
+          "top1_correct": false,
+          "n_unique_configs": 32,
+          "top1_probability": 0.28656,
+          "top1_teams": "Brazil"
+        }
+      },
+      "champion_pick": "Brazil",
+      "p_winner_actual": 0.091625
+    },
+    "model_all": {
+      "marginal": {
+        "R16": {
+          "correct_05": 22,
+          "brier": 0.21978837528749998,
+          "logloss": 0.6217286664618903,
+          "topn_hits": 11,
+          "topn_fp": 5
+        },
+        "QF": {
+          "correct_05": 28,
+          "brier": 0.1235317729953125,
+          "logloss": 0.39143175188960083,
+          "topn_hits": 6,
+          "topn_fp": 2
+        },
+        "SF": {
+          "correct_05": 28,
+          "brier": 0.10018449437968749,
+          "logloss": 0.34686013458514625,
+          "topn_hits": 2,
+          "topn_fp": 2
+        },
+        "final": {
+          "correct_05": 30,
+          "brier": 0.045431712240625005,
+          "logloss": 0.1508472371758726,
+          "topn_hits": 1,
+          "topn_fp": 1
+        },
+        "winner": {
+          "correct_05": 31,
+          "brier": 0.0254329156125,
+          "logloss": 0.09041491212793637,
+          "topn_hits": 0,
+          "topn_fp": 1
+        }
+      },
+      "joint": {
+        "R16": {
+          "p_joint_actual": 0.0,
+          "neg_log_p_actual": 34.538776394910684,
+          "rank_actual": 64661,
+          "top1_correct": false,
+          "n_unique_configs": 64660,
+          "top1_probability": 0.004345,
+          "top1_teams": "Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay"
+        },
+        "QF": {
+          "p_joint_actual": 0.000135,
+          "neg_log_p_actual": 8.910235779525845,
+          "rank_actual": 1064,
+          "top1_correct": false,
+          "n_unique_configs": 50372,
+          "top1_probability": 0.00195,
+          "top1_teams": "Argentina|Brazil|England|France|Germany|Netherlands|Portugal|Spain"
+        },
+        "SF": {
+          "p_joint_actual": 0.0002,
+          "neg_log_p_actual": 8.517193191416238,
+          "rank_actual": 964,
+          "top1_correct": false,
+          "n_unique_configs": 6978,
+          "top1_probability": 0.007325,
+          "top1_teams": "Argentina|Brazil|France|Portugal"
+        },
+        "final": {
+          "p_joint_actual": 0.030365,
+          "neg_log_p_actual": 3.4944646496325986,
+          "rank_actual": 2,
+          "top1_correct": false,
+          "n_unique_configs": 448,
+          "top1_probability": 0.03473,
+          "top1_teams": "Argentina|Portugal"
+        },
+        "winner": {
+          "p_joint_actual": 0.136255,
+          "neg_log_p_actual": 1.9932271488644049,
+          "rank_actual": 2,
+          "top1_correct": false,
+          "n_unique_configs": 32,
+          "top1_probability": 0.141165,
+          "top1_teams": "Portugal"
+        }
+      },
+      "champion_pick": "Portugal",
+      "p_winner_actual": 0.136255
+    }
+  },
+  {
+    "tournament": "wc2026",
+    "competition": "World Cup 2026",
+    "comparison_mode": "market_reference",
+    "stages_compared": [
+      "R32"
+    ],
+    "market_reference": {
+      "R32": {
+        "mse_model_vs_market": 0.0038292567406250015,
+        "mae_model_vs_market": 0.04647604166666668
+      }
+    }
+  }
+]

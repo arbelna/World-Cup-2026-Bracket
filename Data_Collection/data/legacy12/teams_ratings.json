@@ -1,0 +1,2702 @@
+[
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 1919,
+    "elo_rank": 13,
+    "first_match_date": "2024-06-14",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Scotland",
+    "country_code": "SQ",
+    "elo_rating": 1769,
+    "elo_rank": 30,
+    "first_match_date": "2024-06-14",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1804,
+    "elo_rank": 18,
+    "first_match_date": "2024-06-15",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Hungary",
+    "country_code": "HU",
+    "elo_rating": 1831,
+    "elo_rank": 22,
+    "first_match_date": "2024-06-15",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2020,
+    "elo_rank": 3,
+    "first_match_date": "2024-06-15",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1968,
+    "elo_rank": 13,
+    "first_match_date": "2024-06-15",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Italy",
+    "country_code": "IT",
+    "elo_rating": 1949,
+    "elo_rank": 11,
+    "first_match_date": "2024-06-15",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Albania",
+    "country_code": "AL",
+    "elo_rating": 1623,
+    "elo_rank": 60,
+    "first_match_date": "2024-06-15",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Netherlands",
+    "country_code": "NL",
+    "elo_rating": 1974,
+    "elo_rank": 10,
+    "first_match_date": "2024-06-16",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Poland",
+    "country_code": "PL",
+    "elo_rating": 1745,
+    "elo_rank": 37,
+    "first_match_date": "2024-06-16",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1980,
+    "elo_rank": 7,
+    "first_match_date": "2024-06-16",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Serbia",
+    "country_code": "RS",
+    "elo_rating": 1801,
+    "elo_rank": 24,
+    "first_match_date": "2024-06-16",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Denmark",
+    "country_code": "DK",
+    "elo_rating": 1834,
+    "elo_rank": 19,
+    "first_match_date": "2024-06-16",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Slovenia",
+    "country_code": "SI",
+    "elo_rating": 1733,
+    "elo_rank": 34,
+    "first_match_date": "2024-06-16",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Slovakia",
+    "country_code": "SK",
+    "elo_rating": 1670,
+    "elo_rank": 42,
+    "first_match_date": "2024-06-17",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Belgium",
+    "country_code": "BE",
+    "elo_rating": 1988,
+    "elo_rank": 11,
+    "first_match_date": "2024-06-17",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Romania",
+    "country_code": "RO",
+    "elo_rating": 1647,
+    "elo_rank": 41,
+    "first_match_date": "2024-06-17",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Ukraine",
+    "country_code": "UA",
+    "elo_rating": 1853,
+    "elo_rank": 24,
+    "first_match_date": "2024-06-17",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 2076,
+    "elo_rank": 2,
+    "first_match_date": "2024-06-17",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Austria",
+    "country_code": "AT",
+    "elo_rating": 1863,
+    "elo_rank": 16,
+    "first_match_date": "2024-06-17",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Turkey",
+    "country_code": "TR",
+    "elo_rating": 1748,
+    "elo_rank": 26,
+    "first_match_date": "2024-06-18",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Georgia",
+    "country_code": "GE",
+    "elo_rating": 1665,
+    "elo_rank": 52,
+    "first_match_date": "2024-06-18",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 2002,
+    "elo_rank": 6,
+    "first_match_date": "2024-06-18",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2024",
+    "team_name": "Czechia",
+    "country_code": "CZ",
+    "elo_rating": 1776,
+    "elo_rank": 30,
+    "first_match_date": "2024-06-18",
+    "source": "https://www.eloratings.net/2024_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Italy",
+    "country_code": "IT",
+    "elo_rating": 2013,
+    "elo_rank": 6,
+    "first_match_date": "2021-06-11",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Turkey",
+    "country_code": "TR",
+    "elo_rating": 1800,
+    "elo_rank": 25,
+    "first_match_date": "2021-06-11",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1889,
+    "elo_rank": 14,
+    "first_match_date": "2021-06-12",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Wales",
+    "country_code": "WA",
+    "elo_rating": 1833,
+    "elo_rank": 17,
+    "first_match_date": "2021-06-12",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Russia",
+    "country_code": "RU",
+    "elo_rating": 1745,
+    "elo_rank": 39,
+    "first_match_date": "2021-06-12",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Belgium",
+    "country_code": "BE",
+    "elo_rating": 2099,
+    "elo_rank": 2,
+    "first_match_date": "2021-06-12",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Denmark",
+    "country_code": "DK",
+    "elo_rating": 1973,
+    "elo_rank": 12,
+    "first_match_date": "2021-06-12",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Finland",
+    "country_code": "FI",
+    "elo_rating": 1683,
+    "elo_rank": 40,
+    "first_match_date": "2021-06-12",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Netherlands",
+    "country_code": "NL",
+    "elo_rating": 1949,
+    "elo_rank": 9,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Ukraine",
+    "country_code": "UA",
+    "elo_rating": 1814,
+    "elo_rank": 20,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1981,
+    "elo_rank": 7,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1825,
+    "elo_rank": 18,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Austria",
+    "country_code": "AT",
+    "elo_rating": 1746,
+    "elo_rank": 29,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "North Macedonia",
+    "country_code": "NM",
+    "elo_rating": 1602,
+    "elo_rank": 64,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2032,
+    "elo_rank": 6,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Sweden",
+    "country_code": "SE",
+    "elo_rating": 1848,
+    "elo_rank": 16,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Slovakia",
+    "country_code": "SK",
+    "elo_rating": 1656,
+    "elo_rank": 41,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Poland",
+    "country_code": "PL",
+    "elo_rating": 1795,
+    "elo_rank": 33,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Scotland",
+    "country_code": "SQ",
+    "elo_rating": 1678,
+    "elo_rank": 48,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Czechia",
+    "country_code": "CZ",
+    "elo_rating": 1767,
+    "elo_rank": 20,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Hungary",
+    "country_code": "HU",
+    "elo_rating": 1740,
+    "elo_rank": 40,
+    "first_match_date": "2021-06-15",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 2039,
+    "elo_rank": 4,
+    "first_match_date": "2021-06-15",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 1935,
+    "elo_rank": 13,
+    "first_match_date": "2021-06-15",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2020",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 2087,
+    "elo_rank": 3,
+    "first_match_date": "2021-06-15",
+    "source": "https://www.eloratings.net/2021_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 1974,
+    "elo_rank": 7,
+    "first_match_date": "2016-06-10",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Romania",
+    "country_code": "RO",
+    "elo_rating": 1759,
+    "elo_rank": 32,
+    "first_match_date": "2016-06-10",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1970,
+    "elo_rank": 8,
+    "first_match_date": "2016-06-11",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Russia",
+    "country_code": "RU",
+    "elo_rating": 1758,
+    "elo_rank": 25,
+    "first_match_date": "2016-06-11",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1770,
+    "elo_rank": 22,
+    "first_match_date": "2016-06-11",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Albania",
+    "country_code": "AL",
+    "elo_rating": 1615,
+    "elo_rank": 58,
+    "first_match_date": "2016-06-11",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Wales",
+    "country_code": "WA",
+    "elo_rating": 1654,
+    "elo_rank": 42,
+    "first_match_date": "2016-06-11",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Slovakia",
+    "country_code": "SK",
+    "elo_rating": 1765,
+    "elo_rank": 35,
+    "first_match_date": "2016-06-11",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1818,
+    "elo_rank": 16,
+    "first_match_date": "2016-06-12",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Turkey",
+    "country_code": "TR",
+    "elo_rating": 1828,
+    "elo_rank": 19,
+    "first_match_date": "2016-06-12",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 2034,
+    "elo_rank": 2,
+    "first_match_date": "2016-06-12",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Ukraine",
+    "country_code": "UA",
+    "elo_rating": 1836,
+    "elo_rank": 18,
+    "first_match_date": "2016-06-12",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Poland",
+    "country_code": "PL",
+    "elo_rating": 1765,
+    "elo_rank": 24,
+    "first_match_date": "2016-06-12",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Northern Ireland",
+    "country_code": "EI",
+    "elo_rating": 1624,
+    "elo_rank": 56,
+    "first_match_date": "2016-06-12",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Ireland",
+    "country_code": "IE",
+    "elo_rating": 1758,
+    "elo_rank": 29,
+    "first_match_date": "2016-06-13",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Sweden",
+    "country_code": "SE",
+    "elo_rating": 1762,
+    "elo_rank": 27,
+    "first_match_date": "2016-06-13",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Italy",
+    "country_code": "IT",
+    "elo_rating": 1874,
+    "elo_rank": 11,
+    "first_match_date": "2016-06-13",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Belgium",
+    "country_code": "BE",
+    "elo_rating": 1921,
+    "elo_rank": 15,
+    "first_match_date": "2016-06-13",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 1991,
+    "elo_rank": 3,
+    "first_match_date": "2016-06-13",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Czechia",
+    "country_code": "CZ",
+    "elo_rating": 1754,
+    "elo_rank": 32,
+    "first_match_date": "2016-06-13",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Hungary",
+    "country_code": "HU",
+    "elo_rating": 1696,
+    "elo_rank": 34,
+    "first_match_date": "2016-06-14",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Austria",
+    "country_code": "AT",
+    "elo_rating": 1777,
+    "elo_rank": 36,
+    "first_match_date": "2016-06-14",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Iceland",
+    "country_code": "IS",
+    "elo_rating": 1666,
+    "elo_rank": 44,
+    "first_match_date": "2016-06-14",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2016",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 1908,
+    "elo_rank": 13,
+    "first_match_date": "2016-06-14",
+    "source": "https://www.eloratings.net/2016_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Poland",
+    "country_code": "PL",
+    "elo_rating": 1720,
+    "elo_rank": 35,
+    "first_match_date": "2012-06-08",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Greece",
+    "country_code": "GR",
+    "elo_rating": 1778,
+    "elo_rank": 24,
+    "first_match_date": "2012-06-08",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Russia",
+    "country_code": "RU",
+    "elo_rating": 1849,
+    "elo_rank": 11,
+    "first_match_date": "2012-06-08",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Czechia",
+    "country_code": "CZ",
+    "elo_rating": 1787,
+    "elo_rank": 31,
+    "first_match_date": "2012-06-08",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Denmark",
+    "country_code": "DK",
+    "elo_rating": 1816,
+    "elo_rank": 14,
+    "first_match_date": "2012-06-09",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Netherlands",
+    "country_code": "NL",
+    "elo_rating": 2060,
+    "elo_rank": 4,
+    "first_match_date": "2012-06-09",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 2043,
+    "elo_rank": 2,
+    "first_match_date": "2012-06-09",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 1865,
+    "elo_rank": 15,
+    "first_match_date": "2012-06-09",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1872,
+    "elo_rank": 9,
+    "first_match_date": "2012-06-10",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Ireland",
+    "country_code": "IE",
+    "elo_rating": 1804,
+    "elo_rank": 24,
+    "first_match_date": "2012-06-10",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Italy",
+    "country_code": "IT",
+    "elo_rating": 1850,
+    "elo_rank": 13,
+    "first_match_date": "2012-06-10",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2126,
+    "elo_rank": 1,
+    "first_match_date": "2012-06-10",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1955,
+    "elo_rank": 7,
+    "first_match_date": "2012-06-11",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 1867,
+    "elo_rank": 12,
+    "first_match_date": "2012-06-11",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Ukraine",
+    "country_code": "UA",
+    "elo_rating": 1755,
+    "elo_rank": 23,
+    "first_match_date": "2012-06-11",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "euro-2012",
+    "team_name": "Sweden",
+    "country_code": "SE",
+    "elo_rating": 1890,
+    "elo_rank": 14,
+    "first_match_date": "2012-06-11",
+    "source": "https://www.eloratings.net/2012_European_Championship_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Qatar",
+    "country_code": "QA",
+    "elo_rating": 1680,
+    "elo_rank": 53,
+    "first_match_date": "2022-11-20",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Ecuador",
+    "country_code": "EC",
+    "elo_rating": 1833,
+    "elo_rank": 17,
+    "first_match_date": "2022-11-20",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "United States",
+    "country_code": "US",
+    "elo_rating": 1796,
+    "elo_rank": 23,
+    "first_match_date": "2022-11-21",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Wales",
+    "country_code": "WA",
+    "elo_rating": 1789,
+    "elo_rank": 24,
+    "first_match_date": "2022-11-21",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Netherlands",
+    "country_code": "NL",
+    "elo_rating": 2040,
+    "elo_rank": 3,
+    "first_match_date": "2022-11-21",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Senegal",
+    "country_code": "SN",
+    "elo_rating": 1684,
+    "elo_rank": 47,
+    "first_match_date": "2022-11-21",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1919,
+    "elo_rank": 11,
+    "first_match_date": "2022-11-21",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Iran",
+    "country_code": "IR",
+    "elo_rating": 1798,
+    "elo_rank": 30,
+    "first_match_date": "2022-11-21",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Saudi Arabia",
+    "country_code": "SA",
+    "elo_rating": 1636,
+    "elo_rank": 43,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 2143,
+    "elo_rank": 2,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Mexico",
+    "country_code": "MX",
+    "elo_rating": 1808,
+    "elo_rank": 22,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Poland",
+    "country_code": "PL",
+    "elo_rating": 1813,
+    "elo_rank": 21,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 2004,
+    "elo_rank": 5,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Australia",
+    "country_code": "AU",
+    "elo_rating": 1721,
+    "elo_rank": 40,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Denmark",
+    "country_code": "DK",
+    "elo_rating": 1971,
+    "elo_rank": 11,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Tunisia",
+    "country_code": "TN",
+    "elo_rating": 1705,
+    "elo_rank": 38,
+    "first_match_date": "2022-11-22",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2048,
+    "elo_rank": 3,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Costa Rica",
+    "country_code": "CR",
+    "elo_rating": 1743,
+    "elo_rank": 38,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Japan",
+    "country_code": "JP",
+    "elo_rating": 1788,
+    "elo_rank": 19,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 1962,
+    "elo_rank": 13,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1926,
+    "elo_rank": 14,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Morocco",
+    "country_code": "MA",
+    "elo_rating": 1764,
+    "elo_rank": 28,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Belgium",
+    "country_code": "BE",
+    "elo_rating": 2006,
+    "elo_rank": 6,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Canada",
+    "country_code": "CA",
+    "elo_rating": 1775,
+    "elo_rank": 29,
+    "first_match_date": "2022-11-23",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1901,
+    "elo_rank": 15,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Cameroon",
+    "country_code": "CM",
+    "elo_rating": 1607,
+    "elo_rank": 62,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "South Korea",
+    "country_code": "KR",
+    "elo_rating": 1786,
+    "elo_rank": 24,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1935,
+    "elo_rank": 11,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 2005,
+    "elo_rank": 7,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Ghana",
+    "country_code": "GH",
+    "elo_rating": 1564,
+    "elo_rank": 67,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2169,
+    "elo_rank": 1,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2022",
+    "team_name": "Serbia",
+    "country_code": "RS",
+    "elo_rating": 1898,
+    "elo_rank": 16,
+    "first_match_date": "2022-11-24",
+    "source": "https://www.eloratings.net/2022_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Russia",
+    "country_code": "RU",
+    "elo_rating": 1676,
+    "elo_rank": 43,
+    "first_match_date": "2018-06-14",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Saudi Arabia",
+    "country_code": "SA",
+    "elo_rating": 1588,
+    "elo_rank": 69,
+    "first_match_date": "2018-06-14",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Iran",
+    "country_code": "IR",
+    "elo_rating": 1790,
+    "elo_rank": 20,
+    "first_match_date": "2018-06-15",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Morocco",
+    "country_code": "MA",
+    "elo_rating": 1731,
+    "elo_rank": 42,
+    "first_match_date": "2018-06-15",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 1967,
+    "elo_rank": 6,
+    "first_match_date": "2018-06-15",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2043,
+    "elo_rank": 3,
+    "first_match_date": "2018-06-15",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1893,
+    "elo_rank": 12,
+    "first_match_date": "2018-06-15",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Egypt",
+    "country_code": "EG",
+    "elo_rating": 1639,
+    "elo_rank": 54,
+    "first_match_date": "2018-06-15",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 1985,
+    "elo_rank": 6,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Iceland",
+    "country_code": "IS",
+    "elo_rating": 1764,
+    "elo_rank": 23,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1853,
+    "elo_rank": 16,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Nigeria",
+    "country_code": "NG",
+    "elo_rating": 1681,
+    "elo_rank": 47,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Denmark",
+    "country_code": "DK",
+    "elo_rating": 1854,
+    "elo_rank": 13,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Peru",
+    "country_code": "PE",
+    "elo_rating": 1915,
+    "elo_rank": 15,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 1986,
+    "elo_rank": 4,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Australia",
+    "country_code": "AU",
+    "elo_rating": 1743,
+    "elo_rank": 34,
+    "first_match_date": "2018-06-16",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2141,
+    "elo_rank": 1,
+    "first_match_date": "2018-06-17",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1888,
+    "elo_rank": 10,
+    "first_match_date": "2018-06-17",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Mexico",
+    "country_code": "MX",
+    "elo_rating": 1849,
+    "elo_rank": 13,
+    "first_match_date": "2018-06-17",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 2076,
+    "elo_rank": 3,
+    "first_match_date": "2018-06-17",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Serbia",
+    "country_code": "RS",
+    "elo_rating": 1787,
+    "elo_rank": 21,
+    "first_match_date": "2018-06-17",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Costa Rica",
+    "country_code": "CR",
+    "elo_rating": 1742,
+    "elo_rank": 38,
+    "first_match_date": "2018-06-17",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Belgium",
+    "country_code": "BE",
+    "elo_rating": 1935,
+    "elo_rank": 8,
+    "first_match_date": "2018-06-18",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Panama",
+    "country_code": "PA",
+    "elo_rating": 1657,
+    "elo_rank": 52,
+    "first_match_date": "2018-06-18",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1947,
+    "elo_rank": 7,
+    "first_match_date": "2018-06-18",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Tunisia",
+    "country_code": "TN",
+    "elo_rating": 1652,
+    "elo_rank": 49,
+    "first_match_date": "2018-06-18",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Sweden",
+    "country_code": "SE",
+    "elo_rating": 1793,
+    "elo_rank": 20,
+    "first_match_date": "2018-06-18",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "South Korea",
+    "country_code": "KR",
+    "elo_rating": 1713,
+    "elo_rank": 43,
+    "first_match_date": "2018-06-18",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Japan",
+    "country_code": "JP",
+    "elo_rating": 1684,
+    "elo_rank": 33,
+    "first_match_date": "2018-06-19",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Colombia",
+    "country_code": "CO",
+    "elo_rating": 1927,
+    "elo_rank": 16,
+    "first_match_date": "2018-06-19",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Senegal",
+    "country_code": "SN",
+    "elo_rating": 1745,
+    "elo_rank": 23,
+    "first_match_date": "2018-06-19",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2018",
+    "team_name": "Poland",
+    "country_code": "PL",
+    "elo_rating": 1830,
+    "elo_rank": 22,
+    "first_match_date": "2018-06-19",
+    "source": "https://www.eloratings.net/2018_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2138,
+    "elo_rank": 1,
+    "first_match_date": "2014-06-12",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Croatia",
+    "country_code": "HR",
+    "elo_rating": 1818,
+    "elo_rank": 21,
+    "first_match_date": "2014-06-12",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Chile",
+    "country_code": "CL",
+    "elo_rating": 1920,
+    "elo_rank": 7,
+    "first_match_date": "2014-06-13",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Australia",
+    "country_code": "AU",
+    "elo_rating": 1708,
+    "elo_rank": 40,
+    "first_match_date": "2014-06-13",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Mexico",
+    "country_code": "MX",
+    "elo_rating": 1814,
+    "elo_rank": 19,
+    "first_match_date": "2014-06-13",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Cameroon",
+    "country_code": "CM",
+    "elo_rating": 1606,
+    "elo_rank": 61,
+    "first_match_date": "2014-06-13",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Netherlands",
+    "country_code": "NL",
+    "elo_rating": 1985,
+    "elo_rank": 3,
+    "first_match_date": "2014-06-13",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2107,
+    "elo_rank": 4,
+    "first_match_date": "2014-06-13",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Colombia",
+    "country_code": "CO",
+    "elo_rating": 1922,
+    "elo_rank": 6,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Greece",
+    "country_code": "GR",
+    "elo_rating": 1823,
+    "elo_rank": 23,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Costa Rica",
+    "country_code": "CR",
+    "elo_rating": 1711,
+    "elo_rank": 25,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1918,
+    "elo_rank": 15,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Italy",
+    "country_code": "IT",
+    "elo_rating": 1887,
+    "elo_rank": 9,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 1931,
+    "elo_rank": 10,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Ivory Coast",
+    "country_code": "CI",
+    "elo_rating": 1772,
+    "elo_rank": 21,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Japan",
+    "country_code": "JP",
+    "elo_rating": 1785,
+    "elo_rank": 27,
+    "first_match_date": "2014-06-14",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 2018,
+    "elo_rank": 5,
+    "first_match_date": "2014-06-15",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Bosnia and Herzegovina",
+    "country_code": "BA",
+    "elo_rating": 1785,
+    "elo_rank": 25,
+    "first_match_date": "2014-06-15",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 1897,
+    "elo_rank": 10,
+    "first_match_date": "2014-06-15",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Honduras",
+    "country_code": "HN",
+    "elo_rating": 1669,
+    "elo_rank": 48,
+    "first_match_date": "2014-06-15",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1854,
+    "elo_rank": 12,
+    "first_match_date": "2014-06-15",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Ecuador",
+    "country_code": "EC",
+    "elo_rating": 1836,
+    "elo_rank": 20,
+    "first_match_date": "2014-06-15",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 2073,
+    "elo_rank": 2,
+    "first_match_date": "2014-06-16",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 1942,
+    "elo_rank": 10,
+    "first_match_date": "2014-06-16",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Iran",
+    "country_code": "IR",
+    "elo_rating": 1715,
+    "elo_rank": 32,
+    "first_match_date": "2014-06-16",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Nigeria",
+    "country_code": "NG",
+    "elo_rating": 1727,
+    "elo_rank": 31,
+    "first_match_date": "2014-06-16",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "United States",
+    "country_code": "US",
+    "elo_rating": 1857,
+    "elo_rank": 13,
+    "first_match_date": "2014-06-16",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Ghana",
+    "country_code": "GH",
+    "elo_rating": 1704,
+    "elo_rank": 41,
+    "first_match_date": "2014-06-16",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Belgium",
+    "country_code": "BE",
+    "elo_rating": 1851,
+    "elo_rank": 14,
+    "first_match_date": "2014-06-17",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Algeria",
+    "country_code": "DZ",
+    "elo_rating": 1625,
+    "elo_rank": 57,
+    "first_match_date": "2014-06-17",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "Russia",
+    "country_code": "RU",
+    "elo_rating": 1848,
+    "elo_rank": 18,
+    "first_match_date": "2014-06-17",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2014",
+    "team_name": "South Korea",
+    "country_code": "KR",
+    "elo_rating": 1667,
+    "elo_rank": 42,
+    "first_match_date": "2014-06-17",
+    "source": "https://www.eloratings.net/2014_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "France",
+    "country_code": "FR",
+    "elo_rating": 1861,
+    "elo_rank": 12,
+    "first_match_date": "2010-06-11",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1845,
+    "elo_rank": 14,
+    "first_match_date": "2010-06-11",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "South Africa",
+    "country_code": "ZA",
+    "elo_rating": 1592,
+    "elo_rank": 55,
+    "first_match_date": "2010-06-11",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Mexico",
+    "country_code": "MX",
+    "elo_rating": 1898,
+    "elo_rank": 10,
+    "first_match_date": "2010-06-11",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 1921,
+    "elo_rank": 7,
+    "first_match_date": "2010-06-12",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Nigeria",
+    "country_code": "NG",
+    "elo_rating": 1713,
+    "elo_rank": 37,
+    "first_match_date": "2010-06-12",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "England",
+    "country_code": "EN",
+    "elo_rating": 2001,
+    "elo_rank": 4,
+    "first_match_date": "2010-06-12",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "United States",
+    "country_code": "US",
+    "elo_rating": 1785,
+    "elo_rank": 19,
+    "first_match_date": "2010-06-12",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "South Korea",
+    "country_code": "KR",
+    "elo_rating": 1765,
+    "elo_rank": 18,
+    "first_match_date": "2010-06-12",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Greece",
+    "country_code": "GR",
+    "elo_rating": 1735,
+    "elo_rank": 39,
+    "first_match_date": "2010-06-12",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Germany",
+    "country_code": "DE",
+    "elo_rating": 1957,
+    "elo_rank": 4,
+    "first_match_date": "2010-06-13",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Australia",
+    "country_code": "AU",
+    "elo_rating": 1775,
+    "elo_rank": 29,
+    "first_match_date": "2010-06-13",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Ghana",
+    "country_code": "GH",
+    "elo_rating": 1687,
+    "elo_rank": 32,
+    "first_match_date": "2010-06-13",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Serbia",
+    "country_code": "RS",
+    "elo_rating": 1840,
+    "elo_rank": 20,
+    "first_match_date": "2010-06-13",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Slovenia",
+    "country_code": "SI",
+    "elo_rating": 1686,
+    "elo_rank": 38,
+    "first_match_date": "2010-06-13",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Algeria",
+    "country_code": "DZ",
+    "elo_rating": 1539,
+    "elo_rank": 85,
+    "first_match_date": "2010-06-13",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Italy",
+    "country_code": "IT",
+    "elo_rating": 1936,
+    "elo_rank": 7,
+    "first_match_date": "2010-06-14",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Paraguay",
+    "country_code": "PY",
+    "elo_rating": 1764,
+    "elo_rank": 22,
+    "first_match_date": "2010-06-14",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Japan",
+    "country_code": "JP",
+    "elo_rating": 1678,
+    "elo_rank": 38,
+    "first_match_date": "2010-06-14",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Cameroon",
+    "country_code": "CM",
+    "elo_rating": 1694,
+    "elo_rank": 48,
+    "first_match_date": "2010-06-14",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Netherlands",
+    "country_code": "NL",
+    "elo_rating": 2043,
+    "elo_rank": 3,
+    "first_match_date": "2010-06-14",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Denmark",
+    "country_code": "DK",
+    "elo_rating": 1778,
+    "elo_rank": 24,
+    "first_match_date": "2010-06-14",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2109,
+    "elo_rank": 1,
+    "first_match_date": "2010-06-15",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "North Korea",
+    "country_code": "KP",
+    "elo_rating": 1537,
+    "elo_rank": 81,
+    "first_match_date": "2010-06-15",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Ivory Coast",
+    "country_code": "CI",
+    "elo_rating": 1739,
+    "elo_rank": 26,
+    "first_match_date": "2010-06-15",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Portugal",
+    "country_code": "PT",
+    "elo_rating": 1876,
+    "elo_rank": 11,
+    "first_match_date": "2010-06-15",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "New Zealand",
+    "country_code": "NZ",
+    "elo_rating": 1527,
+    "elo_rank": 79,
+    "first_match_date": "2010-06-15",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Slovakia",
+    "country_code": "SK",
+    "elo_rating": 1670,
+    "elo_rank": 48,
+    "first_match_date": "2010-06-15",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Chile",
+    "country_code": "CL",
+    "elo_rating": 1886,
+    "elo_rank": 8,
+    "first_match_date": "2010-06-16",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Honduras",
+    "country_code": "HN",
+    "elo_rating": 1714,
+    "elo_rank": 40,
+    "first_match_date": "2010-06-16",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Switzerland",
+    "country_code": "CH",
+    "elo_rating": 1761,
+    "elo_rank": 16,
+    "first_match_date": "2010-06-16",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "world-cup-2010",
+    "team_name": "Spain",
+    "country_code": "ES",
+    "elo_rating": 2111,
+    "elo_rank": 3,
+    "first_match_date": "2010-06-16",
+    "source": "https://www.eloratings.net/2010_World_Cup_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 2145,
+    "elo_rank": 1,
+    "first_match_date": "2024-06-20",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Canada",
+    "country_code": "CA",
+    "elo_rating": 1720,
+    "elo_rank": 40,
+    "first_match_date": "2024-06-20",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Chile",
+    "country_code": "CL",
+    "elo_rating": 1725,
+    "elo_rank": 38,
+    "first_match_date": "2024-06-21",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Peru",
+    "country_code": "PE",
+    "elo_rating": 1743,
+    "elo_rank": 34,
+    "first_match_date": "2024-06-21",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Venezuela",
+    "country_code": "VE",
+    "elo_rating": 1744,
+    "elo_rank": 25,
+    "first_match_date": "2024-06-22",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Ecuador",
+    "country_code": "EC",
+    "elo_rating": 1876,
+    "elo_rank": 16,
+    "first_match_date": "2024-06-22",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Mexico",
+    "country_code": "MX",
+    "elo_rating": 1791,
+    "elo_rank": 20,
+    "first_match_date": "2024-06-22",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Jamaica",
+    "country_code": "JM",
+    "elo_rating": 1641,
+    "elo_rank": 57,
+    "first_match_date": "2024-06-22",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1991,
+    "elo_rank": 7,
+    "first_match_date": "2024-06-23",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Panama",
+    "country_code": "PA",
+    "elo_rating": 1697,
+    "elo_rank": 44,
+    "first_match_date": "2024-06-23",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "United States",
+    "country_code": "US",
+    "elo_rating": 1789,
+    "elo_rank": 22,
+    "first_match_date": "2024-06-23",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Bolivia",
+    "country_code": "BO",
+    "elo_rating": 1591,
+    "elo_rank": 66,
+    "first_match_date": "2024-06-23",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Colombia",
+    "country_code": "CO",
+    "elo_rating": 2014,
+    "elo_rank": 5,
+    "first_match_date": "2024-06-24",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Paraguay",
+    "country_code": "PY",
+    "elo_rating": 1711,
+    "elo_rank": 41,
+    "first_match_date": "2024-06-24",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2027,
+    "elo_rank": 6,
+    "first_match_date": "2024-06-24",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2024",
+    "team_name": "Costa Rica",
+    "country_code": "CR",
+    "elo_rating": 1620,
+    "elo_rank": 51,
+    "first_match_date": "2024-06-24",
+    "source": "https://www.eloratings.net/2024_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Colombia",
+    "country_code": "CO",
+    "elo_rating": 1928,
+    "elo_rank": 10,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Ecuador",
+    "country_code": "EC",
+    "elo_rating": 1794,
+    "elo_rank": 27,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2151,
+    "elo_rank": 1,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Venezuela",
+    "country_code": "VE",
+    "elo_rating": 1766,
+    "elo_rank": 33,
+    "first_match_date": "2021-06-13",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Paraguay",
+    "country_code": "PY",
+    "elo_rating": 1771,
+    "elo_rank": 23,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Bolivia",
+    "country_code": "BO",
+    "elo_rating": 1632,
+    "elo_rank": 57,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 1984,
+    "elo_rank": 8,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Chile",
+    "country_code": "CL",
+    "elo_rating": 1815,
+    "elo_rank": 18,
+    "first_match_date": "2021-06-14",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Peru",
+    "country_code": "PE",
+    "elo_rating": 1786,
+    "elo_rank": 26,
+    "first_match_date": "2021-06-17",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2021",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1935,
+    "elo_rank": 12,
+    "first_match_date": "2021-06-18",
+    "source": "https://www.eloratings.net/2021_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2134,
+    "elo_rank": 1,
+    "first_match_date": "2019-06-14",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Bolivia",
+    "country_code": "BO",
+    "elo_rating": 1637,
+    "elo_rank": 52,
+    "first_match_date": "2019-06-14",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Colombia",
+    "country_code": "CO",
+    "elo_rating": 1974,
+    "elo_rank": 5,
+    "first_match_date": "2019-06-15",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 1908,
+    "elo_rank": 15,
+    "first_match_date": "2019-06-15",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Peru",
+    "country_code": "PE",
+    "elo_rating": 1821,
+    "elo_rank": 20,
+    "first_match_date": "2019-06-15",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Venezuela",
+    "country_code": "VE",
+    "elo_rating": 1785,
+    "elo_rank": 24,
+    "first_match_date": "2019-06-15",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Paraguay",
+    "country_code": "PY",
+    "elo_rating": 1705,
+    "elo_rank": 40,
+    "first_match_date": "2019-06-16",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Qatar",
+    "country_code": "QA",
+    "elo_rating": 1769,
+    "elo_rank": 28,
+    "first_match_date": "2019-06-16",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1933,
+    "elo_rank": 9,
+    "first_match_date": "2019-06-16",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Ecuador",
+    "country_code": "EC",
+    "elo_rating": 1752,
+    "elo_rank": 37,
+    "first_match_date": "2019-06-16",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Chile",
+    "country_code": "CL",
+    "elo_rating": 1836,
+    "elo_rank": 16,
+    "first_match_date": "2019-06-17",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2019",
+    "team_name": "Japan",
+    "country_code": "JP",
+    "elo_rating": 1772,
+    "elo_rank": 36,
+    "first_match_date": "2019-06-17",
+    "source": "https://www.eloratings.net/2019_Copa_America_results",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "United States",
+    "country_code": "US",
+    "elo_rating": 1752,
+    "elo_rank": 35,
+    "first_match_date": "2016-06-03",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Colombia",
+    "country_code": "CO",
+    "elo_rating": 1981,
+    "elo_rank": 5,
+    "first_match_date": "2016-06-03",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Brazil",
+    "country_code": "BR",
+    "elo_rating": 2022,
+    "elo_rank": 3,
+    "first_match_date": "2016-06-04",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Ecuador",
+    "country_code": "EC",
+    "elo_rating": 1872,
+    "elo_rank": 14,
+    "first_match_date": "2016-06-04",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Costa Rica",
+    "country_code": "CR",
+    "elo_rating": 1789,
+    "elo_rank": 19,
+    "first_match_date": "2016-06-04",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Paraguay",
+    "country_code": "PY",
+    "elo_rating": 1746,
+    "elo_rank": 32,
+    "first_match_date": "2016-06-04",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Peru",
+    "country_code": "PE",
+    "elo_rating": 1777,
+    "elo_rank": 20,
+    "first_match_date": "2016-06-04",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Haiti",
+    "country_code": "HT",
+    "elo_rating": 1498,
+    "elo_rank": 86,
+    "first_match_date": "2016-06-04",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Mexico",
+    "country_code": "MX",
+    "elo_rating": 1937,
+    "elo_rank": 6,
+    "first_match_date": "2016-06-05",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Uruguay",
+    "country_code": "UY",
+    "elo_rating": 1965,
+    "elo_rank": 10,
+    "first_match_date": "2016-06-05",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Venezuela",
+    "country_code": "VE",
+    "elo_rating": 1609,
+    "elo_rank": 51,
+    "first_match_date": "2016-06-05",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Jamaica",
+    "country_code": "JM",
+    "elo_rating": 1596,
+    "elo_rank": 66,
+    "first_match_date": "2016-06-05",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Argentina",
+    "country_code": "AR",
+    "elo_rating": 2050,
+    "elo_rank": 1,
+    "first_match_date": "2016-06-06",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Chile",
+    "country_code": "CL",
+    "elo_rating": 1937,
+    "elo_rank": 12,
+    "first_match_date": "2016-06-06",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Panama",
+    "country_code": "PA",
+    "elo_rating": 1676,
+    "elo_rank": 41,
+    "first_match_date": "2016-06-06",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  },
+  {
+    "tournament_id": "copa-america-2016",
+    "team_name": "Bolivia",
+    "country_code": "BO",
+    "elo_rating": 1604,
+    "elo_rank": 61,
+    "first_match_date": "2016-06-06",
+    "source": "https://www.eloratings.net/2016_Copa_America",
+    "collected_at": "2026-05-28T09:44:17.179653+00:00"
+  }
+]

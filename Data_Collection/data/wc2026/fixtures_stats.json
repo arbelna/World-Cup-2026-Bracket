@@ -1,0 +1,2306 @@
+[
+  {
+    "match_id": "world-cup-2026__czechia__korearepublic__2026-06-11",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-11T00:00:00+00:00",
+    "home_team": "Czechia",
+    "away_team": "South Korea",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1726,
+      "away": 1752
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 40,
+      "away": 33
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__mexico__southafrica__2026-06-11",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-11T00:00:00+00:00",
+    "home_team": "Mexico",
+    "away_team": "South Africa",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1860,
+      "away": 1524
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 20,
+      "away": 79
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__bosniaandherzegovina__canada__2026-06-12",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-12T00:00:00+00:00",
+    "home_team": "Canada",
+    "away_team": "Bosnia and Herzegovina",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1784,
+      "away": 1594
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 25,
+      "away": 66
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__paraguay__unitedstates__2026-06-12",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-12T00:00:00+00:00",
+    "home_team": "United States",
+    "away_team": "Paraguay",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1721,
+      "away": 1833
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 41,
+      "away": 22
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__australia__turkey__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-13T00:00:00+00:00",
+    "home_team": "Australia",
+    "away_team": "Turkey",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1783,
+      "away": 1902
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 26,
+      "away": 14
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__brazil__morocco__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-13T00:00:00+00:00",
+    "home_team": "Brazil",
+    "away_team": "Morocco",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1984,
+      "away": 1822
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 5,
+      "away": 24
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__haiti__scotland__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-13T00:00:00+00:00",
+    "home_team": "Haiti",
+    "away_team": "Scotland",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1532,
+      "away": 1767
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 77,
+      "away": 29
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__qatar__switzerland__2026-06-13",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-13T00:00:00+00:00",
+    "home_team": "Qatar",
+    "away_team": "Switzerland",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1425,
+      "away": 1889
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 95,
+      "away": 16
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__curacao__germany__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-14T00:00:00+00:00",
+    "home_team": "Curaçao",
+    "away_team": "Germany",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1436,
+      "away": 1923
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 90,
+      "away": 11
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__ecuador__ivorycoast__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-14T00:00:00+00:00",
+    "home_team": "Ecuador",
+    "away_team": "Ivory Coast",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1933,
+      "away": 1676
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 9,
+      "away": 52
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__japan__netherlands__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-14T00:00:00+00:00",
+    "home_team": "Japan",
+    "away_team": "Netherlands",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1904,
+      "away": 1961
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 13,
+      "away": 8
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__sweden__tunisia__2026-06-14",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-14T00:00:00+00:00",
+    "home_team": "Sweden",
+    "away_team": "Tunisia",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1719,
+      "away": 1636
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 43,
+      "away": 58
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__belgium__egypt__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-15T00:00:00+00:00",
+    "home_team": "Belgium",
+    "away_team": "Egypt",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1867,
+      "away": 1689
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 19,
+      "away": 51
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__capeverde__spain__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-15T00:00:00+00:00",
+    "home_team": "Cape Verde",
+    "away_team": "Spain",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1549,
+      "away": 2165
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 72,
+      "away": 1
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__iran__newzealand__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-15T00:00:00+00:00",
+    "home_team": "Iran",
+    "away_team": "New Zealand",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1760,
+      "away": 1585
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 31,
+      "away": 68
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__saudiarabia__uruguay__2026-06-15",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-15T00:00:00+00:00",
+    "home_team": "Saudi Arabia",
+    "away_team": "Uruguay",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1568,
+      "away": 1892
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 71,
+      "away": 15
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__algeria__argentina__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-16T00:00:00+00:00",
+    "home_team": "Algeria",
+    "away_team": "Argentina",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1743,
+      "away": 2113
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 35,
+      "away": 2
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__austria__jordan__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-16T00:00:00+00:00",
+    "home_team": "Austria",
+    "away_team": "Jordan",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1827,
+      "away": 1690
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 23,
+      "away": 50
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__france__senegal__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-16T00:00:00+00:00",
+    "home_team": "France",
+    "away_team": "Senegal",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2081,
+      "away": 1878
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 3,
+      "away": 17
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__iraq__norway__2026-06-16",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-16T00:00:00+00:00",
+    "home_team": "Iraq",
+    "away_team": "Norway",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1607,
+      "away": 1912
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 63,
+      "away": 12
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__colombia__uzbekistan__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-17T00:00:00+00:00",
+    "home_team": "Colombia",
+    "away_team": "Uzbekistan",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1975,
+      "away": 1727
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 7,
+      "away": 38
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__croatia__england__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-17T00:00:00+00:00",
+    "home_team": "Croatia",
+    "away_team": "England",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1930,
+      "away": 2020
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 10,
+      "away": 4
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__drcongo__portugal__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-17T00:00:00+00:00",
+    "home_team": "DR Congo",
+    "away_team": "Portugal",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1655,
+      "away": 1984
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 54,
+      "away": 5
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__ghana__panama__2026-06-17",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-17T00:00:00+00:00",
+    "home_team": "Ghana",
+    "away_team": "Panama",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1503,
+      "away": 1737
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 82,
+      "away": 36
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__bosniaandherzegovina__switzerland__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-18T00:00:00+00:00",
+    "home_team": "Bosnia and Herzegovina",
+    "away_team": "Switzerland",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1594,
+      "away": 1889
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 66,
+      "away": 16
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__canada__qatar__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-18T00:00:00+00:00",
+    "home_team": "Canada",
+    "away_team": "Qatar",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1784,
+      "away": 1425
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 25,
+      "away": 95
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__czechia__southafrica__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-18T00:00:00+00:00",
+    "home_team": "Czechia",
+    "away_team": "South Africa",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1726,
+      "away": 1524
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 40,
+      "away": 79
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__korearepublic__mexico__2026-06-18",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-18T00:00:00+00:00",
+    "home_team": "Mexico",
+    "away_team": "South Korea",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1860,
+      "away": 1752
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 20,
+      "away": 33
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__brazil__haiti__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-19T00:00:00+00:00",
+    "home_team": "Brazil",
+    "away_team": "Haiti",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1984,
+      "away": 1532
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 5,
+      "away": 77
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__morocco__scotland__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-19T00:00:00+00:00",
+    "home_team": "Morocco",
+    "away_team": "Scotland",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1822,
+      "away": 1767
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 24,
+      "away": 29
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__paraguay__turkey__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-19T00:00:00+00:00",
+    "home_team": "Paraguay",
+    "away_team": "Turkey",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1833,
+      "away": 1902
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 22,
+      "away": 14
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__australia__unitedstates__2026-06-19",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-19T00:00:00+00:00",
+    "home_team": "United States",
+    "away_team": "Australia",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1721,
+      "away": 1783
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 41,
+      "away": 26
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__curacao__ecuador__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-20T00:00:00+00:00",
+    "home_team": "Curaçao",
+    "away_team": "Ecuador",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1436,
+      "away": 1933
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 90,
+      "away": 9
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__germany__ivorycoast__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-20T00:00:00+00:00",
+    "home_team": "Germany",
+    "away_team": "Ivory Coast",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1923,
+      "away": 1676
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 11,
+      "away": 52
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__japan__tunisia__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-20T00:00:00+00:00",
+    "home_team": "Japan",
+    "away_team": "Tunisia",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1904,
+      "away": 1636
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 13,
+      "away": 58
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__netherlands__sweden__2026-06-20",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-20T00:00:00+00:00",
+    "home_team": "Netherlands",
+    "away_team": "Sweden",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1961,
+      "away": 1719
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 8,
+      "away": 43
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__belgium__iran__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-21T00:00:00+00:00",
+    "home_team": "Belgium",
+    "away_team": "Iran",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1867,
+      "away": 1760
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 19,
+      "away": 31
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__capeverde__uruguay__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-21T00:00:00+00:00",
+    "home_team": "Cape Verde",
+    "away_team": "Uruguay",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1549,
+      "away": 1892
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 72,
+      "away": 15
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__egypt__newzealand__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-21T00:00:00+00:00",
+    "home_team": "Egypt",
+    "away_team": "New Zealand",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1689,
+      "away": 1585
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 51,
+      "away": 68
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__saudiarabia__spain__2026-06-21",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-21T00:00:00+00:00",
+    "home_team": "Saudi Arabia",
+    "away_team": "Spain",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1568,
+      "away": 2165
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 71,
+      "away": 1
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__algeria__jordan__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-22T00:00:00+00:00",
+    "home_team": "Algeria",
+    "away_team": "Jordan",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1743,
+      "away": 1690
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 35,
+      "away": 50
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__argentina__austria__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-22T00:00:00+00:00",
+    "home_team": "Argentina",
+    "away_team": "Austria",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2113,
+      "away": 1827
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 2,
+      "away": 23
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__france__iraq__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-22T00:00:00+00:00",
+    "home_team": "France",
+    "away_team": "Iraq",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2081,
+      "away": 1607
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 3,
+      "away": 63
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__norway__senegal__2026-06-22",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-22T00:00:00+00:00",
+    "home_team": "Norway",
+    "away_team": "Senegal",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1912,
+      "away": 1878
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 12,
+      "away": 17
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__colombia__drcongo__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-23T00:00:00+00:00",
+    "home_team": "Colombia",
+    "away_team": "DR Congo",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1975,
+      "away": 1655
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 7,
+      "away": 54
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__croatia__panama__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-23T00:00:00+00:00",
+    "home_team": "Croatia",
+    "away_team": "Panama",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1930,
+      "away": 1737
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 10,
+      "away": 36
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__england__ghana__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-23T00:00:00+00:00",
+    "home_team": "England",
+    "away_team": "Ghana",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2020,
+      "away": 1503
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 4,
+      "away": 82
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__portugal__uzbekistan__2026-06-23",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-23T00:00:00+00:00",
+    "home_team": "Portugal",
+    "away_team": "Uzbekistan",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1984,
+      "away": 1727
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 5,
+      "away": 38
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__bosniaandherzegovina__qatar__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-24T00:00:00+00:00",
+    "home_team": "Bosnia and Herzegovina",
+    "away_team": "Qatar",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1594,
+      "away": 1425
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 66,
+      "away": 95
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__brazil__scotland__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-24T00:00:00+00:00",
+    "home_team": "Brazil",
+    "away_team": "Scotland",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1984,
+      "away": 1767
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 5,
+      "away": 29
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__canada__switzerland__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-24T00:00:00+00:00",
+    "home_team": "Canada",
+    "away_team": "Switzerland",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1784,
+      "away": 1889
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 25,
+      "away": 16
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__haiti__morocco__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-24T00:00:00+00:00",
+    "home_team": "Haiti",
+    "away_team": "Morocco",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1532,
+      "away": 1822
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 77,
+      "away": 24
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__czechia__mexico__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-24T00:00:00+00:00",
+    "home_team": "Mexico",
+    "away_team": "Czechia",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1860,
+      "away": 1726
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 20,
+      "away": 40
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__korearepublic__southafrica__2026-06-24",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-24T00:00:00+00:00",
+    "home_team": "South Africa",
+    "away_team": "South Korea",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 1524,
+      "away": 1752
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 79,
+      "away": 33
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__australia__paraguay__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-25T00:00:00+00:00",
+    "home_team": "Australia",
+    "away_team": "Paraguay",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1783,
+      "away": 1833
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 26,
+      "away": 22
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__curacao__ivorycoast__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-25T00:00:00+00:00",
+    "home_team": "Curaçao",
+    "away_team": "Ivory Coast",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1436,
+      "away": 1676
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 90,
+      "away": 52
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__ecuador__germany__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-25T00:00:00+00:00",
+    "home_team": "Ecuador",
+    "away_team": "Germany",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1933,
+      "away": 1923
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 9,
+      "away": 11
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__japan__sweden__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-25T00:00:00+00:00",
+    "home_team": "Japan",
+    "away_team": "Sweden",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1904,
+      "away": 1719
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 13,
+      "away": 43
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__netherlands__tunisia__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-25T00:00:00+00:00",
+    "home_team": "Netherlands",
+    "away_team": "Tunisia",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1961,
+      "away": 1636
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 8,
+      "away": 58
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__turkey__unitedstates__2026-06-25",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-25T00:00:00+00:00",
+    "home_team": "United States",
+    "away_team": "Turkey",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1721,
+      "away": 1902
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 41,
+      "away": 14
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__belgium__newzealand__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-26T00:00:00+00:00",
+    "home_team": "Belgium",
+    "away_team": "New Zealand",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1867,
+      "away": 1585
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 19,
+      "away": 68
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__capeverde__saudiarabia__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-26T00:00:00+00:00",
+    "home_team": "Cape Verde",
+    "away_team": "Saudi Arabia",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1549,
+      "away": 1568
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 72,
+      "away": 71
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__egypt__iran__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-26T00:00:00+00:00",
+    "home_team": "Egypt",
+    "away_team": "Iran",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1689,
+      "away": 1760
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 51,
+      "away": 31
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__france__norway__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-26T00:00:00+00:00",
+    "home_team": "France",
+    "away_team": "Norway",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2081,
+      "away": 1912
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 3,
+      "away": 12
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__iraq__senegal__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-26T00:00:00+00:00",
+    "home_team": "Iraq",
+    "away_team": "Senegal",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Canada",
+    "elo_rating": {
+      "home": 1607,
+      "away": 1878
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 63,
+      "away": 17
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__spain__uruguay__2026-06-26",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-26T00:00:00+00:00",
+    "home_team": "Spain",
+    "away_team": "Uruguay",
+    "home_score": null,
+    "away_score": null,
+    "venue": "Mexico",
+    "elo_rating": {
+      "home": 2165,
+      "away": 1892
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 1,
+      "away": 15
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__algeria__austria__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-27T00:00:00+00:00",
+    "home_team": "Algeria",
+    "away_team": "Austria",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1743,
+      "away": 1827
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 35,
+      "away": 23
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__argentina__jordan__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-27T00:00:00+00:00",
+    "home_team": "Argentina",
+    "away_team": "Jordan",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2113,
+      "away": 1690
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 2,
+      "away": 50
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__colombia__portugal__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-27T00:00:00+00:00",
+    "home_team": "Colombia",
+    "away_team": "Portugal",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1975,
+      "away": 1984
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 7,
+      "away": 5
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__croatia__ghana__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-27T00:00:00+00:00",
+    "home_team": "Croatia",
+    "away_team": "Ghana",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1930,
+      "away": 1503
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 10,
+      "away": 82
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__drcongo__uzbekistan__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-27T00:00:00+00:00",
+    "home_team": "DR Congo",
+    "away_team": "Uzbekistan",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 1655,
+      "away": 1727
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 54,
+      "away": 38
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  },
+  {
+    "match_id": "world-cup-2026__england__panama__2026-06-27",
+    "tournament_id": "world-cup-2026",
+    "tournament_name": "World Cup 2026",
+    "competition": "World Cup",
+    "season_year": 2026,
+    "tournament_code": "WC",
+    "date_utc": "2026-06-27T00:00:00+00:00",
+    "home_team": "England",
+    "away_team": "Panama",
+    "home_score": null,
+    "away_score": null,
+    "venue": "United States",
+    "elo_rating": {
+      "home": 2020,
+      "away": 1737
+    },
+    "elo_rating_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "elo_rank": {
+      "home": 4,
+      "away": 36
+    },
+    "elo_rank_diff": {
+      "home": 0,
+      "away": 0
+    },
+    "source": "https://www.eloratings.net/2026_World_Cup",
+    "collected_at": "2026-05-28T09:44:42.215065+00:00"
+  }
+]

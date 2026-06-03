@@ -1,0 +1,1658 @@
+# Stage prediction backtest
+
+**Generated:** 2026-06-03 10:18 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
+
+> For the concise human-facing summary, see [`results.md`](../../../results.md). This file keeps the full generated stage-by-stage breakdown.
+
+## How to read this report
+
+| Metric | Source | What it measures |
+|--------|--------|------------------|
+| **1** | `team_stage_probabilities.csv` | Top *N* teams by `p_at_least_{stage}` vs who really qualified (N: R16=16, QF=8, SF=4, final=2, winner=1) |
+| **2** | `stage_config_probabilities.csv` rank 1 | Did the most simulated exact team set match reality? |
+| **3** | `analysis/stage_combinations_{stage}.csv` | Rank and cumulative probability of the exact actual team set (if never simulated in the run, cumulative is 99.90%) |
+| **4** | Same as 3 | Cumulative probability until each actual team has appeared in >=1 combo; lists the union of teams in combos 1..stop rank |
+
+In tables, `yes` means the condition held, `no` means it did not, and recall is shown as `hits/N`.
+
+---
+
+## Aggregate (average across tournaments)
+
+| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
+|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|
+| **R16** | 70.31% | 71.88% | 0/4 | 0/4 | 62.05% | 97.21% | 9.29% | 6.24% |
+| **QF** | 62.50% | 65.62% | 0/4 | 0/4 | 40.01% | 59.74% | 14.38% | 15.75% |
+| **SF** | 43.75% | 50.00% | 0/4 | 0/4 | 45.02% | 42.47% | 24.11% | 27.19% |
+| **final** | 25.00% | 37.50% | 0/4 | 0/4 | 39.12% | 25.39% | 35.91% | 19.60% |
+| **winner** | 0.00% | 0.00% | 0/4 | 0/4 | 56.86% | 43.39% | 56.86% | 43.39% |
+
+| Stage | M3 avg rank mkt | M3 avg rank mdl | M4 avg rank mkt | M4 avg rank mdl |
+|-------|-----------------|-----------------|-----------------|-----------------|
+| **R16** | 20432 | 75614 | 194 | 213 |
+| **QF** | 1234 | 32340 | 134 | 782 |
+| **SF** | 287 | 382 | 47 | 152 |
+| **final** | 13 | 12 | 10 | 8 |
+| **winner** | 4 | 4 | 4 | 4 |
+
+---
+
+## World Cup 2010 (`wc2010`)
+
+**Champion (actual):** Spain
+
+### At a glance
+
+| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
+|-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
+| **R16** | 12/16 | 11/16 | no | no | 55.52% | 89.14% | 2.71% | 2.98% |
+| **QF** | 5/8 | 5/8 | no | no | 34.27% | 98.33% | 12.05% | 14.24% |
+| **SF** | 1/4 | 1/4 | no | no | 37.15% | 51.44% | 24.51% | 21.73% |
+| **final** | 1/2 | 1/2 | no | no | 28.19% | 27.12% | 28.19% | 25.07% |
+| **winner** | 0/1 | 0/1 | no | no | 34.84% | 35.34% | 34.84% | 35.34% |
+
+_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+
+### R16
+
+**Actual participants (16)** - 16 teams
+> Argentina | Brazil | Chile | England | Germany | Ghana
+> Japan | Mexico | Netherlands | Paraguay | Portugal | Slovakia
+> South Korea | Spain | United States | Uruguay
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **12/16** | **11/16** |
+| Perfect set | no | no |
+| Missed | Ghana, Japan, Slovakia, South Korea | |
+| | | Ghana, Japan, Paraguay, South Korea, United States |
+
+**Market top-16 pick** - 16 teams
+> Spain | England | Argentina | Germany | Netherlands | Italy
+> Brazil | Portugal | Paraguay | France | Serbia | Chile
+> United States | Uruguay | Mexico | Ivory Coast
+
+**Model top-16 pick** - 16 teams
+> Brazil | Spain | England | Argentina | Italy | Netherlands
+> Germany | Serbia | France | Portugal | Mexico | Slovakia
+> Chile | Slovenia | Cameroon | Uruguay
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.11% | 0.18% |
+| Set | Argentina, Brazil, Chile, Denmark, England, France, Germany, Italy, Netherlands, Nigeria, Paraguay, Portugal, Serbia, Spain, United States, Uruguay | Argentina, Brazil, Cameroon, Chile, England, France, Germany, Greece, Italy, Mexico, Netherlands, Portugal, Serbia, Slovakia, Slovenia, Spain |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Brazil, Chile, England, Germany, Ghana, Japan, Mexico, Netherlands, Paraguay, Portugal, Slovakia, South Korea, Spain, United States, Uruguay
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 6,758 / 60,708 | 56,847 / 78,558 |
+| p(actual set) | 0.00% | 0.00% |
+| Cumulative through that rank | 55.52% | 89.14% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **40** |
+| Cumulative probability | **2.71%** |
+| Last actual team to appear | **Ghana** |
+| Combo at that rank | Argentina, Brazil, Chile, Denmark, England, France, Germany, Ghana, Italy, Netherlands, Nigeria, Paraguay, Portugal, Spain, United States, Uruguay |
+| Union size (teams in ranks 1-40) | 27 |
+
+**Actual teams covered** - 16 teams
+> Argentina | Brazil | Chile | England | Germany | Ghana
+> Japan | Mexico | Netherlands | Paraguay | Portugal | Slovakia
+> South Korea | Spain | United States | Uruguay
+
+**Other teams in union (not in actual set)** - 11 teams
+> Cameroon | Denmark | France | Greece | Italy | Ivory Coast
+> Nigeria | Serbia | Slovenia | South Africa | Switzerland
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **37** |
+| Cumulative probability | **2.98%** |
+| Last actual team to appear | **Ghana** |
+| Combo at that rank | Argentina, Brazil, Cameroon, Chile, England, France, Germany, Ghana, Greece, Italy, Mexico, Netherlands, Portugal, Slovakia, Slovenia, Spain |
+| Union size (teams in ranks 1-37) | 28 |
+
+**Actual teams covered** - 16 teams
+> Argentina | Brazil | Chile | England | Germany | Ghana
+> Japan | Mexico | Netherlands | Paraguay | Portugal | Slovakia
+> South Korea | Spain | United States | Uruguay
+
+**Other teams in union (not in actual set)** - 12 teams
+> Algeria | Cameroon | Denmark | France | Greece | Honduras
+> Italy | Ivory Coast | Nigeria | Serbia | Slovenia | Switzerland
+
+### QF
+
+**Actual participants (8)** - 8 teams
+> Argentina | Brazil | Germany | Ghana | Netherlands | Paraguay
+> Spain | Uruguay
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **5/8** | **5/8** |
+| Perfect set | no | no |
+| Missed | Ghana, Paraguay, Uruguay | |
+| | | Ghana, Paraguay, Uruguay |
+
+**Market top-8 pick** - 8 teams
+> England | Argentina | Netherlands | Germany | Spain | Brazil
+> Italy | France
+
+**Model top-8 pick** - 8 teams
+> Brazil | England | Argentina | Italy | Spain | Netherlands
+> Germany | France
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.40% | 0.11% |
+| Set | Argentina, Brazil, England, France, Germany, Italy, Netherlands, Spain | Argentina, Brazil, England, Germany, Italy, Mexico, Netherlands, Spain |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Brazil, Germany, Ghana, Netherlands, Paraguay, Spain, Uruguay
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 1,140 / 46,322 | 56,842 / 60,175 |
+| p(actual set) | 0.01% | 0.00% |
+| Cumulative through that rank | 34.27% | 98.33% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **147** |
+| Cumulative probability | **12.05%** |
+| Last actual team to appear | **Ghana** |
+| Combo at that rank | Argentina, Brazil, France, Germany, Ghana, Italy, Netherlands, Spain |
+| Union size (teams in ranks 1-147) | 27 |
+
+**Actual teams covered** - 8 teams
+> Argentina | Brazil | Germany | Ghana | Netherlands | Paraguay
+> Spain | Uruguay
+
+**Other teams in union (not in actual set)** - 19 teams
+> Cameroon | Chile | Denmark | England | France | Greece
+> Italy | Ivory Coast | Japan | Mexico | Nigeria | Portugal
+> Serbia | Slovakia | Slovenia | South Africa | South Korea | Switzerland
+> United States
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **390** |
+| Cumulative probability | **14.24%** |
+| Last actual team to appear | **Ghana** |
+| Combo at that rank | Argentina, Brazil, France, Germany, Ghana, Italy, Netherlands, Spain |
+| Union size (teams in ranks 1-390) | 25 |
+
+**Actual teams covered** - 8 teams
+> Argentina | Brazil | Germany | Ghana | Netherlands | Paraguay
+> Spain | Uruguay
+
+**Other teams in union (not in actual set)** - 17 teams
+> Algeria | Cameroon | Chile | England | France | Greece
+> Italy | Ivory Coast | Japan | Mexico | Nigeria | Portugal
+> Serbia | Slovakia | Slovenia | South Korea | United States
+
+### SF
+
+**Actual participants (4)** - 4 teams
+> Germany | Netherlands | Spain | Uruguay
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **1/4** | **1/4** |
+| Perfect set | no | no |
+| Missed | Germany, Netherlands, Uruguay | |
+| | | Germany, Netherlands, Uruguay |
+
+**Market top-4 pick** - 4 teams
+> Spain | England | Brazil | Argentina
+
+**Model top-4 pick** - 4 teams
+> Brazil | Spain | England | Argentina
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 2.26% | 0.88% |
+| Set | Argentina, Brazil, England, Spain | Argentina, Brazil, England, Spain |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Germany, Netherlands, Spain, Uruguay
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 78 / 6,180 | 336 / 7,805 |
+| p(actual set) | 0.21% | 0.06% |
+| Cumulative through that rank | 37.15% | 51.44% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **32** |
+| Cumulative probability | **24.51%** |
+| Last actual team to appear | **Uruguay** |
+| Combo at that rank | Argentina, Brazil, Spain, Uruguay |
+| Union size (teams in ranks 1-32) | 13 |
+
+**Actual teams covered** - 4 teams
+> Germany | Netherlands | Spain | Uruguay
+
+**Other teams in union (not in actual set)** - 9 teams
+> Argentina | Brazil | Chile | England | France | Italy
+> Ivory Coast | Portugal | Serbia
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **64** |
+| Cumulative probability | **21.73%** |
+| Last actual team to appear | **Uruguay** |
+| Combo at that rank | Brazil, England, Spain, Uruguay |
+| Union size (teams in ranks 1-64) | 16 |
+
+**Actual teams covered** - 4 teams
+> Germany | Netherlands | Spain | Uruguay
+
+**Other teams in union (not in actual set)** - 12 teams
+> Argentina | Brazil | Chile | England | France | Greece
+> Italy | Mexico | Portugal | Serbia | Slovakia | Slovenia
+
+### final
+
+**Actual participants (2)** - 2 teams
+> Netherlands | Spain
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **1/2** | **1/2** |
+| Perfect set | no | no |
+| Missed | Netherlands | |
+| | | Netherlands |
+
+**Market top-2 pick** - 2 teams
+> Brazil | Spain
+
+**Model top-2 pick** - 2 teams
+> Brazil | Spain
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 6.21% | 5.59% |
+| Set | Brazil, Spain | Brazil, Spain |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Netherlands, Spain
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 6 / 428 | 9 / 461 |
+| p(actual set) | 3.58% | 2.04% |
+| Cumulative through that rank | 28.19% | 27.12% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **6** |
+| Cumulative probability | **28.19%** |
+| Last actual team to appear | **Netherlands** |
+| Combo at that rank | Netherlands, Spain |
+| Union size (teams in ranks 1-6) | 6 |
+
+**Actual teams covered** - 2 teams
+> Netherlands | Spain
+
+**Other teams in union (not in actual set)** - 4 teams
+> Argentina | Brazil | England | Germany
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **8** |
+| Cumulative probability | **25.07%** |
+| Last actual team to appear | **Netherlands** |
+| Combo at that rank | Brazil, Netherlands |
+| Union size (teams in ranks 1-8) | 8 |
+
+**Actual teams covered** - 2 teams
+> Netherlands | Spain
+
+**Other teams in union (not in actual set)** - 6 teams
+> Argentina | Brazil | England | Germany | Italy | Portugal
+
+### winner
+
+**Actual participants (1)** - 1 teams
+> Spain
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **0/1** | **0/1** |
+| Perfect set | no | no |
+| Missed | Spain | |
+| | | Spain |
+
+**Market top-1 pick** - 1 teams
+> Brazil
+
+**Model top-1 pick** - 1 teams
+> Brazil
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 17.45% | 22.31% |
+| Set | Brazil | Brazil |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Spain
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 2 / 31 | 2 / 32 |
+| p(actual set) | 17.39% | 13.02% |
+| Cumulative through that rank | 34.84% | 35.34% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **2** |
+| Cumulative probability | **34.84%** |
+| Last actual team to appear | **Spain** |
+| Combo at that rank | Spain |
+| Union size (teams in ranks 1-2) | 2 |
+
+**Actual teams covered** - 1 teams
+> Spain
+
+**Other teams in union (not in actual set)** - 1 teams
+> Brazil
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **2** |
+| Cumulative probability | **35.34%** |
+| Last actual team to appear | **Spain** |
+| Combo at that rank | Spain |
+| Union size (teams in ranks 1-2) | 2 |
+
+**Actual teams covered** - 1 teams
+> Spain
+
+**Other teams in union (not in actual set)** - 1 teams
+> Brazil
+
+---
+
+## World Cup 2014 (`wc2014`)
+
+**Champion (actual):** Germany
+
+### At a glance
+
+| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
+|-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
+| **R16** | 10/16 | 11/16 | no | no | 99.90% | 99.90% | 14.28% | 11.12% |
+| **QF** | 5/8 | 5/8 | no | no | 43.62% | 99.90% | 15.61% | 27.96% |
+| **SF** | 3/4 | 2/4 | no | no | 13.93% | 34.22% | 7.41% | 24.07% |
+| **final** | 0/2 | 1/2 | no | no | 21.07% | 13.94% | 17.20% | 13.94% |
+| **winner** | 0/1 | 0/1 | no | no | 50.44% | 64.26% | 50.44% | 64.26% |
+
+_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+
+### R16
+
+**Actual participants (16)** - 16 teams
+> Algeria | Argentina | Belgium | Brazil | Chile | Colombia
+> Costa Rica | France | Germany | Greece | Mexico | Netherlands
+> Nigeria | Switzerland | United States | Uruguay
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **10/16** | **11/16** |
+| Perfect set | no | no |
+| Missed | Algeria, Costa Rica, Greece, Mexico, Nigeria, United States | |
+| | | Algeria, Costa Rica, Greece, Netherlands, United States |
+
+**Market top-16 pick** - 16 teams
+> Brazil | Argentina | France | Germany | Spain | Belgium
+> Colombia | England | Portugal | Russia | Italy | Switzerland
+> Netherlands | Uruguay | Chile | Ivory Coast
+
+**Model top-16 pick** - 16 teams
+> Argentina | Brazil | France | Belgium | Spain | Germany
+> Uruguay | Russia | Chile | Colombia | England | Switzerland
+> Italy | Ivory Coast | Nigeria | Mexico
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.09% | 0.06% |
+| Set | Argentina, Belgium, Bosnia and Herzegovina, Brazil, Colombia, Croatia, England, France, Germany, Italy, Japan, Netherlands, Portugal, Russia, Spain, Switzerland | Argentina, Belgium, Brazil, Chile, Colombia, England, France, Germany, Ivory Coast, Mexico, Nigeria, Portugal, Russia, Spain, Switzerland, Uruguay |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Algeria, Argentina, Belgium, Brazil, Chile, Colombia, Costa Rica, France, Germany, Greece, Mexico, Netherlands, Nigeria, Switzerland, United States, Uruguay
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | not observed / 66,269 | not observed / 92,594 |
+| p(actual set) | 0.00% | 0.00% |
+| Cumulative through that rank | 99.90% | 99.90% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **488** |
+| Cumulative probability | **14.28%** |
+| Last actual team to appear | **Costa Rica** |
+| Combo at that rank | Argentina, Belgium, Bosnia and Herzegovina, Brazil, Colombia, Costa Rica, Croatia, France, Germany, Ivory Coast, Netherlands, Portugal, Russia, Spain, Switzerland, Uruguay |
+| Union size (teams in ranks 1-488) | 30 |
+
+**Actual teams covered** - 16 teams
+> Algeria | Argentina | Belgium | Brazil | Chile | Colombia
+> Costa Rica | France | Germany | Greece | Mexico | Netherlands
+> Nigeria | Switzerland | United States | Uruguay
+
+**Other teams in union (not in actual set)** - 14 teams
+> Bosnia and Herzegovina | Cameroon | Croatia | Ecuador | England | Ghana
+> Iran | Italy | Ivory Coast | Japan | Portugal | Russia
+> South Korea | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **698** |
+| Cumulative probability | **11.12%** |
+| Last actual team to appear | **Costa Rica** |
+| Combo at that rank | Argentina, Belgium, Brazil, Chile, Colombia, Costa Rica, Ecuador, France, Germany, Ivory Coast, Mexico, Nigeria, Portugal, Russia, Spain, Uruguay |
+| Union size (teams in ranks 1-698) | 32 |
+
+**Actual teams covered** - 16 teams
+> Algeria | Argentina | Belgium | Brazil | Chile | Colombia
+> Costa Rica | France | Germany | Greece | Mexico | Netherlands
+> Nigeria | Switzerland | United States | Uruguay
+
+**Other teams in union (not in actual set)** - 16 teams
+> Australia | Bosnia and Herzegovina | Cameroon | Croatia | Ecuador | England
+> Ghana | Honduras | Iran | Italy | Ivory Coast | Japan
+> Portugal | Russia | South Korea | Spain
+
+### QF
+
+**Actual participants (8)** - 8 teams
+> Argentina | Belgium | Brazil | Colombia | Costa Rica | France
+> Germany | Netherlands
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **5/8** | **5/8** |
+| Perfect set | no | no |
+| Missed | Belgium, Costa Rica, Netherlands | |
+| | | Colombia, Costa Rica, Netherlands |
+
+**Market top-8 pick** - 8 teams
+> Argentina | Germany | Brazil | France | Spain | England
+> Portugal | Colombia
+
+**Model top-8 pick** - 8 teams
+> Argentina | Brazil | France | Belgium | Germany | Spain
+> Uruguay | England
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.29% | 0.10% |
+| Set | Argentina, Brazil, England, France, Germany, Italy, Portugal, Spain | Argentina, Belgium, Brazil, England, France, Germany, Spain, Uruguay |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Belgium, Brazil, Colombia, Costa Rica, France, Germany, Netherlands
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 2,300 / 49,064 | not observed / 71,275 |
+| p(actual set) | 0.01% | 0.00% |
+| Cumulative through that rank | 43.62% | 99.90% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **255** |
+| Cumulative probability | **15.61%** |
+| Last actual team to appear | **Costa Rica** |
+| Combo at that rank | Argentina, Brazil, Costa Rica, England, France, Germany, Portugal, Spain |
+| Union size (teams in ranks 1-255) | 26 |
+
+**Actual teams covered** - 8 teams
+> Argentina | Belgium | Brazil | Colombia | Costa Rica | France
+> Germany | Netherlands
+
+**Other teams in union (not in actual set)** - 18 teams
+> Bosnia and Herzegovina | Chile | Croatia | Ecuador | England | Ghana
+> Greece | Italy | Ivory Coast | Japan | Mexico | Nigeria
+> Portugal | Russia | Spain | Switzerland | United States | Uruguay
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **2348** |
+| Cumulative probability | **27.96%** |
+| Last actual team to appear | **Costa Rica** |
+| Combo at that rank | Argentina, Belgium, Chile, Costa Rica, France, Russia, Spain, Uruguay |
+| Union size (teams in ranks 1-2348) | 30 |
+
+**Actual teams covered** - 8 teams
+> Argentina | Belgium | Brazil | Colombia | Costa Rica | France
+> Germany | Netherlands
+
+**Other teams in union (not in actual set)** - 22 teams
+> Algeria | Bosnia and Herzegovina | Cameroon | Chile | Croatia | Ecuador
+> England | Ghana | Greece | Iran | Italy | Ivory Coast
+> Japan | Mexico | Nigeria | Portugal | Russia | South Korea
+> Spain | Switzerland | United States | Uruguay
+
+### SF
+
+**Actual participants (4)** - 4 teams
+> Argentina | Brazil | Germany | Netherlands
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **3/4** | **2/4** |
+| Perfect set | no | no |
+| Missed | Netherlands | |
+| | | Germany, Netherlands |
+
+**Market top-4 pick** - 4 teams
+> Brazil | Spain | Argentina | Germany
+
+**Model top-4 pick** - 4 teams
+> Brazil | Argentina | France | Belgium
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 2.19% | 0.64% |
+| Set | Argentina, Brazil, France, Spain | Argentina, Brazil, France, Spain |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Brazil, Germany, Netherlands
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 15 / 6,573 | 217 / 8,924 |
+| p(actual set) | 0.53% | 0.08% |
+| Cumulative through that rank | 13.93% | 34.22% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **5** |
+| Cumulative probability | **7.41%** |
+| Last actual team to appear | **Netherlands** |
+| Combo at that rank | Argentina, France, Netherlands, Spain |
+| Union size (teams in ranks 1-5) | 7 |
+
+**Actual teams covered** - 4 teams
+> Argentina | Brazil | Germany | Netherlands
+
+**Other teams in union (not in actual set)** - 3 teams
+> France | Portugal | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **115** |
+| Cumulative probability | **24.07%** |
+| Last actual team to appear | **Netherlands** |
+| Combo at that rank | Argentina, Brazil, France, Netherlands |
+| Union size (teams in ranks 1-115) | 21 |
+
+**Actual teams covered** - 4 teams
+> Argentina | Brazil | Germany | Netherlands
+
+**Other teams in union (not in actual set)** - 17 teams
+> Belgium | Chile | Colombia | Ecuador | England | France
+> Italy | Ivory Coast | Japan | Mexico | Nigeria | Portugal
+> Russia | Spain | Switzerland | United States | Uruguay
+
+### final
+
+**Actual participants (2)** - 2 teams
+> Argentina | Germany
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **0/2** | **1/2** |
+| Perfect set | no | no |
+| Missed | Argentina, Germany | |
+| | | Germany |
+
+**Market top-2 pick** - 2 teams
+> Brazil | Spain
+
+**Model top-2 pick** - 2 teams
+> Brazil | Argentina
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 7.14% | 3.65% |
+| Set | Brazil, Spain | Argentina, Brazil |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Germany
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 4 / 447 | 5 / 474 |
+| p(actual set) | 3.87% | 2.08% |
+| Cumulative through that rank | 21.07% | 13.94% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **3** |
+| Cumulative probability | **17.20%** |
+| Last actual team to appear | **Germany** |
+| Combo at that rank | Germany, Spain |
+| Union size (teams in ranks 1-3) | 4 |
+
+**Actual teams covered** - 2 teams
+> Argentina | Germany
+
+**Other teams in union (not in actual set)** - 2 teams
+> Brazil | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **5** |
+| Cumulative probability | **13.94%** |
+| Last actual team to appear | **Germany** |
+| Combo at that rank | Argentina, Germany |
+| Union size (teams in ranks 1-5) | 6 |
+
+**Actual teams covered** - 2 teams
+> Argentina | Germany
+
+**Other teams in union (not in actual set)** - 4 teams
+> Belgium | Brazil | France | Spain
+
+### winner
+
+**Actual participants (1)** - 1 teams
+> Germany
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **0/1** | **0/1** |
+| Perfect set | no | no |
+| Missed | Germany | |
+| | | Germany |
+
+**Market top-1 pick** - 1 teams
+> Brazil
+
+**Model top-1 pick** - 1 teams
+> Brazil
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 19.98% | 16.21% |
+| Set | Brazil | Brazil |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Germany
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 3 / 32 | 6 / 32 |
+| p(actual set) | 13.59% | 8.27% |
+| Cumulative through that rank | 50.44% | 64.26% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **3** |
+| Cumulative probability | **50.44%** |
+| Last actual team to appear | **Germany** |
+| Combo at that rank | Germany |
+| Union size (teams in ranks 1-3) | 3 |
+
+**Actual teams covered** - 1 teams
+> Germany
+
+**Other teams in union (not in actual set)** - 2 teams
+> Brazil | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **6** |
+| Cumulative probability | **64.26%** |
+| Last actual team to appear | **Germany** |
+| Combo at that rank | Germany |
+| Union size (teams in ranks 1-6) | 6 |
+
+**Actual teams covered** - 1 teams
+> Germany
+
+**Other teams in union (not in actual set)** - 5 teams
+> Argentina | Belgium | Brazil | France | Spain
+
+---
+
+## World Cup 2018 (`wc2018`)
+
+**Champion (actual):** France
+
+### At a glance
+
+| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
+|-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
+| **R16** | 14/16 | 13/16 | no | no | 24.55% | 99.90% | 2.89% | 2.63% |
+| **QF** | 4/8 | 5/8 | no | no | 52.24% | 9.18% | 15.42% | 1.98% |
+| **SF** | 1/4 | 3/4 | no | no | 41.96% | 5.34% | 12.76% | 1.65% |
+| **final** | 0/2 | 0/2 | no | no | 76.42% | 54.00% | 67.43% | 32.89% |
+| **winner** | 0/1 | 0/1 | no | no | 66.02% | 46.23% | 66.02% | 46.23% |
+
+_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+
+### R16
+
+**Actual participants (16)** - 16 teams
+> Argentina | Belgium | Brazil | Colombia | Croatia | Denmark
+> England | France | Japan | Mexico | Portugal | Russia
+> Spain | Sweden | Switzerland | Uruguay
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **14/16** | **13/16** |
+| Perfect set | no | no |
+| Missed | Japan, Sweden | |
+| | | Japan, Mexico, Switzerland |
+
+**Market top-16 pick** - 16 teams
+> Germany | Brazil | Spain | Belgium | France | Uruguay
+> Argentina | England | Colombia | Russia | Portugal | Croatia
+> Denmark | Mexico | Poland | Switzerland
+
+**Model top-16 pick** - 16 teams
+> Brazil | France | England | Belgium | Germany | Argentina
+> Uruguay | Colombia | Spain | Croatia | Russia | Poland
+> Serbia | Sweden | Portugal | Denmark
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.56% | 0.13% |
+| Set | Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, France, Germany, Mexico, Poland, Portugal, Russia, Spain, Switzerland, Uruguay | Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, France, Germany, Poland, Portugal, Russia, Serbia, Spain, Sweden, Uruguay |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, France, Japan, Mexico, Portugal, Russia, Spain, Sweden, Switzerland, Uruguay
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 293 / 45,685 | not observed / 88,352 |
+| p(actual set) | 0.04% | 0.00% |
+| Cumulative through that rank | 24.55% | 99.90% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **7** |
+| Cumulative probability | **2.89%** |
+| Last actual team to appear | **Sweden** |
+| Combo at that rank | Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, France, Germany, Poland, Portugal, Russia, Spain, Sweden, Switzerland, Uruguay |
+| Union size (teams in ranks 1-7) | 20 |
+
+**Actual teams covered** - 16 teams
+> Argentina | Belgium | Brazil | Colombia | Croatia | Denmark
+> England | France | Japan | Mexico | Portugal | Russia
+> Spain | Sweden | Switzerland | Uruguay
+
+**Other teams in union (not in actual set)** - 4 teams
+> Germany | Poland | Senegal | Serbia
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **47** |
+| Cumulative probability | **2.63%** |
+| Last actual team to appear | **Japan** |
+| Combo at that rank | Argentina, Belgium, Brazil, Colombia, Croatia, England, France, Germany, Japan, Peru, Portugal, Russia, Serbia, Spain, Sweden, Uruguay |
+| Union size (teams in ranks 1-47) | 28 |
+
+**Actual teams covered** - 16 teams
+> Argentina | Belgium | Brazil | Colombia | Croatia | Denmark
+> England | France | Japan | Mexico | Portugal | Russia
+> Spain | Sweden | Switzerland | Uruguay
+
+**Other teams in union (not in actual set)** - 12 teams
+> Australia | Costa Rica | Egypt | Germany | Iran | Morocco
+> Nigeria | Peru | Poland | Senegal | Serbia | South Korea
+
+### QF
+
+**Actual participants (8)** - 8 teams
+> Belgium | Brazil | Croatia | England | France | Russia
+> Sweden | Uruguay
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **4/8** | **5/8** |
+| Perfect set | no | no |
+| Missed | Croatia, Russia, Sweden, Uruguay | |
+| | | Croatia, Russia, Sweden |
+
+**Market top-8 pick** - 8 teams
+> Spain | Germany | Belgium | Brazil | England | France
+> Argentina | Portugal
+
+**Model top-8 pick** - 8 teams
+> England | Brazil | Belgium | France | Argentina | Germany
+> Uruguay | Spain
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 1.30% | 0.19% |
+| Set | Argentina, Belgium, Brazil, England, France, Germany, Portugal, Spain | Argentina, Belgium, Brazil, England, France, Germany, Russia, Uruguay |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Belgium, Brazil, Croatia, England, France, Russia, Sweden, Uruguay
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 1,099 / 32,881 | 177 / 64,976 |
+| p(actual set) | 0.01% | 0.03% |
+| Cumulative through that rank | 52.24% | 9.18% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **49** |
+| Cumulative probability | **15.42%** |
+| Last actual team to appear | **Sweden** |
+| Combo at that rank | Argentina, Belgium, England, France, Germany, Portugal, Spain, Sweden |
+| Union size (teams in ranks 1-49) | 19 |
+
+**Actual teams covered** - 8 teams
+> Belgium | Brazil | Croatia | England | France | Russia
+> Sweden | Uruguay
+
+**Other teams in union (not in actual set)** - 11 teams
+> Argentina | Colombia | Denmark | Germany | Mexico | Morocco
+> Peru | Portugal | Serbia | Spain | Switzerland
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **16** |
+| Cumulative probability | **1.98%** |
+| Last actual team to appear | **Sweden** |
+| Combo at that rank | Argentina, Belgium, England, France, Germany, Spain, Sweden, Uruguay |
+| Union size (teams in ranks 1-16) | 13 |
+
+**Actual teams covered** - 8 teams
+> Belgium | Brazil | Croatia | England | France | Russia
+> Sweden | Uruguay
+
+**Other teams in union (not in actual set)** - 5 teams
+> Argentina | Germany | Portugal | Serbia | Spain
+
+### SF
+
+**Actual participants (4)** - 4 teams
+> Belgium | Croatia | England | France
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **1/4** | **3/4** |
+| Perfect set | no | no |
+| Missed | Belgium, Croatia, England | |
+| | | Croatia |
+
+**Market top-4 pick** - 4 teams
+> Germany | Brazil | Spain | France
+
+**Model top-4 pick** - 4 teams
+> England | Belgium | France | Argentina
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 2.69% | 0.92% |
+| Set | Brazil, France, Germany, Spain | Argentina, Belgium, England, France |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Belgium, Croatia, England, France
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 64 / 5,029 | 9 / 8,605 |
+| p(actual set) | 0.30% | 0.47% |
+| Cumulative through that rank | 41.96% | 5.34% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **8** |
+| Cumulative probability | **12.76%** |
+| Last actual team to appear | **England** |
+| Combo at that rank | Belgium, England, France, Spain |
+| Union size (teams in ranks 1-8) | 10 |
+
+**Actual teams covered** - 4 teams
+> Belgium | Croatia | England | France
+
+**Other teams in union (not in actual set)** - 6 teams
+> Argentina | Brazil | Germany | Portugal | Spain | Uruguay
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **2** |
+| Cumulative probability | **1.65%** |
+| Last actual team to appear | **Croatia** |
+| Combo at that rank | Argentina, Belgium, Croatia, England |
+| Union size (teams in ranks 1-2) | 5 |
+
+**Actual teams covered** - 4 teams
+> Belgium | Croatia | England | France
+
+**Other teams in union (not in actual set)** - 1 teams
+> Argentina
+
+### final
+
+**Actual participants (2)** - 2 teams
+> Croatia | France
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **0/2** | **0/2** |
+| Perfect set | no | no |
+| Missed | Croatia, France | |
+| | | Croatia, France |
+
+**Market top-2 pick** - 2 teams
+> Germany | Brazil
+
+**Model top-2 pick** - 2 teams
+> England | Belgium
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 10.43% | 4.35% |
+| Set | Brazil, Germany | Belgium, England |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Croatia, France
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 34 / 398 | 32 / 484 |
+| p(actual set) | 0.63% | 1.01% |
+| Cumulative through that rank | 76.42% | 54.00% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **24** |
+| Cumulative probability | **67.43%** |
+| Last actual team to appear | **Croatia** |
+| Combo at that rank | Croatia, Germany |
+| Union size (teams in ranks 1-24) | 10 |
+
+**Actual teams covered** - 2 teams
+> Croatia | France
+
+**Other teams in union (not in actual set)** - 8 teams
+> Argentina | Belgium | Brazil | England | Germany | Portugal
+> Spain | Uruguay
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **15** |
+| Cumulative probability | **32.89%** |
+| Last actual team to appear | **Croatia** |
+| Combo at that rank | Argentina, Croatia |
+| Union size (teams in ranks 1-15) | 7 |
+
+**Actual teams covered** - 2 teams
+> Croatia | France
+
+**Other teams in union (not in actual set)** - 5 teams
+> Argentina | Belgium | Brazil | England | Germany
+
+### winner
+
+**Actual participants (1)** - 1 teams
+> France
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **0/1** | **0/1** |
+| Perfect set | no | no |
+| Missed | France | |
+| | | France |
+
+**Market top-1 pick** - 1 teams
+> Germany
+
+**Model top-1 pick** - 1 teams
+> England
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 22.49% | 12.49% |
+| Set | Germany | England |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: France
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 4 / 31 | 4 / 32 |
+| p(actual set) | 9.41% | 10.54% |
+| Cumulative through that rank | 66.02% | 46.23% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **4** |
+| Cumulative probability | **66.02%** |
+| Last actual team to appear | **France** |
+| Combo at that rank | France |
+| Union size (teams in ranks 1-4) | 4 |
+
+**Actual teams covered** - 1 teams
+> France
+
+**Other teams in union (not in actual set)** - 3 teams
+> Brazil | Germany | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **4** |
+| Cumulative probability | **46.23%** |
+| Last actual team to appear | **France** |
+| Combo at that rank | France |
+| Union size (teams in ranks 1-4) | 4 |
+
+**Actual teams covered** - 1 teams
+> France
+
+**Other teams in union (not in actual set)** - 3 teams
+> Belgium | Brazil | England
+
+---
+
+## World Cup 2022 (`wc2022`)
+
+**Champion (actual):** Argentina
+
+### At a glance
+
+| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
+|-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
+| **R16** | 9/16 | 11/16 | no | no | 68.25% | 99.90% | 17.27% | 8.23% |
+| **QF** | 6/8 | 6/8 | no | no | 29.92% | 31.55% | 14.43% | 18.82% |
+| **SF** | 2/4 | 2/4 | no | no | 87.03% | 78.88% | 51.77% | 61.33% |
+| **final** | 1/2 | 1/2 | no | no | 30.82% | 6.51% | 30.82% | 6.51% |
+| **winner** | 0/1 | 0/1 | no | no | 76.15% | 27.74% | 76.15% | 27.74% |
+
+_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+
+### R16
+
+**Actual participants (16)** - 16 teams
+> Argentina | Australia | Brazil | Croatia | England | France
+> Japan | Morocco | Netherlands | Poland | Portugal | Senegal
+> South Korea | Spain | Switzerland | United States
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **9/16** | **11/16** |
+| Perfect set | no | no |
+| Missed | Australia, Japan, Morocco, Poland, Senegal, South Korea, Switzerland | |
+| | | Australia, Japan, Morocco, Senegal, South Korea |
+
+**Market top-16 pick** - 16 teams
+> Argentina | England | Brazil | France | Netherlands | Germany
+> Spain | Portugal | Denmark | Belgium | Uruguay | Croatia
+> Mexico | Ecuador | Serbia | United States
+
+**Model top-16 pick** - 16 teams
+> Argentina | France | Portugal | Netherlands | Spain | Brazil
+> Denmark | England | Germany | Belgium | Switzerland | Uruguay
+> Croatia | Ecuador | Poland | United States
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.26% | 0.43% |
+| Set | Argentina, Belgium, Brazil, Croatia, Denmark, Ecuador, England, France, Germany, Mexico, Netherlands, Portugal, Serbia, Spain, United States, Uruguay | Argentina, Belgium, Brazil, Croatia, Denmark, Ecuador, England, France, Germany, Netherlands, Poland, Portugal, Spain, Switzerland, United States, Uruguay |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Australia, Brazil, Croatia, England, France, Japan, Morocco, Netherlands, Poland, Portugal, Senegal, South Korea, Spain, Switzerland, United States
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 8,405 / 51,686 | not observed / 64,660 |
+| p(actual set) | 0.00% | 0.00% |
+| Cumulative through that rank | 68.25% | 99.90% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **243** |
+| Cumulative probability | **17.27%** |
+| Last actual team to appear | **Australia** |
+| Combo at that rank | Argentina, Australia, Belgium, Brazil, Croatia, Ecuador, England, France, Germany, Mexico, Netherlands, Portugal, Serbia, Spain, United States, Uruguay |
+| Union size (teams in ranks 1-243) | 31 |
+
+**Actual teams covered** - 16 teams
+> Argentina | Australia | Brazil | Croatia | England | France
+> Japan | Morocco | Netherlands | Poland | Portugal | Senegal
+> South Korea | Spain | Switzerland | United States
+
+**Other teams in union (not in actual set)** - 15 teams
+> Belgium | Cameroon | Canada | Denmark | Ecuador | Germany
+> Ghana | Iran | Mexico | Qatar | Saudi Arabia | Serbia
+> Tunisia | Uruguay | Wales
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **69** |
+| Cumulative probability | **8.23%** |
+| Last actual team to appear | **Australia** |
+| Combo at that rank | Argentina, Australia, Belgium, Brazil, Croatia, Ecuador, England, France, Germany, Netherlands, Poland, Portugal, Spain, Switzerland, Uruguay, Wales |
+| Union size (teams in ranks 1-69) | 31 |
+
+**Actual teams covered** - 16 teams
+> Argentina | Australia | Brazil | Croatia | England | France
+> Japan | Morocco | Netherlands | Poland | Portugal | Senegal
+> South Korea | Spain | Switzerland | United States
+
+**Other teams in union (not in actual set)** - 15 teams
+> Belgium | Cameroon | Canada | Denmark | Ecuador | Germany
+> Ghana | Iran | Mexico | Qatar | Saudi Arabia | Serbia
+> Tunisia | Uruguay | Wales
+
+### QF
+
+**Actual participants (8)** - 8 teams
+> Argentina | Brazil | Croatia | England | France | Morocco
+> Netherlands | Portugal
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **6/8** | **6/8** |
+| Perfect set | no | no |
+| Missed | Croatia, Morocco | |
+| | | Croatia, Morocco |
+
+**Market top-8 pick** - 8 teams
+> Brazil | England | France | Germany | Spain | Argentina
+> Netherlands | Portugal
+
+**Model top-8 pick** - 8 teams
+> Argentina | Portugal | Netherlands | France | Spain | Brazil
+> Germany | England
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 0.81% | 0.19% |
+| Set | Argentina, Brazil, England, France, Germany, Netherlands, Portugal, Spain | Argentina, Brazil, England, France, Germany, Netherlands, Portugal, Spain |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Brazil, Croatia, England, France, Morocco, Netherlands, Portugal
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 399 / 38,891 | 1,064 / 50,372 |
+| p(actual set) | 0.03% | 0.01% |
+| Cumulative through that rank | 29.92% | 31.55% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **83** |
+| Cumulative probability | **14.43%** |
+| Last actual team to appear | **Morocco** |
+| Combo at that rank | Argentina, Brazil, England, France, Germany, Morocco, Netherlands, Portugal |
+| Union size (teams in ranks 1-83) | 23 |
+
+**Actual teams covered** - 8 teams
+> Argentina | Brazil | Croatia | England | France | Morocco
+> Netherlands | Portugal
+
+**Other teams in union (not in actual set)** - 15 teams
+> Belgium | Denmark | Ecuador | Germany | Iran | Mexico
+> Poland | Senegal | Serbia | Spain | Switzerland | Tunisia
+> United States | Uruguay | Wales
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **375** |
+| Cumulative probability | **18.82%** |
+| Last actual team to appear | **Morocco** |
+| Combo at that rank | Argentina, Belgium, Brazil, England, France, Morocco, Netherlands, Portugal |
+| Union size (teams in ranks 1-375) | 23 |
+
+**Actual teams covered** - 8 teams
+> Argentina | Brazil | Croatia | England | France | Morocco
+> Netherlands | Portugal
+
+**Other teams in union (not in actual set)** - 15 teams
+> Belgium | Denmark | Ecuador | Germany | Japan | Mexico
+> Poland | Senegal | Serbia | South Korea | Spain | Switzerland
+> United States | Uruguay | Wales
+
+### SF
+
+**Actual participants (4)** - 4 teams
+> Argentina | Croatia | France | Morocco
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **2/4** | **2/4** |
+| Perfect set | no | no |
+| Missed | Croatia, Morocco | |
+| | | Croatia, Morocco |
+
+**Market top-4 pick** - 4 teams
+> Brazil | France | Argentina | England
+
+**Model top-4 pick** - 4 teams
+> Argentina | Portugal | France | Spain
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 1.31% | 0.73% |
+| Set | Argentina, Brazil, France, Portugal | Argentina, Brazil, France, Portugal |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, Croatia, France, Morocco
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 990 / 5,732 | 964 / 6,978 |
+| p(actual set) | 0.01% | 0.02% |
+| Cumulative through that rank | 87.03% | 78.88% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **143** |
+| Cumulative probability | **51.77%** |
+| Last actual team to appear | **Morocco** |
+| Combo at that rank | Argentina, Brazil, France, Morocco |
+| Union size (teams in ranks 1-143) | 18 |
+
+**Actual teams covered** - 4 teams
+> Argentina | Croatia | France | Morocco
+
+**Other teams in union (not in actual set)** - 14 teams
+> Belgium | Brazil | Denmark | England | Germany | Mexico
+> Netherlands | Portugal | Serbia | Spain | Switzerland | United States
+> Uruguay | Wales
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **429** |
+| Cumulative probability | **61.33%** |
+| Last actual team to appear | **Morocco** |
+| Combo at that rank | Argentina, France, Morocco, Portugal |
+| Union size (teams in ranks 1-429) | 21 |
+
+**Actual teams covered** - 4 teams
+> Argentina | Croatia | France | Morocco
+
+**Other teams in union (not in actual set)** - 17 teams
+> Belgium | Brazil | Denmark | Ecuador | England | Germany
+> Japan | Mexico | Netherlands | Poland | Portugal | South Korea
+> Spain | Switzerland | United States | Uruguay | Wales
+
+### final
+
+**Actual participants (2)** - 2 teams
+> Argentina | France
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **1/2** | **1/2** |
+| Perfect set | no | no |
+| Missed | Argentina | |
+| | | France |
+
+**Market top-2 pick** - 2 teams
+> Brazil | France
+
+**Model top-2 pick** - 2 teams
+> Portugal | Argentina
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 5.93% | 3.47% |
+| Set | Brazil, England | Argentina, Portugal |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina, France
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 7 / 405 | 2 / 448 |
+| p(actual set) | 2.90% | 3.04% |
+| Cumulative through that rank | 30.82% | 6.51% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **7** |
+| Cumulative probability | **30.82%** |
+| Last actual team to appear | **Argentina** |
+| Combo at that rank | Argentina, France |
+| Union size (teams in ranks 1-7) | 7 |
+
+**Actual teams covered** - 2 teams
+> Argentina | France
+
+**Other teams in union (not in actual set)** - 5 teams
+> Brazil | England | Germany | Portugal | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **2** |
+| Cumulative probability | **6.51%** |
+| Last actual team to appear | **France** |
+| Combo at that rank | Argentina, France |
+| Union size (teams in ranks 1-2) | 3 |
+
+**Actual teams covered** - 2 teams
+> Argentina | France
+
+**Other teams in union (not in actual set)** - 1 teams
+> Portugal
+
+### winner
+
+**Actual participants (1)** - 1 teams
+> Argentina
+
+#### Metric 1 - Top-N by `p_at_least`
+
+| | Market | Model |
+|--|--------|-------|
+| Recall | **0/1** | **0/1** |
+| Perfect set | no | no |
+| Missed | Argentina | |
+| | | Argentina |
+
+**Market top-1 pick** - 1 teams
+> Brazil
+
+**Model top-1 pick** - 1 teams
+> Portugal
+
+#### Metric 2 - Most frequent exact set (rank 1)
+
+| | Market | Model |
+|--|--------|-------|
+| Match actual set | no | no |
+| Probability | 28.66% | 14.12% |
+| Set | Brazil | Portugal |
+
+#### Metric 3 - Exact actual set in joint distribution
+
+Target combo: Argentina
+
+| | Market | Model |
+|--|--------|-------|
+| Rank | 6 / 32 | 2 / 32 |
+| p(actual set) | 9.16% | 13.63% |
+| Cumulative through that rank | 76.15% | 27.74% |
+
+#### Metric 4 - All actual teams seen in top combos
+
+#### Market
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **6** |
+| Cumulative probability | **76.15%** |
+| Last actual team to appear | **Argentina** |
+| Combo at that rank | Argentina |
+| Union size (teams in ranks 1-6) | 6 |
+
+**Actual teams covered** - 1 teams
+> Argentina
+
+**Other teams in union (not in actual set)** - 5 teams
+> Brazil | England | France | Germany | Spain
+
+#### Model
+
+| Field | Value |
+|-------|-------|
+| Stop at combo rank | **2** |
+| Cumulative probability | **27.74%** |
+| Last actual team to appear | **Argentina** |
+| Combo at that rank | Argentina |
+| Union size (teams in ranks 1-2) | 2 |
+
+**Actual teams covered** - 1 teams
+> Argentina
+
+**Other teams in union (not in actual set)** - 1 teams
+> Portugal
+
+---
+
+## Worked example - WC 2022 SF (model)
+
+| | Metric 3 (exact set) | Metric 4 (all teams seen) |
+|--|----------------------|---------------------------|
+| Target | Argentina, Croatia, France, Morocco | Same four teams, any combo |
+| Stop rank | 964 | **429** |
+| Cumulative | 78.88% | **61.33%** |
+| Trigger combo | exact quartet | Argentina, France, Morocco, Portugal (Morocco last) |
+
+At rank 429 the model has seen every actual SF team at least once, but only 61.33% of simulated mass; the exact quartet needs rank 964 (78.88%).
+
+Union at rank 429 (**21** teams): all four actual plus 17 others that appeared in high-frequency SF combos (see WC 2022 -> SF -> Metric 4 -> Model).

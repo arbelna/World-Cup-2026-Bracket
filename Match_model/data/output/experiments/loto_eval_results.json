@@ -1,0 +1,909 @@
+{
+  "generated_at": "2026-06-02T08:38:31.662091+00:00",
+  "dataset_path": "data/output/datasets/match_dataset.json",
+  "n_matches": 558,
+  "n_rows_with_mirrors": 1116,
+  "n_folds": 12,
+  "feature_names": [
+    "elo_diff",
+    "stage_binary",
+    "host_diff",
+    "team_a_confederation_idx",
+    "team_b_confederation_idx",
+    "z_log_top_15_average_value_team_a",
+    "z_log_top_15_average_value_team_b"
+  ],
+  "bootstrap_seed": 42,
+  "experiments": [
+    {
+      "experiment_id": "catboost_loto_core7",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "Copa America 2016",
+          "n_test_matches": 32,
+          "ce": 0.9255278934346685,
+          "brier": 0.010890387122251693,
+          "mae_a": 0.06380478971315662,
+          "mae_draw": 0.02833719399279856,
+          "mae_b": 0.05045719622334316,
+          "mae_macro": 0.04753305997643278,
+          "avg_prob_error_pp": 4.753305997643277
+        },
+        {
+          "held_out_competition": "Copa America 2019",
+          "n_test_matches": 26,
+          "ce": 0.9147270124271707,
+          "brier": 0.017735738968138355,
+          "mae_a": 0.08404136909762148,
+          "mae_draw": 0.034397512220815926,
+          "mae_b": 0.06257849000453698,
+          "mae_macro": 0.0603391237743248,
+          "avg_prob_error_pp": 6.033912377432479
+        },
+        {
+          "held_out_competition": "Copa America 2021",
+          "n_test_matches": 28,
+          "ce": 0.9177770559527321,
+          "brier": 0.00937543343224156,
+          "mae_a": 0.0532440714056556,
+          "mae_draw": 0.028896677119995724,
+          "mae_b": 0.037260130415036084,
+          "mae_macro": 0.039800292980229135,
+          "avg_prob_error_pp": 3.9800292980229144
+        },
+        {
+          "held_out_competition": "Copa America 2024",
+          "n_test_matches": 32,
+          "ce": 0.9232810243393661,
+          "brier": 0.009105101103005699,
+          "mae_a": 0.05755273586068389,
+          "mae_draw": 0.028942323483329403,
+          "mae_b": 0.04074587230702458,
+          "mae_macro": 0.0424136438836793,
+          "avg_prob_error_pp": 4.24136438836793
+        },
+        {
+          "held_out_competition": "Euro 2012",
+          "n_test_matches": 31,
+          "ce": 1.02885000269018,
+          "brier": 0.01023617326545677,
+          "mae_a": 0.05862862617306889,
+          "mae_draw": 0.02224082197853859,
+          "mae_b": 0.05088858454544801,
+          "mae_macro": 0.04391934423235183,
+          "avg_prob_error_pp": 4.391934423235182
+        },
+        {
+          "held_out_competition": "Euro 2016",
+          "n_test_matches": 51,
+          "ce": 0.9977957490525645,
+          "brier": 0.006897931692671631,
+          "mae_a": 0.043338659084693525,
+          "mae_draw": 0.02934072197249769,
+          "mae_b": 0.03195274899460246,
+          "mae_macro": 0.034877376683931226,
+          "avg_prob_error_pp": 3.487737668393122
+        },
+        {
+          "held_out_competition": "Euro 2020",
+          "n_test_matches": 51,
+          "ce": 0.9592810489262675,
+          "brier": 0.0066666018544984966,
+          "mae_a": 0.04541249352034742,
+          "mae_draw": 0.023220466021207465,
+          "mae_b": 0.03726808739536337,
+          "mae_macro": 0.03530034897897275,
+          "avg_prob_error_pp": 3.5300348978972753
+        },
+        {
+          "held_out_competition": "Euro 2024",
+          "n_test_matches": 51,
+          "ce": 0.9682347454916309,
+          "brier": 0.006579189938836288,
+          "mae_a": 0.04432882448166383,
+          "mae_draw": 0.026363598802934464,
+          "mae_b": 0.03480641704162559,
+          "mae_macro": 0.035166280108741295,
+          "avg_prob_error_pp": 3.516628010874129
+        },
+        {
+          "held_out_competition": "World Cup 2010",
+          "n_test_matches": 64,
+          "ce": 0.9744166440837997,
+          "brier": 0.007628833250022423,
+          "mae_a": 0.040965457865272004,
+          "mae_draw": 0.02338336032107677,
+          "mae_b": 0.04114571860385695,
+          "mae_macro": 0.03516484559673524,
+          "avg_prob_error_pp": 3.5164845596735237
+        },
+        {
+          "held_out_competition": "World Cup 2014",
+          "n_test_matches": 64,
+          "ce": 0.9733201291651182,
+          "brier": 0.007167340185468803,
+          "mae_a": 0.044768190378322595,
+          "mae_draw": 0.024610062378928703,
+          "mae_b": 0.04153956400994097,
+          "mae_macro": 0.03697260558906409,
+          "avg_prob_error_pp": 3.6972605589064087
+        },
+        {
+          "held_out_competition": "World Cup 2018",
+          "n_test_matches": 64,
+          "ce": 0.9604891101792503,
+          "brier": 0.005594368632947096,
+          "mae_a": 0.04131142645653493,
+          "mae_draw": 0.02153286417622411,
+          "mae_b": 0.03780672088674904,
+          "mae_macro": 0.03355033717316936,
+          "avg_prob_error_pp": 3.3550337173169376
+        },
+        {
+          "held_out_competition": "World Cup 2022",
+          "n_test_matches": 64,
+          "ce": 0.9494866830587702,
+          "brier": 0.008081949722053235,
+          "mae_a": 0.04757161379530539,
+          "mae_draw": 0.026222024772058122,
+          "mae_b": 0.041908155213517866,
+          "mae_macro": 0.03856726459362713,
+          "avg_prob_error_pp": 3.856726459362713
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9577655915667932,
+          "std": 0.03443349678620119,
+          "ci_low": 0.9394985314179672,
+          "ci_high": 0.9775398543089392
+        },
+        "brier": {
+          "mean": 0.008829920763966005,
+          "std": 0.003228049471270466,
+          "ci_low": 0.007356242521864414,
+          "ci_high": 0.010810935129489151
+        },
+        "mae_macro": {
+          "mean": 0.04030037696427157,
+          "std": 0.007618509787846675,
+          "ci_low": 0.03670574851111108,
+          "ci_high": 0.044906851094402574
+        },
+        "avg_prob_error_pp": {
+          "mean": 4.030037696427157,
+          "std": 0.7618509787846671,
+          "ci_low": 3.670574851111107,
+          "ci_high": 4.490685109440258
+        },
+        "weighted_ce": 0.9616870758317299,
+        "weighted_brier": 0.008118974401594165,
+        "weighted_mae_macro": 0.03858044318929282
+      }
+    },
+    {
+      "experiment_id": "baseline__elo",
+      "model_name": "baseline",
+      "baseline_name": "elo",
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "Copa America 2016",
+          "n_test_matches": 32,
+          "ce": 0.9410477105205238,
+          "brier": 0.021742976220574646,
+          "mae_a": 0.08311209284444658,
+          "mae_draw": 0.05372934908030411,
+          "mae_b": 0.063886026353168,
+          "mae_macro": 0.06690915609263957,
+          "avg_prob_error_pp": 6.690915609263957
+        },
+        {
+          "held_out_competition": "Copa America 2019",
+          "n_test_matches": 26,
+          "ce": 0.944518896676381,
+          "brier": 0.03808981964314096,
+          "mae_a": 0.1185378145354665,
+          "mae_draw": 0.05181997156068014,
+          "mae_b": 0.08644343729520336,
+          "mae_macro": 0.08560040779711665,
+          "avg_prob_error_pp": 8.560040779711665
+        },
+        {
+          "held_out_competition": "Copa America 2021",
+          "n_test_matches": 28,
+          "ce": 0.9335543494426399,
+          "brier": 0.019713401272941532,
+          "mae_a": 0.07817213124541336,
+          "mae_draw": 0.057622110499684624,
+          "mae_b": 0.05453763901612551,
+          "mae_macro": 0.06344396025374117,
+          "avg_prob_error_pp": 6.344396025374118
+        },
+        {
+          "held_out_competition": "Copa America 2024",
+          "n_test_matches": 32,
+          "ce": 0.9463091837771822,
+          "brier": 0.023227724663836404,
+          "mae_a": 0.09016719055058882,
+          "mae_draw": 0.059134639480768275,
+          "mae_b": 0.06740902737445974,
+          "mae_macro": 0.07223695246860562,
+          "avg_prob_error_pp": 7.2236952468605615
+        },
+        {
+          "held_out_competition": "Euro 2012",
+          "n_test_matches": 31,
+          "ce": 1.0439557262961623,
+          "brier": 0.0206196053005035,
+          "mae_a": 0.08577872067582386,
+          "mae_draw": 0.04089373698856794,
+          "mae_b": 0.07772180141031566,
+          "mae_macro": 0.06813141969156916,
+          "avg_prob_error_pp": 6.813141969156916
+        },
+        {
+          "held_out_competition": "Euro 2016",
+          "n_test_matches": 51,
+          "ce": 1.006283107716291,
+          "brier": 0.011704985403379883,
+          "mae_a": 0.055469775535699754,
+          "mae_draw": 0.04811104021103215,
+          "mae_b": 0.05396919703868855,
+          "mae_macro": 0.05251667092847349,
+          "avg_prob_error_pp": 5.25166709284735
+        },
+        {
+          "held_out_competition": "Euro 2020",
+          "n_test_matches": 51,
+          "ce": 0.9843603804400008,
+          "brier": 0.023112193731649442,
+          "mae_a": 0.084310200174184,
+          "mae_draw": 0.0420200028707275,
+          "mae_b": 0.07923152885627746,
+          "mae_macro": 0.06852057730039632,
+          "avg_prob_error_pp": 6.852057730039632
+        },
+        {
+          "held_out_competition": "Euro 2024",
+          "n_test_matches": 51,
+          "ce": 0.9817412321431925,
+          "brier": 0.015166172133327015,
+          "mae_a": 0.07069828803959112,
+          "mae_draw": 0.04614513601848033,
+          "mae_b": 0.04908782700516939,
+          "mae_macro": 0.055310417021080284,
+          "avg_prob_error_pp": 5.531041702108029
+        },
+        {
+          "held_out_competition": "World Cup 2010",
+          "n_test_matches": 64,
+          "ce": 0.9896762199483926,
+          "brier": 0.016577404178788085,
+          "mae_a": 0.07053834326838429,
+          "mae_draw": 0.040724945586226156,
+          "mae_b": 0.060279440173668555,
+          "mae_macro": 0.057180909676092996,
+          "avg_prob_error_pp": 5.718090967609299
+        },
+        {
+          "held_out_competition": "World Cup 2014",
+          "n_test_matches": 64,
+          "ce": 0.9872174261889537,
+          "brier": 0.0164870904952333,
+          "mae_a": 0.07793571039964883,
+          "mae_draw": 0.03888603209144251,
+          "mae_b": 0.06096265286944319,
+          "mae_macro": 0.05926146512017818,
+          "avg_prob_error_pp": 5.926146512017818
+        },
+        {
+          "held_out_competition": "World Cup 2018",
+          "n_test_matches": 64,
+          "ce": 0.9797415835664788,
+          "brier": 0.018347676435118747,
+          "mae_a": 0.07386003672369111,
+          "mae_draw": 0.049010806956256814,
+          "mae_b": 0.06240351123172731,
+          "mae_macro": 0.061758118303891746,
+          "avg_prob_error_pp": 6.175811830389175
+        },
+        {
+          "held_out_competition": "World Cup 2022",
+          "n_test_matches": 64,
+          "ce": 0.969325619030013,
+          "brier": 0.020207451961453852,
+          "mae_a": 0.07764487284410354,
+          "mae_draw": 0.0433987863721204,
+          "mae_b": 0.06961660236836152,
+          "mae_macro": 0.06355342052819515,
+          "avg_prob_error_pp": 6.355342052819517
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9756442863121843,
+          "std": 0.03148405562868238,
+          "ci_low": 0.9590448183338416,
+          "ci_high": 0.9936242238159949
+        },
+        "brier": {
+          "mean": 0.020416375119995615,
+          "std": 0.0065210860198008005,
+          "ci_low": 0.017343724899445856,
+          "ci_high": 0.024368171739209413
+        },
+        "mae_macro": {
+          "mean": 0.06453528959849836,
+          "std": 0.008835970245729335,
+          "ci_low": 0.06008068760111042,
+          "ci_high": 0.06962637914722432
+        },
+        "avg_prob_error_pp": {
+          "mean": 6.453528959849837,
+          "std": 0.8835970245729332,
+          "ci_low": 6.008068760111042,
+          "ci_high": 6.962637914722433
+        },
+        "weighted_ce": 0.9790469109048868,
+        "weighted_brier": 0.019271303817535803,
+        "weighted_mae_macro": 0.06278274619030583
+      }
+    },
+    {
+      "experiment_id": "baseline__marginal",
+      "model_name": "baseline",
+      "baseline_name": "marginal",
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "Copa America 2016",
+          "n_test_matches": 32,
+          "ce": 1.039614353466609,
+          "brier": 0.09042130545713453,
+          "mae_a": 0.18632214530943075,
+          "mae_draw": 0.05394192331828396,
+          "mae_b": 0.15504250607433334,
+          "mae_macro": 0.13176885823401602,
+          "avg_prob_error_pp": 13.176885823401602
+        },
+        {
+          "held_out_competition": "Copa America 2019",
+          "n_test_matches": 26,
+          "ce": 1.0198986823598255,
+          "brier": 0.0907462304031282,
+          "mae_a": 0.19087181427356914,
+          "mae_draw": 0.05325632668637626,
+          "mae_b": 0.15425457405251386,
+          "mae_macro": 0.1327942383374864,
+          "avg_prob_error_pp": 13.279423833748643
+        },
+        {
+          "held_out_competition": "Copa America 2021",
+          "n_test_matches": 28,
+          "ce": 1.0133069484784232,
+          "brier": 0.07394730876183965,
+          "mae_a": 0.17810425092421345,
+          "mae_draw": 0.05786506988112554,
+          "mae_b": 0.1379390238932419,
+          "mae_macro": 0.12463611489952697,
+          "avg_prob_error_pp": 12.463611489952694
+        },
+        {
+          "held_out_competition": "Copa America 2024",
+          "n_test_matches": 32,
+          "ce": 1.0248218104458837,
+          "brier": 0.07902112693640409,
+          "mae_a": 0.18971255453083444,
+          "mae_draw": 0.059376531396134406,
+          "mae_b": 0.14703281383282266,
+          "mae_macro": 0.13204063325326384,
+          "avg_prob_error_pp": 13.204063325326384
+        },
+        {
+          "held_out_competition": "Euro 2012",
+          "n_test_matches": 31,
+          "ce": 1.0971291065881323,
+          "brier": 0.05833386419763948,
+          "mae_a": 0.1524330505806974,
+          "mae_draw": 0.03959376408268054,
+          "mae_b": 0.12713228211358935,
+          "mae_macro": 0.10638636559232244,
+          "avg_prob_error_pp": 10.638636559232244
+        },
+        {
+          "held_out_competition": "Euro 2016",
+          "n_test_matches": 51,
+          "ce": 1.089976904869729,
+          "brier": 0.06994506843591573,
+          "mae_a": 0.16259204039675504,
+          "mae_draw": 0.04851526012252645,
+          "mae_b": 0.14693438162802167,
+          "mae_macro": 0.11934722738243438,
+          "avg_prob_error_pp": 11.93472273824344
+        },
+        {
+          "held_out_competition": "Euro 2020",
+          "n_test_matches": 51,
+          "ce": 1.043475239423537,
+          "brier": 0.06482481141076797,
+          "mae_a": 0.1594092908243,
+          "mae_draw": 0.04342066652693113,
+          "mae_b": 0.13320876254696895,
+          "mae_macro": 0.11201290663273338,
+          "avg_prob_error_pp": 11.201290663273339
+        },
+        {
+          "held_out_competition": "Euro 2024",
+          "n_test_matches": 51,
+          "ce": 1.0541083412892962,
+          "brier": 0.06676995397386536,
+          "mae_a": 0.16609601508760446,
+          "mae_draw": 0.04759321276409743,
+          "mae_b": 0.1327286917296595,
+          "mae_macro": 0.1154726398604538,
+          "avg_prob_error_pp": 11.547263986045381
+        },
+        {
+          "held_out_competition": "World Cup 2010",
+          "n_test_matches": 64,
+          "ce": 1.0808160680024779,
+          "brier": 0.08164691873140181,
+          "mae_a": 0.18148597013341516,
+          "mae_draw": 0.041862647636182276,
+          "mae_b": 0.15502393742721576,
+          "mae_macro": 0.1261241850656044,
+          "avg_prob_error_pp": 12.612418506560443
+        },
+        {
+          "held_out_competition": "World Cup 2014",
+          "n_test_matches": 64,
+          "ce": 1.0583881507489294,
+          "brier": 0.06704018324328938,
+          "mae_a": 0.1604891668232561,
+          "mae_draw": 0.039312491291561814,
+          "mae_b": 0.13449338600035102,
+          "mae_macro": 0.11143168137172298,
+          "avg_prob_error_pp": 11.1431681371723
+        },
+        {
+          "held_out_competition": "World Cup 2018",
+          "n_test_matches": 64,
+          "ce": 1.069477591259486,
+          "brier": 0.08156625759419597,
+          "mae_a": 0.18408613690936476,
+          "mae_draw": 0.05048194500656503,
+          "mae_b": 0.15167769420417054,
+          "mae_macro": 0.12874859204003344,
+          "avg_prob_error_pp": 12.874859204003345
+        },
+        {
+          "held_out_competition": "World Cup 2022",
+          "n_test_matches": 64,
+          "ce": 1.074915943446979,
+          "brier": 0.09671803383301261,
+          "mae_a": 0.18609104373001345,
+          "mae_draw": 0.04318452393498366,
+          "mae_b": 0.16899614922286504,
+          "mae_macro": 0.13275723896262073,
+          "avg_prob_error_pp": 13.275723896262074
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 1.055494095031609,
+          "std": 0.027848583729153303,
+          "ci_low": 1.0400765643686982,
+          "ci_high": 1.0705284354862474
+        },
+        "brier": {
+          "mean": 0.0767484219148829,
+          "std": 0.011921194968280906,
+          "ci_low": 0.07036034964380011,
+          "ci_high": 0.08320651449609137
+        },
+        "mae_macro": {
+          "mean": 0.12279339013601825,
+          "std": 0.009512131810953428,
+          "ci_low": 0.11744377382436347,
+          "ci_high": 0.1277028660791263
+        },
+        "avg_prob_error_pp": {
+          "mean": 12.279339013601822,
+          "std": 0.9512131810953424,
+          "ci_low": 11.74437738243635,
+          "ci_high": 12.770286607912631
+        },
+        "weighted_ce": 1.0603562022118238,
+        "weighted_brier": 0.07681923828871413,
+        "weighted_mae_macro": 0.1224207214672614
+      }
+    },
+    {
+      "experiment_id": "baseline__market_dispersion",
+      "model_name": "baseline",
+      "baseline_name": "market_dispersion",
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "Copa America 2016",
+          "n_test_matches": 32,
+          "ce": 0.9084678550744486,
+          "brier": 0.0004163296793182393,
+          "mae_a": 0.011233365345820328,
+          "mae_draw": 0.007998254452882055,
+          "mae_b": 0.009200629544740848,
+          "mae_macro": 0.00947741644781441,
+          "avg_prob_error_pp": 0.9477416447814411
+        },
+        {
+          "held_out_competition": "Copa America 2019",
+          "n_test_matches": 26,
+          "ce": 0.8940269211527526,
+          "brier": 0.004002036764932442,
+          "mae_a": 0.03010094053849519,
+          "mae_draw": 0.015667582769005334,
+          "mae_b": 0.016152938541870224,
+          "mae_macro": 0.020640487283123583,
+          "avg_prob_error_pp": 2.064048728312358
+        },
+        {
+          "held_out_competition": "Copa America 2021",
+          "n_test_matches": 28,
+          "ce": 0.909041478659437,
+          "brier": 0.0034870134463096014,
+          "mae_a": 0.03606972067464696,
+          "mae_draw": 0.017801648113847678,
+          "mae_b": 0.023191466185805337,
+          "mae_macro": 0.02568761165809999,
+          "avg_prob_error_pp": 2.568761165809999
+        },
+        {
+          "held_out_competition": "Copa America 2024",
+          "n_test_matches": 32,
+          "ce": 0.9119390355214954,
+          "brier": 0.0015405130688565492,
+          "mae_a": 0.02191485828804407,
+          "mae_draw": 0.012675320849614653,
+          "mae_b": 0.01648984966517495,
+          "mae_macro": 0.017026676267611226,
+          "avg_prob_error_pp": 1.702667626761123
+        },
+        {
+          "held_out_competition": "Euro 2012",
+          "n_test_matches": 31,
+          "ce": 1.0143740239034533,
+          "brier": 0.00036932567179170906,
+          "mae_a": 0.009640886285860552,
+          "mae_draw": 0.005891241288672109,
+          "mae_b": 0.009869387337684691,
+          "mae_macro": 0.008467171637405783,
+          "avg_prob_error_pp": 0.8467171637405784
+        },
+        {
+          "held_out_competition": "Euro 2016",
+          "n_test_matches": 51,
+          "ce": 0.9880899968546811,
+          "brier": 0.00021916254011988365,
+          "mae_a": 0.008016493349454572,
+          "mae_draw": 0.0051803808121917054,
+          "mae_b": 0.00810124047731918,
+          "mae_macro": 0.007099371546321819,
+          "avg_prob_error_pp": 0.709937154632182
+        },
+        {
+          "held_out_competition": "Euro 2020",
+          "n_test_matches": 51,
+          "ce": 0.959124413506296,
+          "brier": 0.00656373091803999,
+          "mae_a": 0.04551977737950229,
+          "mae_draw": 0.022089334964073677,
+          "mae_b": 0.037540407285864615,
+          "mae_macro": 0.03504983987648019,
+          "avg_prob_error_pp": 3.5049839876480195
+        },
+        {
+          "held_out_competition": "Euro 2024",
+          "n_test_matches": 51,
+          "ce": 0.962545336509297,
+          "brier": 0.0027014089532186336,
+          "mae_a": 0.02832671692020695,
+          "mae_draw": 0.012899079418920854,
+          "mae_b": 0.023271867075118444,
+          "mae_macro": 0.021499221138082083,
+          "avg_prob_error_pp": 2.149922113808209
+        },
+        {
+          "held_out_competition": "World Cup 2010",
+          "n_test_matches": 64,
+          "ce": 0.963422413461615,
+          "brier": 0.00030522600813202275,
+          "mae_a": 0.010329690572579434,
+          "mae_draw": 0.005435811431215091,
+          "mae_b": 0.00853628047975927,
+          "mae_macro": 0.008100594161184598,
+          "avg_prob_error_pp": 0.8100594161184598
+        },
+        {
+          "held_out_competition": "World Cup 2014",
+          "n_test_matches": 64,
+          "ce": 0.9623163730978577,
+          "brier": 0.00021508699529589458,
+          "mae_a": 0.008835366891840672,
+          "mae_draw": 0.004724158350249162,
+          "mae_b": 0.007414701266664348,
+          "mae_macro": 0.006991408836251395,
+          "avg_prob_error_pp": 0.6991408836251395
+        },
+        {
+          "held_out_competition": "World Cup 2018",
+          "n_test_matches": 64,
+          "ce": 0.9524968478183207,
+          "brier": 0.0005546363971299104,
+          "mae_a": 0.01371009145048914,
+          "mae_draw": 0.0034271640833224543,
+          "mae_b": 0.01323585733638055,
+          "mae_macro": 0.010124370956730714,
+          "avg_prob_error_pp": 1.0124370956730713
+        },
+        {
+          "held_out_competition": "World Cup 2022",
+          "n_test_matches": 64,
+          "ce": 0.938016314262125,
+          "brier": 0.0006962497832501553,
+          "mae_a": 0.01606407619133482,
+          "mae_draw": 0.006147483753144178,
+          "mae_b": 0.015912485547520724,
+          "mae_macro": 0.012708015163999907,
+          "avg_prob_error_pp": 1.2708015163999908
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9469884174851483,
+          "std": 0.03591974255888327,
+          "ci_low": 0.9274176243280631,
+          "ci_high": 0.9669543640199565
+        },
+        "brier": {
+          "mean": 0.0017558933521995854,
+          "std": 0.0020275500796709937,
+          "ci_low": 0.000756290111007335,
+          "ci_high": 0.0029456582187479766
+        },
+        "mae_macro": {
+          "mean": 0.015239348747758813,
+          "std": 0.008893598560550622,
+          "ci_low": 0.010786255730092295,
+          "ci_high": 0.020354995735873238
+        },
+        "avg_prob_error_pp": {
+          "mean": 1.523934874775881,
+          "std": 0.8893598560550624,
+          "ci_low": 1.0786255730092296,
+          "ci_high": 2.035499573587323
+        },
+        "weighted_ce": 0.9516744594907738,
+        "weighted_brier": 0.0015641820195269952,
+        "weighted_mae_macro": 0.014408154207184526
+      }
+    },
+    {
+      "experiment_id": "reference__market_target_oracle",
+      "model_name": "reference",
+      "baseline_name": "market_target_oracle",
+      "is_reference": true,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "Copa America 2016",
+          "n_test_matches": 32,
+          "ce": 0.9076486077409383,
+          "brier": 2.342713221414786e-33,
+          "mae_a": 1.734723475976807e-17,
+          "mae_draw": 6.938893903907228e-18,
+          "mae_b": 3.2526065174565133e-18,
+          "mae_macro": 9.179578393710605e-18,
+          "avg_prob_error_pp": 9.179578393710606e-16
+        },
+        {
+          "held_out_competition": "Copa America 2019",
+          "n_test_matches": 26,
+          "ce": 0.8872988018144524,
+          "brier": 3.7277855558187554e-33,
+          "mae_a": 2.7755575615628914e-17,
+          "mae_draw": 1.0675221390626506e-17,
+          "mae_b": 7.205774438672892e-18,
+          "mae_macro": 1.5212190481642768e-17,
+          "avg_prob_error_pp": 1.5212190481642772e-15
+        },
+        {
+          "held_out_competition": "Copa America 2021",
+          "n_test_matches": 28,
+          "ce": 0.9029271367372865,
+          "brier": 5.911917097145819e-33,
+          "mae_a": 3.568574007723718e-17,
+          "mae_draw": 1.2886517250113425e-17,
+          "mae_b": 1.0903976134711359e-17,
+          "mae_macro": 1.9825411154020653e-17,
+          "avg_prob_error_pp": 1.9825411154020653e-15
+        },
+        {
+          "held_out_competition": "Copa America 2024",
+          "n_test_matches": 32,
+          "ce": 0.9090315809071515,
+          "brier": 3.322229154067982e-33,
+          "mae_a": 2.5153490401663703e-17,
+          "mae_draw": 1.1275702593849246e-17,
+          "mae_b": 7.806255641895632e-18,
+          "mae_macro": 1.474514954580286e-17,
+          "avg_prob_error_pp": 1.474514954580286e-15
+        },
+        {
+          "held_out_competition": "Euro 2012",
+          "n_test_matches": 31,
+          "ce": 1.0137264188220085,
+          "brier": 1.845165140267771e-33,
+          "mae_a": 1.0744093786695063e-17,
+          "mae_draw": 8.058070340021298e-18,
+          "mae_b": 8.505740914466925e-18,
+          "mae_macro": 9.102635013727762e-18,
+          "avg_prob_error_pp": 9.102635013727762e-16
+        },
+        {
+          "held_out_competition": "Euro 2016",
+          "n_test_matches": 51,
+          "ce": 0.987692242542925,
+          "brier": 2.662314923123532e-33,
+          "mae_a": 1.414990129424219e-17,
+          "mae_draw": 9.79608551139844e-18,
+          "mae_b": 1.1156652943537113e-17,
+          "mae_macro": 1.1700879916392581e-17,
+          "avg_prob_error_pp": 1.1700879916392581e-15
+        },
+        {
+          "held_out_competition": "Euro 2020",
+          "n_test_matches": 51,
+          "ce": 0.9490164075409,
+          "brier": 3.622447645398933e-33,
+          "mae_a": 2.503444075135157e-17,
+          "mae_draw": 1.224510688924805e-17,
+          "mae_b": 8.843688308901369e-18,
+          "mae_macro": 1.5374411983166997e-17,
+          "avg_prob_error_pp": 1.5374411983166998e-15
+        },
+        {
+          "held_out_competition": "Euro 2024",
+          "n_test_matches": 51,
+          "ce": 0.9584448770521099,
+          "brier": 3.274080905458301e-33,
+          "mae_a": 2.503444075135157e-17,
+          "mae_draw": 1.0884539457109378e-17,
+          "mae_b": 8.435518079259767e-18,
+          "mae_macro": 1.478483276257357e-17,
+          "avg_prob_error_pp": 1.4784832762573572e-15
+        },
+        {
+          "held_out_competition": "World Cup 2010",
+          "n_test_matches": 64,
+          "ce": 0.9628800177077695,
+          "brier": 2.245664407810898e-33,
+          "mae_a": 1.3444106938820255e-17,
+          "mae_draw": 8.456776945386935e-18,
+          "mae_b": 8.131516293641283e-18,
+          "mae_macro": 1.0010800059282824e-17,
+          "avg_prob_error_pp": 1.0010800059282823e-15
+        },
+        {
+          "held_out_competition": "World Cup 2014",
+          "n_test_matches": 64,
+          "ce": 0.9619250242598454,
+          "brier": 1.2548637293898084e-33,
+          "mae_a": 8.673617379884035e-18,
+          "mae_draw": 5.637851296924623e-18,
+          "mae_b": 4.119968255444917e-18,
+          "mae_macro": 6.1438123107511915e-18,
+          "avg_prob_error_pp": 6.143812310751191e-16
+        },
+        {
+          "held_out_competition": "World Cup 2018",
+          "n_test_matches": 64,
+          "ce": 0.9514995651147595,
+          "brier": 3.317715255760824e-33,
+          "mae_a": 1.734723475976807e-17,
+          "mae_draw": 8.239936510889834e-18,
+          "mae_b": 9.324138683375338e-18,
+          "mae_macro": 1.163710331801108e-17,
+          "avg_prob_error_pp": 1.163710331801108e-15
+        },
+        {
+          "held_out_competition": "World Cup 2022",
+          "n_test_matches": 64,
+          "ce": 0.9367692687673814,
+          "brier": 4.069279323902562e-33,
+          "mae_a": 2.1033522146218786e-17,
+          "mae_draw": 1.0625181290357943e-17,
+          "mae_b": 1.3118846287074604e-17,
+          "mae_macro": 1.4925849907883777e-17,
+          "avg_prob_error_pp": 1.4925849907883777e-15
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9440716624172939,
+          "std": 0.037218093438962103,
+          "ci_low": 0.92377712098526,
+          "ci_high": 0.9647686303696378
+        },
+        "brier": {
+          "mean": 3.133014696629998e-33,
+          "std": 1.2098661023592109e-33,
+          "ci_low": 2.508418453252584e-33,
+          "ci_high": 3.8216607758024696e-33
+        },
+        "mae_macro": {
+          "mean": 1.2720221237247223e-17,
+          "std": 3.758523848240862e-18,
+          "ci_low": 1.0687233510863998e-17,
+          "ci_high": 1.4733957443894737e-17
+        },
+        "avg_prob_error_pp": {
+          "mean": 1.2720221237247223e-15,
+          "std": 3.758523848240863e-16,
+          "ci_low": 1.0687233510863998e-15,
+          "ci_high": 1.4733957443894735e-15
+        },
+        "weighted_ce": 0.949104967086663,
+        "weighted_brier": 3.020137723274984e-33,
+        "weighted_mae_macro": 1.2306795699343228e-17
+      }
+    }
+  ]
+}

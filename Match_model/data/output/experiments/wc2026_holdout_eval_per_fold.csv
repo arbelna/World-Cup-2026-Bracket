@@ -1,0 +1,6 @@
+experiment_id,model_name,baseline_name,is_reference,held_out_competition,n_test_matches,ce,brier,mae_macro,avg_prob_error_pp
+catboost_loto_core7,catboost,,False,World Cup 2026,72,0.9219003688256147,0.006872798035439385,0.03675742908865102,3.675742908865102
+baseline__elo,baseline,elo,False,World Cup 2026,72,0.9478629415990759,0.022790977218445755,0.06334538803937055,6.334538803937055
+baseline__marginal,baseline,marginal,False,World Cup 2026,72,1.0768642888721969,0.1166017577689961,0.1425991096910933,14.25991096910933
+baseline__market_dispersion,baseline,market_dispersion,False,World Cup 2026,72,0.9125761858332351,0.0007545262525235972,0.012019731792911359,1.2019731792911357
+reference__market_target_oracle,reference,market_target_oracle,True,World Cup 2026,72,0.9110212053220271,3.3523218094490324e-33,1.2432184911167118e-17,1.2432184911167119e-15

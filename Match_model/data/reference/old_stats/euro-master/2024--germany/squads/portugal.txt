@@ -1,0 +1,34 @@
+==========================
+=  Portugal - Euro 2024
+
+
+  1,  Rui Patrício,                      GK,    108/0  , b. 1988,  AS Roma (ITA)
+ 12,  José Sá,                           GK,      2/0  , b. 1993,  Wolverhampton Wanderers F.C. (ENG)
+ 22,  Diogo Costa,                       GK,     22/0  , b. 1999,  FC Porto (POR)
+
+  2,  Nélson Semedo,                     DF,     30/0  , b. 1993,  Wolverhampton Wanderers F.C. (ENG)
+  3,  Pepe,                              DF,    137/8  , b. 1983,  FC Porto (POR)
+  4,  Rúben Dias,                        DF,     56/3  , b. 1997,  Manchester City F.C. (ENG)
+  5,  Diogo Dalot,                       DF,     20/2  , b. 1999,  Manchester United F.C. (ENG)
+ 14,  Gonçalo Inácio,                    DF,      9/2  , b. 2001,  Sporting CP (POR)
+ 19,  Nuno Mendes,                       DF,     23/0  , b. 2002,  Paris Saint-Germain F.C. (FRA)
+ 20,  João Cancelo,                      DF,     54/10 , b. 1994,  FC Barcelona (ESP)
+ 24,  António Silva,                     DF,     11/0  , b. 2003,  S.L. Benfica (POR)
+
+  6,  João Palhinha,                     MF,     27/2  , b. 1995,  Fulham F.C. (ENG)
+  8,  Bruno Fernandes,                   MF,     67/22 , b. 1994,  Manchester United F.C. (ENG)
+ 10,  Bernardo Silva,                    MF,     89/11 , b. 1994,  Manchester City F.C. (ENG)
+ 13,  Danilo Pereira,                    MF,     73/2  , b. 1991,  Paris Saint-Germain F.C. (FRA)
+ 15,  João Neves,                        MF,      7/0  , b. 2004,  S.L. Benfica (POR)
+ 16,  Matheus Nunes,                     MF,     14/2  , b. 1998,  Manchester City F.C. (ENG)
+ 18,  Rúben Neves,                       MF,     47/0  , b. 1997,  Al Hilal SFC (KSA)
+ 23,  Vitinha,                           MF,     17/0  , b. 2000,  Paris Saint-Germain F.C. (FRA)
+ 25,  Pedro Neto,                        MF,      7/1  , b. 2000,  Wolverhampton Wanderers F.C. (ENG)
+
+  7,  Cristiano Ronaldo,                 FW,    207/130, b. 1985,  Al Nassr FC (KSA)
+  9,  Gonçalo Ramos,                     FW,     13/8  , b. 2001,  Paris Saint-Germain F.C. (FRA)
+ 11,  João Félix,                        FW,     39/8  , b. 1999,  FC Barcelona (ESP)
+ 17,  Rafael Leão,                       FW,     27/4  , b. 1999,  AC Milan (ITA)
+ 21,  Diogo Jota,                        FW,     39/14 , b. 1996,  Liverpool F.C. (ENG)
+ 26,  Francisco Conceição,               FW,      2/0  , b. 2002,  FC Porto (POR)
+

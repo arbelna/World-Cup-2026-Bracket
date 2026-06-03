@@ -1,0 +1,6 @@
+numpy==2.0.2
+scipy==1.15.3
+scikit-learn==1.7.1
+catboost==1.2.10
+pyyaml==6.0.2
+pytest==8.3.4

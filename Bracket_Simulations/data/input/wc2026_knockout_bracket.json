@@ -1,0 +1,179 @@
+{
+  "r32": [
+    {
+      "id": 73,
+      "home": "2A",
+      "away": "2B"
+    },
+    {
+      "id": 74,
+      "home": "1E",
+      "away": {
+        "type": "third_slot",
+        "slot": "1A"
+      }
+    },
+    {
+      "id": 75,
+      "home": "1F",
+      "away": "2C"
+    },
+    {
+      "id": 76,
+      "home": "1C",
+      "away": "2F"
+    },
+    {
+      "id": 77,
+      "home": "1I",
+      "away": {
+        "type": "third_slot",
+        "slot": "1B"
+      }
+    },
+    {
+      "id": 78,
+      "home": "2E",
+      "away": "2I"
+    },
+    {
+      "id": 79,
+      "home": "1A",
+      "away": {
+        "type": "third_slot",
+        "slot": "1K"
+      }
+    },
+    {
+      "id": 80,
+      "home": "1L",
+      "away": {
+        "type": "third_slot",
+        "slot": "1L"
+      }
+    },
+    {
+      "id": 81,
+      "home": "1D",
+      "away": {
+        "type": "third_slot",
+        "slot": "1D"
+      }
+    },
+    {
+      "id": 82,
+      "home": "1G",
+      "away": {
+        "type": "third_slot",
+        "slot": "1G"
+      }
+    },
+    {
+      "id": 83,
+      "home": "2K",
+      "away": "2L"
+    },
+    {
+      "id": 84,
+      "home": "1H",
+      "away": "2J"
+    },
+    {
+      "id": 85,
+      "home": "1B",
+      "away": {
+        "type": "third_slot",
+        "slot": "1E"
+      }
+    },
+    {
+      "id": 86,
+      "home": "1J",
+      "away": "2H"
+    },
+    {
+      "id": 87,
+      "home": "1K",
+      "away": {
+        "type": "third_slot",
+        "slot": "1I"
+      }
+    },
+    {
+      "id": 88,
+      "home": "2D",
+      "away": "2G"
+    }
+  ],
+  "r16": [
+    {
+      "home_match": 74,
+      "away_match": 77
+    },
+    {
+      "home_match": 73,
+      "away_match": 75
+    },
+    {
+      "home_match": 76,
+      "away_match": 78
+    },
+    {
+      "home_match": 79,
+      "away_match": 80
+    },
+    {
+      "home_match": 83,
+      "away_match": 84
+    },
+    {
+      "home_match": 81,
+      "away_match": 82
+    },
+    {
+      "home_match": 86,
+      "away_match": 88
+    },
+    {
+      "home_match": 85,
+      "away_match": 87
+    }
+  ],
+  "qf": [
+    {
+      "home_idx": 0,
+      "away_idx": 1
+    },
+    {
+      "home_idx": 2,
+      "away_idx": 3
+    },
+    {
+      "home_idx": 4,
+      "away_idx": 5
+    },
+    {
+      "home_idx": 6,
+      "away_idx": 7
+    }
+  ],
+  "sf": [
+    {
+      "home_idx": 0,
+      "away_idx": 1
+    },
+    {
+      "home_idx": 2,
+      "away_idx": 3
+    }
+  ],
+  "final": {
+    "home_idx": 0,
+    "away_idx": 1
+  },
+  "third_place": {
+    "home_idx": 0,
+    "away_idx": 1,
+    "losers_from": "sf"
+  }
+}

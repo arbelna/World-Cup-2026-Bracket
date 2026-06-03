@@ -1,0 +1,52 @@
+{
+  "groups": {
+    "A": [
+      "South Africa",
+      "Mexico",
+      "Uruguay",
+      "France"
+    ],
+    "B": [
+      "Argentina",
+      "Nigeria",
+      "South Korea",
+      "Greece"
+    ],
+    "C": [
+      "England",
+      "United States",
+      "Algeria",
+      "Slovenia"
+    ],
+    "D": [
+      "Germany",
+      "Australia",
+      "Serbia",
+      "Ghana"
+    ],
+    "E": [
+      "Netherlands",
+      "Denmark",
+      "Japan",
+      "Cameroon"
+    ],
+    "F": [
+      "Italy",
+      "Paraguay",
+      "New Zealand",
+      "Slovakia"
+    ],
+    "G": [
+      "Brazil",
+      "North Korea",
+      "Ivory Coast",
+      "Portugal"
+    ],
+    "H": [
+      "Spain",
+      "Switzerland",
+      "Honduras",
+      "Chile"
+    ]
+  }
+}
