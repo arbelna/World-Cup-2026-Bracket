@@ -331,9 +331,6 @@ body {
 }
 
 /* ---- DIFF TABLE ---- */
-.diff-pos { color: var(--green); }
-.diff-neg { color: var(--red); }
-
 /* ---- BASKET PANEL ---- */
 .basket-layout { display: flex; flex-direction: column; gap: 20px; }
 .basket-controls {
@@ -578,7 +575,6 @@ body {
 <!-- TABS -->
 <nav id="tabs" role="tablist">
   <button class="tab-btn active" data-panel="prob"    role="tab" aria-selected="true">Probability Table</button>
-  <button class="tab-btn"        data-panel="diff"    role="tab" aria-selected="false">Model vs Market</button>
   <button class="tab-btn"        data-panel="basket"  role="tab" aria-selected="false">Basket Analysis</button>
   <button class="tab-btn"        data-panel="configs" role="tab" aria-selected="false">Top Configurations</button>
 </nav>
@@ -589,10 +585,6 @@ body {
   <section class="panel active" id="panel-prob" role="tabpanel">
     <div class="panel-header">
       <span class="panel-title">Stage Reach Probabilities</span>
-      <div class="toggle-group" id="prob-source-toggle" role="group" aria-label="Data source">
-        <button class="toggle-btn active" data-src="market">Market</button>
-        <button class="toggle-btn" data-src="model">Model</button>
-      </div>
     </div>
     <div class="filter-row">
       <span class="filter-label">Conf:</span>
@@ -631,35 +623,6 @@ body {
     </div>
   </section>
 
-  <!-- PANEL 2: DIFF -->
-  <section class="panel" id="panel-diff" role="tabpanel">
-    <div class="panel-header">
-      <span class="panel-title">Model − Market (percentage points)</span>
-    </div>
-    <div id="diff-skeleton" class="skeleton"></div>
-    <div id="diff-content" style="display:none">
-      <div id="diff-error"></div>
-      <div class="table-wrap">
-        <table class="prob-table" id="diff-table" aria-label="Model vs market difference">
-          <thead>
-            <tr>
-              <th data-col="name" tabindex="0">Team <span class="sort-icon">↕</span></th>
-              <th data-col="confederation" tabindex="0">Conf <span class="sort-icon">↕</span></th>
-              <th data-col="group" tabindex="0">Grp <span class="sort-icon">↕</span></th>
-              <th data-col="R32"  tabindex="0">R32 <span class="sort-icon">↕</span></th>
-              <th data-col="R16"  tabindex="0">R16 <span class="sort-icon">↕</span></th>
-              <th data-col="QF"   tabindex="0">QF <span class="sort-icon">↕</span></th>
-              <th data-col="SF"   tabindex="0">SF <span class="sort-icon">↕</span></th>
-              <th data-col="final" tabindex="0">F <span class="sort-icon">↕</span></th>
-              <th data-col="winner" class="sorted" tabindex="0">W <span class="sort-icon">↓</span></th>
-            </tr>
-          </thead>
-          <tbody id="diff-tbody"></tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
   <!-- PANEL 3: BASKET -->
   <section class="panel" id="panel-basket" role="tabpanel">
     <div class="panel-header">
@@ -679,13 +642,6 @@ body {
           <div class="basket-section-label">Stage</div>
           <div class="stage-radio-group" id="basket-stage-radios">
             <!-- filled by JS -->
-          </div>
-        </div>
-        <div>
-          <div class="basket-section-label">Source</div>
-          <div class="toggle-group" id="basket-source-toggle">
-            <button class="toggle-btn active" data-src="market">Market</button>
-            <button class="toggle-btn" data-src="model">Model</button>
           </div>
         </div>
       </div>
@@ -716,16 +672,12 @@ body {
   <section class="panel" id="panel-configs" role="tabpanel">
     <div class="panel-header">
       <span class="panel-title">Top Stage Configurations</span>
-      <div class="toggle-group" id="configs-source-toggle" role="group">
-        <button class="toggle-btn active" data-src="market">Market</button>
-        <button class="toggle-btn" data-src="model">Model</button>
-      </div>
     </div>
     <div class="configs-controls">
       <div class="toggle-group" id="configs-stage-tabs" role="group" aria-label="Stage">
-        <button class="toggle-btn active" data-stage="QF">QF</button>
+        <button class="toggle-btn active" data-stage="R16">R16</button>
+        <button class="toggle-btn" data-stage="QF">QF</button>
         <button class="toggle-btn" data-stage="SF">SF</button>
-        <button class="toggle-btn" data-stage="R16">R16</button>
         <button class="toggle-btn" data-stage="final">Final</button>
         <button class="toggle-btn" data-stage="winner">Winner</button>
       </div>
@@ -754,9 +706,7 @@ const state = {
   marketMatrixIndex: null,
   modelMatrixIndex: null,
   matrixLoading: { market: false, model: false },
-  probSrc: 'market',
-  diffSortCol: 'winner',
-  diffSortAsc: false,
+  probSrc: 'model',
   probSortCol: 'winner',
   probSortAsc: false,
   probConfFilter: 'ALL',
@@ -764,9 +714,9 @@ const state = {
   probSearch: '',
   basketTeams: [],
   basketStage: 'QF',
-  basketSrc: 'market',
-  configsSrc: 'market',
-  configsStage: 'QF',
+  basketSrc: 'model',
+  configsSrc: 'model',
+  configsStage: 'R16',
   configsSearch: '',
 };
 
@@ -783,30 +733,25 @@ let basketChart = null;
 // DATA LOADING
 // =========================================================
 async function loadData() {
-  const [mktRes, modRes] = await Promise.all([
-    fetch('data/market.json'),
-    fetch('data/model.json'),
-  ]);
+  const res = await fetch('data/model.json');
 
-  if (!mktRes.ok || !modRes.ok) {
+  if (!res.ok) {
     showDataError();
     return;
   }
 
-  state.market = await mktRes.json();
-  state.model  = await modRes.json();
+  state.model = await res.json();
 
   buildGroupChips();
   buildBasketStageRadios();
   updateMetaLine();
   renderProbTable();
-  renderDiffTable();
   renderConfigs();
 }
 
 function showDataError() {
   const msg = `<div class="banner error">Data files not found. Run: <code>python Bracket_Simulations/scripts/export_dashboard_json.py</code></div>`;
-  ['prob-skeleton', 'diff-skeleton', 'configs-skeleton'].forEach(id => {
+  ['prob-skeleton', 'configs-skeleton'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.outerHTML = msg;
   });
@@ -1026,14 +971,12 @@ function parseNpy(bytes) {
 // META LINE
 // =========================================================
 function updateMetaLine() {
-  const d = state.market;
+  const d = state.model;
   if (!d) return;
-  const md = state.model;
   const parts = [
-    `market_all · ${d.meta.n_sims.toLocaleString()} sims`,
-    md ? `model_all · ${md.meta.n_sims.toLocaleString()} sims` : '',
+    `model_all · ${d.meta.n_sims.toLocaleString()} sims`,
     `generated ${d.meta.generated.slice(0,10)}`,
-  ].filter(Boolean);
+  ];
   document.getElementById('meta-line').textContent = parts.join('  ·  ');
 }
 
@@ -1100,14 +1043,6 @@ function cellBg(p, max) {
   }
 }
 
-function diffBg(pp) {
-  // pp in percentage points, range -20 to +20
-  const t = Math.max(-1, Math.min(1, pp / 20));
-  if (t > 0) return `rgba(34,197,94,${t*0.55})`;
-  if (t < 0) return `rgba(239,68,68,${(-t)*0.55})`;
-  return 'transparent';
-}
-
 function confColor(conf) { return CONF_COLORS[conf] || CONF_COLORS['?']; }
 function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
@@ -1145,53 +1080,6 @@ function buildGroupChips() {
 // =========================================================
 // DIFF TABLE
 // =========================================================
-function renderDiffTable() {
-  const skel = document.getElementById('diff-skeleton');
-  const content = document.getElementById('diff-content');
-  if (!state.market || !state.model) {
-    skel.style.display = '';
-    content.style.display = 'none';
-    return;
-  }
-  skel.style.display = 'none';
-  content.style.display = '';
-
-  const mktMap = Object.fromEntries(state.market.teams.map(t => [t.name, t]));
-  const modMap = Object.fromEntries(state.model.teams.map(t => [t.name, t]));
-  const allNames = [...new Set([...Object.keys(mktMap), ...Object.keys(modMap)])];
-
-  let rows = allNames.map(name => {
-    const mkt = mktMap[name];
-    const mod = modMap[name];
-    if (!mkt || !mod) return null;
-    const diff = {};
-    STAGES.forEach(s => { diff[s] = ((mod.probs[s]||0) - (mkt.probs[s]||0)) * 100; });
-    return { name, confederation: mkt.confederation, group: mkt.group, diff };
-  }).filter(Boolean);
-
-  rows = [...rows].sort((a,b) => {
-    const col = state.diffSortCol;
-    let va = STAGES.includes(col) ? a.diff[col]||0 : a[col]||'';
-    let vb = STAGES.includes(col) ? b.diff[col]||0 : b[col]||'';
-    if (typeof va === 'string') return state.diffSortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
-    return state.diffSortAsc ? va - vb : vb - va;
-  });
-
-  const tbody = document.getElementById('diff-tbody');
-  tbody.innerHTML = rows.map(r => {
-    const dot = `<span class="conf-dot" style="background:${confColor(r.confederation)}"></span>`;
-    const nameTd = `<td><div class="team-cell">${dot}${esc(r.name)}</div></td>`;
-    const stageCells = STAGES.map(s => {
-      const pp = r.diff[s];
-      const sign = pp >= 0 ? '+' : '';
-      const cls = pp > 0.5 ? 'diff-pos' : pp < -0.5 ? 'diff-neg' : '';
-      const bg = diffBg(pp);
-      return `<td class="${cls}" style="background:${bg}">${sign}${pp.toFixed(1)}pp</td>`;
-    }).join('');
-    return `<tr>${nameTd}<td>${esc(r.confederation)}</td><td>${esc(r.group)}</td>${stageCells}</tr>`;
-  }).join('');
-}
-
 // =========================================================
 // TABLE SORT WIRING
 // =========================================================
@@ -1251,32 +1139,38 @@ function setupBasketTypeahead() {
   const input = document.getElementById('basket-team-input');
   const dropdown = document.getElementById('basket-dropdown');
 
-  input.addEventListener('input', () => {
+  function updateDropdown() {
     const q = input.value.trim().toLowerCase();
     if (!q) { dropdown.classList.remove('open'); return; }
     const teams = getTeamList();
     const matches = teams.filter(t => t.toLowerCase().includes(q) && !state.basketTeams.includes(t));
-    dropdown.innerHTML = matches.slice(0,12).map(t =>
+    dropdown.innerHTML = matches.slice(0, 12).map(t =>
       `<div class="dropdown-item" role="option">${esc(t)}</div>`
     ).join('');
     dropdown.classList.toggle('open', matches.length > 0);
-    dropdown.querySelectorAll('.dropdown-item').forEach((item, idx) => {
-      item.addEventListener('mousedown', e => {
-        e.preventDefault();
-        addBasketTeam(matches[idx]);
+    dropdown.querySelectorAll('.dropdown-item').forEach(item => {
+      item.addEventListener('click', () => {
+        addBasketTeam(item.textContent);
         input.value = '';
         dropdown.classList.remove('open');
+        input.focus();
       });
     });
+  }
+
+  input.addEventListener('input', updateDropdown);
+
+  // Delay hiding so clicks on dropdown items register first
+  input.addEventListener('blur', () => {
+    setTimeout(() => dropdown.classList.remove('open'), 200);
   });
 
   input.addEventListener('keydown', e => {
-    if (e.key === 'Escape') { dropdown.classList.remove('open'); }
-  });
-
-  document.addEventListener('click', e => {
-    if (!input.contains(e.target) && !dropdown.contains(e.target))
-      dropdown.classList.remove('open');
+    if (e.key === 'Escape') { dropdown.classList.remove('open'); input.blur(); }
+    if (e.key === 'Enter') {
+      const first = dropdown.querySelector('.dropdown-item');
+      if (first) first.click();
+    }
   });
 }
 
@@ -1523,16 +1417,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // Prob source toggle
-  document.getElementById('prob-source-toggle').querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('prob-source-toggle').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.probSrc = btn.dataset.src;
-      renderProbTable();
-    });
-  });
-
   // Prob conf filter chips
   document.querySelectorAll('[data-conf]').forEach(chip => {
     chip.addEventListener('click', () => {
@@ -1559,28 +1443,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Table sort
   wireTableSort('prob-table', 'probSortCol', 'probSortAsc', renderProbTable);
-  wireTableSort('diff-table', 'diffSortCol', 'diffSortAsc', renderDiffTable);
 
   // Basket source toggle
-  document.getElementById('basket-source-toggle').querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('basket-source-toggle').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.basketSrc = btn.dataset.src;
-      renderBasket();
-    });
-  });
-
-  // Configs source toggle
-  document.getElementById('configs-source-toggle').querySelectorAll('.toggle-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.getElementById('configs-source-toggle').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      state.configsSrc = btn.dataset.src;
-      renderConfigs();
-    });
-  });
-
   // Configs stage tabs
   document.getElementById('configs-stage-tabs').querySelectorAll('.toggle-btn').forEach(btn => {
     btn.addEventListener('click', () => {

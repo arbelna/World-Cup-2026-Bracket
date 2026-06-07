@@ -45,3 +45,6 @@ Bracket_Simulations/data/output/simulations/wc*/model_all/**/*
 !Bracket_Simulations/data/output/simulations/wc*/model_all/**/
 !Bracket_Simulations/data/output/simulations/wc*/model_all/**/stage_config_probabilities.csv
 !Bracket_Simulations/data/output/simulations/wc*/model_all/**/team_stage_probabilities.csv
+
+docs/data/market.json
+docs/data/market_sim_matrix.npz
