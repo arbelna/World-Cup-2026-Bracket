@@ -1,6 +1,6 @@
 # Stage prediction backtest
 
-**Generated:** 2026-06-03 10:18 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
+**Generated:** 2026-06-07 10:15 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
 
 > For the concise human-facing summary, see [`results.md`](../../../results.md). This file keeps the full generated stage-by-stage breakdown.
 
@@ -9,7 +9,7 @@
 | Metric | Source | What it measures |
 |--------|--------|------------------|
 | **1** | `team_stage_probabilities.csv` | Top *N* teams by `p_at_least_{stage}` vs who really qualified (N: R16=16, QF=8, SF=4, final=2, winner=1) |
-| **2** | `stage_config_probabilities.csv` rank 1 | Did the most simulated exact team set match reality? |
+| **2** | `team_stage_probabilities.csv` | Mean Brier on teams that actually reached the stage (`p_at_least_{stage}` vs outcome 1); lower is better |
 | **3** | `analysis/stage_combinations_{stage}.csv` | Rank and cumulative probability of the exact actual team set (if never simulated in the run, cumulative is 99.90%) |
 | **4** | Same as 3 | Cumulative probability until each actual team has appeared in >=1 combo; lists the union of teams in combos 1..stop rank |
 
@@ -19,21 +19,45 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 ## Aggregate (average across tournaments)
 
-| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
-|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|
-| **R16** | 70.31% | 71.88% | 0/4 | 0/4 | 62.05% | 97.21% | 9.29% | 6.24% |
-| **QF** | 62.50% | 65.62% | 0/4 | 0/4 | 40.01% | 59.74% | 14.38% | 15.75% |
-| **SF** | 43.75% | 50.00% | 0/4 | 0/4 | 45.02% | 42.47% | 24.11% | 27.19% |
-| **final** | 25.00% | 37.50% | 0/4 | 0/4 | 39.12% | 25.39% | 35.91% | 19.60% |
-| **winner** | 0.00% | 0.00% | 0/4 | 0/4 | 56.86% | 43.39% | 56.86% | 43.39% |
+### M1 top-N recall
 
-| Stage | M3 avg rank mkt | M3 avg rank mdl | M4 avg rank mkt | M4 avg rank mdl |
-|-------|-----------------|-----------------|-----------------|-----------------|
-| **R16** | 20432 | 75614 | 194 | 213 |
-| **QF** | 1234 | 32340 | 134 | 782 |
-| **SF** | 287 | 382 | 47 | 152 |
-| **final** | 13 | 12 | 10 | 8 |
-| **winner** | 4 | 4 | 4 | 4 |
+| Stage | M1 market | M1 model |
+|-------|-----------|-----------|
+| **R16** | 70.31% | 71.88% |
+| **QF** | 62.50% | 65.62% |
+| **SF** | 43.75% | 50.00% |
+| **final** | 25.00% | 37.50% |
+| **winner** | 0.00% | 0.00% |
+
+### M2 qualifier Brier
+
+| Stage | M2 market | M2 model |
+|-------|-----------|----------|
+| **R16** | 0.1955 | 0.2045 |
+| **QF** | 0.3246 | 0.3612 |
+| **SF** | 0.5138 | 0.5597 |
+| **final** | 0.6489 | 0.6767 |
+| **winner** | 0.7687 | 0.7861 |
+
+### M3 exact-set cumulative
+
+| Stage | M3 cum market | M3 cum model | Delta pp (model - market) | Better side |
+|-------|---------------|--------------|---------------------------|-------------|
+| **R16** | 62.05% | 97.21% | +35.16 | market |
+| **QF** | 40.01% | 59.74% | +19.73 | market |
+| **SF** | 45.02% | 42.47% | -2.55 | model |
+| **final** | 39.12% | 25.39% | -13.73 | model |
+| **winner** | 56.86% | 43.39% | -13.47 | model |
+
+### M4 all-teams-seen cumulative
+
+| Stage | M4 cum market | M4 cum model | Delta pp (model - market) | Better side |
+|-------|---------------|--------------|---------------------------|-------------|
+| **R16** | 9.29% | 6.24% | -3.05 | model |
+| **QF** | 14.38% | 15.75% | +1.37 | market |
+| **SF** | 24.11% | 27.19% | +3.08 | market |
+| **final** | 35.91% | 19.60% | -16.31 | model |
+| **winner** | 56.86% | 43.39% | -13.47 | model |
 
 ---
 
@@ -45,13 +69,13 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
 |-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
-| **R16** | 12/16 | 11/16 | no | no | 55.52% | 89.14% | 2.71% | 2.98% |
-| **QF** | 5/8 | 5/8 | no | no | 34.27% | 98.33% | 12.05% | 14.24% |
-| **SF** | 1/4 | 1/4 | no | no | 37.15% | 51.44% | 24.51% | 21.73% |
-| **final** | 1/2 | 1/2 | no | no | 28.19% | 27.12% | 28.19% | 25.07% |
-| **winner** | 0/1 | 0/1 | no | no | 34.84% | 35.34% | 34.84% | 35.34% |
+| **R16** | 12/16 | 11/16 | 0.1871 | 0.1971 | 55.52% | 89.14% | 2.71% | 2.98% |
+| **QF** | 5/8 | 5/8 | 0.3341 | 0.4154 | 34.27% | 98.33% | 12.05% | 14.24% |
+| **SF** | 1/4 | 1/4 | 0.5000 | 0.5904 | 37.15% | 51.44% | 24.51% | 21.73% |
+| **final** | 1/2 | 1/2 | 0.5980 | 0.6708 | 28.19% | 27.12% | 28.19% | 25.07% |
+| **winner** | 0/1 | 0/1 | 0.6825 | 0.7565 | 34.84% | 35.34% | 34.84% | 35.34% |
 
-_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}` (lower is better); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
 
 ### R16
 
@@ -79,13 +103,12 @@ _M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulati
 > Germany | Serbia | France | Portugal | Mexico | Slovakia
 > Chile | Slovenia | Cameroon | Uruguay
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.11% | 0.18% |
-| Set | Argentina, Brazil, Chile, Denmark, England, France, Germany, Italy, Netherlands, Nigeria, Paraguay, Portugal, Serbia, Spain, United States, Uruguay | Argentina, Brazil, Cameroon, Chile, England, France, Germany, Greece, Italy, Mexico, Netherlands, Portugal, Serbia, Slovakia, Slovenia, Spain |
+| Mean Brier (qualifiers only) | 0.1871 | 0.1971 |
+| Avg p on qualifiers | 63.43% | 61.41% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -160,13 +183,12 @@ Target combo: Argentina, Brazil, Chile, England, Germany, Ghana, Japan, Mexico, 
 > Brazil | England | Argentina | Italy | Spain | Netherlands
 > Germany | France
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.40% | 0.11% |
-| Set | Argentina, Brazil, England, France, Germany, Italy, Netherlands, Spain | Argentina, Brazil, England, Germany, Italy, Mexico, Netherlands, Spain |
+| Mean Brier (qualifiers only) | 0.3341 | 0.4154 |
+| Avg p on qualifiers | 46.14% | 38.67% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -239,13 +261,12 @@ Target combo: Argentina, Brazil, Germany, Ghana, Netherlands, Paraguay, Spain, U
 **Model top-4 pick** - 4 teams
 > Brazil | Spain | England | Argentina
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 2.26% | 0.88% |
-| Set | Argentina, Brazil, England, Spain | Argentina, Brazil, England, Spain |
+| Mean Brier (qualifiers only) | 0.5000 | 0.5904 |
+| Avg p on qualifiers | 30.48% | 23.72% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -313,13 +334,12 @@ Target combo: Germany, Netherlands, Spain, Uruguay
 **Model top-2 pick** - 2 teams
 > Brazil | Spain
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 6.21% | 5.59% |
-| Set | Brazil, Spain | Brazil, Spain |
+| Mean Brier (qualifiers only) | 0.5980 | 0.6708 |
+| Avg p on qualifiers | 22.89% | 18.21% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -385,13 +405,12 @@ Target combo: Netherlands, Spain
 **Model top-1 pick** - 1 teams
 > Brazil
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 17.45% | 22.31% |
-| Set | Brazil | Brazil |
+| Mean Brier (qualifiers only) | 0.6825 | 0.7565 |
+| Avg p on qualifiers | 17.39% | 13.02% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -447,13 +466,13 @@ Target combo: Spain
 
 | Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
 |-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
-| **R16** | 10/16 | 11/16 | no | no | 99.90% | 99.90% | 14.28% | 11.12% |
-| **QF** | 5/8 | 5/8 | no | no | 43.62% | 99.90% | 15.61% | 27.96% |
-| **SF** | 3/4 | 2/4 | no | no | 13.93% | 34.22% | 7.41% | 24.07% |
-| **final** | 0/2 | 1/2 | no | no | 21.07% | 13.94% | 17.20% | 13.94% |
-| **winner** | 0/1 | 0/1 | no | no | 50.44% | 64.26% | 50.44% | 64.26% |
+| **R16** | 10/16 | 11/16 | 0.2539 | 0.2212 | 99.90% | 99.90% | 14.28% | 11.12% |
+| **QF** | 5/8 | 5/8 | 0.3340 | 0.3985 | 43.62% | 99.90% | 15.61% | 27.96% |
+| **SF** | 3/4 | 2/4 | 0.4108 | 0.5449 | 13.93% | 34.22% | 7.41% | 24.07% |
+| **final** | 0/2 | 1/2 | 0.5825 | 0.6707 | 21.07% | 13.94% | 17.20% | 13.94% |
+| **winner** | 0/1 | 0/1 | 0.7466 | 0.8414 | 50.44% | 64.26% | 50.44% | 64.26% |
 
-_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}` (lower is better); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
 
 ### R16
 
@@ -481,13 +500,12 @@ _M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulati
 > Uruguay | Russia | Chile | Colombia | England | Switzerland
 > Italy | Ivory Coast | Nigeria | Mexico
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.09% | 0.06% |
-| Set | Argentina, Belgium, Bosnia and Herzegovina, Brazil, Colombia, Croatia, England, France, Germany, Italy, Japan, Netherlands, Portugal, Russia, Spain, Switzerland | Argentina, Belgium, Brazil, Chile, Colombia, England, France, Germany, Ivory Coast, Mexico, Nigeria, Portugal, Russia, Spain, Switzerland, Uruguay |
+| Mean Brier (qualifiers only) | 0.2539 | 0.2212 |
+| Avg p on qualifiers | 56.94% | 58.70% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -564,13 +582,12 @@ Target combo: Algeria, Argentina, Belgium, Brazil, Chile, Colombia, Costa Rica, 
 > Argentina | Brazil | France | Belgium | Germany | Spain
 > Uruguay | England
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.29% | 0.10% |
-| Set | Argentina, Brazil, England, France, Germany, Italy, Portugal, Spain | Argentina, Belgium, Brazil, England, France, Germany, Spain, Uruguay |
+| Mean Brier (qualifiers only) | 0.3340 | 0.3985 |
+| Avg p on qualifiers | 46.03% | 39.94% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -643,13 +660,12 @@ Target combo: Argentina, Belgium, Brazil, Colombia, Costa Rica, France, Germany,
 **Model top-4 pick** - 4 teams
 > Brazil | Argentina | France | Belgium
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 2.19% | 0.64% |
-| Set | Argentina, Brazil, France, Spain | Argentina, Brazil, France, Spain |
+| Mean Brier (qualifiers only) | 0.4108 | 0.5449 |
+| Avg p on qualifiers | 36.95% | 27.30% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -717,13 +733,12 @@ Target combo: Argentina, Brazil, Germany, Netherlands
 **Model top-2 pick** - 2 teams
 > Brazil | Argentina
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 7.14% | 3.65% |
-| Set | Brazil, Spain | Argentina, Brazil |
+| Mean Brier (qualifiers only) | 0.5825 | 0.6707 |
+| Avg p on qualifiers | 23.68% | 18.16% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -789,13 +804,12 @@ Target combo: Argentina, Germany
 **Model top-1 pick** - 1 teams
 > Brazil
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 19.98% | 16.21% |
-| Set | Brazil | Brazil |
+| Mean Brier (qualifiers only) | 0.7466 | 0.8414 |
+| Avg p on qualifiers | 13.59% | 8.27% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -851,13 +865,13 @@ Target combo: Germany
 
 | Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
 |-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
-| **R16** | 14/16 | 13/16 | no | no | 24.55% | 99.90% | 2.89% | 2.63% |
-| **QF** | 4/8 | 5/8 | no | no | 52.24% | 9.18% | 15.42% | 1.98% |
-| **SF** | 1/4 | 3/4 | no | no | 41.96% | 5.34% | 12.76% | 1.65% |
-| **final** | 0/2 | 0/2 | no | no | 76.42% | 54.00% | 67.43% | 32.89% |
-| **winner** | 0/1 | 0/1 | no | no | 66.02% | 46.23% | 66.02% | 46.23% |
+| **R16** | 14/16 | 13/16 | 0.1153 | 0.1788 | 24.55% | 99.90% | 2.89% | 2.63% |
+| **QF** | 4/8 | 5/8 | 0.3300 | 0.3091 | 52.24% | 9.18% | 15.42% | 1.98% |
+| **SF** | 1/4 | 3/4 | 0.5120 | 0.4776 | 41.96% | 5.34% | 12.76% | 1.65% |
+| **final** | 0/2 | 0/2 | 0.7674 | 0.7404 | 76.42% | 54.00% | 67.43% | 32.89% |
+| **winner** | 0/1 | 0/1 | 0.8206 | 0.8004 | 66.02% | 46.23% | 66.02% | 46.23% |
 
-_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}` (lower is better); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
 
 ### R16
 
@@ -885,13 +899,12 @@ _M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulati
 > Uruguay | Colombia | Spain | Croatia | Russia | Poland
 > Serbia | Sweden | Portugal | Denmark
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.56% | 0.13% |
-| Set | Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, France, Germany, Mexico, Poland, Portugal, Russia, Spain, Switzerland, Uruguay | Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, France, Germany, Poland, Portugal, Russia, Serbia, Spain, Sweden, Uruguay |
+| Mean Brier (qualifiers only) | 0.1153 | 0.1788 |
+| Avg p on qualifiers | 71.74% | 63.43% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -965,13 +978,12 @@ Target combo: Argentina, Belgium, Brazil, Colombia, Croatia, Denmark, England, F
 > England | Brazil | Belgium | France | Argentina | Germany
 > Uruguay | Spain
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 1.30% | 0.19% |
-| Set | Argentina, Belgium, Brazil, England, France, Germany, Portugal, Spain | Argentina, Belgium, Brazil, England, France, Germany, Russia, Uruguay |
+| Mean Brier (qualifiers only) | 0.3300 | 0.3091 |
+| Avg p on qualifiers | 46.30% | 45.89% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1040,13 +1052,12 @@ Target combo: Belgium, Brazil, Croatia, England, France, Russia, Sweden, Uruguay
 **Model top-4 pick** - 4 teams
 > England | Belgium | France | Argentina
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 2.69% | 0.92% |
-| Set | Brazil, France, Germany, Spain | Argentina, Belgium, England, France |
+| Mean Brier (qualifiers only) | 0.5120 | 0.4776 |
+| Avg p on qualifiers | 28.82% | 31.16% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1112,13 +1123,12 @@ Target combo: Belgium, Croatia, England, France
 **Model top-2 pick** - 2 teams
 > England | Belgium
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 10.43% | 4.35% |
-| Set | Brazil, Germany | Belgium, England |
+| Mean Brier (qualifiers only) | 0.7674 | 0.7404 |
+| Avg p on qualifiers | 12.61% | 14.08% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1185,13 +1195,12 @@ Target combo: Croatia, France
 **Model top-1 pick** - 1 teams
 > England
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 22.49% | 12.49% |
-| Set | Germany | England |
+| Mean Brier (qualifiers only) | 0.8206 | 0.8004 |
+| Avg p on qualifiers | 9.41% | 10.54% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1247,13 +1256,13 @@ Target combo: France
 
 | Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |
 |-------|-----------|-----------|--------|--------|----------|----------|----------|----------|
-| **R16** | 9/16 | 11/16 | no | no | 68.25% | 99.90% | 17.27% | 8.23% |
-| **QF** | 6/8 | 6/8 | no | no | 29.92% | 31.55% | 14.43% | 18.82% |
-| **SF** | 2/4 | 2/4 | no | no | 87.03% | 78.88% | 51.77% | 61.33% |
-| **final** | 1/2 | 1/2 | no | no | 30.82% | 6.51% | 30.82% | 6.51% |
-| **winner** | 0/1 | 0/1 | no | no | 76.15% | 27.74% | 76.15% | 27.74% |
+| **R16** | 9/16 | 11/16 | 0.2257 | 0.2209 | 68.25% | 99.90% | 17.27% | 8.23% |
+| **QF** | 6/8 | 6/8 | 0.3003 | 0.3217 | 29.92% | 31.55% | 14.43% | 18.82% |
+| **SF** | 2/4 | 2/4 | 0.6325 | 0.6259 | 87.03% | 78.88% | 51.77% | 61.33% |
+| **final** | 1/2 | 1/2 | 0.6476 | 0.6249 | 30.82% | 6.51% | 30.82% | 6.51% |
+| **winner** | 0/1 | 0/1 | 0.8251 | 0.7461 | 76.15% | 27.74% | 76.15% | 27.74% |
 
-_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
+_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}` (lower is better); M3 = cumulative probability up to the exact actual set (if never simulated, 99.90%); M4 = cumulative probability until all actual teams have appeared in some combo._
 
 ### R16
 
@@ -1281,13 +1290,12 @@ _M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); M3 = cumulati
 > Denmark | England | Germany | Belgium | Switzerland | Uruguay
 > Croatia | Ecuador | Poland | United States
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.26% | 0.43% |
-| Set | Argentina, Belgium, Brazil, Croatia, Denmark, Ecuador, England, France, Germany, Mexico, Netherlands, Portugal, Serbia, Spain, United States, Uruguay | Argentina, Belgium, Brazil, Croatia, Denmark, Ecuador, England, France, Germany, Netherlands, Poland, Portugal, Spain, Switzerland, United States, Uruguay |
+| Mean Brier (qualifiers only) | 0.2257 | 0.2209 |
+| Avg p on qualifiers | 60.81% | 60.41% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1364,13 +1372,12 @@ Target combo: Argentina, Australia, Brazil, Croatia, England, France, Japan, Mor
 > Argentina | Portugal | Netherlands | France | Spain | Brazil
 > Germany | England
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 0.81% | 0.19% |
-| Set | Argentina, Brazil, England, France, Germany, Netherlands, Portugal, Spain | Argentina, Brazil, England, France, Germany, Netherlands, Portugal, Spain |
+| Mean Brier (qualifiers only) | 0.3003 | 0.3217 |
+| Avg p on qualifiers | 49.19% | 45.53% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1442,13 +1449,12 @@ Target combo: Argentina, Brazil, Croatia, England, France, Morocco, Netherlands,
 **Model top-4 pick** - 4 teams
 > Argentina | Portugal | France | Spain
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 1.31% | 0.73% |
-| Set | Argentina, Brazil, France, Portugal | Argentina, Brazil, France, Portugal |
+| Mean Brier (qualifiers only) | 0.6325 | 0.6259 |
+| Avg p on qualifiers | 22.45% | 22.28% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1518,13 +1524,12 @@ Target combo: Argentina, Croatia, France, Morocco
 **Model top-2 pick** - 2 teams
 > Portugal | Argentina
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 5.93% | 3.47% |
-| Set | Brazil, England | Argentina, Portugal |
+| Mean Brier (qualifiers only) | 0.6476 | 0.6249 |
+| Avg p on qualifiers | 19.53% | 20.98% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1590,13 +1595,12 @@ Target combo: Argentina, France
 **Model top-1 pick** - 1 teams
 > Portugal
 
-#### Metric 2 - Most frequent exact set (rank 1)
+#### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Match actual set | no | no |
-| Probability | 28.66% | 14.12% |
-| Set | Brazil | Portugal |
+| Mean Brier (qualifiers only) | 0.8251 | 0.7461 |
+| Avg p on qualifiers | 9.16% | 13.63% |
 
 #### Metric 3 - Exact actual set in joint distribution
 

@@ -69,11 +69,13 @@ def evaluate_marginal(
             brier += (p - y) ** 2
             p_clip = min(max(p, 1e-15), 1 - 1e-15)
             logloss += -(y * math.log(p_clip) + (1 - y) * math.log(1 - p_clip))
+        brier_qualifiers = sum((preds[t][col] - 1.0) ** 2 for t in actual_set) / len(actual_set)
         ranked = sorted(all_teams, key=lambda t: preds[t][col], reverse=True)
         topn = set(ranked[:n])
         summary[stage] = {
             "correct_05": correct_05,
             "brier": brier / len(all_teams),
+            "brier_qualifiers": brier_qualifiers,
             "logloss": logloss / len(all_teams),
             "topn_hits": len(topn & actual_set),
             "topn_fp": len(topn - actual_set),

@@ -15,6 +15,10 @@ def _pct(x: float) -> str:
     return f"{100 * x:.2f}%"
 
 
+def _brier(x: float) -> str:
+    return f"{x:.4f}"
+
+
 def _yn(ok: bool) -> str:
     return "yes" if ok else "no"
 
@@ -101,14 +105,14 @@ def _render_tournament_section(r: dict[str, Any], tournament_id: str) -> list[st
         lines.append(
             f"| **{stage}** | "
             f"{int(ms['topn_hits'])}/{n} | {int(ds['topn_hits'])}/{n} | "
-            f"{_yn(mj['top1_correct'])} | {_yn(dj['top1_correct'])} | "
+            f"{_brier(ms['brier_qualifiers'])} | {_brier(ds['brier_qualifiers'])} | "
             f"{_pct(mj['cumulative_frequency'])} | {_pct(dj['cumulative_frequency'])} | "
             f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} |"
         )
     lines.append("")
     lines.append(
-        "_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); "
-        "M3 = cumulative probability up to the exact actual set "
+        "_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}` "
+        "(lower is better); M3 = cumulative probability up to the exact actual set "
         f"(if never simulated, {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}); "
         "M4 = cumulative probability until all actual teams have appeared in some combo._"
     )
@@ -154,18 +158,17 @@ def _render_tournament_section(r: dict[str, Any], tournament_id: str) -> list[st
         lines.extend(_render_team_block(f"Model top-{n} pick", dr))
         lines.append("")
 
-        lines.append("#### Metric 2 - Most frequent exact set (rank 1)")
+        lines.append("#### Metric 2 - Brier on actual qualifiers (`p_at_least`)")
         lines.append("")
         lines.append("| | Market | Model |")
         lines.append("|--|--------|-------|")
-        lines.append(f"| Match actual set | {_yn(mj['top1_correct'])} | {_yn(dj['top1_correct'])} |")
         lines.append(
-            f"| Probability | {_pct(mj['top1_probability'])} | {_pct(dj['top1_probability'])} |"
+            f"| Mean Brier (qualifiers only) | {_brier(ms['brier_qualifiers'])} | "
+            f"{_brier(ds['brier_qualifiers'])} |"
         )
-        lines.append(
-            f"| Set | {_display_combo(str(mj.get('top1_teams', '')))} | "
-            f"{_display_combo(str(dj.get('top1_teams', '')))} |"
-        )
+        m_avg_p = sum(market_preds[t][col] for t in actual_set) / len(actual_set)
+        d_avg_p = sum(model_preds[t][col] for t in actual_set) / len(actual_set)
+        lines.append(f"| Avg p on qualifiers | {_pct(m_avg_p)} | {_pct(d_avg_p)} |")
         lines.append("")
 
         actual_pipe = "|".join(actual_sorted)
@@ -238,8 +241,8 @@ def _aggregate_rows(results: list[dict[str, Any]]) -> list[dict[str, str]]:
         n = EXPECTED_N[stage]
         m_hits = sum(r["market"][stage]["topn_hits"] for r in results) / (n_t * n)
         d_hits = sum(r["model"][stage]["topn_hits"] for r in results) / (n_t * n)
-        m2m = sum(1 for r in results if r["market_joint"][stage]["top1_correct"])
-        m2d = sum(1 for r in results if r["model_joint"][stage]["top1_correct"])
+        m2m = sum(r["market"][stage]["brier_qualifiers"] for r in results) / n_t
+        m2d = sum(r["model"][stage]["brier_qualifiers"] for r in results) / n_t
         m3 = sum(r["market_joint"][stage]["cumulative_frequency"] for r in results) / n_t
         d3 = sum(r["model_joint"][stage]["cumulative_frequency"] for r in results) / n_t
         m4 = sum(r["market_joint"][stage]["cumulative_teams_covered"] for r in results) / n_t
@@ -256,12 +259,21 @@ def _aggregate_rows(results: list[dict[str, Any]]) -> list[dict[str, str]]:
                 "m1_market_value": m_hits,
                 "m1_model_value": d_hits,
                 "m1_delta_pp": 100.0 * (d_hits - m_hits),
-                "m2_market": f"{m2m}/{n_t}",
-                "m2_model": f"{m2d}/{n_t}",
+                "m2_market": _brier(m2m),
+                "m2_model": _brier(m2d),
+                "m2_market_value": m2m,
+                "m2_model_value": m2d,
+                "m2_delta": m2d - m2m,
                 "m3_market": _pct(m3),
                 "m3_model": _pct(d3),
+                "m3_market_value": m3,
+                "m3_model_value": d3,
+                "m3_delta_pp": 100.0 * (d3 - m3),
                 "m4_market": _pct(m4),
                 "m4_model": _pct(d4),
+                "m4_market_value": m4,
+                "m4_model_value": d4,
+                "m4_delta_pp": 100.0 * (d4 - m4),
                 "m3_rank_market": f"{m3r:.0f}",
                 "m3_rank_model": f"{d3r:.0f}",
                 "m4_rank_market": f"{m4r:.0f}",
@@ -287,15 +299,15 @@ def render_summary_markdown(results: list[dict[str, Any]]) -> str:
         "## Key findings",
         "",
         f"- `model_all` edges `market_all` on average M1 top-N recall at R16 ({aggregate_rows[0]['m1_model']} vs {aggregate_rows[0]['m1_market']}), QF ({aggregate_rows[1]['m1_model']} vs {aggregate_rows[1]['m1_market']}), SF ({aggregate_rows[2]['m1_model']} vs {aggregate_rows[2]['m1_market']}), and final ({aggregate_rows[3]['m1_model']} vs {aggregate_rows[3]['m1_market']}).",
-        "- M2 is `0/4` for both modes at every stage: the rank-1 exact bracket never matches reality, which is a concise reminder that exact bracket configurations are far more brittle than marginal stage probabilities.",
+        "- M2 (qualifier Brier, lower is better): `market_all` beats `model_all` on average at every stage; error rises toward the final because winner probabilities on the actual champion are typically ~10-17%.",
         f"- M3 cumulative (lower is better): when the exact set was never simulated, both modes report "
-        f"{_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}; otherwise compare observed ranks in the per-tournament tables.",
-        f"- Both modes miss the actual champion as the top-1 winner pick in all four tournaments, but both still keep the actual champion relatively near the front of the winner distribution on average (M3 winner rank {aggregate_rows[4]['m3_rank_market']} for market and {aggregate_rows[4]['m3_rank_model']} for model).",
+        f"{_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}; otherwise compare values in the M3 aggregate table.",
+        "- Both modes miss the actual champion as the top-1 winner pick in all four tournaments; M4 still places every actual late-stage team inside the high-probability joint support earlier than M3's exact-set rank.",
         "",
         "## How to read the metrics",
         "",
         "- M1: top-N marginal recall from `p_at_least_{stage}`; higher is better.",
-        "- M2: whether the single most likely exact team set matched reality; `yes` or `no`.",
+        "- M2: mean Brier on teams that actually reached the stage, using `p_at_least_{stage}`; lower is better.",
         f"- M3: cumulative probability up to the exact actual set; lower is better, and {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)} means the exact set was never observed in the simulated support.",
         "- M4: cumulative probability until every actual team has appeared somewhere in the high-probability joint support; lower is better.",
         "",
@@ -315,27 +327,55 @@ def render_summary_markdown(results: list[dict[str, Any]]) -> str:
             "",
             "`model_all` holds a small but consistent aggregate M1 recall edge from R16 through final in the historical backtest.",
             "",
-        "## Aggregate",
-        "",
-        "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |",
-        "|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|",
+            "## M2 qualifier Brier",
+            "",
+            "Mean squared error on actual qualifiers only: average of `(p_at_least - 1)^2` over teams that reached the stage.",
+            "",
+            "| Stage | Market M2 Brier | Model M2 Brier | Delta (model - market) | Better side |",
+            "|-------|-----------------|----------------|------------------------|-------------|",
         ]
     )
     for row in aggregate_rows:
+        better = "market" if row["m2_delta"] > 0 else ("model" if row["m2_delta"] < 0 else "tie")
         lines.append(
-            f"| **{row['stage']}** | {row['m1_market']} | {row['m1_model']} | {row['m2_market']} | {row['m2_model']} | "
-            f"{row['m3_market']} | {row['m3_model']} | {row['m4_market']} | {row['m4_model']} |"
+            f"| **{row['stage']}** | {row['m2_market']} | {row['m2_model']} | "
+            f"{row['m2_delta']:+.4f} | {better} |"
         )
     lines.extend(
         [
             "",
-            "| Stage | M3 avg rank mkt | M3 avg rank mdl | M4 avg rank mkt | M4 avg rank mdl |",
-            "|-------|-----------------|-----------------|-----------------|-----------------|",
+            "`market_all` has lower average qualifier Brier at every stage in the historical backtest.",
+            "",
+            "## M3 exact-set cumulative",
+            "",
+            f"Cumulative simulated probability through the rank of the exact actual team set; {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)} when that set never appeared.",
+            "",
+            "| Stage | Market M3 cum | Model M3 cum | Delta pp (model - market) | Better side |",
+            "|-------|---------------|--------------|---------------------------|-------------|",
         ]
     )
     for row in aggregate_rows:
+        better = "model" if row["m3_delta_pp"] < 0 else ("market" if row["m3_delta_pp"] > 0 else "tie")
         lines.append(
-            f"| **{row['stage']}** | {row['m3_rank_market']} | {row['m3_rank_model']} | {row['m4_rank_market']} | {row['m4_rank_model']} |"
+            f"| **{row['stage']}** | {row['m3_market']} | {row['m3_model']} | "
+            f"{row['m3_delta_pp']:+.2f} | {better} |"
+        )
+    lines.extend(
+        [
+            "",
+            "## M4 all-teams-seen cumulative",
+            "",
+            "Cumulative simulated probability through the first rank where every actual team has appeared in at least one joint combo.",
+            "",
+            "| Stage | Market M4 cum | Model M4 cum | Delta pp (model - market) | Better side |",
+            "|-------|---------------|--------------|---------------------------|-------------|",
+        ]
+    )
+    for row in aggregate_rows:
+        better = "model" if row["m4_delta_pp"] < 0 else ("market" if row["m4_delta_pp"] > 0 else "tie")
+        lines.append(
+            f"| **{row['stage']}** | {row['m4_market']} | {row['m4_model']} | "
+            f"{row['m4_delta_pp']:+.2f} | {better} |"
         )
 
     for r in results:
@@ -348,8 +388,8 @@ def render_summary_markdown(results: list[dict[str, Any]]) -> str:
                 f"- Market winner pick: {r['market_champion_pick']}",
                 f"- Model winner pick: {r['model_champion_pick']}",
                 "",
-                "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl |",
-                "|-------|-----------|-----------|--------|--------|------------|------------|",
+                "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |",
+                "|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|",
             ]
         )
         for stage in STAGES:
@@ -358,14 +398,16 @@ def render_summary_markdown(results: list[dict[str, Any]]) -> str:
             mj, dj = r["market_joint"][stage], r["model_joint"][stage]
             lines.append(
                 f"| **{stage}** | {int(ms['topn_hits'])}/{n} | {int(ds['topn_hits'])}/{n} | "
-                f"{_yn(mj['top1_correct'])} | {_yn(dj['top1_correct'])} | "
-                f"{_pct(mj['cumulative_frequency'])} | {_pct(dj['cumulative_frequency'])} |"
+                f"{_brier(ms['brier_qualifiers'])} | {_brier(ds['brier_qualifiers'])} | "
+                f"{_pct(mj['cumulative_frequency'])} | {_pct(dj['cumulative_frequency'])} | "
+                f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} |"
             )
         lines.append("")
         lines.append(
-            "_M1 = top-N marginal recall; M2 = rank-1 exact set match (yes/no); "
+            "_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}`; "
             f"M3 = cumulative probability up to the exact actual set "
-            f"(if never simulated, {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)})._"
+            f"(if never simulated, {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}); "
+            "M4 = cumulative probability until all actual teams have appeared in some combo._"
         )
 
     lines.extend(["", * _render_worked_example(results), ""])
@@ -389,7 +431,7 @@ def render_backtest_markdown(results: list[dict[str, Any]]) -> str:
         "|--------|--------|------------------|",
         "| **1** | `team_stage_probabilities.csv` | Top *N* teams by `p_at_least_{stage}` vs who really qualified "
         f"(N: {', '.join(f'{s}={EXPECTED_N[s]}' for s in STAGES)}) |",
-        "| **2** | `stage_config_probabilities.csv` rank 1 | Did the most simulated exact team set match reality? |",
+        "| **2** | `team_stage_probabilities.csv` | Mean Brier on teams that actually reached the stage (`p_at_least_{stage}` vs outcome 1); lower is better |",
         "| **3** | `analysis/stage_combinations_{stage}.csv` | Rank and cumulative probability of the exact actual team set "
         f"(if never simulated in the run, cumulative is {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}) |",
         "| **4** | Same as 3 | Cumulative probability until each actual team has appeared in >=1 combo; lists the union of teams in combos 1..stop rank |",
@@ -400,26 +442,58 @@ def render_backtest_markdown(results: list[dict[str, Any]]) -> str:
         "",
         "## Aggregate (average across tournaments)",
         "",
-        "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |",
-        "|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|",
+        "### M1 top-N recall",
+        "",
+        "| Stage | M1 market | M1 model |",
+        "|-------|-----------|-----------|",
     ]
 
-    for row in _aggregate_rows(results):
+    aggregate_rows = _aggregate_rows(results)
+    for row in aggregate_rows:
+        lines.append(f"| **{row['stage']}** | {row['m1_market']} | {row['m1_model']} |")
+
+    lines.extend(
+        [
+            "",
+            "### M2 qualifier Brier",
+            "",
+            "| Stage | M2 market | M2 model |",
+            "|-------|-----------|----------|",
+        ]
+    )
+    for row in aggregate_rows:
+        lines.append(f"| **{row['stage']}** | {row['m2_market']} | {row['m2_model']} |")
+
+    lines.extend(
+        [
+            "",
+            "### M3 exact-set cumulative",
+            "",
+            "| Stage | M3 cum market | M3 cum model | Delta pp (model - market) | Better side |",
+            "|-------|---------------|--------------|---------------------------|-------------|",
+        ]
+    )
+    for row in aggregate_rows:
+        better = "model" if row["m3_delta_pp"] < 0 else ("market" if row["m3_delta_pp"] > 0 else "tie")
         lines.append(
-            f"| **{row['stage']}** | {row['m1_market']} | {row['m1_model']} | {row['m2_market']} | {row['m2_model']} | "
-            f"{row['m3_market']} | {row['m3_model']} | {row['m4_market']} | {row['m4_model']} |"
+            f"| **{row['stage']}** | {row['m3_market']} | {row['m3_model']} | "
+            f"{row['m3_delta_pp']:+.2f} | {better} |"
         )
 
     lines.extend(
         [
             "",
-            "| Stage | M3 avg rank mkt | M3 avg rank mdl | M4 avg rank mkt | M4 avg rank mdl |",
-            "|-------|-----------------|-----------------|-----------------|-----------------|",
+            "### M4 all-teams-seen cumulative",
+            "",
+            "| Stage | M4 cum market | M4 cum model | Delta pp (model - market) | Better side |",
+            "|-------|---------------|--------------|---------------------------|-------------|",
         ]
     )
-    for row in _aggregate_rows(results):
+    for row in aggregate_rows:
+        better = "model" if row["m4_delta_pp"] < 0 else ("market" if row["m4_delta_pp"] > 0 else "tie")
         lines.append(
-            f"| **{row['stage']}** | {row['m3_rank_market']} | {row['m3_rank_model']} | {row['m4_rank_market']} | {row['m4_rank_model']} |"
+            f"| **{row['stage']}** | {row['m4_market']} | {row['m4_model']} | "
+            f"{row['m4_delta_pp']:+.2f} | {better} |"
         )
 
     lines.extend(["", "---", ""])
