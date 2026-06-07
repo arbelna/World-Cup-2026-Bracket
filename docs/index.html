@@ -1250,11 +1250,11 @@ function getTeamList() {
 function setupBasketTypeahead() {
   const input = document.getElementById('basket-team-input');
   const dropdown = document.getElementById('basket-dropdown');
-  const teams = getTeamList();
 
   input.addEventListener('input', () => {
     const q = input.value.trim().toLowerCase();
     if (!q) { dropdown.classList.remove('open'); return; }
+    const teams = getTeamList();
     const matches = teams.filter(t => t.toLowerCase().includes(q) && !state.basketTeams.includes(t));
     dropdown.innerHTML = matches.slice(0,12).map(t =>
       `<div class="dropdown-item" role="option">${esc(t)}</div>`
