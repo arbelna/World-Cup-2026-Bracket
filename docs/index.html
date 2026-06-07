@@ -769,7 +769,7 @@ async function ensureMatrix(src) {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = await res.arrayBuffer();
-    const parsed = parseNpz(buf);
+    const parsed = await parseNpz(buf);
     state[`${src}Matrix`] = parsed.matrix;
     state[`${src}MatrixIndex`] = data.sim_matrix_index;
   } catch (e) {
@@ -783,7 +783,7 @@ async function ensureMatrix(src) {
 // =========================================================
 // NPZ PARSER (pure JS, no extra CDN)
 // =========================================================
-function parseNpz(buf) {
+async function parseNpz(buf) {
   // NPZ is a ZIP file — walk local file headers
   const bytes = new Uint8Array(buf);
   const result = {};
@@ -807,7 +807,7 @@ function parseNpz(buf) {
       rawData = bytes.slice(dataStart, dataStart + uncompSize);
     } else if (compression === 8) {
       const compressed = bytes.slice(dataStart, dataStart + compSize);
-      rawData = inflateRaw(compressed);
+      rawData = await inflateRaw(compressed);
     } else {
       i = dataStart + compSize; continue;
     }
@@ -823,125 +823,24 @@ function parseNpz(buf) {
 function u16(b, o) { return b[o] | (b[o+1]<<8); }
 function u32(b, o) { return (b[o] | (b[o+1]<<8) | (b[o+2]<<16) | (b[o+3]<<24)) >>> 0; }
 
-function inflateRaw(data) {
-  // Use DecompressionStream (available in modern browsers)
-  // Synchronous wrapper using TransformStream — we need sync here,
-  // so we'll decompress inline using a manual DEFLATE table.
-  // Actually DecompressionStream is async — we handle it at load time.
-  // Since parseNpz is called from async context, let's use a sync inflate.
-  // We'll use a tiny inflate impl for raw deflate (no zlib header).
-  return tinflate(data);
-}
-
-// Minimal inflate for raw DEFLATE (RFC 1951)
-// Based on public domain puff.c concept
-function tinflate(src) {
-  let si = 0, bi = 0; // byte index, bit index
-  let out = [];
-  const lens = new Uint8Array(320);
-
-  function bits(n) {
-    let val = 0;
-    for (let k = 0; k < n; k++) {
-      if (bi === 8) { si++; bi = 0; }
-      val |= ((src[si] >> bi) & 1) << k;
-      bi++;
-    }
-    return val;
-  }
-
-  function buildTree(lengths) {
-    const maxLen = Math.max(...lengths);
-    if (maxLen === 0) return null;
-    const bl_count = new Array(maxLen+1).fill(0);
-    lengths.forEach(l => { if(l) bl_count[l]++; });
-    const next_code = new Array(maxLen+2).fill(0);
-    let code = 0;
-    for (let b = 1; b <= maxLen; b++) {
-      code = (code + bl_count[b-1]) << 1;
-      next_code[b] = code;
-    }
-    const table = new Map();
-    lengths.forEach((len, sym) => {
-      if (len === 0) return;
-      const c = next_code[len];
-      // store as big-endian len-bit code
-      let rev = 0;
-      for (let k = 0; k < len; k++) rev |= ((c >> k) & 1) << (len-1-k);
-      table.set((rev << 4) | len, sym);
-      next_code[len]++;
-    });
-    return { table, maxLen };
-  }
-
-  function readSym(tree) {
-    let code = 0;
-    for (let len = 1; len <= tree.maxLen; len++) {
-      code = (code << 1) | bits(1);
-      const k = (code << 4) | len;
-      if (tree.table.has(k)) return tree.table.get(k);
-    }
-    throw new Error('inflate: bad symbol');
-  }
-
-  // Fixed huffman trees
-  const fixedLens = [];
-  for (let i=0;i<144;i++) fixedLens.push(8);
-  for (let i=144;i<256;i++) fixedLens.push(9);
-  for (let i=256;i<280;i++) fixedLens.push(7);
-  for (let i=280;i<288;i++) fixedLens.push(8);
-  const fixedDist = new Array(32).fill(5);
-
-  const EXTRA_LEN_BITS = [0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0,0,0];
-  const LEN_BASE = [3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0];
-  const EXTRA_DIST_BITS = [0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
-  const DIST_BASE = [1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577];
-
-  function decodeBlock(litTree, distTree) {
-    while (true) {
-      const sym = readSym(litTree);
-      if (sym < 256) { out.push(sym); continue; }
-      if (sym === 256) break;
-      const lenIdx = sym - 257;
-      const length = LEN_BASE[lenIdx] + bits(EXTRA_LEN_BITS[lenIdx]);
-      const distSym = readSym(distTree);
-      const dist = DIST_BASE[distSym] + bits(EXTRA_DIST_BITS[distSym]);
-      const pos = out.length;
-      for (let k = 0; k < length; k++) out.push(out[pos - dist + k]);
-    }
-  }
-
-  // Read blocks
+// Native DEFLATE decompression via browser's DecompressionStream API
+async function inflateRaw(data) {
+  const ds = new DecompressionStream('deflate-raw');
+  const writer = ds.writable.getWriter();
+  const reader = ds.readable.getReader();
+  writer.write(data);
+  writer.close();
+  const chunks = [];
   while (true) {
-    const bfinal = bits(1);
-    const btype  = bits(2);
-    if (btype === 0) { // stored
-      bi = 0; si++;
-      const len = src[si] | (src[si+1]<<8); si+=4;
-      for (let k=0;k<len;k++) out.push(src[si++]);
-    } else if (btype === 1) { // fixed
-      decodeBlock(buildTree(fixedLens), buildTree(fixedDist));
-    } else if (btype === 2) { // dynamic
-      const hlit  = bits(5)+257;
-      const hdist = bits(5)+1;
-      const hclen = bits(4)+4;
-      const clOrder=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];
-      const clLens = new Array(19).fill(0);
-      for (let k=0;k<hclen;k++) clLens[clOrder[k]]=bits(3);
-      const clTree = buildTree(clLens);
-      const allLens = [];
-      while (allLens.length < hlit+hdist) {
-        const sym = readSym(clTree);
-        if (sym < 16) { allLens.push(sym); }
-        else if (sym===16){ const rep=allLens[allLens.length-1]; for(let k=bits(2)+3;k--;)allLens.push(rep); }
-        else if (sym===17){ for(let k=bits(3)+3;k--;)allLens.push(0); }
-        else { for(let k=bits(7)+11;k--;)allLens.push(0); }
-      }
-      decodeBlock(buildTree(allLens.slice(0,hlit)), buildTree(allLens.slice(hlit)));
-    } else throw new Error('inflate: bad btype');
-    if (bfinal) break;
+    const { done, value } = await reader.read();
+    if (done) break;
+    chunks.push(value);
   }
-  return new Uint8Array(out);
+  const totalLen = chunks.reduce((s, c) => s + c.length, 0);
+  const out = new Uint8Array(totalLen);
+  let offset = 0;
+  for (const chunk of chunks) { out.set(chunk, offset); offset += chunk.length; }
+  return out;
 }
 
 function parseNpy(bytes) {
