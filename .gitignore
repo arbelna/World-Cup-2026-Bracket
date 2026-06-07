@@ -3,6 +3,9 @@
 
 # Local Git/editor config (kept on disk, not published)
 .github/
+!.github/
+!.github/workflows/
+!.github/workflows/pages.yml
 .editorconfig
 # .gitattributes
 # .gitignore

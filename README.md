@@ -133,7 +133,7 @@ The improvement is not driven by a single tournament. CatBoost achieves a lower 
 
 ![Brier score by tournament](./Data_Collection/readme_files/brier_by_tournament.png)
 
-Because the WC2026 holdout Brier score sits near the lower end of the historical range and the model's error is substantially lower for knockout-stage matches, we consider its probability estimates reliable enough to use as the foundation for the bracket simulations.
+Because the WC2026 holdout Brier score sits near the lower end of the historical range and the model's error is substantially lower for knockout-stage matches, I consider its probability estimates reliable enough to use as the foundation for the bracket simulations.
 
 
 ### Bracket-level backtesting
@@ -142,12 +142,6 @@ The full-bracket simulations are evaluated against the actual outcomes of the 20
 
 ![Bracket stage recall](./Data_Collection/readme_files/bracket_stage_recall.png)
 
-
-The cumulative-error analysis provides a complementary view. The model is not better at every individual stage: the market baseline retains a small advantage for the quarter-finals and semi-finals. However, the model performs better for the Round of 16 and produces a notably better fit for the final and winner outcomes.
-
-![All-teams-seen cumulative error](./Data_Collection/readme_files/cumulative_bracket_error.png)
-
-These results support the main premise of the project: a small, reproducible set of public signals can generate match probabilities that remain useful after propagation through a complete tournament simulation. The committed reports and experiment outputs contain the full evaluation details.
 
 
 ## Quick start
