@@ -253,7 +253,12 @@ def main(argv: list[str] | None = None) -> None:
         repo_root = Path(args.repo_root).resolve()
 
     sim_base = repo_root / "data" / "output" / "simulations" / "wc2026"
-    docs_data = repo_root / "docs" / "data"
+
+    # Support docs/ at repo root (for GitHub Pages) or inside Bracket_Simulations/
+    repo_git_root = repo_root.parent  # one level up from Bracket_Simulations/
+    root_docs = repo_git_root / "docs"
+    local_docs = repo_root / "docs"
+    docs_data = (root_docs if root_docs.exists() else local_docs) / "data"
     docs_data.mkdir(parents=True, exist_ok=True)
 
     modes = ["market_all", "model_all"]
