@@ -745,6 +745,9 @@ async function loadData() {
   updateMetaLine();
   renderProbTable();
   renderConfigs();
+
+  // Prefetch the sim matrix in the background so the Basket tab is ready instantly
+  ensureMatrix('model');
 }
 
 function showDataError() {
@@ -770,7 +773,19 @@ async function ensureMatrix(src) {
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const buf = await res.arrayBuffer();
     const parsed = await parseNpz(buf);
-    state[`${src}Matrix`] = parsed.matrix;
+    let matrix;
+    if (parsed.packed) {
+      // Bit-packed format: 1-D uint8 + explicit shape array
+      const realShape = parsed.shape
+        ? Array.from(parsed.shape.arr).map(Number)
+        : parsed.packed.shape;
+      matrix = { arr: parsed.packed.arr, shape: realShape, packed: true };
+    } else {
+      // Legacy unpacked bool format
+      matrix = parsed.matrix;
+      matrix.packed = false;
+    }
+    state[`${src}Matrix`] = matrix;
     state[`${src}MatrixIndex`] = data.sim_matrix_index;
   } catch (e) {
     console.warn('Could not load sim matrix for', src, e);
@@ -848,8 +863,8 @@ function parseNpy(bytes) {
   if (bytes[0]!==0x93||bytes[1]!==0x4e) throw new Error('Not an NPY file');
   const headerLen = bytes[8] | (bytes[9]<<8); // version 1.0
   const header = new TextDecoder().decode(bytes.slice(10, 10+headerLen));
-  const shapeM = header.match(/shape\s*:\s*\(([^)]*)\)/);
-  const dtypeM = header.match(/descr\s*:\s*'([^']*)'/);
+  const shapeM = header.match(/['"]?shape['"]?\s*:\s*\(([^)]*)\)/);
+  const dtypeM = header.match(/['"]?descr['"]?\s*:\s*['"]([^'"]*)['"]/);
   if (!shapeM||!dtypeM) throw new Error('NPY parse error');
   const shape = shapeM[1].split(',').map(s=>parseInt(s.trim())).filter(n=>!isNaN(n));
   const dtype = dtypeM[1].replace(/[<>|=]/,'');
@@ -1132,7 +1147,7 @@ function renderBasket() {
   if (teamIndices.some(i => i < 0) || stageIdx < 0) {
     dist = new Array(N + 1).fill(0);
   } else {
-    dist = computeExactDist(matrix.arr, matrix.shape, teamIndices, stageIdx, N);
+    dist = computeExactDist(matrix.arr, matrix.shape, teamIndices, stageIdx, N, matrix.packed);
   }
 
   const cumDist = new Array(N+1).fill(0);
@@ -1192,15 +1207,21 @@ function renderBasket() {
   }
 }
 
-function computeExactDist(arr, shape, teamIndices, stageIdx, N) {
+function computeExactDist(arr, shape, teamIndices, stageIdx, N, packed) {
   const [nSims, nTeams, nStages] = shape;
   const counts = new Array(N+1).fill(0);
+  const stride = nTeams * nStages;
   for (let i = 0; i < nSims; i++) {
     let k = 0;
+    const base = i * stride;
     for (let ti = 0; ti < N; ti++) {
-      const t = teamIndices[ti];
-      const idx = i * nTeams * nStages + t * nStages + stageIdx;
-      if (arr[idx]) k++;
+      const f = base + teamIndices[ti] * nStages + stageIdx;
+      if (packed) {
+        // Bits are packed C-order, MSB-first (np.packbits default)
+        if ((arr[f >> 3] >> (7 - (f & 7))) & 1) k++;
+      } else {
+        if (arr[f]) k++;
+      }
     }
     counts[k]++;
   }
