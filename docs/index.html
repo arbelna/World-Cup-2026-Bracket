@@ -1198,7 +1198,6 @@ function renderBasketChips() {
 function renderBasket() {
   const placeholder = document.getElementById('basket-placeholder');
   const output = document.getElementById('basket-output');
-  const banner = document.getElementById('basket-approx-banner');
 
   if (state.basketTeams.length === 0) {
     placeholder.innerHTML = 'Add teams above to compute basket probabilities';
@@ -1217,7 +1216,6 @@ function renderBasket() {
   }
 
   placeholder.style.display = 'none'; output.style.display = '';
-  banner.style.display = 'none';
 
   const N = state.basketTeams.length;
   const stage = state.basketStage;
@@ -1251,35 +1249,41 @@ function renderBasket() {
     </tr>
   `).join('');
 
-  // Chart
+  // Chart — update in place to avoid any re-animation
   const labels = [...Array(N+1)].map((_,k) => `${k}`);
   const chartData = dist.map(p => +(p*100).toFixed(3));
-  if (basketChart) basketChart.destroy();
-  const ctx = document.getElementById('basket-chart').getContext('2d');
-  basketChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels,
-      datasets: [{
-        label: `P(exactly k reach ${STAGE_LABELS[stage]})`,
-        data: chartData,
-        backgroundColor: 'rgba(59,130,246,0.55)',
-        borderColor: 'rgba(59,130,246,0.9)',
-        borderWidth: 1,
-        borderRadius: 3,
-      }]
-    },
-    options: {
-      animation: false,
-      responsive: true,
-      maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 } }, grid: { color: '#2c3347' } },
-        y: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 }, callback: v => v+'%' }, grid: { color: '#2c3347' } },
+  if (basketChart) {
+    basketChart.data.labels = labels;
+    basketChart.data.datasets[0].data = chartData;
+    basketChart.data.datasets[0].label = `P(exactly k reach ${STAGE_LABELS[stage]})`;
+    basketChart.update('none');
+  } else {
+    const ctx = document.getElementById('basket-chart').getContext('2d');
+    basketChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [{
+          label: `P(exactly k reach ${STAGE_LABELS[stage]})`,
+          data: chartData,
+          backgroundColor: 'rgba(59,130,246,0.55)',
+          borderColor: 'rgba(59,130,246,0.9)',
+          borderWidth: 1,
+          borderRadius: 3,
+        }]
       },
-    },
-  });
+      options: {
+        animation: false,
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 } }, grid: { color: '#2c3347' } },
+          y: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 }, callback: v => v+'%' }, grid: { color: '#2c3347' } },
+        },
+      },
+    });
+  }
 }
 
 function computeExactDist(arr, shape, teamIndices, stageIdx, N) {
