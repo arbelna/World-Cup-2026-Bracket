@@ -145,9 +145,18 @@ python -m pytest tests -q
 
 These tests assume the committed inputs are present. They validate stage sizes, actual results, and basic provider wiring.
 
-## Notes
+## Dashboard
 
-- `results.md` is the curated reader-facing summary generated from the same committed backtest data as the detailed output-path report.
-- `data/output/simulations/stage_prediction_backtest.md` stays closer to the full generated backtest breakdown.
-- The compare command produces both JSON and Markdown; the README should stay aligned with that behavior.
-- If an exact actual team set never appears in the simulated support, the report should say `not observed` instead of showing an impossible rank.
+An interactive HTML dashboard is available at `docs/index.html` and published via GitHub Pages.
+
+### Generating the data files
+
+After running simulations for `wc2026` in both modes, export the dashboard data:
+
+```powershell
+cd Bracket_Simulations
+python scripts/export_dashboard_json.py
+```
+
+This writes `docs/data/market.json`, `docs/data/model.json`,
+`docs/data/market_sim_matrix.npz`, and `docs/data/model_sim_matrix.npz`.

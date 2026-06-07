@@ -1,0 +1,3751 @@
+{
+  "meta": {
+    "tournament": "wc2026",
+    "mode": "model_all",
+    "n_sims": 200000,
+    "generated": "2026-06-07T15:38:57Z"
+  },
+  "stages": [
+    "R32",
+    "R16",
+    "QF",
+    "SF",
+    "final",
+    "winner"
+  ],
+  "teams": [
+    {
+      "name": "Algeria",
+      "group": "J",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.656585,
+        "R16": 0.183825,
+        "QF": 0.06498,
+        "SF": 0.02019,
+        "final": 0.00522,
+        "winner": 0.001435
+      }
+    },
+    {
+      "name": "Argentina",
+      "group": "J",
+      "confederation": "CONMEBOL",
+      "probs": {
+        "R32": 0.96941,
+        "R16": 0.620025,
+        "QF": 0.463165,
+        "SF": 0.31583,
+        "final": 0.186195,
+        "winner": 0.113025
+      }
+    },
+    {
+      "name": "Australia",
+      "group": "D",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.51569,
+        "R16": 0.203815,
+        "QF": 0.059985,
+        "SF": 0.01554,
+        "final": 0.003665,
+        "winner": 0.00082
+      }
+    },
+    {
+      "name": "Austria",
+      "group": "J",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.76448,
+        "R16": 0.24388,
+        "QF": 0.099395,
+        "SF": 0.037305,
+        "final": 0.010875,
+        "winner": 0.00324
+      }
+    },
+    {
+      "name": "Belgium",
+      "group": "G",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.932645,
+        "R16": 0.617035,
+        "QF": 0.35048,
+        "SF": 0.16008,
+        "final": 0.074895,
+        "winner": 0.034455
+      }
+    },
+    {
+      "name": "Bosnia and Herzegovina",
+      "group": "B",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.68473,
+        "R16": 0.27446,
+        "QF": 0.091835,
+        "SF": 0.02435,
+        "final": 0.00649,
+        "winner": 0.001525
+      }
+    },
+    {
+      "name": "Brazil",
+      "group": "C",
+      "confederation": "CONMEBOL",
+      "probs": {
+        "R32": 0.951165,
+        "R16": 0.64081,
+        "QF": 0.40612,
+        "SF": 0.244425,
+        "final": 0.144265,
+        "winner": 0.075385
+      }
+    },
+    {
+      "name": "Canada",
+      "group": "B",
+      "confederation": "CONCACAF",
+      "probs": {
+        "R32": 0.85534,
+        "R16": 0.491595,
+        "QF": 0.22937,
+        "SF": 0.08671,
+        "final": 0.032155,
+        "winner": 0.011625
+      }
+    },
+    {
+      "name": "Cape Verde",
+      "group": "H",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.37103,
+        "R16": 0.070715,
+        "QF": 0.01577,
+        "SF": 0.00307,
+        "final": 0.000505,
+        "winner": 6e-05
+      }
+    },
+    {
+      "name": "Colombia",
+      "group": "K",
+      "confederation": "CONMEBOL",
+      "probs": {
+        "R32": 0.866555,
+        "R16": 0.485295,
+        "QF": 0.23083,
+        "SF": 0.10977,
+        "final": 0.045145,
+        "winner": 0.018075
+      }
+    },
+    {
+      "name": "Croatia",
+      "group": "L",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.87024,
+        "R16": 0.50218,
+        "QF": 0.233305,
+        "SF": 0.11284,
+        "final": 0.04874,
+        "winner": 0.01896
+      }
+    },
+    {
+      "name": "Cura\u00e7ao",
+      "group": "E",
+      "confederation": "CONCACAF",
+      "probs": {
+        "R32": 0.15113,
+        "R16": 0.02363,
+        "QF": 0.003815,
+        "SF": 0.00058,
+        "final": 5.5e-05,
+        "winner": 5e-06
+      }
+    },
+    {
+      "name": "Czechia",
+      "group": "A",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.759675,
+        "R16": 0.359405,
+        "QF": 0.13708,
+        "SF": 0.043005,
+        "final": 0.01339,
+        "winner": 0.003805
+      }
+    },
+    {
+      "name": "DR Congo",
+      "group": "K",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.41327,
+        "R16": 0.11456,
+        "QF": 0.032045,
+        "SF": 0.007805,
+        "final": 0.00189,
+        "winner": 0.000345
+      }
+    },
+    {
+      "name": "Ecuador",
+      "group": "E",
+      "confederation": "CONMEBOL",
+      "probs": {
+        "R32": 0.89191,
+        "R16": 0.53319,
+        "QF": 0.282865,
+        "SF": 0.15343,
+        "final": 0.07523,
+        "winner": 0.032815
+      }
+    },
+    {
+      "name": "Egypt",
+      "group": "G",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.730075,
+        "R16": 0.306805,
+        "QF": 0.101665,
+        "SF": 0.030655,
+        "final": 0.008365,
+        "winner": 0.00216
+      }
+    },
+    {
+      "name": "England",
+      "group": "L",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.95396,
+        "R16": 0.69846,
+        "QF": 0.46847,
+        "SF": 0.287875,
+        "final": 0.17046,
+        "winner": 0.094305
+      }
+    },
+    {
+      "name": "France",
+      "group": "I",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.947425,
+        "R16": 0.682125,
+        "QF": 0.41567,
+        "SF": 0.26444,
+        "final": 0.157475,
+        "winner": 0.08319
+      }
+    },
+    {
+      "name": "Germany",
+      "group": "E",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.934455,
+        "R16": 0.634135,
+        "QF": 0.379255,
+        "SF": 0.231725,
+        "final": 0.13017,
+        "winner": 0.066535
+      }
+    },
+    {
+      "name": "Ghana",
+      "group": "L",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.378195,
+        "R16": 0.108405,
+        "QF": 0.02343,
+        "SF": 0.005205,
+        "final": 0.00109,
+        "winner": 0.000195
+      }
+    },
+    {
+      "name": "Haiti",
+      "group": "C",
+      "confederation": "CONCACAF",
+      "probs": {
+        "R32": 0.231775,
+        "R16": 0.045405,
+        "QF": 0.009645,
+        "SF": 0.0017,
+        "final": 0.00031,
+        "winner": 5e-05
+      }
+    },
+    {
+      "name": "Iran",
+      "group": "G",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.63026,
+        "R16": 0.229695,
+        "QF": 0.065455,
+        "SF": 0.0171,
+        "final": 0.00407,
+        "winner": 0.00105
+      }
+    },
+    {
+      "name": "Iraq",
+      "group": "I",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.142955,
+        "R16": 0.02368,
+        "QF": 0.0039,
+        "SF": 0.00052,
+        "final": 7e-05,
+        "winner": 2e-05
+      }
+    },
+    {
+      "name": "Ivory Coast",
+      "group": "E",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.74156,
+        "R16": 0.29756,
+        "QF": 0.11275,
+        "SF": 0.042455,
+        "final": 0.014475,
+        "winner": 0.004325
+      }
+    },
+    {
+      "name": "Japan",
+      "group": "F",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.789405,
+        "R16": 0.34498,
+        "QF": 0.163005,
+        "SF": 0.064335,
+        "final": 0.023795,
+        "winner": 0.00809
+      }
+    },
+    {
+      "name": "Jordan",
+      "group": "J",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.24632,
+        "R16": 0.04063,
+        "QF": 0.007635,
+        "SF": 0.001175,
+        "final": 0.00014,
+        "winner": 1e-05
+      }
+    },
+    {
+      "name": "Mexico",
+      "group": "A",
+      "confederation": "CONCACAF",
+      "probs": {
+        "R32": 0.87648,
+        "R16": 0.506465,
+        "QF": 0.2315,
+        "SF": 0.09497,
+        "final": 0.039125,
+        "winner": 0.014295
+      }
+    },
+    {
+      "name": "Morocco",
+      "group": "C",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.81477,
+        "R16": 0.38129,
+        "QF": 0.181975,
+        "SF": 0.075255,
+        "final": 0.02859,
+        "winner": 0.00987
+      }
+    },
+    {
+      "name": "Netherlands",
+      "group": "F",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.922945,
+        "R16": 0.551355,
+        "QF": 0.348195,
+        "SF": 0.186165,
+        "final": 0.096995,
+        "winner": 0.046765
+      }
+    },
+    {
+      "name": "New Zealand",
+      "group": "G",
+      "confederation": "OFC",
+      "probs": {
+        "R32": 0.36334,
+        "R16": 0.087285,
+        "QF": 0.01774,
+        "SF": 0.00348,
+        "final": 0.00063,
+        "winner": 0.00012
+      }
+    },
+    {
+      "name": "Norway",
+      "group": "I",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.842495,
+        "R16": 0.446985,
+        "QF": 0.2074,
+        "SF": 0.092405,
+        "final": 0.037985,
+        "winner": 0.01416
+      }
+    },
+    {
+      "name": "Panama",
+      "group": "L",
+      "confederation": "CONCACAF",
+      "probs": {
+        "R32": 0.42577,
+        "R16": 0.13038,
+        "QF": 0.028025,
+        "SF": 0.006255,
+        "final": 0.00131,
+        "winner": 0.00023
+      }
+    },
+    {
+      "name": "Paraguay",
+      "group": "D",
+      "confederation": "CONMEBOL",
+      "probs": {
+        "R32": 0.72162,
+        "R16": 0.359665,
+        "QF": 0.13219,
+        "SF": 0.043545,
+        "final": 0.013495,
+        "winner": 0.004095
+      }
+    },
+    {
+      "name": "Portugal",
+      "group": "K",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.928935,
+        "R16": 0.61122,
+        "QF": 0.35365,
+        "SF": 0.195635,
+        "final": 0.09883,
+        "winner": 0.049375
+      }
+    },
+    {
+      "name": "Qatar",
+      "group": "B",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.209875,
+        "R16": 0.041335,
+        "QF": 0.00684,
+        "SF": 0.0008,
+        "final": 9.5e-05,
+        "winner": 5e-06
+      }
+    },
+    {
+      "name": "Saudi Arabia",
+      "group": "H",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.312985,
+        "R16": 0.052535,
+        "QF": 0.010895,
+        "SF": 0.00194,
+        "final": 0.000255,
+        "winner": 3e-05
+      }
+    },
+    {
+      "name": "Scotland",
+      "group": "C",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.682595,
+        "R16": 0.255075,
+        "QF": 0.099005,
+        "SF": 0.032315,
+        "final": 0.00949,
+        "winner": 0.00252
+      }
+    },
+    {
+      "name": "Senegal",
+      "group": "I",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.79373,
+        "R16": 0.375985,
+        "QF": 0.15775,
+        "SF": 0.06224,
+        "final": 0.022235,
+        "winner": 0.007325
+      }
+    },
+    {
+      "name": "South Africa",
+      "group": "A",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.295475,
+        "R16": 0.075295,
+        "QF": 0.015665,
+        "SF": 0.00246,
+        "final": 0.00046,
+        "winner": 6e-05
+      }
+    },
+    {
+      "name": "South Korea",
+      "group": "A",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.759735,
+        "R16": 0.365065,
+        "QF": 0.13881,
+        "SF": 0.044,
+        "final": 0.013755,
+        "winner": 0.00383
+      }
+    },
+    {
+      "name": "Spain",
+      "group": "H",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.97576,
+        "R16": 0.73749,
+        "QF": 0.543385,
+        "SF": 0.40979,
+        "final": 0.287155,
+        "winner": 0.192245
+      }
+    },
+    {
+      "name": "Sweden",
+      "group": "F",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.65167,
+        "R16": 0.23372,
+        "QF": 0.09064,
+        "SF": 0.030965,
+        "final": 0.009655,
+        "winner": 0.00278
+      }
+    },
+    {
+      "name": "Switzerland",
+      "group": "B",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.929505,
+        "R16": 0.621325,
+        "QF": 0.35509,
+        "SF": 0.17416,
+        "final": 0.082325,
+        "winner": 0.03885
+      }
+    },
+    {
+      "name": "Tunisia",
+      "group": "F",
+      "confederation": "CAF",
+      "probs": {
+        "R32": 0.3188,
+        "R16": 0.06975,
+        "QF": 0.01789,
+        "SF": 0.00372,
+        "final": 0.000725,
+        "winner": 0.00014
+      }
+    },
+    {
+      "name": "Turkey",
+      "group": "D",
+      "confederation": "UEFA",
+      "probs": {
+        "R32": 0.865345,
+        "R16": 0.530215,
+        "QF": 0.265175,
+        "SF": 0.11212,
+        "final": 0.04656,
+        "winner": 0.01919
+      }
+    },
+    {
+      "name": "United States",
+      "group": "D",
+      "confederation": "CONCACAF",
+      "probs": {
+        "R32": 0.58773,
+        "R16": 0.254905,
+        "QF": 0.08347,
+        "SF": 0.025075,
+        "final": 0.00699,
+        "winner": 0.00208
+      }
+    },
+    {
+      "name": "Uruguay",
+      "group": "H",
+      "confederation": "CONMEBOL",
+      "probs": {
+        "R32": 0.902075,
+        "R16": 0.41587,
+        "QF": 0.23014,
+        "SF": 0.112695,
+        "final": 0.0425,
+        "winner": 0.016185
+      }
+    },
+    {
+      "name": "Uzbekistan",
+      "group": "K",
+      "confederation": "AFC",
+      "probs": {
+        "R32": 0.438125,
+        "R16": 0.12049,
+        "QF": 0.03265,
+        "SF": 0.007895,
+        "final": 0.001705,
+        "winner": 0.000345
+      }
+    }
+  ],
+  "top_configs": {
+    "R16": [
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Canada",
+          "Croatia",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Japan",
+          "Mexico",
+          "Netherlands",
+          "Norway",
+          "Portugal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1.5e-05,
+        "rank": 1
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Czechia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Portugal",
+          "Spain",
+          "Sweden",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1.5e-05,
+        "rank": 2
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1.5e-05,
+        "rank": 3
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Colombia",
+          "Croatia",
+          "England",
+          "France",
+          "Germany",
+          "Japan",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1.5e-05,
+        "rank": 4
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Czechia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1.5e-05,
+        "rank": 5
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Norway",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1.5e-05,
+        "rank": 6
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Canada",
+          "Colombia",
+          "England",
+          "France",
+          "Germany",
+          "Japan",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 7
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Canada",
+          "Colombia",
+          "England",
+          "France",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 8
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "France",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Paraguay",
+          "Portugal",
+          "Scotland",
+          "Senegal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 9
+      },
+      {
+        "teams": [
+          "Algeria",
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Paraguay",
+          "Portugal",
+          "Switzerland",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 10
+      },
+      {
+        "teams": [
+          "Canada",
+          "Croatia",
+          "Czechia",
+          "England",
+          "France",
+          "Germany",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 11
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Colombia",
+          "Czechia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Morocco",
+          "Portugal",
+          "Turkey",
+          "United States",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 12
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "France",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 13
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Colombia",
+          "England",
+          "Germany",
+          "Iran",
+          "Mexico",
+          "Morocco",
+          "Norway",
+          "Portugal",
+          "Senegal",
+          "South Korea",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 14
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Norway",
+          "Portugal",
+          "Switzerland",
+          "Turkey",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 15
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "England",
+          "France",
+          "Iran",
+          "Ivory Coast",
+          "Japan",
+          "Mexico",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 16
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "Germany",
+          "Ivory Coast",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 17
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "England",
+          "France",
+          "Morocco",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 18
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Czechia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Ivory Coast",
+          "Mexico",
+          "Morocco",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 19
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 20
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Portugal",
+          "Senegal",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 21
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Portugal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 22
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Croatia",
+          "Czechia",
+          "England",
+          "France",
+          "Germany",
+          "Ivory Coast",
+          "Mexico",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "Spain",
+          "Turkey",
+          "United States"
+        ],
+        "probability": 1e-05,
+        "rank": 23
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Croatia",
+          "Czechia",
+          "England",
+          "France",
+          "Germany",
+          "Ivory Coast",
+          "Mexico",
+          "Morocco",
+          "New Zealand",
+          "Portugal",
+          "Scotland",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 24
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "France",
+          "Germany",
+          "Iran",
+          "Mexico",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 25
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Croatia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Norway",
+          "Paraguay",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "United States"
+        ],
+        "probability": 1e-05,
+        "rank": 26
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 27
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Croatia",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Norway",
+          "Portugal",
+          "Senegal",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 28
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Australia",
+          "Austria",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Japan",
+          "Netherlands",
+          "Norway",
+          "Portugal",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 29
+      },
+      {
+        "teams": [
+          "Algeria",
+          "Argentina",
+          "Bosnia and Herzegovina",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "Germany",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 30
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Haiti",
+          "Mexico",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 31
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 32
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Croatia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 33
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "France",
+          "Germany",
+          "Iran",
+          "Mexico",
+          "Morocco",
+          "Norway",
+          "Portugal",
+          "Senegal",
+          "Switzerland",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 34
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Paraguay",
+          "Portugal",
+          "Scotland",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 35
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "England",
+          "France",
+          "Japan",
+          "Mexico",
+          "Netherlands",
+          "Paraguay",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 36
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Morocco",
+          "Paraguay",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 37
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Ivory Coast",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "United States"
+        ],
+        "probability": 1e-05,
+        "rank": 38
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "United States",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 39
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Turkey",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 40
+      },
+      {
+        "teams": [
+          "Australia",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "DR Congo",
+          "Ecuador",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 41
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Egypt",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Norway",
+          "Portugal",
+          "Senegal",
+          "South Korea",
+          "Switzerland",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 42
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Croatia",
+          "Czechia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Norway",
+          "Paraguay",
+          "Portugal",
+          "Spain",
+          "Sweden",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 43
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Australia",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "England",
+          "France",
+          "Ivory Coast",
+          "Mexico",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 44
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Morocco",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 45
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "Croatia",
+          "Ecuador",
+          "Egypt",
+          "England",
+          "France",
+          "Mexico",
+          "Morocco",
+          "Netherlands",
+          "Norway",
+          "South Korea",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 1e-05,
+        "rank": 46
+      },
+      {
+        "teams": [
+          "Austria",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "Colombia",
+          "Czechia",
+          "England",
+          "France",
+          "Germany",
+          "Iran",
+          "Mexico",
+          "Netherlands",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 1e-05,
+        "rank": 47
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "Czechia",
+          "Ecuador",
+          "England",
+          "France",
+          "Germany",
+          "Japan",
+          "Portugal",
+          "Spain",
+          "Switzerland",
+          "United States"
+        ],
+        "probability": 1e-05,
+        "rank": 48
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Bosnia and Herzegovina",
+          "Canada",
+          "Croatia",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Japan",
+          "Mexico",
+          "Netherlands",
+          "Portugal",
+          "Senegal",
+          "Spain",
+          "Switzerland",
+          "United States",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 49
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "England",
+          "France",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Norway",
+          "Portugal",
+          "South Korea",
+          "Spain",
+          "Switzerland",
+          "Turkey",
+          "United States",
+          "Uruguay"
+        ],
+        "probability": 1e-05,
+        "rank": 50
+      }
+    ],
+    "QF": [
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.00013,
+        "rank": 1
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.000125,
+        "rank": 2
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 0.00011,
+        "rank": 3
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.00011,
+        "rank": 4
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.000105,
+        "rank": 5
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.0001,
+        "rank": 6
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Canada",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 9.5e-05,
+        "rank": 7
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "England",
+          "France",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 9.5e-05,
+        "rank": 8
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 9e-05,
+        "rank": 9
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 9e-05,
+        "rank": 10
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Colombia",
+          "England",
+          "France",
+          "Netherlands",
+          "Portugal"
+        ],
+        "probability": 8.5e-05,
+        "rank": 11
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Morocco",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 8.5e-05,
+        "rank": 12
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Portugal",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 8e-05,
+        "rank": 13
+      },
+      {
+        "teams": [
+          "Argentina",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 8e-05,
+        "rank": 14
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Canada",
+          "England",
+          "France",
+          "Germany",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 8e-05,
+        "rank": 15
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 8e-05,
+        "rank": 16
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "Germany",
+          "Morocco",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 7.5e-05,
+        "rank": 17
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "Germany",
+          "Morocco",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 7.5e-05,
+        "rank": 18
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 7.5e-05,
+        "rank": 19
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "England",
+          "Germany",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 7.5e-05,
+        "rank": 20
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "England",
+          "France",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 7.5e-05,
+        "rank": 21
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "England",
+          "France",
+          "Morocco",
+          "Portugal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 7.5e-05,
+        "rank": 22
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "England",
+          "France",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 7e-05,
+        "rank": 23
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 7e-05,
+        "rank": 24
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Colombia",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Portugal"
+        ],
+        "probability": 7e-05,
+        "rank": 25
+      },
+      {
+        "teams": [
+          "Argentina",
+          "England",
+          "France",
+          "Netherlands",
+          "Norway",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 7e-05,
+        "rank": 26
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Morocco",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 7e-05,
+        "rank": 27
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "England",
+          "France",
+          "Netherlands",
+          "Norway",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 7e-05,
+        "rank": 28
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Ecuador",
+          "England",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 7e-05,
+        "rank": 29
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Colombia",
+          "England",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Turkey"
+        ],
+        "probability": 7e-05,
+        "rank": 30
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Canada",
+          "England",
+          "France",
+          "Norway",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 6.5e-05,
+        "rank": 31
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Netherlands",
+          "Spain",
+          "Switzerland",
+          "Uruguay"
+        ],
+        "probability": 6.5e-05,
+        "rank": 32
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 6.5e-05,
+        "rank": 33
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "England",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 6.5e-05,
+        "rank": 34
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 6.5e-05,
+        "rank": 35
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Croatia",
+          "France",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 6.5e-05,
+        "rank": 36
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Canada",
+          "England",
+          "France",
+          "Germany",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 6.5e-05,
+        "rank": 37
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "France",
+          "Japan",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 6.5e-05,
+        "rank": 38
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Ecuador",
+          "England",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 6e-05,
+        "rank": 39
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Croatia",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Spain",
+          "Turkey"
+        ],
+        "probability": 6e-05,
+        "rank": 40
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Canada",
+          "England",
+          "France",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 6e-05,
+        "rank": 41
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Croatia",
+          "Ecuador",
+          "Germany",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 6e-05,
+        "rank": 42
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Canada",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 6e-05,
+        "rank": 43
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "England",
+          "Germany",
+          "Morocco",
+          "Spain",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 6e-05,
+        "rank": 44
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "England",
+          "Germany",
+          "Morocco",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 6e-05,
+        "rank": 45
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Germany",
+          "Mexico",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 6e-05,
+        "rank": 46
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Colombia",
+          "Ecuador",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Portugal"
+        ],
+        "probability": 6e-05,
+        "rank": 47
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Canada",
+          "Croatia",
+          "England",
+          "France",
+          "Switzerland",
+          "Turkey"
+        ],
+        "probability": 6e-05,
+        "rank": 48
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Croatia",
+          "France",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 5.5e-05,
+        "rank": 49
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Canada",
+          "England",
+          "Germany",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 5.5e-05,
+        "rank": 50
+      }
+    ],
+    "SF": [
+      {
+        "teams": [
+          "Argentina",
+          "England",
+          "France",
+          "Spain"
+        ],
+        "probability": 0.00439,
+        "rank": 1
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "France",
+          "Spain"
+        ],
+        "probability": 0.003885,
+        "rank": 2
+      },
+      {
+        "teams": [
+          "Argentina",
+          "England",
+          "Germany",
+          "Spain"
+        ],
+        "probability": 0.00349,
+        "rank": 3
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Germany",
+          "Spain"
+        ],
+        "probability": 0.003175,
+        "rank": 4
+      },
+      {
+        "teams": [
+          "Argentina",
+          "France",
+          "Germany",
+          "Spain"
+        ],
+        "probability": 0.003085,
+        "rank": 5
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador",
+          "Germany",
+          "Spain"
+        ],
+        "probability": 0.002825,
+        "rank": 6
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 0.002805,
+        "rank": 7
+      },
+      {
+        "teams": [
+          "Argentina",
+          "England",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 0.00267,
+        "rank": 8
+      },
+      {
+        "teams": [
+          "England",
+          "France",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.002235,
+        "rank": 9
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador",
+          "England",
+          "Spain"
+        ],
+        "probability": 0.002135,
+        "rank": 10
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Ecuador",
+          "Spain"
+        ],
+        "probability": 0.00212,
+        "rank": 11
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador",
+          "France",
+          "Spain"
+        ],
+        "probability": 0.00206,
+        "rank": 12
+      },
+      {
+        "teams": [
+          "Argentina",
+          "France",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 0.001965,
+        "rank": 13
+      },
+      {
+        "teams": [
+          "Brazil",
+          "France",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.00183,
+        "rank": 14
+      },
+      {
+        "teams": [
+          "England",
+          "Germany",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.001825,
+        "rank": 15
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Germany",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 0.001805,
+        "rank": 16
+      },
+      {
+        "teams": [
+          "Argentina",
+          "France",
+          "Norway",
+          "Spain"
+        ],
+        "probability": 0.00175,
+        "rank": 17
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Germany",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.00174,
+        "rank": 18
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "England",
+          "Spain"
+        ],
+        "probability": 0.001725,
+        "rank": 19
+      },
+      {
+        "teams": [
+          "England",
+          "France",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.00151,
+        "rank": 20
+      },
+      {
+        "teams": [
+          "Brazil",
+          "France",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.0015,
+        "rank": 21
+      },
+      {
+        "teams": [
+          "Argentina",
+          "England",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.00146,
+        "rank": 22
+      },
+      {
+        "teams": [
+          "France",
+          "Germany",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.001455,
+        "rank": 23
+      },
+      {
+        "teams": [
+          "England",
+          "France",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.001435,
+        "rank": 24
+      },
+      {
+        "teams": [
+          "England",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.00141,
+        "rank": 25
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Morocco",
+          "Spain"
+        ],
+        "probability": 0.00138,
+        "rank": 26
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Germany",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.001375,
+        "rank": 27
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "England",
+          "France"
+        ],
+        "probability": 0.00136,
+        "rank": 28
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Netherlands",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.001325,
+        "rank": 29
+      },
+      {
+        "teams": [
+          "Brazil",
+          "France",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.00132,
+        "rank": 30
+      },
+      {
+        "teams": [
+          "Ecuador",
+          "Germany",
+          "Portugal",
+          "Spain"
+        ],
+        "probability": 0.001315,
+        "rank": 31
+      },
+      {
+        "teams": [
+          "Argentina",
+          "France",
+          "Mexico",
+          "Spain"
+        ],
+        "probability": 0.001265,
+        "rank": 32
+      },
+      {
+        "teams": [
+          "England",
+          "Germany",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.00126,
+        "rank": 33
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Croatia",
+          "England",
+          "France"
+        ],
+        "probability": 0.00126,
+        "rank": 34
+      },
+      {
+        "teams": [
+          "England",
+          "Germany",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.001245,
+        "rank": 35
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Germany",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.001235,
+        "rank": 36
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador",
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 0.001215,
+        "rank": 37
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "France"
+        ],
+        "probability": 0.001185,
+        "rank": 38
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "France",
+          "Germany"
+        ],
+        "probability": 0.001185,
+        "rank": 39
+      },
+      {
+        "teams": [
+          "England",
+          "Netherlands",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.001155,
+        "rank": 40
+      },
+      {
+        "teams": [
+          "England",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.00115,
+        "rank": 41
+      },
+      {
+        "teams": [
+          "France",
+          "Germany",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.00112,
+        "rank": 42
+      },
+      {
+        "teams": [
+          "Belgium",
+          "England",
+          "France",
+          "Spain"
+        ],
+        "probability": 0.00111,
+        "rank": 43
+      },
+      {
+        "teams": [
+          "Ecuador",
+          "Germany",
+          "Spain",
+          "Uruguay"
+        ],
+        "probability": 0.001105,
+        "rank": 44
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Netherlands",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.001095,
+        "rank": 45
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "Brazil",
+          "Germany"
+        ],
+        "probability": 0.00109,
+        "rank": 46
+      },
+      {
+        "teams": [
+          "Argentina",
+          "France",
+          "Senegal",
+          "Spain"
+        ],
+        "probability": 0.00109,
+        "rank": 47
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Croatia",
+          "France",
+          "Spain"
+        ],
+        "probability": 0.001085,
+        "rank": 48
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil",
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.001085,
+        "rank": 49
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Belgium",
+          "England",
+          "Germany"
+        ],
+        "probability": 0.00107,
+        "rank": 50
+      }
+    ],
+    "final": [
+      {
+        "teams": [
+          "France",
+          "Spain"
+        ],
+        "probability": 0.043305,
+        "rank": 1
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Spain"
+        ],
+        "probability": 0.038875,
+        "rank": 2
+      },
+      {
+        "teams": [
+          "England",
+          "Spain"
+        ],
+        "probability": 0.03851,
+        "rank": 3
+      },
+      {
+        "teams": [
+          "Germany",
+          "Spain"
+        ],
+        "probability": 0.035905,
+        "rank": 4
+      },
+      {
+        "teams": [
+          "Argentina",
+          "France"
+        ],
+        "probability": 0.02812,
+        "rank": 5
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Brazil"
+        ],
+        "probability": 0.024815,
+        "rank": 6
+      },
+      {
+        "teams": [
+          "Netherlands",
+          "Spain"
+        ],
+        "probability": 0.02477,
+        "rank": 7
+      },
+      {
+        "teams": [
+          "Argentina",
+          "England"
+        ],
+        "probability": 0.02423,
+        "rank": 8
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Germany"
+        ],
+        "probability": 0.0236,
+        "rank": 9
+      },
+      {
+        "teams": [
+          "Ecuador",
+          "Spain"
+        ],
+        "probability": 0.020825,
+        "rank": 10
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Netherlands"
+        ],
+        "probability": 0.01605,
+        "rank": 11
+      },
+      {
+        "teams": [
+          "France",
+          "Portugal"
+        ],
+        "probability": 0.01365,
+        "rank": 12
+      },
+      {
+        "teams": [
+          "England",
+          "Portugal"
+        ],
+        "probability": 0.012965,
+        "rank": 13
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Ecuador"
+        ],
+        "probability": 0.01285,
+        "rank": 14
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Portugal"
+        ],
+        "probability": 0.0127,
+        "rank": 15
+      },
+      {
+        "teams": [
+          "Germany",
+          "Portugal"
+        ],
+        "probability": 0.01143,
+        "rank": 16
+      },
+      {
+        "teams": [
+          "Belgium",
+          "France"
+        ],
+        "probability": 0.011065,
+        "rank": 17
+      },
+      {
+        "teams": [
+          "Belgium",
+          "England"
+        ],
+        "probability": 0.009905,
+        "rank": 18
+      },
+      {
+        "teams": [
+          "Norway",
+          "Spain"
+        ],
+        "probability": 0.00963,
+        "rank": 19
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Brazil"
+        ],
+        "probability": 0.00961,
+        "rank": 20
+      },
+      {
+        "teams": [
+          "Mexico",
+          "Spain"
+        ],
+        "probability": 0.009555,
+        "rank": 21
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Germany"
+        ],
+        "probability": 0.00896,
+        "rank": 22
+      },
+      {
+        "teams": [
+          "England",
+          "Switzerland"
+        ],
+        "probability": 0.008695,
+        "rank": 23
+      },
+      {
+        "teams": [
+          "France",
+          "Switzerland"
+        ],
+        "probability": 0.00858,
+        "rank": 24
+      },
+      {
+        "teams": [
+          "Netherlands",
+          "Portugal"
+        ],
+        "probability": 0.008255,
+        "rank": 25
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Switzerland"
+        ],
+        "probability": 0.008105,
+        "rank": 26
+      },
+      {
+        "teams": [
+          "Spain",
+          "Switzerland"
+        ],
+        "probability": 0.00765,
+        "rank": 27
+      },
+      {
+        "teams": [
+          "Germany",
+          "Switzerland"
+        ],
+        "probability": 0.007625,
+        "rank": 28
+      },
+      {
+        "teams": [
+          "Croatia",
+          "Spain"
+        ],
+        "probability": 0.00735,
+        "rank": 29
+      },
+      {
+        "teams": [
+          "England",
+          "France"
+        ],
+        "probability": 0.00722,
+        "rank": 30
+      },
+      {
+        "teams": [
+          "Brazil",
+          "England"
+        ],
+        "probability": 0.00711,
+        "rank": 31
+      },
+      {
+        "teams": [
+          "Croatia",
+          "England"
+        ],
+        "probability": 0.00691,
+        "rank": 32
+      },
+      {
+        "teams": [
+          "Ecuador",
+          "Portugal"
+        ],
+        "probability": 0.00682,
+        "rank": 33
+      },
+      {
+        "teams": [
+          "Morocco",
+          "Spain"
+        ],
+        "probability": 0.006815,
+        "rank": 34
+      },
+      {
+        "teams": [
+          "France",
+          "Turkey"
+        ],
+        "probability": 0.00678,
+        "rank": 35
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Norway"
+        ],
+        "probability": 0.00652,
+        "rank": 36
+      },
+      {
+        "teams": [
+          "France",
+          "Uruguay"
+        ],
+        "probability": 0.006205,
+        "rank": 37
+      },
+      {
+        "teams": [
+          "Colombia",
+          "France"
+        ],
+        "probability": 0.00619,
+        "rank": 38
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Netherlands"
+        ],
+        "probability": 0.006185,
+        "rank": 39
+      },
+      {
+        "teams": [
+          "England",
+          "Turkey"
+        ],
+        "probability": 0.006145,
+        "rank": 40
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Turkey"
+        ],
+        "probability": 0.00607,
+        "rank": 41
+      },
+      {
+        "teams": [
+          "Germany",
+          "Turkey"
+        ],
+        "probability": 0.00591,
+        "rank": 42
+      },
+      {
+        "teams": [
+          "Colombia",
+          "England"
+        ],
+        "probability": 0.00587,
+        "rank": 43
+      },
+      {
+        "teams": [
+          "England",
+          "Germany"
+        ],
+        "probability": 0.005605,
+        "rank": 44
+      },
+      {
+        "teams": [
+          "Senegal",
+          "Spain"
+        ],
+        "probability": 0.00559,
+        "rank": 45
+      },
+      {
+        "teams": [
+          "England",
+          "Uruguay"
+        ],
+        "probability": 0.00558,
+        "rank": 46
+      },
+      {
+        "teams": [
+          "Argentina",
+          "Mexico"
+        ],
+        "probability": 0.005525,
+        "rank": 47
+      },
+      {
+        "teams": [
+          "Netherlands",
+          "Switzerland"
+        ],
+        "probability": 0.005315,
+        "rank": 48
+      },
+      {
+        "teams": [
+          "Belgium",
+          "Ecuador"
+        ],
+        "probability": 0.00523,
+        "rank": 49
+      },
+      {
+        "teams": [
+          "Brazil",
+          "Uruguay"
+        ],
+        "probability": 0.00519,
+        "rank": 50
+      }
+    ],
+    "winner": [
+      {
+        "teams": [
+          "Spain"
+        ],
+        "probability": 0.192245,
+        "rank": 1
+      },
+      {
+        "teams": [
+          "Argentina"
+        ],
+        "probability": 0.113025,
+        "rank": 2
+      },
+      {
+        "teams": [
+          "England"
+        ],
+        "probability": 0.094305,
+        "rank": 3
+      },
+      {
+        "teams": [
+          "France"
+        ],
+        "probability": 0.08319,
+        "rank": 4
+      },
+      {
+        "teams": [
+          "Brazil"
+        ],
+        "probability": 0.075385,
+        "rank": 5
+      },
+      {
+        "teams": [
+          "Germany"
+        ],
+        "probability": 0.066535,
+        "rank": 6
+      },
+      {
+        "teams": [
+          "Portugal"
+        ],
+        "probability": 0.049375,
+        "rank": 7
+      },
+      {
+        "teams": [
+          "Netherlands"
+        ],
+        "probability": 0.046765,
+        "rank": 8
+      },
+      {
+        "teams": [
+          "Switzerland"
+        ],
+        "probability": 0.03885,
+        "rank": 9
+      },
+      {
+        "teams": [
+          "Belgium"
+        ],
+        "probability": 0.034455,
+        "rank": 10
+      },
+      {
+        "teams": [
+          "Ecuador"
+        ],
+        "probability": 0.032815,
+        "rank": 11
+      },
+      {
+        "teams": [
+          "Turkey"
+        ],
+        "probability": 0.01919,
+        "rank": 12
+      },
+      {
+        "teams": [
+          "Croatia"
+        ],
+        "probability": 0.01896,
+        "rank": 13
+      },
+      {
+        "teams": [
+          "Colombia"
+        ],
+        "probability": 0.018075,
+        "rank": 14
+      },
+      {
+        "teams": [
+          "Uruguay"
+        ],
+        "probability": 0.016185,
+        "rank": 15
+      },
+      {
+        "teams": [
+          "Mexico"
+        ],
+        "probability": 0.014295,
+        "rank": 16
+      },
+      {
+        "teams": [
+          "Norway"
+        ],
+        "probability": 0.01416,
+        "rank": 17
+      },
+      {
+        "teams": [
+          "Canada"
+        ],
+        "probability": 0.011625,
+        "rank": 18
+      },
+      {
+        "teams": [
+          "Morocco"
+        ],
+        "probability": 0.00987,
+        "rank": 19
+      },
+      {
+        "teams": [
+          "Japan"
+        ],
+        "probability": 0.00809,
+        "rank": 20
+      },
+      {
+        "teams": [
+          "Senegal"
+        ],
+        "probability": 0.007325,
+        "rank": 21
+      },
+      {
+        "teams": [
+          "Ivory Coast"
+        ],
+        "probability": 0.004325,
+        "rank": 22
+      },
+      {
+        "teams": [
+          "Paraguay"
+        ],
+        "probability": 0.004095,
+        "rank": 23
+      },
+      {
+        "teams": [
+          "South Korea"
+        ],
+        "probability": 0.00383,
+        "rank": 24
+      },
+      {
+        "teams": [
+          "Czechia"
+        ],
+        "probability": 0.003805,
+        "rank": 25
+      },
+      {
+        "teams": [
+          "Austria"
+        ],
+        "probability": 0.00324,
+        "rank": 26
+      },
+      {
+        "teams": [
+          "Sweden"
+        ],
+        "probability": 0.00278,
+        "rank": 27
+      },
+      {
+        "teams": [
+          "Scotland"
+        ],
+        "probability": 0.00252,
+        "rank": 28
+      },
+      {
+        "teams": [
+          "Egypt"
+        ],
+        "probability": 0.00216,
+        "rank": 29
+      },
+      {
+        "teams": [
+          "United States"
+        ],
+        "probability": 0.00208,
+        "rank": 30
+      },
+      {
+        "teams": [
+          "Bosnia and Herzegovina"
+        ],
+        "probability": 0.001525,
+        "rank": 31
+      },
+      {
+        "teams": [
+          "Algeria"
+        ],
+        "probability": 0.001435,
+        "rank": 32
+      },
+      {
+        "teams": [
+          "Iran"
+        ],
+        "probability": 0.00105,
+        "rank": 33
+      },
+      {
+        "teams": [
+          "Australia"
+        ],
+        "probability": 0.00082,
+        "rank": 34
+      },
+      {
+        "teams": [
+          "Uzbekistan"
+        ],
+        "probability": 0.000345,
+        "rank": 35
+      },
+      {
+        "teams": [
+          "DR Congo"
+        ],
+        "probability": 0.000345,
+        "rank": 36
+      },
+      {
+        "teams": [
+          "Panama"
+        ],
+        "probability": 0.00023,
+        "rank": 37
+      },
+      {
+        "teams": [
+          "Ghana"
+        ],
+        "probability": 0.000195,
+        "rank": 38
+      },
+      {
+        "teams": [
+          "Tunisia"
+        ],
+        "probability": 0.00014,
+        "rank": 39
+      },
+      {
+        "teams": [
+          "New Zealand"
+        ],
+        "probability": 0.00012,
+        "rank": 40
+      },
+      {
+        "teams": [
+          "Cape Verde"
+        ],
+        "probability": 6e-05,
+        "rank": 41
+      },
+      {
+        "teams": [
+          "South Africa"
+        ],
+        "probability": 6e-05,
+        "rank": 42
+      },
+      {
+        "teams": [
+          "Haiti"
+        ],
+        "probability": 5e-05,
+        "rank": 43
+      },
+      {
+        "teams": [
+          "Saudi Arabia"
+        ],
+        "probability": 3e-05,
+        "rank": 44
+      },
+      {
+        "teams": [
+          "Iraq"
+        ],
+        "probability": 2e-05,
+        "rank": 45
+      },
+      {
+        "teams": [
+          "Jordan"
+        ],
+        "probability": 1e-05,
+        "rank": 46
+      },
+      {
+        "teams": [
+          "Cura\u00e7ao"
+        ],
+        "probability": 5e-06,
+        "rank": 47
+      },
+      {
+        "teams": [
+          "Qatar"
+        ],
+        "probability": 5e-06,
+        "rank": 48
+      }
+    ]
+  },
+  "sim_matrix_url": "data/model_sim_matrix.npz",
+  "sim_matrix_index": {
+    "teams": [
+      "Algeria",
+      "Argentina",
+      "Australia",
+      "Austria",
+      "Belgium",
+      "Bosnia and Herzegovina",
+      "Brazil",
+      "Canada",
+      "Cape Verde",
+      "Colombia",
+      "Croatia",
+      "Cura\u00e7ao",
+      "Czechia",
+      "DR Congo",
+      "Ecuador",
+      "Egypt",
+      "England",
+      "France",
+      "Germany",
+      "Ghana",
+      "Haiti",
+      "Iran",
+      "Iraq",
+      "Ivory Coast",
+      "Japan",
+      "Jordan",
+      "Mexico",
+      "Morocco",
+      "Netherlands",
+      "New Zealand",
+      "Norway",
+      "Panama",
+      "Paraguay",
+      "Portugal",
+      "Qatar",
+      "Saudi Arabia",
+      "Scotland",
+      "Senegal",
+      "South Africa",
+      "South Korea",
+      "Spain",
+      "Sweden",
+      "Switzerland",
+      "Tunisia",
+      "Turkey",
+      "United States",
+      "Uruguay",
+      "Uzbekistan"
+    ],
+    "stages": [
+      "R32",
+      "R16",
+      "QF",
+      "SF",
+      "final",
+      "winner"
+    ]
+  }
+}

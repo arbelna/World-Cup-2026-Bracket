@@ -9,6 +9,8 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
+import numpy as np
+
 logger = logging.getLogger(__name__)
 
 CONFIG_KEY_SEP = "|||"
@@ -199,6 +201,45 @@ def top_config_for_stage(state: dict[str, Any], stage: str) -> tuple[tuple[str, 
         return None
     _, teams = parse_config_key(best_key)
     return teams, best_count / total
+
+
+def write_sim_matrix(
+    path: Path,
+    all_reaches: list[dict[str, str]],  # accumulated across all batches
+    stages_tracked: list[str],
+    all_teams: list[str],
+) -> None:
+    """
+    Write a boolean matrix of shape (n_sims, n_teams, n_stages) to a .npz file.
+    Entry [i, t, s] is True if team t reached at least stage s in simulation i.
+    Also writes a JSON sidecar with team and stage index mappings.
+    """
+    matrix_stages = list(stages_tracked)  # e.g. ["R32","R16","QF","SF","final","winner"]
+    n_sims = len(all_reaches)
+    n_teams = len(all_teams)
+    n_stages = len(matrix_stages)
+
+    team_idx = {t: i for i, t in enumerate(all_teams)}
+    stage_rank = {s: i for i, s in enumerate(matrix_stages)}
+
+    matrix = np.zeros((n_sims, n_teams, n_stages), dtype=np.bool_)
+
+    for sim_i, team_stages in enumerate(all_reaches):
+        for team, stage in team_stages.items():
+            if team not in team_idx or stage not in stage_rank:
+                continue
+            t_idx = team_idx[team]
+            s_reached = stage_rank[stage]
+            # True for all stages up to and including the one reached
+            matrix[sim_i, t_idx, : s_reached + 1] = True
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+    np.savez_compressed(str(path), matrix=matrix)
+
+    sidecar = {"teams": all_teams, "stages": matrix_stages}
+    sidecar_path = path.with_name("sim_matrix_index.json")
+    sidecar_path.write_text(json.dumps(sidecar, indent=2), encoding="utf-8")
+    logger.info("Wrote sim_matrix to %s (%d sims, %d teams, %d stages)", path, n_sims, n_teams, n_stages)
 
 
 def save_run_metadata(path: Path, meta: dict[str, Any]) -> None:

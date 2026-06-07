@@ -1,0 +1,1608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>WC2026 Predictions Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+<style>
+:root {
+  --bg: #0d0f14;
+  --surface: #161920;
+  --surface2: #1e2230;
+  --surface3: #252a38;
+  --border: #2c3347;
+  --text: #e8eaf0;
+  --text-muted: #8892a4;
+  --text-dim: #55607a;
+  --accent: #3b82f6;
+  --accent-hover: #60a5fa;
+  --green: #22c55e;
+  --green-muted: #16a34a;
+  --red: #ef4444;
+  --yellow: #eab308;
+  --purple: #a855f7;
+  --mono: 'DM Mono', monospace;
+  --sans: 'DM Sans', sans-serif;
+  --radius: 6px;
+  --header-h: 56px;
+  --tab-h: 44px;
+
+  /* Confederation accent colors */
+  --uefa: #3b82f6;
+  --conmebol: #22c55e;
+  --afc: #f59e0b;
+  --caf: #ef4444;
+  --concacaf: #a855f7;
+  --ofc: #06b6d4;
+}
+[data-theme="light"] {
+  --bg: #f4f6fb;
+  --surface: #ffffff;
+  --surface2: #eef1f8;
+  --surface3: #e4e8f2;
+  --border: #d0d7e8;
+  --text: #0f1523;
+  --text-muted: #4a5568;
+  --text-dim: #8896ae;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 14px; }
+body {
+  font-family: var(--sans);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.5;
+}
+
+/* ---- TOP BAR ---- */
+#topbar {
+  height: var(--header-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+#topbar .logo {
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  white-space: nowrap;
+}
+#topbar .logo span { color: var(--accent); }
+#meta-line {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#theme-toggle {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 14px;
+  padding: 4px 8px;
+  transition: color 0.15s;
+}
+#theme-toggle:hover { color: var(--text); }
+
+/* ---- TABS ---- */
+#tabs {
+  height: var(--tab-h);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: stretch;
+  padding: 0 20px;
+  gap: 2px;
+  position: sticky;
+  top: var(--header-h);
+  z-index: 99;
+}
+.tab-btn {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 500;
+  padding: 0 14px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+.tab-btn:hover { color: var(--text); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* ---- MAIN LAYOUT ---- */
+#main { padding: 20px; max-width: 1400px; margin: 0 auto; }
+
+/* ---- PANELS ---- */
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* ---- PANEL HEADER ---- */
+.panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.panel-title {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+}
+
+/* ---- TOGGLE BUTTONS ---- */
+.toggle-group {
+  display: flex;
+  gap: 2px;
+  background: var(--surface2);
+  border-radius: var(--radius);
+  padding: 2px;
+  border: 1px solid var(--border);
+}
+.toggle-btn {
+  background: transparent;
+  border: none;
+  border-radius: calc(var(--radius) - 2px);
+  color: var(--text-muted);
+  cursor: pointer;
+  font-family: var(--sans);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  transition: background 0.15s, color 0.15s;
+}
+.toggle-btn.active {
+  background: var(--accent);
+  color: #fff;
+}
+.toggle-btn:not(.active):hover { color: var(--text); }
+
+/* ---- FILTERS ---- */
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.filter-row input[type="text"] {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 12px;
+  outline: none;
+  padding: 5px 10px;
+  transition: border-color 0.15s;
+  width: 160px;
+}
+.filter-row input[type="text"]:focus { border-color: var(--accent); }
+.filter-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.chip {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+  user-select: none;
+}
+.chip.active {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: rgba(59,130,246,0.12);
+}
+.chip:hover:not(.active) { border-color: var(--text-dim); color: var(--text); }
+
+/* ---- TABLE ---- */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.prob-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 680px;
+  font-size: 12px;
+}
+.prob-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--surface2);
+}
+.prob-table th {
+  padding: 8px 10px;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap;
+}
+.prob-table th:first-child,
+.prob-table th:nth-child(2),
+.prob-table th:nth-child(3) { text-align: left; }
+.prob-table th .sort-icon { margin-left: 4px; opacity: 0.4; font-size: 10px; }
+.prob-table th.sorted .sort-icon { opacity: 1; color: var(--accent); }
+.prob-table tbody { max-height: 70vh; overflow-y: auto; }
+.prob-table tr:hover td { background: var(--surface3) !important; }
+.prob-table td {
+  padding: 6px 10px;
+  border-bottom: 1px solid var(--border);
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 12px;
+  transition: background 0.08s;
+  white-space: nowrap;
+}
+.prob-table td:first-child,
+.prob-table td:nth-child(2),
+.prob-table td:nth-child(3) { text-align: left; }
+.prob-table td:first-child { font-family: var(--sans); font-weight: 500; font-size: 12.5px; }
+.conf-dot {
+  display: inline-block;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  margin-right: 6px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.team-cell { display: flex; align-items: center; }
+.scrollable-tbody { display: block; max-height: 65vh; overflow-y: auto; }
+.scrollable-tbody tr { display: table; width: 100%; table-layout: fixed; }
+
+/* ---- SKELETON ---- */
+.skeleton {
+  background: linear-gradient(90deg, var(--surface2) 25%, var(--surface3) 50%, var(--surface2) 75%);
+  background-size: 200% 100%;
+  animation: pulse 1.4s ease infinite;
+  border-radius: var(--radius);
+  height: 300px;
+}
+@keyframes pulse {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ---- ERROR / INFO BANNERS ---- */
+.banner {
+  border-radius: var(--radius);
+  font-size: 12.5px;
+  margin-bottom: 14px;
+  padding: 10px 14px;
+}
+.banner.error {
+  background: rgba(239,68,68,0.12);
+  border: 1px solid rgba(239,68,68,0.3);
+  color: #fca5a5;
+}
+.banner.warn {
+  background: rgba(234,179,8,0.1);
+  border: 1px solid rgba(234,179,8,0.3);
+  color: #fde68a;
+}
+.banner code {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  background: rgba(0,0,0,0.25);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* ---- DIFF TABLE ---- */
+.diff-pos { color: var(--green); }
+.diff-neg { color: var(--red); }
+
+/* ---- BASKET PANEL ---- */
+.basket-layout { display: flex; flex-direction: column; gap: 20px; }
+.basket-controls {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 16px;
+  align-items: start;
+}
+@media (max-width: 768px) {
+  .basket-controls { grid-template-columns: 1fr; }
+  .filter-row { flex-direction: column; align-items: flex-start; }
+}
+.basket-section-label {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.team-typeahead {
+  position: relative;
+}
+.team-typeahead input {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 12px;
+  outline: none;
+  padding: 6px 10px;
+  transition: border-color 0.15s;
+  width: 100%;
+}
+.team-typeahead input:focus { border-color: var(--accent); }
+.dropdown {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  max-height: 200px;
+  overflow-y: auto;
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0; right: 0;
+  z-index: 50;
+  display: none;
+}
+.dropdown.open { display: block; }
+.dropdown-item {
+  cursor: pointer;
+  font-size: 12px;
+  padding: 7px 10px;
+  transition: background 0.1s;
+}
+.dropdown-item:hover { background: var(--surface2); }
+.basket-chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+.basket-chip {
+  align-items: center;
+  background: rgba(59,130,246,0.12);
+  border: 1px solid rgba(59,130,246,0.3);
+  border-radius: 20px;
+  color: var(--accent-hover);
+  display: flex;
+  font-size: 11.5px;
+  gap: 5px;
+  padding: 3px 10px;
+}
+.basket-chip .remove {
+  cursor: pointer;
+  color: var(--text-dim);
+  font-size: 14px;
+  line-height: 1;
+}
+.basket-chip .remove:hover { color: var(--red); }
+.stage-radio-group { display: flex; flex-wrap: wrap; gap: 6px; }
+.stage-radio-group label {
+  align-items: center;
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  font-weight: 500;
+  gap: 5px;
+  padding: 5px 11px;
+  transition: background 0.12s, color 0.12s, border-color 0.12s;
+}
+.stage-radio-group input[type="radio"] { display: none; }
+.stage-radio-group input[type="radio"]:checked + label {
+  background: rgba(59,130,246,0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+.basket-results {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.basket-chart-wrap { height: 200px; margin-bottom: 16px; }
+.basket-summary {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.basket-summary span { color: var(--accent); }
+.basket-table-wrap { overflow-x: auto; }
+.basket-table {
+  border-collapse: collapse;
+  font-size: 12px;
+  width: 100%;
+  min-width: 320px;
+}
+.basket-table th {
+  background: var(--surface2);
+  border-bottom: 1px solid var(--border);
+  color: var(--text-muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 6px 10px;
+  text-align: right;
+}
+.basket-table th:first-child { text-align: left; }
+.basket-table td {
+  border-bottom: 1px solid var(--border);
+  font-family: var(--mono);
+  padding: 5px 10px;
+  text-align: right;
+}
+.basket-table td:first-child { text-align: left; }
+
+/* ---- CONFIGS PANEL ---- */
+.configs-layout { display: flex; flex-direction: column; gap: 16px; }
+.configs-controls { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.config-row {
+  align-items: flex-start;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: flex;
+  gap: 10px;
+  margin-bottom: 4px;
+  padding: 8px 12px;
+  transition: background 0.1s;
+}
+.config-row:hover { background: var(--surface2); }
+.config-rank {
+  color: var(--text-dim);
+  font-family: var(--mono);
+  font-size: 11px;
+  min-width: 28px;
+  padding-top: 2px;
+}
+.config-bar-wrap { flex: 0 0 80px; position: relative; padding-top: 4px; }
+.config-bar {
+  background: rgba(59,130,246,0.25);
+  border-radius: 2px;
+  height: 6px;
+  width: 0%;
+  transition: width 0.3s;
+}
+.config-prob {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+.config-teams { display: flex; flex-wrap: wrap; gap: 5px; flex: 1; }
+.config-team-chip {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  font-size: 11px;
+  padding: 2px 7px;
+  color: var(--text);
+}
+.config-team-chip.highlight {
+  background: rgba(59,130,246,0.2);
+  border-color: var(--accent);
+  color: var(--accent-hover);
+}
+.config-search {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 12px;
+  outline: none;
+  padding: 5px 10px;
+  transition: border-color 0.15s;
+  width: 200px;
+}
+.config-search:focus { border-color: var(--accent); }
+
+/* ---- TOOLTIP ---- */
+#tooltip {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 6px 10px;
+  pointer-events: none;
+  position: fixed;
+  z-index: 999;
+  display: none;
+  max-width: 220px;
+  line-height: 1.6;
+}
+
+/* ---- PLACEHOLDER ---- */
+.placeholder {
+  align-items: center;
+  color: var(--text-dim);
+  display: flex;
+  font-size: 13px;
+  justify-content: center;
+  min-height: 180px;
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<header id="topbar" role="banner">
+  <div class="logo">WC<span>2026</span> Predictions</div>
+  <div id="meta-line">Loading data…</div>
+  <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">☀</button>
+</header>
+
+<!-- TABS -->
+<nav id="tabs" role="tablist">
+  <button class="tab-btn active" data-panel="prob"    role="tab" aria-selected="true">Probability Table</button>
+  <button class="tab-btn"        data-panel="diff"    role="tab" aria-selected="false">Model vs Market</button>
+  <button class="tab-btn"        data-panel="basket"  role="tab" aria-selected="false">Basket Analysis</button>
+  <button class="tab-btn"        data-panel="configs" role="tab" aria-selected="false">Top Configurations</button>
+</nav>
+
+<main id="main">
+
+  <!-- PANEL 1: PROBABILITY TABLE -->
+  <section class="panel active" id="panel-prob" role="tabpanel">
+    <div class="panel-header">
+      <span class="panel-title">Stage Reach Probabilities</span>
+      <div class="toggle-group" id="prob-source-toggle" role="group" aria-label="Data source">
+        <button class="toggle-btn active" data-src="market">Market</button>
+        <button class="toggle-btn" data-src="model">Model</button>
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Conf:</span>
+      <span class="chip active" data-conf="ALL">All</span>
+      <span class="chip" data-conf="UEFA">UEFA</span>
+      <span class="chip" data-conf="CONMEBOL">CONMEBOL</span>
+      <span class="chip" data-conf="AFC">AFC</span>
+      <span class="chip" data-conf="CAF">CAF</span>
+      <span class="chip" data-conf="CONCACAF">CONCACAF</span>
+      <span class="chip" data-conf="OFC">OFC</span>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">Group:</span>
+      <span class="chip active" data-grp="ALL">All</span>
+      <span id="group-chips"></span>
+      <input type="text" id="team-search" placeholder="Search team…" aria-label="Filter by team name">
+    </div>
+    <div id="prob-skeleton" class="skeleton"></div>
+    <div id="prob-table-wrap" class="table-wrap" style="display:none">
+      <table class="prob-table" id="prob-table" aria-label="Stage probabilities">
+        <thead>
+          <tr>
+            <th data-col="name" tabindex="0">Team <span class="sort-icon">↕</span></th>
+            <th data-col="confederation" tabindex="0">Conf <span class="sort-icon">↕</span></th>
+            <th data-col="group" tabindex="0">Grp <span class="sort-icon">↕</span></th>
+            <th data-col="R32" tabindex="0">R32 <span class="sort-icon">↕</span></th>
+            <th data-col="R16" tabindex="0">R16 <span class="sort-icon">↕</span></th>
+            <th data-col="QF"  tabindex="0">QF <span class="sort-icon">↕</span></th>
+            <th data-col="SF"  tabindex="0">SF <span class="sort-icon">↕</span></th>
+            <th data-col="final" tabindex="0">F <span class="sort-icon">↕</span></th>
+            <th data-col="winner" class="sorted" tabindex="0">W <span class="sort-icon">↓</span></th>
+          </tr>
+        </thead>
+        <tbody id="prob-tbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- PANEL 2: DIFF -->
+  <section class="panel" id="panel-diff" role="tabpanel">
+    <div class="panel-header">
+      <span class="panel-title">Model − Market (percentage points)</span>
+    </div>
+    <div id="diff-skeleton" class="skeleton"></div>
+    <div id="diff-content" style="display:none">
+      <div id="diff-error"></div>
+      <div class="table-wrap">
+        <table class="prob-table" id="diff-table" aria-label="Model vs market difference">
+          <thead>
+            <tr>
+              <th data-col="name" tabindex="0">Team <span class="sort-icon">↕</span></th>
+              <th data-col="confederation" tabindex="0">Conf <span class="sort-icon">↕</span></th>
+              <th data-col="group" tabindex="0">Grp <span class="sort-icon">↕</span></th>
+              <th data-col="R32"  tabindex="0">R32 <span class="sort-icon">↕</span></th>
+              <th data-col="R16"  tabindex="0">R16 <span class="sort-icon">↕</span></th>
+              <th data-col="QF"   tabindex="0">QF <span class="sort-icon">↕</span></th>
+              <th data-col="SF"   tabindex="0">SF <span class="sort-icon">↕</span></th>
+              <th data-col="final" tabindex="0">F <span class="sort-icon">↕</span></th>
+              <th data-col="winner" class="sorted" tabindex="0">W <span class="sort-icon">↓</span></th>
+            </tr>
+          </thead>
+          <tbody id="diff-tbody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 3: BASKET -->
+  <section class="panel" id="panel-basket" role="tabpanel">
+    <div class="panel-header">
+      <span class="panel-title">Basket Analysis</span>
+    </div>
+    <div class="basket-layout">
+      <div class="basket-controls">
+        <div>
+          <div class="basket-section-label">Teams (max 8)</div>
+          <div class="team-typeahead">
+            <input type="text" id="basket-team-input" placeholder="Add team…" autocomplete="off" aria-label="Add team to basket" aria-autocomplete="list">
+            <div class="dropdown" id="basket-dropdown" role="listbox"></div>
+          </div>
+          <div class="basket-chips" id="basket-chips"></div>
+        </div>
+        <div>
+          <div class="basket-section-label">Stage</div>
+          <div class="stage-radio-group" id="basket-stage-radios">
+            <!-- filled by JS -->
+          </div>
+        </div>
+        <div>
+          <div class="basket-section-label">Source</div>
+          <div class="toggle-group" id="basket-source-toggle">
+            <button class="toggle-btn active" data-src="market">Market</button>
+            <button class="toggle-btn" data-src="model">Model</button>
+          </div>
+        </div>
+      </div>
+      <div class="basket-results" id="basket-results">
+        <div class="placeholder" id="basket-placeholder">Add teams above to compute basket probabilities</div>
+        <div id="basket-output" style="display:none">
+          <div id="basket-approx-banner" class="banner warn" style="display:none">
+            Using independence approximation — load sim matrix for exact joint probabilities.
+          </div>
+          <div class="basket-summary" id="basket-summary"></div>
+          <div class="basket-chart-wrap"><canvas id="basket-chart"></canvas></div>
+          <div class="basket-table-wrap">
+            <table class="basket-table">
+              <thead><tr>
+                <th>k teams reach stage</th>
+                <th>P(exactly k)</th>
+                <th>P(at least k)</th>
+              </tr></thead>
+              <tbody id="basket-tbody"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PANEL 4: CONFIGS -->
+  <section class="panel" id="panel-configs" role="tabpanel">
+    <div class="panel-header">
+      <span class="panel-title">Top Stage Configurations</span>
+      <div class="toggle-group" id="configs-source-toggle" role="group">
+        <button class="toggle-btn active" data-src="market">Market</button>
+        <button class="toggle-btn" data-src="model">Model</button>
+      </div>
+    </div>
+    <div class="configs-controls">
+      <div class="toggle-group" id="configs-stage-tabs" role="group" aria-label="Stage">
+        <button class="toggle-btn active" data-stage="QF">QF</button>
+        <button class="toggle-btn" data-stage="SF">SF</button>
+        <button class="toggle-btn" data-stage="R16">R16</button>
+        <button class="toggle-btn" data-stage="final">Final</button>
+        <button class="toggle-btn" data-stage="winner">Winner</button>
+      </div>
+      <input type="text" class="config-search" id="config-search" placeholder="Filter by team…" aria-label="Filter configurations by team">
+    </div>
+    <div id="configs-skeleton" class="skeleton" style="margin-top:12px"></div>
+    <div id="configs-list" style="display:none; margin-top:12px"></div>
+  </section>
+
+</main>
+
+<!-- TOOLTIP -->
+<div id="tooltip" role="tooltip" aria-hidden="true"></div>
+
+<script>
+'use strict';
+
+// =========================================================
+// STATE
+// =========================================================
+const state = {
+  market: null,   // JSON data
+  model: null,
+  marketMatrix: null,  // Float32Array or BoolArray parsed from npz
+  modelMatrix: null,
+  marketMatrixIndex: null,
+  modelMatrixIndex: null,
+  matrixLoading: { market: false, model: false },
+  probSrc: 'market',
+  diffSortCol: 'winner',
+  diffSortAsc: false,
+  probSortCol: 'winner',
+  probSortAsc: false,
+  probConfFilter: 'ALL',
+  probGrpFilter: 'ALL',
+  probSearch: '',
+  basketTeams: [],
+  basketStage: 'QF',
+  basketSrc: 'market',
+  configsSrc: 'market',
+  configsStage: 'QF',
+  configsSearch: '',
+};
+
+const STAGES = ['R32', 'R16', 'QF', 'SF', 'final', 'winner'];
+const STAGE_LABELS = { R32: 'R32', R16: 'R16', QF: 'QF', SF: 'SF', final: 'Final', winner: 'Winner' };
+const CONF_COLORS = {
+  UEFA: '#3b82f6', CONMEBOL: '#22c55e', AFC: '#f59e0b',
+  CAF: '#ef4444', CONCACAF: '#a855f7', OFC: '#06b6d4', '?': '#8892a4',
+};
+
+let basketChart = null;
+
+// =========================================================
+// DATA LOADING
+// =========================================================
+async function loadData() {
+  const [mktRes, modRes] = await Promise.all([
+    fetch('data/market.json'),
+    fetch('data/model.json'),
+  ]);
+
+  if (!mktRes.ok || !modRes.ok) {
+    showDataError();
+    return;
+  }
+
+  state.market = await mktRes.json();
+  state.model  = await modRes.json();
+
+  buildGroupChips();
+  buildBasketStageRadios();
+  updateMetaLine();
+  renderProbTable();
+  renderDiffTable();
+  renderConfigs();
+}
+
+function showDataError() {
+  const msg = `<div class="banner error">Data files not found. Run: <code>python Bracket_Simulations/scripts/export_dashboard_json.py</code></div>`;
+  ['prob-skeleton', 'diff-skeleton', 'configs-skeleton'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.outerHTML = msg;
+  });
+  document.getElementById('basket-placeholder').innerHTML =
+    'Data not available — run the export script first.';
+}
+
+// Lazy-load sim matrix when basket panel opens
+async function ensureMatrix(src) {
+  if (state[`${src}Matrix`] || state.matrixLoading[src]) return;
+  const data = src === 'market' ? state.market : state.model;
+  if (!data) return;
+  const url = data.sim_matrix_url;
+  if (!url) return;
+  state.matrixLoading[src] = true;
+  try {
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = await res.arrayBuffer();
+    const parsed = parseNpz(buf);
+    state[`${src}Matrix`] = parsed.matrix;
+    state[`${src}MatrixIndex`] = data.sim_matrix_index;
+  } catch (e) {
+    console.warn('Could not load sim matrix for', src, e);
+  } finally {
+    state.matrixLoading[src] = false;
+  }
+  renderBasket();
+}
+
+// =========================================================
+// NPZ PARSER (pure JS, no extra CDN)
+// =========================================================
+function parseNpz(buf) {
+  // NPZ is a ZIP file — walk local file headers
+  const bytes = new Uint8Array(buf);
+  const result = {};
+  let i = 0;
+  while (i + 4 <= bytes.length) {
+    // Local file header signature: PK 0x03 0x04
+    if (bytes[i]!==0x50||bytes[i+1]!==0x4b||bytes[i+2]!==0x03||bytes[i+3]!==0x04) {
+      i++; continue;
+    }
+    const compression = u16(bytes, i+8); // 0=store, 8=deflate
+    const compSize    = u32(bytes, i+18);
+    const uncompSize  = u32(bytes, i+22);
+    const fnLen       = u16(bytes, i+26);
+    const extraLen    = u16(bytes, i+28);
+    const nameBytes   = bytes.slice(i+30, i+30+fnLen);
+    const name        = new TextDecoder().decode(nameBytes).replace(/\0/g,'').trim();
+    const dataStart   = i + 30 + fnLen + extraLen;
+
+    let rawData;
+    if (compression === 0) {
+      rawData = bytes.slice(dataStart, dataStart + uncompSize);
+    } else if (compression === 8) {
+      const compressed = bytes.slice(dataStart, dataStart + compSize);
+      rawData = inflateRaw(compressed);
+    } else {
+      i = dataStart + compSize; continue;
+    }
+    if (name.endsWith('.npy')) {
+      const key = name.replace(/\.npy$/, '').replace(/^[^/]+\//, '');
+      result[key] = parseNpy(rawData);
+    }
+    i = dataStart + compSize;
+  }
+  return result;
+}
+
+function u16(b, o) { return b[o] | (b[o+1]<<8); }
+function u32(b, o) { return (b[o] | (b[o+1]<<8) | (b[o+2]<<16) | (b[o+3]<<24)) >>> 0; }
+
+function inflateRaw(data) {
+  // Use DecompressionStream (available in modern browsers)
+  // Synchronous wrapper using TransformStream — we need sync here,
+  // so we'll decompress inline using a manual DEFLATE table.
+  // Actually DecompressionStream is async — we handle it at load time.
+  // Since parseNpz is called from async context, let's use a sync inflate.
+  // We'll use a tiny inflate impl for raw deflate (no zlib header).
+  return tinflate(data);
+}
+
+// Minimal inflate for raw DEFLATE (RFC 1951)
+// Based on public domain puff.c concept
+function tinflate(src) {
+  let si = 0, bi = 0; // byte index, bit index
+  let out = [];
+  const lens = new Uint8Array(320);
+
+  function bits(n) {
+    let val = 0;
+    for (let k = 0; k < n; k++) {
+      if (bi === 8) { si++; bi = 0; }
+      val |= ((src[si] >> bi) & 1) << k;
+      bi++;
+    }
+    return val;
+  }
+
+  function buildTree(lengths) {
+    const maxLen = Math.max(...lengths);
+    if (maxLen === 0) return null;
+    const bl_count = new Array(maxLen+1).fill(0);
+    lengths.forEach(l => { if(l) bl_count[l]++; });
+    const next_code = new Array(maxLen+2).fill(0);
+    let code = 0;
+    for (let b = 1; b <= maxLen; b++) {
+      code = (code + bl_count[b-1]) << 1;
+      next_code[b] = code;
+    }
+    const table = new Map();
+    lengths.forEach((len, sym) => {
+      if (len === 0) return;
+      const c = next_code[len];
+      // store as big-endian len-bit code
+      let rev = 0;
+      for (let k = 0; k < len; k++) rev |= ((c >> k) & 1) << (len-1-k);
+      table.set((rev << 4) | len, sym);
+      next_code[len]++;
+    });
+    return { table, maxLen };
+  }
+
+  function readSym(tree) {
+    let code = 0;
+    for (let len = 1; len <= tree.maxLen; len++) {
+      code = (code << 1) | bits(1);
+      const k = (code << 4) | len;
+      if (tree.table.has(k)) return tree.table.get(k);
+    }
+    throw new Error('inflate: bad symbol');
+  }
+
+  // Fixed huffman trees
+  const fixedLens = [];
+  for (let i=0;i<144;i++) fixedLens.push(8);
+  for (let i=144;i<256;i++) fixedLens.push(9);
+  for (let i=256;i<280;i++) fixedLens.push(7);
+  for (let i=280;i<288;i++) fixedLens.push(8);
+  const fixedDist = new Array(32).fill(5);
+
+  const EXTRA_LEN_BITS = [0,0,0,0,0,0,0,0,1,1,1,1,2,2,2,2,3,3,3,3,4,4,4,4,5,5,5,5,0,0,0];
+  const LEN_BASE = [3,4,5,6,7,8,9,10,11,13,15,17,19,23,27,31,35,43,51,59,67,83,99,115,131,163,195,227,258,0,0];
+  const EXTRA_DIST_BITS = [0,0,0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7,8,8,9,9,10,10,11,11,12,12,13,13];
+  const DIST_BASE = [1,2,3,4,5,7,9,13,17,25,33,49,65,97,129,193,257,385,513,769,1025,1537,2049,3073,4097,6145,8193,12289,16385,24577];
+
+  function decodeBlock(litTree, distTree) {
+    while (true) {
+      const sym = readSym(litTree);
+      if (sym < 256) { out.push(sym); continue; }
+      if (sym === 256) break;
+      const lenIdx = sym - 257;
+      const length = LEN_BASE[lenIdx] + bits(EXTRA_LEN_BITS[lenIdx]);
+      const distSym = readSym(distTree);
+      const dist = DIST_BASE[distSym] + bits(EXTRA_DIST_BITS[distSym]);
+      const pos = out.length;
+      for (let k = 0; k < length; k++) out.push(out[pos - dist + k]);
+    }
+  }
+
+  // Read blocks
+  while (true) {
+    const bfinal = bits(1);
+    const btype  = bits(2);
+    if (btype === 0) { // stored
+      bi = 0; si++;
+      const len = src[si] | (src[si+1]<<8); si+=4;
+      for (let k=0;k<len;k++) out.push(src[si++]);
+    } else if (btype === 1) { // fixed
+      decodeBlock(buildTree(fixedLens), buildTree(fixedDist));
+    } else if (btype === 2) { // dynamic
+      const hlit  = bits(5)+257;
+      const hdist = bits(5)+1;
+      const hclen = bits(4)+4;
+      const clOrder=[16,17,18,0,8,7,9,6,10,5,11,4,12,3,13,2,14,1,15];
+      const clLens = new Array(19).fill(0);
+      for (let k=0;k<hclen;k++) clLens[clOrder[k]]=bits(3);
+      const clTree = buildTree(clLens);
+      const allLens = [];
+      while (allLens.length < hlit+hdist) {
+        const sym = readSym(clTree);
+        if (sym < 16) { allLens.push(sym); }
+        else if (sym===16){ const rep=allLens[allLens.length-1]; for(let k=bits(2)+3;k--;)allLens.push(rep); }
+        else if (sym===17){ for(let k=bits(3)+3;k--;)allLens.push(0); }
+        else { for(let k=bits(7)+11;k--;)allLens.push(0); }
+      }
+      decodeBlock(buildTree(allLens.slice(0,hlit)), buildTree(allLens.slice(hlit)));
+    } else throw new Error('inflate: bad btype');
+    if (bfinal) break;
+  }
+  return new Uint8Array(out);
+}
+
+function parseNpy(bytes) {
+  // Magic: \x93NUMPY
+  if (bytes[0]!==0x93||bytes[1]!==0x4e) throw new Error('Not an NPY file');
+  const headerLen = bytes[8] | (bytes[9]<<8); // version 1.0
+  const header = new TextDecoder().decode(bytes.slice(10, 10+headerLen));
+  const shapeM = header.match(/shape\s*:\s*\(([^)]*)\)/);
+  const dtypeM = header.match(/descr\s*:\s*'([^']*)'/);
+  if (!shapeM||!dtypeM) throw new Error('NPY parse error');
+  const shape = shapeM[1].split(',').map(s=>parseInt(s.trim())).filter(n=>!isNaN(n));
+  const dtype = dtypeM[1].replace(/[<>|=]/,'');
+  const dataOffset = 10 + headerLen;
+  const raw = bytes.slice(dataOffset);
+  let arr;
+  if (dtype==='b1'||dtype==='bool') arr = raw; // uint8 used as bool
+  else if (dtype==='f4') arr = new Float32Array(raw.buffer, raw.byteOffset, raw.byteLength/4);
+  else if (dtype==='f8') arr = new Float64Array(raw.buffer, raw.byteOffset, raw.byteLength/8);
+  else if (dtype==='i4') arr = new Int32Array(raw.buffer, raw.byteOffset, raw.byteLength/4);
+  else arr = raw;
+  return { arr, shape, dtype };
+}
+
+// =========================================================
+// META LINE
+// =========================================================
+function updateMetaLine() {
+  const d = state.market;
+  if (!d) return;
+  const md = state.model;
+  const parts = [
+    `market_all · ${d.meta.n_sims.toLocaleString()} sims`,
+    md ? `model_all · ${md.meta.n_sims.toLocaleString()} sims` : '',
+    `generated ${d.meta.generated.slice(0,10)}`,
+  ].filter(Boolean);
+  document.getElementById('meta-line').textContent = parts.join('  ·  ');
+}
+
+// =========================================================
+// PROBABILITY TABLE
+// =========================================================
+function renderProbTable() {
+  const data = state.probSrc === 'market' ? state.market : state.model;
+  const skel = document.getElementById('prob-skeleton');
+  const wrap = document.getElementById('prob-table-wrap');
+  if (!data) { skel.style.display=''; wrap.style.display='none'; return; }
+  skel.style.display = 'none';
+  wrap.style.display = '';
+
+  let teams = data.teams.slice();
+
+  // Filters
+  if (state.probConfFilter !== 'ALL')
+    teams = teams.filter(t => t.confederation === state.probConfFilter);
+  if (state.probGrpFilter !== 'ALL')
+    teams = teams.filter(t => t.group === state.probGrpFilter);
+  if (state.probSearch)
+    teams = teams.filter(t => t.name.toLowerCase().includes(state.probSearch.toLowerCase()));
+
+  // Sort
+  teams = sortTeams(teams, state.probSortCol, state.probSortAsc, data);
+
+  // Column maxima for color scaling
+  const maxByStage = {};
+  STAGES.forEach(s => {
+    maxByStage[s] = Math.max(...data.teams.map(t => t.probs[s]||0));
+  });
+
+  const tbody = document.getElementById('prob-tbody');
+  const nSims = data.meta.n_sims;
+  tbody.innerHTML = teams.map(t => {
+    const dot = `<span class="conf-dot" style="background:${confColor(t.confederation)}"></span>`;
+    const nameTd = `<td><div class="team-cell">${dot}${esc(t.name)}</div></td>`;
+    const stageCells = STAGES.map(s => {
+      const p = t.probs[s]||0;
+      const pct = Math.round(p*100);
+      const bg = cellBg(p, maxByStage[s]);
+      const count = Math.round(p * nSims);
+      const tooltip = `${(p*100).toFixed(2)}% · ${count.toLocaleString()} / ${nSims.toLocaleString()} sims`;
+      return `<td style="background:${bg}" data-tip="${esc(tooltip)}">${pct}%</td>`;
+    }).join('');
+    return `<tr>${nameTd}<td>${esc(t.confederation)}</td><td>${esc(t.group)}</td>${stageCells}</tr>`;
+  }).join('');
+
+  // Tooltip handling
+  attachTooltips(tbody);
+}
+
+function cellBg(p, max) {
+  if (max <= 0) return 'transparent';
+  const t = p / max;
+  const isDark = !document.documentElement.dataset.theme || document.documentElement.dataset.theme === 'dark';
+  if (isDark) {
+    const g = Math.round(t * 180);
+    return `rgba(34,${90+g},${60+Math.round(t*30)},${0.08 + t*0.55})`;
+  } else {
+    const g = Math.round(255 - t*120);
+    return `rgb(${g},255,${g})`;
+  }
+}
+
+function diffBg(pp) {
+  // pp in percentage points, range -20 to +20
+  const t = Math.max(-1, Math.min(1, pp / 20));
+  if (t > 0) return `rgba(34,197,94,${t*0.55})`;
+  if (t < 0) return `rgba(239,68,68,${(-t)*0.55})`;
+  return 'transparent';
+}
+
+function confColor(conf) { return CONF_COLORS[conf] || CONF_COLORS['?']; }
+function esc(s) { return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+function sortTeams(teams, col, asc, data) {
+  return [...teams].sort((a, b) => {
+    let va, vb;
+    if (STAGES.includes(col)) {
+      va = a.probs[col]||0; vb = b.probs[col]||0;
+    } else {
+      va = a[col]||''; vb = b[col]||'';
+    }
+    if (typeof va === 'string') return asc ? va.localeCompare(vb) : vb.localeCompare(va);
+    return asc ? va - vb : vb - va;
+  });
+}
+
+function buildGroupChips() {
+  const data = state.market || state.model;
+  if (!data) return;
+  const groups = [...new Set(data.teams.map(t => t.group))].sort();
+  const wrap = document.getElementById('group-chips');
+  wrap.innerHTML = groups.map(g =>
+    `<span class="chip" data-grp="${g}">${g}</span>`
+  ).join('');
+  wrap.querySelectorAll('.chip').forEach(c => {
+    c.addEventListener('click', () => {
+      document.querySelectorAll('[data-grp]').forEach(x => x.classList.remove('active'));
+      c.classList.add('active');
+      state.probGrpFilter = c.dataset.grp;
+      renderProbTable();
+    });
+  });
+}
+
+// =========================================================
+// DIFF TABLE
+// =========================================================
+function renderDiffTable() {
+  const skel = document.getElementById('diff-skeleton');
+  const content = document.getElementById('diff-content');
+  if (!state.market || !state.model) {
+    skel.style.display = '';
+    content.style.display = 'none';
+    return;
+  }
+  skel.style.display = 'none';
+  content.style.display = '';
+
+  const mktMap = Object.fromEntries(state.market.teams.map(t => [t.name, t]));
+  const modMap = Object.fromEntries(state.model.teams.map(t => [t.name, t]));
+  const allNames = [...new Set([...Object.keys(mktMap), ...Object.keys(modMap)])];
+
+  let rows = allNames.map(name => {
+    const mkt = mktMap[name];
+    const mod = modMap[name];
+    if (!mkt || !mod) return null;
+    const diff = {};
+    STAGES.forEach(s => { diff[s] = ((mod.probs[s]||0) - (mkt.probs[s]||0)) * 100; });
+    return { name, confederation: mkt.confederation, group: mkt.group, diff };
+  }).filter(Boolean);
+
+  rows = [...rows].sort((a,b) => {
+    const col = state.diffSortCol;
+    let va = STAGES.includes(col) ? a.diff[col]||0 : a[col]||'';
+    let vb = STAGES.includes(col) ? b.diff[col]||0 : b[col]||'';
+    if (typeof va === 'string') return state.diffSortAsc ? va.localeCompare(vb) : vb.localeCompare(va);
+    return state.diffSortAsc ? va - vb : vb - va;
+  });
+
+  const tbody = document.getElementById('diff-tbody');
+  tbody.innerHTML = rows.map(r => {
+    const dot = `<span class="conf-dot" style="background:${confColor(r.confederation)}"></span>`;
+    const nameTd = `<td><div class="team-cell">${dot}${esc(r.name)}</div></td>`;
+    const stageCells = STAGES.map(s => {
+      const pp = r.diff[s];
+      const sign = pp >= 0 ? '+' : '';
+      const cls = pp > 0.5 ? 'diff-pos' : pp < -0.5 ? 'diff-neg' : '';
+      const bg = diffBg(pp);
+      return `<td class="${cls}" style="background:${bg}">${sign}${pp.toFixed(1)}pp</td>`;
+    }).join('');
+    return `<tr>${nameTd}<td>${esc(r.confederation)}</td><td>${esc(r.group)}</td>${stageCells}</tr>`;
+  }).join('');
+}
+
+// =========================================================
+// TABLE SORT WIRING
+// =========================================================
+function wireTableSort(tableId, sortStateKey, sortAscKey, renderFn) {
+  const table = document.getElementById(tableId);
+  if (!table) return;
+  table.querySelectorAll('th[data-col]').forEach(th => {
+    th.addEventListener('click', () => sortByTh(th, table, sortStateKey, sortAscKey, renderFn));
+    th.addEventListener('keydown', e => {
+      if (e.key==='Enter'||e.key===' ') { e.preventDefault(); sortByTh(th, table, sortStateKey, sortAscKey, renderFn); }
+    });
+  });
+}
+
+function sortByTh(th, table, sortStateKey, sortAscKey, renderFn) {
+  const col = th.dataset.col;
+  if (state[sortStateKey] === col) {
+    state[sortAscKey] = !state[sortAscKey];
+  } else {
+    state[sortStateKey] = col;
+    state[sortAscKey] = STAGES.includes(col) ? false : true;
+  }
+  table.querySelectorAll('th').forEach(h => {
+    h.classList.remove('sorted');
+    const icon = h.querySelector('.sort-icon');
+    if (icon) icon.textContent = '↕';
+  });
+  th.classList.add('sorted');
+  const icon = th.querySelector('.sort-icon');
+  if (icon) icon.textContent = state[sortAscKey] ? '↑' : '↓';
+  renderFn();
+}
+
+// =========================================================
+// BASKET ANALYSIS
+// =========================================================
+function buildBasketStageRadios() {
+  const wrap = document.getElementById('basket-stage-radios');
+  wrap.innerHTML = STAGES.map((s, i) => `
+    <input type="radio" name="basket-stage" id="bs-${s}" value="${s}" ${i===2?'checked':''}>
+    <label for="bs-${s}">${STAGE_LABELS[s]}</label>
+  `).join('');
+  wrap.querySelectorAll('input[type=radio]').forEach(r => {
+    r.addEventListener('change', () => {
+      state.basketStage = r.value;
+      renderBasket();
+    });
+  });
+}
+
+function getTeamList() {
+  const data = state.market || state.model;
+  return data ? data.teams.map(t => t.name).sort() : [];
+}
+
+function setupBasketTypeahead() {
+  const input = document.getElementById('basket-team-input');
+  const dropdown = document.getElementById('basket-dropdown');
+  const teams = getTeamList();
+
+  input.addEventListener('input', () => {
+    const q = input.value.trim().toLowerCase();
+    if (!q) { dropdown.classList.remove('open'); return; }
+    const matches = teams.filter(t => t.toLowerCase().includes(q) && !state.basketTeams.includes(t));
+    dropdown.innerHTML = matches.slice(0,12).map(t =>
+      `<div class="dropdown-item" role="option">${esc(t)}</div>`
+    ).join('');
+    dropdown.classList.toggle('open', matches.length > 0);
+    dropdown.querySelectorAll('.dropdown-item').forEach((item, idx) => {
+      item.addEventListener('mousedown', e => {
+        e.preventDefault();
+        addBasketTeam(matches[idx]);
+        input.value = '';
+        dropdown.classList.remove('open');
+      });
+    });
+  });
+
+  input.addEventListener('keydown', e => {
+    if (e.key === 'Escape') { dropdown.classList.remove('open'); }
+  });
+
+  document.addEventListener('click', e => {
+    if (!input.contains(e.target) && !dropdown.contains(e.target))
+      dropdown.classList.remove('open');
+  });
+}
+
+function addBasketTeam(name) {
+  if (state.basketTeams.length >= 8 || state.basketTeams.includes(name)) return;
+  state.basketTeams.push(name);
+  renderBasketChips();
+  renderBasket();
+}
+
+function removeBasketTeam(name) {
+  state.basketTeams = state.basketTeams.filter(t => t !== name);
+  renderBasketChips();
+  renderBasket();
+}
+
+function renderBasketChips() {
+  const wrap = document.getElementById('basket-chips');
+  wrap.innerHTML = state.basketTeams.map(t =>
+    `<div class="basket-chip">${esc(t)}<span class="remove" data-team="${esc(t)}" role="button" aria-label="Remove ${esc(t)}" tabindex="0">×</span></div>`
+  ).join('');
+  wrap.querySelectorAll('.remove').forEach(btn => {
+    btn.addEventListener('click', () => removeBasketTeam(btn.dataset.team));
+    btn.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); removeBasketTeam(btn.dataset.team); } });
+  });
+}
+
+function renderBasket() {
+  const placeholder = document.getElementById('basket-placeholder');
+  const output = document.getElementById('basket-output');
+  const banner = document.getElementById('basket-approx-banner');
+
+  if (state.basketTeams.length === 0) {
+    placeholder.style.display = ''; output.style.display = 'none'; return;
+  }
+  placeholder.style.display = 'none'; output.style.display = '';
+
+  const src = state.basketSrc;
+  const data = src === 'market' ? state.market : state.model;
+  const matrix = state[`${src}Matrix`];
+  const matIdx = state[`${src}MatrixIndex`];
+  if (!data) return;
+
+  const N = state.basketTeams.length;
+  const stage = state.basketStage;
+
+  let dist; // dist[k] = P(exactly k teams reach stage)
+  let exact = false;
+
+  if (matrix && matIdx) {
+    // Exact joint from boolean matrix
+    banner.style.display = 'none';
+    exact = true;
+    const teamIndices = state.basketTeams.map(name => matIdx.teams.indexOf(name));
+    const stageIdx = matIdx.stages.indexOf(stage);
+    if (teamIndices.some(i=>i<0) || stageIdx < 0) {
+      dist = new Array(N+1).fill(0);
+    } else {
+      dist = computeExactDist(matrix.arr, matrix.shape, teamIndices, stageIdx, N);
+    }
+  } else {
+    // Poisson-binomial approximation
+    banner.style.display = '';
+    const probs = state.basketTeams.map(name => {
+      const t = data.teams.find(t => t.name === name);
+      return t ? (t.probs[stage]||0) : 0;
+    });
+    dist = poissonBinomial(probs);
+    // Trigger lazy matrix load
+    ensureMatrix(src);
+  }
+
+  const cumDist = new Array(N+1).fill(0);
+  for (let k = N; k >= 0; k--) {
+    cumDist[k] = (k === N ? dist[N] : dist[k] + cumDist[k+1]);
+  }
+  const expected = dist.reduce((sum, p, k) => sum + p*k, 0);
+
+  // Summary
+  document.getElementById('basket-summary').innerHTML =
+    `Expected teams reaching <span>${STAGE_LABELS[stage]}</span>: <span>${expected.toFixed(2)}</span>`;
+
+  // Table
+  const tbody = document.getElementById('basket-tbody');
+  tbody.innerHTML = [...Array(N+1)].map((_,k) => `
+    <tr>
+      <td>${k} of ${N}</td>
+      <td>${(dist[k]*100).toFixed(2)}%</td>
+      <td>${(cumDist[k]*100).toFixed(2)}%</td>
+    </tr>
+  `).join('');
+
+  // Chart
+  const labels = [...Array(N+1)].map((_,k) => `${k}`);
+  const chartData = dist.map(p => +(p*100).toFixed(3));
+  if (basketChart) basketChart.destroy();
+  const ctx = document.getElementById('basket-chart').getContext('2d');
+  basketChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels,
+      datasets: [{
+        label: `P(exactly k reach ${STAGE_LABELS[stage]})`,
+        data: chartData,
+        backgroundColor: 'rgba(59,130,246,0.55)',
+        borderColor: 'rgba(59,130,246,0.9)',
+        borderWidth: 1,
+        borderRadius: 3,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 } }, grid: { color: '#2c3347' } },
+        y: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 }, callback: v => v+'%' }, grid: { color: '#2c3347' } },
+      },
+    },
+  });
+}
+
+function computeExactDist(arr, shape, teamIndices, stageIdx, N) {
+  const [nSims, nTeams, nStages] = shape;
+  const counts = new Array(N+1).fill(0);
+  for (let i = 0; i < nSims; i++) {
+    let k = 0;
+    for (let ti = 0; ti < N; ti++) {
+      const t = teamIndices[ti];
+      const idx = i * nTeams * nStages + t * nStages + stageIdx;
+      if (arr[idx]) k++;
+    }
+    counts[k]++;
+  }
+  return counts.map(c => c / nSims);
+}
+
+function poissonBinomial(probs) {
+  const N = probs.length;
+  let dp = new Array(N+1).fill(0);
+  dp[0] = 1;
+  for (let i = 0; i < N; i++) {
+    const p = probs[i];
+    for (let k = i+1; k >= 1; k--) {
+      dp[k] = dp[k] * (1-p) + dp[k-1] * p;
+    }
+    dp[0] *= (1-p);
+  }
+  return dp;
+}
+
+// =========================================================
+// CONFIGS PANEL
+// =========================================================
+function renderConfigs() {
+  const skel = document.getElementById('configs-skeleton');
+  const list = document.getElementById('configs-list');
+  const data = state.configsSrc === 'market' ? state.market : state.model;
+  if (!data) { skel.style.display=''; list.style.display='none'; return; }
+  skel.style.display = 'none';
+  list.style.display = '';
+
+  const stage = state.configsStage;
+  let configs = (data.top_configs[stage] || []).slice(0, 20);
+  const q = state.configsSearch.trim().toLowerCase();
+  if (q) configs = configs.filter(c => c.teams.some(t => t.toLowerCase().includes(q)));
+
+  const maxProb = configs.length > 0 ? configs[0].probability : 1;
+
+  list.innerHTML = configs.map(c => {
+    const barW = maxProb > 0 ? (c.probability / maxProb * 100).toFixed(1) : 0;
+    const teamChips = c.teams.map(t => {
+      const hl = q && t.toLowerCase().includes(q) ? ' highlight' : '';
+      return `<span class="config-team-chip${hl}">${esc(t)}</span>`;
+    }).join('');
+    return `
+      <div class="config-row">
+        <span class="config-rank">#${c.rank}</span>
+        <div class="config-bar-wrap">
+          <div class="config-bar" style="width:${barW}%"></div>
+          <div class="config-prob">${(c.probability*100).toFixed(3)}%</div>
+        </div>
+        <div class="config-teams">${teamChips}</div>
+      </div>`;
+  }).join('') || '<div class="placeholder">No configurations match the filter.</div>';
+}
+
+// =========================================================
+// TOOLTIP
+// =========================================================
+const tooltip = document.getElementById('tooltip');
+function attachTooltips(container) {
+  container.querySelectorAll('[data-tip]').forEach(el => {
+    el.addEventListener('mouseenter', e => showTip(e, el.dataset.tip));
+    el.addEventListener('mousemove', e => moveTip(e));
+    el.addEventListener('mouseleave', hideTip);
+  });
+}
+function showTip(e, text) {
+  tooltip.textContent = text;
+  tooltip.style.display = 'block';
+  tooltip.setAttribute('aria-hidden','false');
+  moveTip(e);
+}
+function moveTip(e) {
+  const pad = 12;
+  let x = e.clientX + pad, y = e.clientY + pad;
+  const tw = tooltip.offsetWidth, th = tooltip.offsetHeight;
+  if (x + tw > window.innerWidth - 8) x = e.clientX - tw - pad;
+  if (y + th > window.innerHeight - 8) y = e.clientY - th - pad;
+  tooltip.style.left = x + 'px';
+  tooltip.style.top  = y + 'px';
+}
+function hideTip() { tooltip.style.display='none'; tooltip.setAttribute('aria-hidden','true'); }
+
+// =========================================================
+// WIRING
+// =========================================================
+document.addEventListener('DOMContentLoaded', () => {
+  // Theme toggle
+  const themeBtn = document.getElementById('theme-toggle');
+  themeBtn.addEventListener('click', () => {
+    const isDark = !document.documentElement.dataset.theme || document.documentElement.dataset.theme === 'dark';
+    document.documentElement.dataset.theme = isDark ? 'light' : 'dark';
+    themeBtn.textContent = isDark ? '🌙' : '☀';
+    renderProbTable(); // re-render for color recalc
+  });
+
+  // Tab navigation
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => switchTab(btn.dataset.panel));
+    btn.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); switchTab(btn.dataset.panel); } });
+  });
+
+  function switchTab(panelId) {
+    document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    const btn = document.querySelector(`.tab-btn[data-panel="${panelId}"]`);
+    const panel = document.getElementById(`panel-${panelId}`);
+    if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
+    if (panel) panel.classList.add('active');
+    if (panelId === 'basket') {
+      ensureMatrix(state.basketSrc);
+    }
+  }
+
+  // Prob source toggle
+  document.getElementById('prob-source-toggle').querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('prob-source-toggle').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.probSrc = btn.dataset.src;
+      renderProbTable();
+    });
+  });
+
+  // Prob conf filter chips
+  document.querySelectorAll('[data-conf]').forEach(chip => {
+    chip.addEventListener('click', () => {
+      document.querySelectorAll('[data-conf]').forEach(c => c.classList.remove('active'));
+      chip.classList.add('active');
+      state.probConfFilter = chip.dataset.conf;
+      renderProbTable();
+    });
+  });
+
+  // Group chips — All
+  document.querySelector('[data-grp="ALL"]').addEventListener('click', () => {
+    document.querySelectorAll('[data-grp]').forEach(c => c.classList.remove('active'));
+    document.querySelector('[data-grp="ALL"]').classList.add('active');
+    state.probGrpFilter = 'ALL';
+    renderProbTable();
+  });
+
+  // Team search
+  document.getElementById('team-search').addEventListener('input', e => {
+    state.probSearch = e.target.value;
+    renderProbTable();
+  });
+
+  // Table sort
+  wireTableSort('prob-table', 'probSortCol', 'probSortAsc', renderProbTable);
+  wireTableSort('diff-table', 'diffSortCol', 'diffSortAsc', renderDiffTable);
+
+  // Basket source toggle
+  document.getElementById('basket-source-toggle').querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('basket-source-toggle').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.basketSrc = btn.dataset.src;
+      renderBasket();
+    });
+  });
+
+  // Configs source toggle
+  document.getElementById('configs-source-toggle').querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('configs-source-toggle').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.configsSrc = btn.dataset.src;
+      renderConfigs();
+    });
+  });
+
+  // Configs stage tabs
+  document.getElementById('configs-stage-tabs').querySelectorAll('.toggle-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.getElementById('configs-stage-tabs').querySelectorAll('.toggle-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      state.configsStage = btn.dataset.stage;
+      renderConfigs();
+    });
+  });
+
+  // Configs search
+  document.getElementById('config-search').addEventListener('input', e => {
+    state.configsSearch = e.target.value;
+    renderConfigs();
+  });
+
+  // Basket typeahead (after teams loaded)
+  setupBasketTypeahead();
+
+  // Load data
+  loadData();
+});
+</script>
+</body>
+</html>

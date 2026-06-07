@@ -17,6 +17,7 @@ from bracket_simulations.aggregates import (
     utc_run_id,
     write_probabilities_csv,
     write_settings_json,
+    write_sim_matrix,
     write_stage_config_csv,
 )
 from bracket_simulations.config import load_tournament_config
@@ -96,6 +97,7 @@ def run_simulations(args: argparse.Namespace) -> None:
     )
 
     sims_done = 0
+    all_reaches: list[dict[str, str]] = []
     for batch_idx in range(n_batches):
         batch_start = time.perf_counter()
         this_batch = min(batch_size, n_sims - sims_done)
@@ -121,6 +123,7 @@ def run_simulations(args: argparse.Namespace) -> None:
         merge_config_counts(state, batch_participants)
         state["total_sims"] = int(state.get("total_sims", 0)) + this_batch
         save_state_atomic(state_path, state)
+        all_reaches.extend(batch_reaches)
 
         sims_done += this_batch
         elapsed = time.perf_counter() - batch_start
@@ -139,6 +142,12 @@ def run_simulations(args: argparse.Namespace) -> None:
         bracket_dir / "team_stage_probabilities.csv", state, cfg.stages_tracked, all_teams
     )
     write_stage_config_csv(bracket_dir / "stage_config_probabilities.csv", state)
+    write_sim_matrix(
+        bracket_dir / "sim_matrix.npz",
+        all_reaches,
+        cfg.stages_tracked,
+        all_teams,
+    )
 
     meta = {
         "run_id": run_id,
