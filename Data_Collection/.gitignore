@@ -1,0 +1,9 @@
+# Python bytecode and local venv
+src/**/__pycache__/
+*.pyc
+.venv/
+
+# Local collection workflow (see repo root .gitignore)
+data/transfermarkt-datasets.duckdb
+data/**/missing_odds_manual.json
+data/**/transfermarkt_manual_links.json

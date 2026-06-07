@@ -15,59 +15,115 @@ The project asks whether a small set of public pre-match signals can recover boo
 3. `Bracket_Simulations`
    Simulates full World Cup brackets under market-derived and model-derived probabilities, then evaluates stage-level predictions against the historical outcomes.
 
+```mermaid
+---
+config:
+  layout: dagre
+  theme: base
+  themeVariables:
+    background: '#F7F7F2'
+    primaryTextColor: '#101010'
+    lineColor: '#101010'
+    fontFamily: 'Arial, sans-serif'
+  themeCSS: |
+    .cluster-label text,
+    .cluster-label span {
+      font-size: 18px !important;
+      font-weight: 700 !important;
+      fill: #101010 !important;
+      color: #101010 !important;
+    }
+    .edgePath .path {
+      stroke-width: 2px !important;
+    }
+  flowchart:
+    padding: 26
+    rankSpacing: 28
+    subGraphTitleMargin:
+      top: 12
+      bottom: 18
+---
+flowchart LR
+    Elo["Elo ratings"]
+    Odds["Bookmaker odds"]
+    Squads["Squad lists"]
+    Values["Squad market values"]
+
+    subgraph DC["1. Data collection and normalization"]
+        direction TD
+        Collect["Collect historical tournament data"]
+        Normalize["Normalize teams, formats, and sources"]
+        Merge["Merge features and de-vig odds"]
+        Collect --> Normalize --> Merge
+    end
+
+    Dataset[("Historical match dataset")]
+
+    subgraph MM["2. Match-level probability model"]
+        direction TD
+        Features["Build pre-match features"]
+        Train["Train CatBoost model"]
+        Evaluate["Run leave-one-tournament-out evaluation<br/>and compare baselines"]
+        Features --> Train --> Evaluate
+    end
+
+    Probabilities["Predicted 1X2 probabilities<br/>P(A win), P(draw), P(B win)"]
+
+    subgraph BS["3. Bracket simulations and backtesting"]
+        direction TD
+        Rules["Apply tournament format<br/>and advancement rules"]
+        Simulate["Simulate complete tournaments"]
+        Backtest["Backtest stage-level predictions"]
+        Results["Stage probabilities<br/>Likely matchups<br/>Market-vs-model reports"]
+        Rules --> Simulate --> Backtest --> Results
+    end
+
+    Elo --> DC
+    Odds --> DC
+    Squads --> DC
+    Values --> DC
+
+    DC --> Dataset
+    Dataset --> MM
+    MM --> Probabilities
+    Probabilities --> BS
+
+    classDef input fill:#FFFFFF,stroke:#101010,stroke-width:2px,color:#101010;
+    classDef dcNode fill:#B7F34A,stroke:#101010,stroke-width:2px,color:#101010;
+    classDef mmNode fill:#56C7FF,stroke:#101010,stroke-width:2px,color:#101010;
+    classDef bsNode fill:#FF6B57,stroke:#101010,stroke-width:2px,color:#101010;
+    classDef bridge fill:#FFD84D,stroke:#101010,stroke-width:2px,color:#101010;
+    classDef result fill:#101010,stroke:#101010,stroke-width:2px,color:#FFFFFF;
+
+    class Elo,Odds,Squads,Values input;
+    class Collect,Normalize,Merge dcNode;
+    class Features,Train,Evaluate mmNode;
+    class Rules,Simulate,Backtest bsNode;
+    class Dataset,Probabilities bridge;
+    class Results result;
+
+    style DC fill:#EFFAD8,stroke:#101010,stroke-width:2px;
+    style MM fill:#E3F6FF,stroke:#101010,stroke-width:2px;
+    style BS fill:#FFE8E3,stroke:#101010,stroke-width:2px;
+```
+
 ## Repository layout
 
 - `Data_Collection/`: collectors, manifests, tests, and committed partition outputs.
 - `Match_model/`: dataset build, model evaluation, committed experiment outputs, and report.
 - `Bracket_Simulations/`: simulation engine, committed backtest summaries, and compare outputs.
 
-## Curated committed outputs
-
-- `Match_model/results.md` (includes section 6: explicit WC2026 holdout evaluation)
-- `Match_model/data/output/experiments/plots/`
-- `Bracket_Simulations/results.md`
-- `Bracket_Simulations/data/output/simulations/stage_prediction_backtest.md`
-- `Bracket_Simulations/data/output/compare_summary.json`
-- `Bracket_Simulations/data/output/compare_brier_summary.md`
-
-The repository keeps curated summaries and the inputs needed to understand them. It does not keep every local rerun artifact.
-
-## Not committed
-
-- `.git/` (local history only; never part of the published tree)
-- Virtual environments, Python caches, editor folders (`.venv/`, `__pycache__/`, `.pytest_cache/`, `.vscode/`, `catboost_info/`, `*.pyc`)
-- Temporary files (`*.log`, `*.tmp`, `_tmp_*`)
-- `Data_Collection/data/transfermarkt-datasets.duckdb`
-- `Data_Collection/data/**/missing_odds_manual.json` and `transfermarkt_manual_links.json`
-- `docs_audit.md`
-- JSON under `Bracket_Simulations/data/output/simulations/` (run logs, settings, state, etc.)
-- Under each `.../simulations/wc*/market_all/<fingerprint>/` and `.../model_all/<fingerprint>/`: everything except `stage_config_probabilities.csv` and `team_stage_probabilities.csv`
-- `.github/`, `.editorconfig`, `.gitattributes`, and `.gitignore` files (local-only)
-
-Committed data includes all `data/**/input` and `data/**/output` JSON and CSV elsewhere; under `Bracket_Simulations/data/output/simulations/` only curated Markdown at the folder root (e.g. `stage_prediction_backtest.md`) plus those two CSVs per fingerprint, plus `Data_Collection/FIFA-World-Cup-26-Official-Brand-unveiled-in-Los-Angeles.png`.
-
 ## Quick start
 
 Requires Python 3.10+.
 
-The PowerShell commands below are convenience examples for Windows. On macOS or Linux, use the same Python commands directly from each stage directory.
+Each pipeline stage is self-contained and has its own `README.md` with setup instructions, prerequisites, and the exact commands to run:
 
-Before running the commands below, set up each stage once from its own directory with `python -m venv .venv` and `pip install -r requirements.txt`.
+- [`Data_Collection/README.md`](Data_Collection/README.md) — collect and normalize tournament inputs
+- [`Match_model/README.md`](Match_model/README.md) — build the match dataset and run model evaluation
+- [`Bracket_Simulations/README.md`](Bracket_Simulations/README.md) — simulate brackets and run backtests
 
-From the repo root:
-
-```powershell
-cd Data_Collection
-python -m unittest discover -s tests -v
-
-cd ..\Match_model
-python -m unittest discover -s tests -v
-python main_cli.py run-all
-
-cd ..\Bracket_Simulations
-python -m pytest tests -q
-python main_cli.py run-all
-```
+Run the stages in order.
 
 ## Sources and references
 
@@ -81,3 +137,5 @@ These are the main external data sources behind the committed inputs. Stage-leve
 ## License
 
 This repository is released under the MIT License. See [LICENSE](LICENSE).
+
+Third-party data, trademarks, and external media are not covered by the MIT License and remain the property of their respective owners.

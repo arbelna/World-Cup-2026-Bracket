@@ -1,0 +1,44 @@
+# --- Do not upload (local / tooling) ---
+# .git/ is never pushed as project files; it stays on your machine only.
+
+# Local Git/editor config (kept on disk, not published)
+.github/
+.editorconfig
+# .gitattributes
+# .gitignore
+# **/.gitignore
+
+# Python environments and caches
+**/.venv/
+**/__pycache__/
+**/.pytest_cache/
+**/.vscode/
+**/catboost_info/
+**/*.pyc
+
+# Temporary files
+*.log
+*.tmp
+_tmp_*
+
+# Local collection workflow files
+Data_Collection/data/transfermarkt-datasets.duckdb
+Data_Collection/data/**/missing_odds_manual.json
+Data_Collection/data/**/transfermarkt_manual_links.json
+
+# Local-only publication audit
+docs_audit.md
+
+# Bracket_Simulations/data/output/simulations: no JSON
+Bracket_Simulations/data/output/simulations/**/*.json
+Bracket_Simulations/data/output/simulations/*.json
+
+# Per tournament market_all/model_all fingerprint dirs: only two CSVs
+Bracket_Simulations/data/output/simulations/wc*/market_all/**/*
+!Bracket_Simulations/data/output/simulations/wc*/market_all/**/
+!Bracket_Simulations/data/output/simulations/wc*/market_all/**/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc*/market_all/**/team_stage_probabilities.csv
+Bracket_Simulations/data/output/simulations/wc*/model_all/**/*
+!Bracket_Simulations/data/output/simulations/wc*/model_all/**/
+!Bracket_Simulations/data/output/simulations/wc*/model_all/**/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc*/model_all/**/team_stage_probabilities.csv
