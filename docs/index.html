@@ -437,7 +437,8 @@ body {
   border-radius: var(--radius);
   padding: 16px;
 }
-.basket-chart-wrap { height: 200px; margin-bottom: 16px; }
+.basket-chart-wrap { height: 200px; margin-bottom: 16px; position: relative; }
+.basket-chart-wrap canvas { width: 100% !important; height: 100% !important; }
 .basket-summary {
   font-family: var(--mono);
   font-size: 12px;
@@ -1171,17 +1172,23 @@ function setupBasketTypeahead() {
   });
 }
 
+let basketRenderTimer = null;
+function scheduleRenderBasket() {
+  clearTimeout(basketRenderTimer);
+  basketRenderTimer = setTimeout(renderBasket, 400);
+}
+
 function addBasketTeam(name) {
   if (state.basketTeams.length >= 8 || state.basketTeams.includes(name)) return;
   state.basketTeams.push(name);
   renderBasketChips();
-  renderBasket();
+  scheduleRenderBasket();
 }
 
 function removeBasketTeam(name) {
   state.basketTeams = state.basketTeams.filter(t => t !== name);
   renderBasketChips();
-  renderBasket();
+  scheduleRenderBasket();
 }
 
 function renderBasketChips() {
@@ -1274,7 +1281,7 @@ function renderBasket() {
       },
       options: {
         animation: false,
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: false,
         plugins: { legend: { display: false } },
         scales: {
