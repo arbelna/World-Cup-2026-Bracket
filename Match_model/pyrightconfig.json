@@ -1,0 +1,4 @@
+{
+  "include": ["main_cli.py", "src", "tests"],
+  "extraPaths": ["src"]
+}

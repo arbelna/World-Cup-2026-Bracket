@@ -1,4 +1,4 @@
-![FIFA World Cup 2026 Official Brand unveiled in Los Angeles](./Data_Collection/FIFA-World-Cup-26-Official-Brand-unveiled-in-Los-Angeles.png)
+![FIFA World Cup 2026 Official Brand unveiled in Los Angeles](./Data_Collection/readme_files/FIFA-World-Cup-26-Official-Brand-unveiled-in-Los-Angeles.png)
 
 # WorldCup2026 Bracket
 
@@ -116,6 +116,39 @@ flowchart LR
 - `Data_Collection/`: collectors, manifests, tests, and committed partition outputs.
 - `Match_model/`: dataset build, model evaluation, committed experiment outputs, and report.
 - `Bracket_Simulations/`: simulation engine, committed backtest summaries, and compare outputs.
+
+## Results at a glance
+
+The backtests indicate that a compact CatBoost model built from public pre-match signals can provide a useful foundation for full-tournament simulations.
+
+At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is competitive with the market-derived baseline and often improves the simulation fit, especially for later-stage outcomes.
+
+### Match-level probability estimates
+
+The CatBoost model produces substantially lower held-out Brier scores than the Elo baseline in both match phases:
+
+![Held-out Brier score by match phase](./Data_Collection/readme_files/brier_by_phase.png)
+
+The improvement is not driven by a single tournament. CatBoost achieves a lower Brier score than Elo in every historical leave-one-tournament-out fold shown below, with reductions ranging from **41% to 71%**. On the WC2026 holdout, the model records a **70% lower** Brier score than Elo.
+
+![Brier score by tournament](./Data_Collection/readme_files/brier_by_tournament.png)
+
+Because the WC2026 holdout Brier score sits near the lower end of the historical range and the model's error is substantially lower for knockout-stage matches, we consider its probability estimates reliable enough to use as the foundation for the bracket simulations.
+
+
+### Bracket-level backtesting
+
+The full-bracket simulations are evaluated against the actual outcomes of the 2010–2022 World Cups. The model improves average Top-N recall at every stage:
+
+![Bracket stage recall](./Data_Collection/readme_files/bracket_stage_recall.png)
+
+
+The cumulative-error analysis provides a complementary view. The model is not better at every individual stage: the market baseline retains a small advantage for the quarter-finals and semi-finals. However, the model performs better for the Round of 16 and produces a notably better fit for the final and winner outcomes.
+
+![All-teams-seen cumulative error](./Data_Collection/readme_files/cumulative_bracket_error.png)
+
+These results support the main premise of the project: a small, reproducible set of public signals can generate match probabilities that remain useful after propagation through a complete tournament simulation. The committed reports and experiment outputs contain the full evaluation details.
+
 
 ## Quick start
 
