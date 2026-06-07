@@ -23,7 +23,7 @@ config:
   themeVariables:
     background: '#F7F7F2'
     primaryTextColor: '#101010'
-    lineColor: '#101010'
+    lineColor: '#6B7280'
     fontFamily: 'Arial, sans-serif'
   themeCSS: |
     .cluster-label text,
@@ -35,6 +35,7 @@ config:
     }
     .edgePath .path {
       stroke-width: 2px !important;
+      stroke: #6B7280 !important;
     }
   flowchart:
     padding: 26
@@ -75,8 +76,10 @@ flowchart LR
         Simulate["Simulate complete tournaments"]
         Backtest["Backtest stage-level predictions"]
         Results["Stage probabilities<br/>Likely matchups<br/>Market-vs-model reports"]
+
         Rules --> Simulate --> Backtest --> Results
     end
+
 
     Elo --> DC
     Odds --> DC
@@ -87,6 +90,7 @@ flowchart LR
     Dataset --> MM
     MM --> Probabilities
     Probabilities --> BS
+
 
     classDef input fill:#FFFFFF,stroke:#101010,stroke-width:2px,color:#101010;
     classDef dcNode fill:#B7F34A,stroke:#101010,stroke-width:2px,color:#101010;
