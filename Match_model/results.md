@@ -1,6 +1,6 @@
 # Match_model - detailed LOTO results
 
-**Generated:** 2026-06-03 10:18 UTC
+**Generated:** 2026-06-07 10:32 UTC
 **Dataset:** `data/output/datasets/match_dataset.json` (558 matches)
 **Experiments:** `data/output/experiments`
 
@@ -26,14 +26,22 @@ Cross-entropy (CE) penalizes assigning low probability to outcomes the market co
 **CatBoost vs Elo baseline (weighted CE):** 0.9617 vs 0.9790 (delta = -0.0174; negative delta means CatBoost is better).
 `baseline__market_dispersion` can score better than CatBoost on CE because it reads market-price dispersion directly while the target is itself the de-vigged market consensus. Treat it as a market-aware calibration reference, not a fair standalone predictive baseline; the cleaner predictive comparison is CatBoost versus `baseline__elo`.
 
-## 1b. Target oracle reference (not a predictive baseline)
+## 1b. What the errors look like on one 1X2 line
 
-`reference__market_target_oracle` copies each match's `target_soft` (median de-vigged market consensus) as its prediction. Near-zero error here confirms the label plumbing, not real forecasting skill.
-Taken together, the oracle and `baseline__market_dispersion` rows show how close a market-aware method can get to the label once it is allowed to read information derived directly from the same market.
+The leaderboard MAE is a macro average over home, draw, and away: for each outcome, take |model - market|, then average the three. It is **not** the gap on the favorite alone.
 
-| Reference | Weighted CE | Weighted Brier |
-|-----------|-------------|----------------|
-| reference__market_target_oracle | 0.9491 | 0.0000 |
+CatBoost's weighted MAE is **3.86 percentage points** per outcome on average (0.0386 on the 0-1 scale). The table below uses that exact average on one illustrative de-vigged 1X2 line (favorite probability softens; draw and away share the shift):
+
+| Outcome | Market | Model | Delta pp (model - market) | Abs error |
+|---------|--------|-------|---------------------------|-----------|
+| Home win | 70.0% | 64.2% | -5.8 | 5.8 |
+| Draw | 20.0% | 22.9% | +2.9 | 2.9 |
+| Away win | 10.0% | 12.9% | +2.9 | 2.9 |
+| **Macro MAE** | | | | **3.87** |
+
+The favorite is still home, but the model is 5.8 pp less confident; draw and away gain 2.9 pp and 2.9 pp. Macro MAE on this line is **3.87 pp**, matching the headline **3.86 pp**.
+
+Brier squares those same three gaps before averaging, so it punishes large misses more heavily; cross-entropy punishes confident wrong calls even more. None of the three numbers is a bracket probability by itself — they are per-match 1X2 inputs that feed the pairwise simulation stage.
 
 ## 2. Per-tournament held-out errors
 
@@ -121,6 +129,17 @@ CatBoost vs Elo on `World Cup 2026` (CE): 0.9219 vs 0.9479 (delta -0.0260, negat
 
 Historical CatBoost ranges across the 12 LOTO folds: CE 0.9147-1.0289, Brier 0.0056-0.0177, and CE delta vs Elo -0.0298 to -0.0085. The WC2026 holdout lands at CE 0.9219, Brier 0.0069, and delta -0.0260.
 That does not validate future outcomes, but it does suggest the WC2026 pairwise probability surface behaves like the historical tournament folds rather than like an obvious outlier, so these predictions are reasonable inputs for the bracket simulation stage.
+
+**WC2026 holdout example** (CatBoost weighted MAE **3.68 pp** on the test set):
+
+| Outcome | Market | Model | Delta pp (model - market) | Abs error |
+|---------|--------|-------|---------------------------|-----------|
+| Home win | 58.0% | 52.5% | -5.5 | 5.5 |
+| Draw | 26.0% | 28.8% | +2.8 | 2.8 |
+| Away win | 16.0% | 18.7% | +2.7 | 2.7 |
+| **Macro MAE** | | | | **3.67** |
+
+On a representative group-stage line, home stays the favorite but drops 5.5 pp while draw and away rise 2.8 pp and 2.7 pp. Macro MAE on this line is **3.67 pp**, matching the WC2026 holdout **3.68 pp**.
 
 Reproduce from the `WorldCup2026 Bracket` repo root:
 

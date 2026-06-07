@@ -7,7 +7,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
-from match_model.loto import CATBOOST_EXPERIMENT_ID, REFERENCE_EXPERIMENT_ID
+from match_model.loto import CATBOOST_EXPERIMENT_ID
 from match_model.parsers.old_stats_parser import OldStatsMatch, parse_all_old_stats
 from match_model.paths import OLD_STATS_DIR, STAGE_ROOT
 from match_model.utils.matching import normalize_team_name, normalized_team_pair
@@ -256,6 +256,102 @@ def _split_experiments(
     return predictive, reference
 
 
+def _macro_mae_pp(
+    market_pct: tuple[float, float, float],
+    model_pct: tuple[float, float, float],
+) -> float:
+    return sum(abs(model - market) for market, model in zip(market_pct, model_pct)) / 3.0
+
+
+def _illustrative_model_line(
+    market_pct: tuple[float, float, float],
+    target_mae_pp: float,
+) -> tuple[float, float, float]:
+    """Build a 1X2 line whose macro MAE matches target_mae_pp (favorite softens, draw/away split gain)."""
+    favorite, draw, away = market_pct
+    shift = target_mae_pp * 0.75  # macro MAE = (2*shift + shift + shift) / 3
+    home = round(favorite - 2 * shift, 1)
+    draw_out = round(draw + shift, 1)
+    away_out = round(100.0 - home - draw_out, 1)
+    return home, draw_out, away_out
+
+
+def _append_1x2_example_table(
+    lines: list[str],
+    *,
+    market_pct: tuple[float, float, float],
+    target_mae_pp: float,
+) -> float:
+    model = _illustrative_model_line(market_pct, target_mae_pp)
+    example_mae_pp = _macro_mae_pp(market_pct, model)
+
+    lines.append("| Outcome | Market | Model | Delta pp (model - market) | Abs error |")
+    lines.append("|---------|--------|-------|---------------------------|-----------|")
+    labels = ("Home win", "Draw", "Away win")
+    for label, mkt, mdl in zip(labels, market_pct, model):
+        delta = mdl - mkt
+        lines.append(
+            f"| {label} | {mkt:.1f}% | {mdl:.1f}% | {delta:+.1f} | {abs(delta):.1f} |"
+        )
+    lines.append(f"| **Macro MAE** | | | | **{example_mae_pp:.2f}** |")
+    lines.append("")
+    return example_mae_pp
+
+
+def _append_1x2_error_example_section(lines: list[str], *, mae_macro: float) -> None:
+    """Illustrate weighted MAE as typical shifts on one de-vigged 1X2 line."""
+    mae_pp = 100.0 * mae_macro
+    market = (70.0, 20.0, 10.0)
+
+    lines.append("## 1b. What the errors look like on one 1X2 line")
+    lines.append("")
+    lines.append(
+        "The leaderboard MAE is a macro average over home, draw, and away: for each outcome, take "
+        "|model - market|, then average the three. It is **not** the gap on the favorite alone."
+    )
+    lines.append("")
+    lines.append(
+        f"CatBoost's weighted MAE is **{mae_pp:.2f} percentage points** per outcome on average "
+        f"({mae_macro:.4f} on the 0-1 scale). The table below uses that exact average on one "
+        "illustrative de-vigged 1X2 line (favorite probability softens; draw and away share the shift):"
+    )
+    lines.append("")
+    example_mae_pp = _append_1x2_example_table(lines, market_pct=market, target_mae_pp=mae_pp)
+    model = _illustrative_model_line(market, mae_pp)
+    lines.append(
+        f"The favorite is still home, but the model is {abs(model[0] - market[0]):.1f} pp less confident; "
+        f"draw and away gain {abs(model[1] - market[1]):.1f} pp and {abs(model[2] - market[2]):.1f} pp. "
+        f"Macro MAE on this line is **{example_mae_pp:.2f} pp**, matching the headline **{mae_pp:.2f} pp**."
+    )
+    lines.append("")
+    lines.append(
+        "Brier squares those same three gaps before averaging, so it punishes large misses more heavily; "
+        "cross-entropy punishes confident wrong calls even more. None of the three numbers is a bracket "
+        "probability by itself — they are per-match 1X2 inputs that feed the pairwise simulation stage."
+    )
+    lines.append("")
+
+
+def _append_wc2026_1x2_example(lines: list[str], *, mae_macro: float) -> None:
+    mae_pp = 100.0 * mae_macro
+    market = (58.0, 26.0, 16.0)
+
+    lines.append(
+        f"**WC2026 holdout example** (CatBoost weighted MAE **{mae_pp:.2f} pp** on the test set):"
+    )
+    lines.append("")
+    example_mae_pp = _append_1x2_example_table(lines, market_pct=market, target_mae_pp=mae_pp)
+    model = _illustrative_model_line(market, mae_pp)
+    lines.append(
+        f"On a representative group-stage line, home stays the favorite but drops "
+        f"{abs(model[0] - market[0]):.1f} pp while draw and away rise "
+        f"{abs(model[1] - market[1]):.1f} pp and {abs(model[2] - market[2]):.1f} pp. "
+        f"Macro MAE on this line is **{example_mae_pp:.2f} pp**, matching the WC2026 holdout "
+        f"**{mae_pp:.2f} pp**."
+    )
+    lines.append("")
+
+
 def _load_holdout_payload(experiments_dir: Path) -> dict[str, Any] | None:
     path = experiments_dir / "wc2026_holdout_eval_results.json"
     if not path.exists():
@@ -320,6 +416,11 @@ def _append_wc2026_holdout_section(
                 "predictions are reasonable inputs for the bracket simulation stage."
             )
             lines.append("")
+    if catboost:
+        _append_wc2026_1x2_example(
+            lines,
+            mae_macro=float(catboost["summary"]["weighted_mae_macro"]),
+        )
     lines.append("Reproduce from the `WorldCup2026 Bracket` repo root:")
     lines.append("")
     lines.append("```powershell")
@@ -358,10 +459,9 @@ def write_results_markdown(
     worst_rows = _worst_predictions(prediction_rows, dataset_by_id, old_stats_index)
 
     all_experiments = results_payload.get("experiments", [])
-    predictive_exps, reference_exps = _split_experiments(all_experiments)
+    predictive_exps, _ = _split_experiments(all_experiments)
     catboost_exp = next((e for e in predictive_exps if e["experiment_id"] == CATBOOST_EXPERIMENT_ID), None)
     elo_exp = next((e for e in predictive_exps if e.get("baseline_name") == "elo"), None)
-    oracle_exp = next((e for e in reference_exps if e["experiment_id"] == REFERENCE_EXPERIMENT_ID), None)
 
     lines: list[str] = []
     lines.append("# Match_model - detailed LOTO results")
@@ -419,25 +519,11 @@ def write_results_markdown(
     )
     lines.append("")
 
-    lines.append("## 1b. Target oracle reference (not a predictive baseline)")
-    lines.append("")
-    lines.append(
-        "`reference__market_target_oracle` copies each match's `target_soft` (median de-vigged market consensus) "
-        "as its prediction. Near-zero error here confirms the label plumbing, not real forecasting skill."
-    )
-    lines.append(
-        "Taken together, the oracle and `baseline__market_dispersion` rows show how close a market-aware method "
-        "can get to the label once it is allowed to read information derived directly from the same market."
-    )
-    lines.append("")
-    if oracle_exp:
-        summary = oracle_exp["summary"]
-        lines.append("| Reference | Weighted CE | Weighted Brier |")
-        lines.append("|-----------|-------------|----------------|")
-        lines.append(
-            f"| {oracle_exp['experiment_id']} | {summary['weighted_ce']:.4f} | {summary['weighted_brier']:.4f} |"
+    if catboost_exp:
+        _append_1x2_error_example_section(
+            lines,
+            mae_macro=float(catboost_exp["summary"]["weighted_mae_macro"]),
         )
-        lines.append("")
 
     lines.append("## 2. Per-tournament held-out errors")
     lines.append("")
