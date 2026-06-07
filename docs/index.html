@@ -648,9 +648,6 @@ body {
       <div class="basket-results" id="basket-results">
         <div class="placeholder" id="basket-placeholder">Add teams above to compute basket probabilities</div>
         <div id="basket-output" style="display:none">
-          <div id="basket-approx-banner" class="banner warn" style="display:none">
-            Using independence approximation — load sim matrix for exact joint probabilities.
-          </div>
           <div class="basket-summary" id="basket-summary"></div>
           <div class="basket-chart-wrap"><canvas id="basket-chart"></canvas></div>
           <div class="basket-table-wrap">
@@ -1204,43 +1201,34 @@ function renderBasket() {
   const banner = document.getElementById('basket-approx-banner');
 
   if (state.basketTeams.length === 0) {
+    placeholder.innerHTML = 'Add teams above to compute basket probabilities';
     placeholder.style.display = ''; output.style.display = 'none'; return;
   }
-  placeholder.style.display = 'none'; output.style.display = '';
 
   const src = state.basketSrc;
-  const data = src === 'market' ? state.market : state.model;
   const matrix = state[`${src}Matrix`];
   const matIdx = state[`${src}MatrixIndex`];
-  if (!data) return;
+
+  if (!matrix || !matIdx) {
+    placeholder.innerHTML = 'Sim matrix not loaded yet — loading…';
+    placeholder.style.display = ''; output.style.display = 'none';
+    ensureMatrix(src);
+    return;
+  }
+
+  placeholder.style.display = 'none'; output.style.display = '';
+  banner.style.display = 'none';
 
   const N = state.basketTeams.length;
   const stage = state.basketStage;
 
-  let dist; // dist[k] = P(exactly k teams reach stage)
-  let exact = false;
-
-  if (matrix && matIdx) {
-    // Exact joint from boolean matrix
-    banner.style.display = 'none';
-    exact = true;
-    const teamIndices = state.basketTeams.map(name => matIdx.teams.indexOf(name));
-    const stageIdx = matIdx.stages.indexOf(stage);
-    if (teamIndices.some(i=>i<0) || stageIdx < 0) {
-      dist = new Array(N+1).fill(0);
-    } else {
-      dist = computeExactDist(matrix.arr, matrix.shape, teamIndices, stageIdx, N);
-    }
+  const teamIndices = state.basketTeams.map(name => matIdx.teams.indexOf(name));
+  const stageIdx = matIdx.stages.indexOf(stage);
+  let dist;
+  if (teamIndices.some(i => i < 0) || stageIdx < 0) {
+    dist = new Array(N + 1).fill(0);
   } else {
-    // Poisson-binomial approximation
-    banner.style.display = '';
-    const probs = state.basketTeams.map(name => {
-      const t = data.teams.find(t => t.name === name);
-      return t ? (t.probs[stage]||0) : 0;
-    });
-    dist = poissonBinomial(probs);
-    // Trigger lazy matrix load
-    ensureMatrix(src);
+    dist = computeExactDist(matrix.arr, matrix.shape, teamIndices, stageIdx, N);
   }
 
   const cumDist = new Array(N+1).fill(0);
@@ -1282,6 +1270,7 @@ function renderBasket() {
       }]
     },
     options: {
+      animation: false,
       responsive: true,
       maintainAspectRatio: false,
       plugins: { legend: { display: false } },
@@ -1308,19 +1297,6 @@ function computeExactDist(arr, shape, teamIndices, stageIdx, N) {
   return counts.map(c => c / nSims);
 }
 
-function poissonBinomial(probs) {
-  const N = probs.length;
-  let dp = new Array(N+1).fill(0);
-  dp[0] = 1;
-  for (let i = 0; i < N; i++) {
-    const p = probs[i];
-    for (let k = i+1; k >= 1; k--) {
-      dp[k] = dp[k] * (1-p) + dp[k-1] * p;
-    }
-    dp[0] *= (1-p);
-  }
-  return dp;
-}
 
 // =========================================================
 // CONFIGS PANEL
