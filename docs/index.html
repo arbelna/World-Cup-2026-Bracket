@@ -115,7 +115,12 @@ body {
   position: sticky;
   top: var(--header-h);
   z-index: 99;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
 }
+#tabs::-webkit-scrollbar { height: 6px; }
 .tab-btn {
   background: transparent;
   border: none;
@@ -128,6 +133,8 @@ body {
   padding: 0 14px;
   transition: color 0.15s, border-color 0.15s;
   white-space: nowrap;
+  flex: 0 0 auto;
+  scroll-snap-align: start;
 }
 .tab-btn:hover { color: var(--text); }
 .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
@@ -346,6 +353,7 @@ body {
 @media (max-width: 768px) {
   .basket-controls { grid-template-columns: 1fr; }
   .filter-row { flex-direction: column; align-items: flex-start; }
+  #tabs { padding: 0 12px; scroll-snap-type: x proximity; }
 }
 .basket-section-label {
   font-size: 10px;
@@ -886,7 +894,7 @@ function updateMetaLine() {
   const d = state.model;
   if (!d) return;
   const parts = [
-    `model_all · ${d.meta.n_sims.toLocaleString()} sims`,
+    `${d.meta.n_sims.toLocaleString()} sims`,
     `generated ${d.meta.generated.slice(0,10)}`,
   ];
   document.getElementById('meta-line').textContent = parts.join('  ·  ');
@@ -1047,6 +1055,25 @@ function getTeamList() {
   return data ? data.teams.map(t => t.name).sort() : [];
 }
 
+function rankBasketTeamMatches(teams, query) {
+  const q = query.toLowerCase();
+  return teams
+    .filter(t => t.toLowerCase().includes(q) && !state.basketTeams.includes(t))
+    .sort((a, b) => {
+      const aLower = a.toLowerCase();
+      const bLower = b.toLowerCase();
+      const aStarts = aLower.startsWith(q) ? 0 : 1;
+      const bStarts = bLower.startsWith(q) ? 0 : 1;
+      if (aStarts !== bStarts) return aStarts - bStarts;
+
+      const aIndex = aLower.indexOf(q);
+      const bIndex = bLower.indexOf(q);
+      if (aIndex !== bIndex) return aIndex - bIndex;
+
+      return a.localeCompare(b);
+    });
+}
+
 function setupBasketTypeahead() {
   const input = document.getElementById('basket-team-input');
   const dropdown = document.getElementById('basket-dropdown');
@@ -1055,7 +1082,7 @@ function setupBasketTypeahead() {
     const q = input.value.trim().toLowerCase();
     if (!q) { dropdown.classList.remove('open'); return; }
     const teams = getTeamList();
-    const matches = teams.filter(t => t.toLowerCase().includes(q) && !state.basketTeams.includes(t));
+    const matches = rankBasketTeamMatches(teams, q);
     dropdown.innerHTML = matches.slice(0, 12).map(t =>
       `<div class="dropdown-item" role="option">${esc(t)}</div>`
     ).join('');
