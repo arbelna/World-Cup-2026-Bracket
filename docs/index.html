@@ -69,16 +69,23 @@ body {
   align-items: center;
   padding: 0 20px;
   gap: 16px;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
+  right: 0;
   z-index: 100;
 }
 #topbar .logo {
+  background: transparent;
+  border: none;
+  cursor: pointer;
   font-family: var(--sans);
   font-weight: 600;
   font-size: 15px;
   letter-spacing: 0.02em;
   color: var(--text);
+  padding: 0;
+  text-align: left;
   white-space: nowrap;
 }
 #topbar .logo span { color: var(--accent); }
@@ -91,17 +98,19 @@ body {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
-#theme-toggle {
+#theme-toggle, #lang-toggle {
   background: var(--surface2);
   border: 1px solid var(--border);
   border-radius: var(--radius);
   color: var(--text-muted);
   cursor: pointer;
-  font-size: 14px;
-  padding: 4px 8px;
+  font-size: 13px;
+  font-family: var(--sans);
+  font-weight: 500;
+  padding: 4px 10px;
   transition: color 0.15s;
 }
-#theme-toggle:hover { color: var(--text); }
+#theme-toggle:hover, #lang-toggle:hover { color: var(--text); }
 
 /* ---- TABS ---- */
 #tabs {
@@ -112,8 +121,10 @@ body {
   align-items: stretch;
   padding: 0 20px;
   gap: 2px;
-  position: sticky;
+  position: fixed;
   top: var(--header-h);
+  left: 0;
+  right: 0;
   z-index: 99;
   overflow-x: auto;
   overflow-y: hidden;
@@ -140,7 +151,11 @@ body {
 .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
 
 /* ---- MAIN LAYOUT ---- */
-#main { padding: 20px; max-width: 1400px; margin: 0 auto; }
+#main {
+  padding: calc(var(--header-h) + var(--tab-h) + 20px) 20px 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
 
 /* ---- PANELS ---- */
 .panel { display: none; }
@@ -544,6 +559,51 @@ body {
 }
 .config-search:focus { border-color: var(--accent); }
 
+/* ---- HOME PANEL ---- */
+.home-layout {
+  display: grid;
+  gap: 18px;
+}
+.home-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px;
+}
+.home-card h2 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.home-card p {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+.home-card p + p { margin-top: 10px; }
+.home-card a {
+  color: var(--accent-hover);
+  text-decoration: none;
+}
+.home-card a:hover { text-decoration: underline; }
+.home-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+}
+.home-section-card {
+  background: var(--surface2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px;
+}
+.home-section-card h3 {
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+.home-section-card p {
+  color: var(--text-muted);
+  font-size: 12.5px;
+}
+
 /* ---- TOOLTIP ---- */
 #tooltip {
   background: var(--surface);
@@ -570,34 +630,81 @@ body {
   justify-content: center;
   min-height: 180px;
 }
+
+/* ---- RTL OVERRIDES ---- */
+[dir="rtl"] .prob-table th:first-child,
+[dir="rtl"] .prob-table th:nth-child(2),
+[dir="rtl"] .prob-table th:nth-child(3) { text-align: right; }
+[dir="rtl"] .prob-table td:first-child,
+[dir="rtl"] .prob-table td:nth-child(2),
+[dir="rtl"] .prob-table td:nth-child(3) { text-align: right; }
+[dir="rtl"] .prob-table th:not(:first-child):not(:nth-child(2)):not(:nth-child(3)),
+[dir="rtl"] .prob-table td:not(:first-child):not(:nth-child(2)):not(:nth-child(3)) { text-align: left; }
+[dir="rtl"] .conf-dot { margin-right: 0; margin-left: 6px; }
+[dir="rtl"] .basket-table th:first-child,
+[dir="rtl"] .basket-table td:first-child { text-align: right; }
+[dir="rtl"] .basket-table th:not(:first-child),
+[dir="rtl"] .basket-table td:not(:first-child) { text-align: left; }
+[dir="rtl"] .config-rank { text-align: right; }
+[dir="rtl"] .basket-chip .remove { margin-right: 2px; margin-left: 0; }
 </style>
 </head>
 <body>
 
 <!-- TOP BAR -->
 <header id="topbar" role="banner">
-  <div class="logo">WC<span>2026</span> Predictions</div>
+  <button class="logo" id="home-link" type="button" aria-label="Open homepage">WC<span>2026</span> Predictions</button>
   <div id="meta-line">Loading data…</div>
+  <button id="lang-toggle" title="Toggle language" aria-label="Toggle language">עב</button>
   <button id="theme-toggle" title="Toggle light/dark mode" aria-label="Toggle theme">☀</button>
 </header>
 
 <!-- TABS -->
 <nav id="tabs" role="tablist">
-  <button class="tab-btn active" data-panel="prob"    role="tab" aria-selected="true">Probability Table</button>
-  <button class="tab-btn"        data-panel="basket"  role="tab" aria-selected="false">Basket Analysis</button>
-  <button class="tab-btn"        data-panel="configs" role="tab" aria-selected="false">Top Configurations</button>
+  <button class="tab-btn active" data-panel="home"    data-i18n="tabHome"    role="tab" aria-selected="true">Home</button>
+  <button class="tab-btn"        data-panel="prob"    data-i18n="tabProb"    role="tab" aria-selected="false">Probability Table</button>
+  <button class="tab-btn"        data-panel="basket"  data-i18n="tabBasket"  role="tab" aria-selected="false">Basket Analysis</button>
+  <button class="tab-btn"        data-panel="configs" data-i18n="tabConfigs" role="tab" aria-selected="false">Top Configurations</button>
 </nav>
 
 <main id="main">
 
+  <!-- PANEL 0: HOME -->
+  <section class="panel active" id="panel-home" role="tabpanel">
+    <div class="home-layout">
+      <div class="home-card">
+        <h2 data-i18n="homeTitle">WC2026 Predictions Dashboard</h2>
+        <p data-i18n="homeDesc">Every probability shown here is generated by a custom simulation model — running thousands of tournament scenarios to estimate how far each team is likely to go.</p>
+        <p data-i18n-html="homeGithubLine">Full methodology, explanations, and project details are available in <a href="https://github.com/arbelna/World-Cup-2026-Bracket" target="_blank" rel="noopener noreferrer">arbelna/World-Cup-2026-Bracket</a>.</p>
+      </div>
+      <div class="home-card">
+        <h2 data-i18n="homeSections">Sections</h2>
+        <div class="home-sections">
+          <div class="home-section-card">
+            <h3 data-i18n="secProbTitle">Probability Table</h3>
+            <p data-i18n="secProbDesc">Shows every team’s model-estimated probability of reaching each knockout stage — from Round of 32 through the Final and Winner. Sort by any stage column, filter by confederation or group, and search by team name to compare teams side by side.</p>
+          </div>
+          <div class="home-section-card">
+            <h3 data-i18n="secBasketTitle">Basket Analysis</h3>
+            <p data-i18n="secBasketDesc">Pick up to 8 teams and see how many are expected to advance to a chosen stage. Shows the full probability distribution — both exact and cumulative — so you can answer questions like "what are the odds at least 3 of these 5 teams reach the QF?"</p>
+          </div>
+          <div class="home-section-card">
+            <h3 data-i18n="secConfigsTitle">Top Configurations</h3>
+            <p data-i18n="secConfigsDesc">Lists the most likely exact combinations of teams to reach a given stage. Useful for seeing which clusters of teams dominate the model’s simulations and how much of the total probability is concentrated in the top-ranked outcomes.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- PANEL 1: PROBABILITY TABLE -->
-  <section class="panel active" id="panel-prob" role="tabpanel">
+  <section class="panel" id="panel-prob" role="tabpanel">
     <div class="panel-header">
-      <span class="panel-title">Stage Reach Probabilities</span>
+      <span class="panel-title" data-i18n="probPanelTitle">Stage Reach Probabilities</span>
     </div>
     <div class="filter-row">
-      <span class="filter-label">Conf:</span>
-      <span class="chip active" data-conf="ALL">All</span>
+      <span class="filter-label" data-i18n="confLabel">Conf:</span>
+      <span class="chip active" data-conf="ALL" data-i18n="all">All</span>
       <span class="chip" data-conf="UEFA">UEFA</span>
       <span class="chip" data-conf="CONMEBOL">CONMEBOL</span>
       <span class="chip" data-conf="AFC">AFC</span>
@@ -606,19 +713,19 @@ body {
       <span class="chip" data-conf="OFC">OFC</span>
     </div>
     <div class="filter-row">
-      <span class="filter-label">Group:</span>
-      <span class="chip active" data-grp="ALL">All</span>
+      <span class="filter-label" data-i18n="groupLabel">Group:</span>
+      <span class="chip active" data-grp="ALL" data-i18n="all">All</span>
       <span id="group-chips"></span>
-      <input type="text" id="team-search" placeholder="Search team…" aria-label="Filter by team name">
+      <input type="text" id="team-search" data-i18n-placeholder="searchTeamPlaceholder" placeholder="Search team…" aria-label="Filter by team name">
     </div>
     <div id="prob-skeleton" class="skeleton"></div>
     <div id="prob-table-wrap" class="table-wrap" style="display:none">
       <table class="prob-table" id="prob-table" aria-label="Stage probabilities">
         <thead>
           <tr>
-            <th data-col="name" tabindex="0">Team <span class="sort-icon">↕</span></th>
-            <th data-col="confederation" tabindex="0">Conf <span class="sort-icon">↕</span></th>
-            <th data-col="group" tabindex="0">Grp <span class="sort-icon">↕</span></th>
+            <th data-col="name" tabindex="0"><span data-i18n="thTeam">Team</span> <span class="sort-icon">↕</span></th>
+            <th data-col="confederation" tabindex="0"><span data-i18n="thConf">Conf</span> <span class="sort-icon">↕</span></th>
+            <th data-col="group" tabindex="0"><span data-i18n="thGrp">Grp</span> <span class="sort-icon">↕</span></th>
             <th data-col="R32" tabindex="0">R32 <span class="sort-icon">↕</span></th>
             <th data-col="R16" tabindex="0">R16 <span class="sort-icon">↕</span></th>
             <th data-col="QF"  tabindex="0">QF <span class="sort-icon">↕</span></th>
@@ -635,20 +742,20 @@ body {
   <!-- PANEL 3: BASKET -->
   <section class="panel" id="panel-basket" role="tabpanel">
     <div class="panel-header">
-      <span class="panel-title">Basket Analysis</span>
+      <span class="panel-title" data-i18n="basketPanelTitle">Basket Analysis</span>
     </div>
     <div class="basket-layout">
       <div class="basket-controls">
         <div>
-          <div class="basket-section-label">Teams (max 8)</div>
+          <div class="basket-section-label" data-i18n="teamsLabel">Teams (max 8)</div>
           <div class="team-typeahead">
-            <input type="text" id="basket-team-input" placeholder="Add team…" autocomplete="off" aria-label="Add team to basket" aria-autocomplete="list">
+            <input type="text" id="basket-team-input" data-i18n-placeholder="addTeamPlaceholder" placeholder="Add team…" autocomplete="off" aria-label="Add team to basket" aria-autocomplete="list">
             <div class="dropdown" id="basket-dropdown" role="listbox"></div>
           </div>
           <div class="basket-chips" id="basket-chips"></div>
         </div>
         <div>
-          <div class="basket-section-label">Stage</div>
+          <div class="basket-section-label" data-i18n="stageLabel">Stage</div>
           <div class="stage-radio-group" id="basket-stage-radios">
             <!-- filled by JS -->
           </div>
@@ -662,9 +769,9 @@ body {
           <div class="basket-table-wrap">
             <table class="basket-table">
               <thead><tr>
-                <th>k teams reach stage</th>
-                <th>P(exactly k)</th>
-                <th>P(at least k)</th>
+                <th data-i18n="basketTableHeader1">k teams reach stage</th>
+                <th data-i18n="basketTableHeader2">P(exactly k)</th>
+                <th data-i18n="basketTableHeader3">P(at least k)</th>
               </tr></thead>
               <tbody id="basket-tbody"></tbody>
             </table>
@@ -677,17 +784,17 @@ body {
   <!-- PANEL 4: CONFIGS -->
   <section class="panel" id="panel-configs" role="tabpanel">
     <div class="panel-header">
-      <span class="panel-title">Top Stage Configurations</span>
+      <span class="panel-title" data-i18n="configsPanelTitle">Top Stage Configurations</span>
     </div>
     <div class="configs-controls">
       <div class="toggle-group" id="configs-stage-tabs" role="group" aria-label="Stage">
-        <button class="toggle-btn active" data-stage="R16">R16</button>
-        <button class="toggle-btn" data-stage="QF">QF</button>
-        <button class="toggle-btn" data-stage="SF">SF</button>
-        <button class="toggle-btn" data-stage="final">Final</button>
-        <button class="toggle-btn" data-stage="winner">Winner</button>
+        <button class="toggle-btn active" data-stage="R16" data-i18n="stageR16">R16</button>
+        <button class="toggle-btn" data-stage="QF"     data-i18n="stageQF">QF</button>
+        <button class="toggle-btn" data-stage="SF"     data-i18n="stageSF">SF</button>
+        <button class="toggle-btn" data-stage="final"  data-i18n="stageFinal">Final</button>
+        <button class="toggle-btn" data-stage="winner" data-i18n="stageWinner">Winner</button>
       </div>
-      <input type="text" class="config-search" id="config-search" placeholder="Filter by team…" aria-label="Filter configurations by team">
+      <input type="text" class="config-search" id="config-search" data-i18n-placeholder="filterByTeam" placeholder="Filter by team…" aria-label="Filter configurations by team">
     </div>
     <div id="configs-skeleton" class="skeleton" style="margin-top:12px"></div>
     <div id="configs-list" style="display:none; margin-top:12px"></div>
@@ -704,7 +811,111 @@ body {
 // =========================================================
 // STATE
 // =========================================================
+// =========================================================
+// TRANSLATIONS
+// =========================================================
+const TRANSLATIONS = {
+  en: {
+    loading: 'Loading data…',
+    simsLabel: n => `${n.toLocaleString()} sims`,
+    generatedLabel: d => `generated ${d}`,
+    tabHome: 'Home', tabProb: 'Probability Table', tabBasket: 'Basket Analysis', tabConfigs: 'Top Configurations',
+    homeTitle: 'WC2026 Predictions Dashboard',
+    homeDesc: 'Every probability shown here is generated by a custom simulation model — running thousands of tournament scenarios to estimate how far each team is likely to go.',
+    homeGithubLine: 'Full methodology, explanations, and project details are available in <a href="https://github.com/arbelna/World-Cup-2026-Bracket" target="_blank" rel="noopener noreferrer">arbelna/World-Cup-2026-Bracket</a>.',
+    homeSections: 'Sections',
+    secProbTitle: 'Probability Table',
+    secProbDesc: 'Shows every team\'s model-estimated probability of reaching each knockout stage — from Round of 32 through the Final and Winner. Sort by any stage column, filter by confederation or group, and search by team name to compare teams side by side.',
+    secBasketTitle: 'Basket Analysis',
+    secBasketDesc: 'Pick up to 8 teams and see how many are expected to advance to a chosen stage. Shows the full probability distribution — both exact and cumulative — so you can answer questions like "what are the odds at least 3 of these 5 teams reach the QF?"',
+    secConfigsTitle: 'Top Configurations',
+    secConfigsDesc: 'Lists the most likely exact combinations of teams to reach a given stage. Useful for seeing which clusters of teams dominate the model\'s simulations and how much of the total probability is concentrated in the top-ranked outcomes.',
+    probPanelTitle: 'Stage Reach Probabilities',
+    confLabel: 'Conf:', groupLabel: 'Group:', all: 'All',
+    searchTeamPlaceholder: 'Search team…',
+    thTeam: 'Team', thConf: 'Conf', thGrp: 'Grp',
+    basketPanelTitle: 'Basket Analysis',
+    teamsLabel: 'Teams (max 8)', addTeamPlaceholder: 'Add team…', stageLabel: 'Stage',
+    basketPlaceholder: 'Add teams above to compute basket probabilities',
+    basketMatrixLoading: 'Sim matrix not loaded yet — loading…',
+    basketExpected: (label, val) => `Expected teams reaching <span>${label}</span>: <span>${val}</span>`,
+    basketTableHeader1: 'k teams reach stage', basketTableHeader2: 'P(exactly k)', basketTableHeader3: 'P(at least k)',
+    configsPanelTitle: 'Top Stage Configurations', filterByTeam: 'Filter by team…',
+    noConfigsMatch: 'No configurations match the filter.',
+    dataError: 'Data files not found. Run: <code>python Bracket_Simulations/scripts/export_dashboard_json.py</code>',
+    dataErrorBasket: 'Data not available — run the export script first.',
+    stageR32: 'R32', stageR16: 'R16', stageQF: 'QF', stageSF: 'SF', stageFinal: 'Final', stageWinner: 'Winner',
+  },
+  he: {
+    loading: 'טוען נתונים…',
+    simsLabel: n => `${n.toLocaleString()} סימולציות`,
+    generatedLabel: d => `נוצר ${d}`,
+    tabHome: 'בית', tabProb: 'טבלת הסתברויות', tabBasket: 'ניתוח סל', tabConfigs: 'תצורות מובילות',
+    homeTitle: 'דאשבורד תחזיות מונדיאל 2026',
+    homeDesc: 'כל הסתברות המוצגת כאן מחושבת באמצעות מודל סימולציה מותאם אישית — המריץ אלפי תרחישי טורניר כדי להעריך עד כמה רחוק כל קבוצה עשויה להגיע.',
+    homeGithubLine: 'מתודולוגיה מלאה, הסברים ופרטי הפרויקט זמינים ב־<a href="https://github.com/arbelna/World-Cup-2026-Bracket" target="_blank" rel="noopener noreferrer">arbelna/World-Cup-2026-Bracket</a>.',
+    homeSections: 'מדורים',
+    secProbTitle: 'טבלת הסתברויות',
+    secProbDesc: 'מציגה את ההסתברות המשוערת לכל קבוצה להגיע לכל שלב — מדור 32 ועד הגמר והזוכה. מיין לפי כל עמודת שלב, סנן לפי קונפדרציה או בית, וחפש לפי שם קבוצה להשוואה מהירה.',
+    secBasketTitle: 'ניתוח סל',
+    secBasketDesc: 'בחר עד 8 קבוצות וראה כמה מהן צפויות להתקדם לשלב מסוים. מציג את התפלגות ההסתברות המלאה — מדויקת ומצטברת — לשאלות כמו "מה הסיכוי שלפחות 3 מתוך 5 קבוצות אלו יגיעו לרבע הגמר?"',
+    secConfigsTitle: 'תצורות מובילות',
+    secConfigsDesc: 'מפרט את הצירופים המדויקים הסבירים ביותר של קבוצות להגיע לשלב נתון. שימושי לזהות אילו אשכולות קבוצות שולטים בסימולציות וכמה מההסתברות הכוללת מרוכזת בתוצאות המובילות.',
+    probPanelTitle: 'הסתברויות הגעה לשלב',
+    confLabel: 'קונפ׳:', groupLabel: 'בית:', all: 'הכל',
+    searchTeamPlaceholder: 'חיפוש קבוצה…',
+    thTeam: 'קבוצה', thConf: 'קונפ׳', thGrp: 'בית',
+    basketPanelTitle: 'ניתוח סל',
+    teamsLabel: 'קבוצות (עד 8)', addTeamPlaceholder: 'הוסף קבוצה…', stageLabel: 'שלב',
+    basketPlaceholder: 'הוסף קבוצות למעלה לחישוב הסתברויות הסל',
+    basketMatrixLoading: 'טוען מטריצת סימולציה…',
+    basketExpected: (label, val) => `קבוצות צפויות להגיע ל<span>${label}</span>: <span>${val}</span>`,
+    basketTableHeader1: 'k קבוצות מגיעות לשלב', basketTableHeader2: 'P(בדיוק k)', basketTableHeader3: 'P(לפחות k)',
+    configsPanelTitle: 'תצורות שלב מובילות', filterByTeam: 'סינון לפי קבוצה…',
+    noConfigsMatch: 'אין תצורות התואמות את הסינון.',
+    dataError: 'קובצי הנתונים לא נמצאו. הרץ: <code>python Bracket_Simulations/scripts/export_dashboard_json.py</code>',
+    dataErrorBasket: 'נתונים אינם זמינים — הרץ את סקריפט הייצוא תחילה.',
+    stageR32: 'ר32', stageR16: 'ר16', stageQF: 'רבע', stageSF: 'חצי', stageFinal: 'גמר', stageWinner: 'זוכה',
+  },
+};
+
+function T(key) { return TRANSLATIONS[state.lang][key]; }
+function getStageLabels() {
+  const L = TRANSLATIONS[state.lang];
+  return { R32: L.stageR32, R16: L.stageR16, QF: L.stageQF, SF: L.stageSF, final: L.stageFinal, winner: L.stageWinner };
+}
+
+function applyLang() {
+  const lang = state.lang;
+  document.documentElement.dir  = lang === 'he' ? 'rtl' : 'ltr';
+  document.documentElement.lang = lang;
+  document.getElementById('lang-toggle').textContent = lang === 'he' ? 'EN' : 'עב';
+  document.getElementById('meta-line').textContent = TRANSLATIONS[lang].loading;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const v = TRANSLATIONS[lang][el.dataset.i18n];
+    if (v !== undefined) el.textContent = v;
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const v = TRANSLATIONS[lang][el.dataset.i18nHtml];
+    if (v !== undefined) el.innerHTML = v;
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const v = TRANSLATIONS[lang][el.dataset.i18nPlaceholder];
+    if (v !== undefined) el.placeholder = v;
+  });
+  // Re-render dynamic content with new language
+  updateMetaLine();
+  buildBasketStageRadios();
+  renderProbTable();
+  renderBasket();
+  renderConfigs();
+}
+
+// =========================================================
+// STATE
+// =========================================================
 const state = {
+  lang: 'en',
   market: null,   // JSON data
   model: null,
   marketMatrix: null,  // Float32Array or BoolArray parsed from npz
@@ -727,7 +938,6 @@ const state = {
 };
 
 const STAGES = ['R32', 'R16', 'QF', 'SF', 'final', 'winner'];
-const STAGE_LABELS = { R32: 'R32', R16: 'R16', QF: 'QF', SF: 'SF', final: 'Final', winner: 'Winner' };
 const CONF_COLORS = {
   UEFA: '#3b82f6', CONMEBOL: '#22c55e', AFC: '#f59e0b',
   CAF: '#ef4444', CONCACAF: '#a855f7', OFC: '#06b6d4', '?': '#8892a4',
@@ -759,13 +969,13 @@ async function loadData() {
 }
 
 function showDataError() {
-  const msg = `<div class="banner error">Data files not found. Run: <code>python Bracket_Simulations/scripts/export_dashboard_json.py</code></div>`;
+  const L = TRANSLATIONS[state.lang];
+  const msg = `<div class="banner error">${L.dataError}</div>`;
   ['prob-skeleton', 'configs-skeleton'].forEach(id => {
     const el = document.getElementById(id);
     if (el) el.outerHTML = msg;
   });
-  document.getElementById('basket-placeholder').innerHTML =
-    'Data not available — run the export script first.';
+  document.getElementById('basket-placeholder').innerHTML = L.dataErrorBasket;
 }
 
 // Lazy-load sim matrix when basket panel opens
@@ -893,9 +1103,10 @@ function parseNpy(bytes) {
 function updateMetaLine() {
   const d = state.model;
   if (!d) return;
+  const L = TRANSLATIONS[state.lang];
   const parts = [
-    `${d.meta.n_sims.toLocaleString()} sims`,
-    `generated ${d.meta.generated.slice(0,10)}`,
+    L.simsLabel(d.meta.n_sims),
+    L.generatedLabel(d.meta.generated.slice(0,10)),
   ];
   document.getElementById('meta-line').textContent = parts.join('  ·  ');
 }
@@ -1038,9 +1249,10 @@ function sortByTh(th, table, sortStateKey, sortAscKey, renderFn) {
 // =========================================================
 function buildBasketStageRadios() {
   const wrap = document.getElementById('basket-stage-radios');
+  const SL = getStageLabels();
   wrap.innerHTML = STAGES.map((s, i) => `
-    <input type="radio" name="basket-stage" id="bs-${s}" value="${s}" ${i===2?'checked':''}>
-    <label for="bs-${s}">${STAGE_LABELS[s]}</label>
+    <input type="radio" name="basket-stage" id="bs-${s}" value="${s}" ${state.basketStage===s?'checked':''}>
+    <label for="bs-${s}">${SL[s]}</label>
   `).join('');
   wrap.querySelectorAll('input[type=radio]').forEach(r => {
     r.addEventListener('change', () => {
@@ -1147,8 +1359,9 @@ function renderBasket() {
   const placeholder = document.getElementById('basket-placeholder');
   const output = document.getElementById('basket-output');
 
+  const L = TRANSLATIONS[state.lang];
   if (state.basketTeams.length === 0) {
-    placeholder.innerHTML = 'Add teams above to compute basket probabilities';
+    placeholder.innerHTML = L.basketPlaceholder;
     placeholder.style.display = ''; output.style.display = 'none'; return;
   }
 
@@ -1157,7 +1370,7 @@ function renderBasket() {
   const matIdx = state[`${src}MatrixIndex`];
 
   if (!matrix || !matIdx) {
-    placeholder.innerHTML = 'Sim matrix not loaded yet — loading…';
+    placeholder.innerHTML = L.basketMatrixLoading;
     placeholder.style.display = ''; output.style.display = 'none';
     ensureMatrix(src);
     return;
@@ -1167,6 +1380,7 @@ function renderBasket() {
 
   const N = state.basketTeams.length;
   const stage = state.basketStage;
+  const SL = getStageLabels();
 
   const teamIndices = state.basketTeams.map(name => matIdx.teams.indexOf(name));
   const stageIdx = matIdx.stages.indexOf(stage);
@@ -1185,7 +1399,7 @@ function renderBasket() {
 
   // Summary
   document.getElementById('basket-summary').innerHTML =
-    `Expected teams reaching <span>${STAGE_LABELS[stage]}</span>: <span>${expected.toFixed(2)}</span>`;
+    L.basketExpected(SL[stage], expected.toFixed(2));
 
   // Table
   const tbody = document.getElementById('basket-tbody');
@@ -1203,7 +1417,7 @@ function renderBasket() {
   if (basketChart) {
     basketChart.data.labels = labels;
     basketChart.data.datasets[0].data = chartData;
-    basketChart.data.datasets[0].label = `P(exactly k reach ${STAGE_LABELS[stage]})`;
+    basketChart.data.datasets[0].label = `P(exactly k reach ${SL[stage]})`;
     basketChart.update('none');
   } else {
     const ctx = document.getElementById('basket-chart').getContext('2d');
@@ -1212,7 +1426,7 @@ function renderBasket() {
       data: {
         labels,
         datasets: [{
-          label: `P(exactly k reach ${STAGE_LABELS[stage]})`,
+          label: `P(exactly k reach ${SL[stage]})`,
           data: chartData,
           backgroundColor: 'rgba(59,130,246,0.55)',
           borderColor: 'rgba(59,130,246,0.9)',
@@ -1274,6 +1488,7 @@ function renderConfigs() {
 
   const maxProb = configs.length > 0 ? configs[0].probability : 1;
 
+  const L = TRANSLATIONS[state.lang];
   list.innerHTML = configs.map(c => {
     const barW = maxProb > 0 ? (c.probability / maxProb * 100).toFixed(1) : 0;
     const teamChips = c.teams.map(t => {
@@ -1289,7 +1504,7 @@ function renderConfigs() {
         </div>
         <div class="config-teams">${teamChips}</div>
       </div>`;
-  }).join('') || '<div class="placeholder">No configurations match the filter.</div>';
+  }).join('') || `<div class="placeholder">${L.noConfigsMatch}</div>`;
 }
 
 // =========================================================
@@ -1324,6 +1539,12 @@ function hideTip() { tooltip.style.display='none'; tooltip.setAttribute('aria-hi
 // WIRING
 // =========================================================
 document.addEventListener('DOMContentLoaded', () => {
+  // Language toggle
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    state.lang = state.lang === 'en' ? 'he' : 'en';
+    applyLang();
+  });
+
   // Theme toggle
   const themeBtn = document.getElementById('theme-toggle');
   themeBtn.addEventListener('click', () => {
@@ -1338,6 +1559,7 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => switchTab(btn.dataset.panel));
     btn.addEventListener('keydown', e => { if (e.key==='Enter'||e.key===' ') { e.preventDefault(); switchTab(btn.dataset.panel); } });
   });
+  document.getElementById('home-link').addEventListener('click', () => switchTab('home'));
 
   function switchTab(panelId) {
     document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });

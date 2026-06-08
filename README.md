@@ -1,4 +1,4 @@
-![FIFA World Cup 2026 Official Brand unveiled in Los Angeles](./Data_Collection/readme_files/FIFA-World-Cup-26-Official-Brand-unveiled-in-Los-Angeles.png)
+![FIFA World Cup 2026 Official Brand unveiled in Los Angeles](./docs/img/FIFA-World-Cup-26-Official-Brand-unveiled-in-Los-Angeles.png)
 
 # WorldCup2026 Bracket
 
@@ -127,11 +127,13 @@ At the match level, the model consistently outperforms the Elo baseline under le
 
 The CatBoost model produces substantially lower held-out Brier scores than the Elo baseline in both match phases:
 
-![Held-out Brier score by match phase](./Data_Collection/readme_files/brier_by_phase.png)
+![Held-out Brier score by match phase](./docs/img/brier_by_phase.png)
+
+A note on the baseline: Elo here is essentially a strength-ranking signal, closely related to the FIFA world ranking, and the two move together in practice. It captures relative team strength but, used on its own, it is a coarse probability estimator — it does not account for match context, squad composition, or market information, so the gap below should be read as the value of adding those signals rather than a flaw in Elo. The large improvements are expected for this reason, and the more meaningful comparison is the market-derived baseline used in the bracket backtests.
 
 The improvement is not driven by a single tournament. CatBoost achieves a lower Brier score than Elo in every historical leave-one-tournament-out fold shown below, with reductions ranging from **41% to 71%**. On the WC2026 holdout, the model records a **70% lower** Brier score than Elo.
 
-![Brier score by tournament](./Data_Collection/readme_files/brier_by_tournament.png)
+![Brier score by tournament](./docs/img/brier_by_tournament.png)
 
 Because the WC2026 holdout Brier score sits near the lower end of the historical range and the model's error is substantially lower for knockout-stage matches, I consider its probability estimates reliable enough to use as the foundation for the bracket simulations.
 
@@ -140,8 +142,11 @@ Because the WC2026 holdout Brier score sits near the lower end of the historical
 
 The full-bracket simulations are evaluated against the actual outcomes of the 2010–2022 World Cups. The model improves average Top-N recall at every stage:
 
-![Bracket stage recall](./Data_Collection/readme_files/bracket_stage_recall.png)
+![Bracket stage recall](./docs/img/bracket_stage_recall.png)
 
+Looking at the same backtests through cumulative probability error tells a consistent story. The market is marginally better at the early stages (QF and SF), but the model pulls clearly ahead at the stages that matter most, cutting the error by **16.3 pp at the Final** and **13.5 pp at the Winner** stage:
+
+![All-teams-seen cumulative error by stage](./docs/img/cumulative_bracket_error.png)
 
 
 ## Quick start
