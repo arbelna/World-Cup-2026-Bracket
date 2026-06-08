@@ -10,10 +10,10 @@ The goal of `model_all` is to be **competitive** with the betting market benchma
 
 Across four World Cups (2010-2022) the picture is mixed but broadly positive:
 
-- **Recall (M1):** `model_all` edges `market_all` at every stage (R16: 71.88% vs 70.31%, QF: 65.62% vs 62.50%, SF: 50.00% vs 43.75%, final: 37.50% vs 25.00%). The direction is consistent, but with only 4 tournaments the bootstrap confidence intervals all span zero — the gap is real in direction but not distinguishable from noise at this sample size.
+- **Recall (M1):** `model_all` edges `market_all` at every stage (R16: 71.88% vs 70.31%, QF: 65.62% vs 62.50%, SF: 50.00% vs 43.75%, final: 37.50% vs 25.00%). The direction is consistent, but with only 4 tournaments the bootstrap confidence intervals all span zero- the gap is real in direction but not distinguishable from noise at this sample size.
 - **Qualifier Brier (M2):** `market_all` wins cleanly at every stage (lower is better). The model assigns less accurate probabilities to teams that actually qualified. This is the market's clearest advantage.
-- **Calibration:** `market_all` is better calibrated overall (ECE 0.0095 vs 0.0237). Both models are well-calibrated on low-probability teams — the large majority of cases — and sit close to the diagonal in the 0-0.3 range. The model's deficit is concentrated in the 0.5-0.7 bin (-0.136 (avg pred 0.58, observed 0.71)): it consistently underrates mid-range favourites. The market is sharper in that range (-0.021 (avg pred 0.61, observed 0.63)).
-- **Winner prediction:** neither model correctly identifies the actual champion as top pick in any of the four tournaments — consistent with the unpredictability of knockout football.
+- **Calibration:** `market_all` is better calibrated overall (ECE 0.0095 vs 0.0237). Both models are well-calibrated on low-probability teams- the large majority of cases- and sit close to the diagonal in the 0-0.3 range. The model's deficit is concentrated in the 0.5-0.7 bin (-0.136 (avg pred 0.58, observed 0.71)): it consistently underrates mid-range favourites. The market is sharper in that range (-0.021 (avg pred 0.61, observed 0.63)).
+- **Winner prediction:** neither model correctly identifies the actual champion as top pick in any of the four tournaments- consistent with the unpredictability of knockout football.
 
 **Overall verdict:** `model_all` is competitive with the market. It matches market on recall and holds its own on joint-distribution metrics (M3/M4 at SF and final). The market is better calibrated, particularly for favourites in the 0.5-0.7 probability range. Improving the model's confidence on strong favourites is the clearest remaining gap.
 
