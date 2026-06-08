@@ -172,7 +172,7 @@ The evaluation above scores predictions against the de-vigged market consensus, 
 | Top-1 correct - World Cups only (256) | 133 - 52.0% | **137 - 53.5%** |
 | Top-1 when favourites differ (37 games) | 10 | **14** |
 
-This is the expected result rather than a failure: the model is trained to approximate market soft labels, so the market will always edge ahead when both are scored on the same hard-outcome measure. Log-loss also penalises confident wrong calls heavily - the model can simultaneously win more correct picks and lose mean log-loss if it assigns too much mass to those picks when they are wrong. Crucially, this does not undermine the bracket results. Bracket simulation chains many matches, and the probability shifts that cost the model on per-game log-loss can compound across a full tournament in ways that improve stage-level coverage. On the metrics that matter for bracket prediction - recall and cumulative coverage at the Final and Winner stages - the model leads the market. Full analysis in [`Match_model/results.md` section 7](Match_model/results.md).
+This is the expected result rather than a failure: the model is trained to approximate market soft labels, so the market will always edge ahead when both are scored on the same hard-outcome measure. Log-loss also penalises confident wrong calls heavily - the model can simultaneously win more correct picks and lose mean log-loss if it assigns too much mass to those picks when they are wrong. Crucially, this does not undermine the bracket results. Bracket simulation chains many matches, and the probability shifts that cost the model on per-game log-loss can compound across a full tournament in ways that improve stage-level coverage. On the metrics that matter for bracket prediction - recall and cumulative coverage at the Final and Winner stages - the model leads the market. Full analysis in [`Match_model/results.md`](Match_model/results.md).
 
 
 ### Bracket-level backtesting
@@ -214,7 +214,7 @@ The market edges ahead at early stages (R16 and QF), but the model pulls clearly
 
 ![All-teams-seen cumulative error by stage](./docs/img/cumulative_bracket_error.png)
 
-Taken together: the market calibrates slightly better on the teams that advance (lower qualifier Brier), but the model concentrates more probability mass on the scenarios that actually happen (better recall and cumulative coverage at late stages). For bracket prediction - where correctly identifying the likely finalists and winner matters most - the model's late-stage advantage is the more relevant result.
+Taken together: the market calibrates slightly better on the teams that advance (lower qualifier Brier), but the model concentrates more probability mass on the scenarios that actually happen (better recall and cumulative coverage at late stages). For bracket prediction - where correctly identifying the likely finalists and winner matters most - the model's late-stage advantage is the more relevant result. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
 
 
 ## Quick start
