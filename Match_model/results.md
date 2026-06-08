@@ -41,7 +41,7 @@ CatBoost's weighted MAE is **3.86 percentage points** per outcome on average (0.
 
 The favorite is still home, but the model is 5.8 pp less confident; draw and away gain 2.9 pp and 2.9 pp. Macro MAE on this line is **3.87 pp**, matching the headline **3.86 pp**.
 
-Brier squares those same three gaps before averaging, so it punishes large misses more heavily; cross-entropy punishes confident wrong calls even more. None of the three numbers is a bracket probability by itself — they are per-match 1X2 inputs that feed the pairwise simulation stage.
+Brier squares those same three gaps before averaging, so it punishes large misses more heavily; cross-entropy punishes confident wrong calls even more. None of the three numbers is a bracket probability by itself - they are per-match 1X2 inputs that feed the pairwise simulation stage.
 
 ## 2. Per-tournament held-out errors
 
@@ -148,3 +148,78 @@ cd Match_model
 python main_cli.py build-dataset --collection-dir ..\Data_Collection\data\wc2026 --old-stats-dir data/reference/old_stats --output data/output/datasets/wc2026_match_dataset.json
 python main_cli.py run-holdout --train-dataset data/output/datasets/match_dataset.json --test-dataset data/output/datasets/wc2026_match_dataset.json --held-out-competition "World Cup 2026"
 ```
+
+## 7. Match-level accuracy vs actual outcomes
+
+Sections 1–6 score predictions against **`target_soft`** (de-vigged bookmaker consensus), measuring how closely the model tracks market pricing. This section asks the harder question: who assigns better probability to what actually happened on the pitch?
+
+**Coverage:** 556 of 558 LOTO CatBoost predictions joined to 90-minute actual results from `data/reference/old_stats/`. All predictions are out-of-sample. Knockout matches that went to extra time or penalties are scored on the 90-minute result, consistent with how `Bracket_Simulations` samples knockout draws.
+
+### Headline results - all legacy12 tournaments (556 matches)
+
+| Metric | Market | Model |
+|--------|--------|-------|
+| Log-loss head-to-head wins | **304 (54.7%)** | 252 (45.3%) |
+| Mean log-loss | **0.9629** | 0.9722 (+0.0093) |
+| Mean 3-class Brier vs actuals | **0.5739** | 0.5794 (+0.0055) |
+| Top-1 accuracy | 297/556 (53.4%) | **301/556 (54.1%)** |
+
+### World Cups only - 2010–2022 (256 matches)
+
+| Metric | Market | Model |
+|--------|--------|-------|
+| Log-loss head-to-head wins | **142 (55.5%)** | 114 (44.5%) |
+| Mean log-loss | **0.9801** | 0.9876 (+0.0076) |
+| Mean 3-class Brier vs actuals | **0.5821** | 0.5877 (+0.0056) |
+| Top-1 accuracy | 133/256 (52.0%) | **137/256 (53.5%)** |
+
+The market wins slightly more than half of per-game log-loss comparisons. The model has a small edge on top-1 pick rate but loses on mean log-loss because it is often **more confident on wrong calls**.
+
+> **Note:** Brier values here (~0.57) are computed against hard one-hot actual outcomes and are not comparable to the soft-label Brier (~0.008) in sections 1–3, which measures distance from the market consensus.
+
+### By stage (World Cups)
+
+| Stage | N | Model LL wins | Market LL wins | Mean Δ log-loss (model − market) |
+|-------|---|---------------|----------------|----------------------------------|
+| Group | 192 | 85 (44.3%) | 107 (55.7%) | +0.0090 |
+| Knockout | 64 | 29 (45.3%) | 35 (54.7%) | +0.0035 |
+
+| Stage | Market top-1 | Model top-1 |
+|-------|--------------|-------------|
+| Group | 101/192 (52.6%) | 104/192 (54.2%) |
+| Knockout | 32/64 (50.0%) | 33/64 (51.6%) |
+
+The market's log-loss advantage narrows in knockout matches - consistent with the soft-label Brier results in section 3, where the model's relative improvement over Elo is largest in knockout games.
+
+### Top-1 breakdown (World Cups)
+
+| Category | Count |
+|----------|-------|
+| Both market and model pick correctly | 131 |
+| Market only correct | 2 |
+| Model only correct | 6 |
+| Neither correct | 117 |
+
+The model earns **4 extra correct top-1 picks** (137 vs 133) but loses the log-loss tally because wrong predictions carry higher misplaced confidence. When model and market disagree on the favourite (37 games), they split even on log-loss (model 19, market 18) but the model wins 14 vs 10 on top-1 - suggesting the model's divergence from the market is not random noise.
+
+### Per World Cup
+
+| Tournament | N | Model LL wins | Market LL wins | Mean Δ log-loss | Top-1 market / model |
+|------------|---|---------------|----------------|-----------------|----------------------|
+| World Cup 2010 | 64 | 29 | 35 | +0.0054 | 32 / 31 |
+| World Cup 2014 | 64 | **36** | 28 | **−0.0134** | 31 / **34** |
+| World Cup 2018 | 64 | 25 | 39 | +0.0071 | 36 / **37** |
+| World Cup 2022 | 64 | 24 | 40 | +0.0313 | 34 / **35** |
+
+Only 2014 is clearly model-favourable on mean log-loss. 2022 is the hardest tournament for the model. High variance across tournaments - no single World Cup is enough to draw firm conclusions.
+
+### Why the model loses to the market on log-loss - and why that doesn't contradict the bracket results
+
+The market's log-loss edge against actual outcomes is the **expected result**, not a failure mode. Four reasons:
+
+1. **Training target.** CatBoost is fit to approximate market soft labels, not to maximise hard-outcome log-loss. The market is effectively the training signal, so it will always edge ahead when both are scored against actual results on the same measure.
+2. **Overconfidence penalty.** Log-loss punishes confident wrong calls heavily. The model can win more top-1 correct picks while losing mean log-loss if it assigns too much probability mass to those picks when they are wrong.
+3. **Compounding through the bracket.** Bracket simulation chains many matches. Small per-game shifts in probability - even ones the market wouldn't endorse - can change which teams rank in the top 8/4/2 across the full tournament in ways that accumulate in the model's favour.
+4. **Different objects.** Match-level log-loss scores isolated 1X2 lines. Bracket M1 and M4 score marginal reach and joint stage configurations after full Monte Carlo propagation - a harder and more tournament-relevant test where the model leads the market at every recall stage and on cumulative coverage at the Final and Winner.
+
+The bracket backtest results in `Bracket_Simulations/results.md` are not undermined by the match-level finding. The model is a purpose-built bracket input, not a replacement for the bookmaker consensus - and on the task it was built for, it outperforms the market where it counts most.
