@@ -180,7 +180,18 @@ The model improves average Top-N recall at every stage of the bracket:
 
 **Qualifier Brier: market leads at every stage**
 
-The market-derived baseline has lower qualifier Brier at every stage. Both curves rise steeply toward Winner because the eventual champion typically receives only around 10–17% winner probability even from the best forecast - correctly reflecting the genuine uncertainty of a 32-team tournament:
+The market-derived baseline has lower qualifier Brier at every stage, meaning it assigned slightly higher probability to the teams that actually advanced. Because qualifier Brier is defined as the mean squared error of `(predicted probability − 1)` over qualifying teams, the implied average probability a team was given for reaching each stage is simply `1 − √Brier`. Translating the chart into those terms:
+
+| Stage | Market avg probability for actual qualifiers | Model avg probability | Gap |
+|-------|----------------------------------------------|-----------------------|-----|
+| R16 | 55.8% | 54.8% | 1.0 pp |
+| QF | 43.0% | 39.9% | 3.1 pp |
+| SF | 28.3% | 25.2% | 3.1 pp |
+| Final | 19.4% | 17.7% | 1.7 pp |
+| Winner | 12.3% | 11.3% | 1.0 pp |
+
+The gap between the market and the model is only 1-3 percentage points, depending on the stage, so the absolute improvement is modest. The more important pattern is the rising curve shared by both: even the eventual champion was assigned only around a 12% chance of winning the tournament by the market. This reflects the inherent uncertainty of knockout football, where a few upsets can reshape the entire bracket. That uncertainty is even more relevant for the 2026 World Cup, which expands to 48 teams and introduces an additional round of knockout matches.
+
 
 ![Qualifier Brier by stage](./docs/img/qualifier_brier_by_stage.png)
 
