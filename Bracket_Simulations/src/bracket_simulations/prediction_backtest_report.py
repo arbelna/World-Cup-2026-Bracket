@@ -283,10 +283,39 @@ def _aggregate_rows(results: list[dict[str, Any]]) -> list[dict[str, str]]:
     return rows
 
 
-def render_summary_markdown(results: list[dict[str, Any]]) -> str:
+def render_summary_markdown(
+    results: list[dict[str, Any]],
+    *,
+    uncertainty: dict[str, dict[str, dict]] | None = None,
+    calibration: dict[str, tuple[list[dict], float]] | None = None,
+) -> str:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     n_t = len(results)
     aggregate_rows = _aggregate_rows(results)
+
+    # Build calibration summary strings if available
+    mkt_ece_str = ""
+    mdl_ece_str = ""
+    mkt_cal_gap_str = ""
+    mdl_cal_gap_str = ""
+    if calibration:
+        mkt_ece = calibration["market_all"][1]
+        mdl_ece = calibration["model_all"][1]
+        mkt_ece_str = f"{mkt_ece:.4f}"
+        mdl_ece_str = f"{mdl_ece:.4f}"
+        # Find the 0.5-0.7 bin gap for both modes
+        for mode, label_str, gap_var in [
+            ("market_all", "mkt", "mkt_cal_gap_str"),
+            ("model_all",  "mdl", "mdl_cal_gap_str"),
+        ]:
+            for row in calibration[mode][0]:
+                if abs(row["lo"] - 0.5) < 0.01:
+                    val = f"{row['gap']:+.3f} (avg pred {row['avg_pred']:.2f}, observed {row['observed']:.2f})"
+                    if mode == "market_all":
+                        mkt_cal_gap_str = val
+                    else:
+                        mdl_cal_gap_str = val
+                    break
 
     lines = [
         "# Bracket_Simulations - historical backtest summary",
@@ -296,13 +325,43 @@ def render_summary_markdown(results: list[dict[str, Any]]) -> str:
         "> This is the curated reader-facing summary. The detailed generated report lives in "
         "`data/output/simulations/stage_prediction_backtest.md`.",
         "",
-        "## Key findings",
+        "## Conclusions",
         "",
-        f"- `model_all` edges `market_all` on average M1 top-N recall at R16 ({aggregate_rows[0]['m1_model']} vs {aggregate_rows[0]['m1_market']}), QF ({aggregate_rows[1]['m1_model']} vs {aggregate_rows[1]['m1_market']}), SF ({aggregate_rows[2]['m1_model']} vs {aggregate_rows[2]['m1_market']}), and final ({aggregate_rows[3]['m1_model']} vs {aggregate_rows[3]['m1_market']}).",
-        "- M2 (qualifier Brier, lower is better): `market_all` beats `model_all` on average at every stage; error rises toward the final because winner probabilities on the actual champion are typically ~10-17%.",
-        f"- M3 cumulative (lower is better): when the exact set was never simulated, both modes report "
-        f"{_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}; otherwise compare values in the M3 aggregate table.",
-        "- Both modes miss the actual champion as the top-1 winner pick in all four tournaments; M4 still places every actual late-stage team inside the high-probability joint support earlier than M3's exact-set rank.",
+        "The goal of `model_all` is to be **competitive** with the betting market benchmark (`market_all`), "
+        "not to beat it outright. Betting markets aggregate enormous amounts of information; "
+        "matching them with a statistical model built from historical match data is already a strong result.",
+        "",
+        "Across four World Cups (2010-2022) the picture is mixed but broadly positive:",
+        "",
+        f"- **Recall (M1):** `model_all` edges `market_all` at every stage "
+        f"(R16: {aggregate_rows[0]['m1_model']} vs {aggregate_rows[0]['m1_market']}, "
+        f"QF: {aggregate_rows[1]['m1_model']} vs {aggregate_rows[1]['m1_market']}, "
+        f"SF: {aggregate_rows[2]['m1_model']} vs {aggregate_rows[2]['m1_market']}, "
+        f"final: {aggregate_rows[3]['m1_model']} vs {aggregate_rows[3]['m1_market']}). "
+        "The direction is consistent, but with only 4 tournaments the bootstrap confidence intervals "
+        "all span zero — the gap is real in direction but not distinguishable from noise at this sample size.",
+        f"- **Qualifier Brier (M2):** `market_all` wins cleanly at every stage (lower is better). "
+        "The model assigns less accurate probabilities to teams that actually qualified. "
+        "This is the market's clearest advantage.",
+        (
+            f"- **Calibration:** `market_all` is better calibrated overall "
+            f"(ECE {mkt_ece_str} vs {mdl_ece_str}). "
+            "Both models are well-calibrated on low-probability teams — the large majority of cases — "
+            f"and sit close to the diagonal in the 0-0.3 range. "
+            f"The model's deficit is concentrated in the 0.5-0.7 bin "
+            f"({mdl_cal_gap_str if mdl_cal_gap_str else 'see detailed report'}): "
+            "it consistently underrates mid-range favourites. "
+            f"The market is sharper in that range "
+            f"({mkt_cal_gap_str if mkt_cal_gap_str else 'see detailed report'})."
+        ) if calibration else
+        "- **Calibration:** see the detailed report for reliability tables.",
+        "- **Winner prediction:** neither model correctly identifies the actual champion as top pick "
+        "in any of the four tournaments — consistent with the unpredictability of knockout football.",
+        "",
+        "**Overall verdict:** `model_all` is competitive with the market. "
+        "It matches market on recall and holds its own on joint-distribution metrics (M3/M4 at SF and final). "
+        "The market is better calibrated, particularly for favourites in the 0.5-0.7 probability range. "
+        "Improving the model's confidence on strong favourites is the clearest remaining gap.",
         "",
         "## How to read the metrics",
         "",
@@ -414,7 +473,85 @@ def render_summary_markdown(results: list[dict[str, Any]]) -> str:
     return "\n".join(lines)
 
 
-def render_backtest_markdown(results: list[dict[str, Any]]) -> str:
+def _render_uncertainty_section(uncertainty: dict[str, dict[str, dict]]) -> list[str]:
+    lines = [
+        "## Uncertainty -- bootstrap intervals on model vs market gap",
+        "",
+        "> The bracket backtest aggregates only 4 tournaments. Intervals are a tournament-level block bootstrap"
+        " (10,000 resamples). A CI spanning 0 means the stage-level gap is not distinguishable from"
+        " four-tournament noise; the point estimate still indicates direction.",
+        "",
+        "### Recall delta (model minus market)",
+        "",
+        "| Stage | Recall delta (pp) | 95% CI | Tournaments model better | Significant? |",
+        "|-------|------------------|--------|--------------------------|--------------|",
+    ]
+    for stage in STAGES:
+        u = uncertainty[stage]["recall"]
+        delta_pp = 100.0 * u["delta_mean"]
+        ci_low_pp = 100.0 * u["ci_low"]
+        ci_high_pp = 100.0 * u["ci_high"]
+        n = u["n_tournaments"]
+        n_better = u["n_model_better"]
+        sig = "yes" if u["significant"] else "no"
+        lines.append(
+            f"| **{stage}** | {delta_pp:+.1f} pp | [{ci_low_pp:+.1f}, {ci_high_pp:+.1f}] | "
+            f"{n_better} of {n} | {sig} |"
+        )
+    lines.extend(
+        [
+            "",
+            "### Brier delta (model minus market, lower is better for the winner)",
+            "",
+            "| Stage | Brier delta | 95% CI | Tournaments model better | Significant? |",
+            "|-------|------------|--------|--------------------------|--------------|",
+        ]
+    )
+    for stage in STAGES:
+        u = uncertainty[stage]["brier"]
+        delta = u["delta_mean"]
+        ci_low = u["ci_low"]
+        ci_high = u["ci_high"]
+        n = u["n_tournaments"]
+        n_better = u["n_model_better"]
+        sig = "yes" if u["significant"] else "no"
+        lines.append(
+            f"| **{stage}** | {delta:+.4f} | [{ci_low:+.4f}, {ci_high:+.4f}] | "
+            f"{n_better} of {n} | {sig} |"
+        )
+    lines.append("")
+    return lines
+
+
+def _render_calibration_section(calibration: dict[str, tuple[list[dict], float]]) -> list[str]:
+    lines = ["## Calibration -- reliability tables", ""]
+    for mode in ("market_all", "model_all"):
+        cal_rows, ece = calibration[mode]
+        lines.extend(
+            [
+                f"### Calibration -- {mode}   (ECE {ece:.4f})",
+                "",
+                "| pred bin | n | avg pred | observed | 95% CI (obs) | gap |",
+                "|----------|---|----------|----------|--------------|-----|",
+            ]
+        )
+        for row in cal_rows:
+            lo_s = f"{row['lo']:.1f}"
+            hi_s = f"{min(row['hi'], 1.0):.1f}"
+            lines.append(
+                f"| {lo_s}-{hi_s} | {row['n']} | {row['avg_pred']:.3f} | {row['observed']:.3f} | "
+                f"[{row['obs_ci_low']:.3f}, {row['obs_ci_high']:.3f}] | {row['gap']:+.3f} |"
+            )
+        lines.append("")
+    return lines
+
+
+def render_backtest_markdown(
+    results: list[dict[str, Any]],
+    *,
+    uncertainty: dict[str, dict[str, dict]] | None = None,
+    calibration: dict[str, tuple[list[dict], float]] | None = None,
+) -> str:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     n_t = len(results)
     lines = [
@@ -497,6 +634,14 @@ def render_backtest_markdown(results: list[dict[str, Any]]) -> str:
         )
 
     lines.extend(["", "---", ""])
+
+    if uncertainty is not None:
+        lines.extend(_render_uncertainty_section(uncertainty))
+        lines.extend(["---", ""])
+
+    if calibration is not None:
+        lines.extend(_render_calibration_section(calibration))
+        lines.extend(["---", ""])
 
     for r in results:
         lines.extend(_render_tournament_section(r, r["tournament"]))

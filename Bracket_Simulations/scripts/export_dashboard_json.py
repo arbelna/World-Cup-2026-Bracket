@@ -311,13 +311,4 @@ def main(argv: list[str] | None = None) -> None:
 
 
 if __name__ == "__main__":
-    main().copy2(npz_src, npz_dst)
-            print(f"  Copied sim_matrix.npz -> {npz_dst}")
-        else:
-            print(f"  NOTE: {npz_src} not found — run simulations with the updated pipeline to generate it")
-
-    print("Done.")
-
-
-if __name__ == "__main__":
     main()

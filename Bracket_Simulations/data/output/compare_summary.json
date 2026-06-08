@@ -51,6 +51,7 @@
         "R16": {
           "correct_05": 23,
           "brier": 0.18285363974062502,
+          "brier_qualifiers": 0.18709295788906252,
           "logloss": 0.5347185734635561,
           "topn_hits": 12,
           "topn_fp": 4
@@ -58,6 +59,7 @@
         "QF": {
           "correct_05": 28,
           "brier": 0.1252254782890625,
+          "brier_qualifiers": 0.334143414459375,
           "logloss": 0.40135111195353795,
           "topn_hits": 5,
           "topn_fp": 3
@@ -65,6 +67,7 @@
         "SF": {
           "correct_05": 28,
           "brier": 0.0856954125046875,
+          "brier_qualifiers": 0.5000496069375,
           "logloss": 0.26814460483944597,
           "topn_hits": 1,
           "topn_fp": 3
@@ -72,6 +75,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.0458859454484375,
+          "brier_qualifiers": 0.5979603961125,
           "logloss": 0.14746336177227404,
           "topn_hits": 1,
           "topn_fp": 1
@@ -79,6 +83,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.0241275685890625,
+          "brier_qualifiers": 0.682482515625,
           "logloss": 0.08202771763024026,
           "topn_hits": 0,
           "topn_fp": 1
@@ -139,6 +144,7 @@
         "R16": {
           "correct_05": 21,
           "brier": 0.19681009630000004,
+          "brier_qualifiers": 0.19705983716875003,
           "logloss": 0.5702881174489293,
           "topn_hits": 11,
           "topn_fp": 5
@@ -146,6 +152,7 @@
         "QF": {
           "correct_05": 26,
           "brier": 0.15339243581562498,
+          "brier_qualifiers": 0.41538733028124997,
           "logloss": 0.476925383694158,
           "topn_hits": 5,
           "topn_fp": 3
@@ -153,6 +160,7 @@
         "SF": {
           "correct_05": 28,
           "brier": 0.09634367169375,
+          "brier_qualifiers": 0.59042718676875,
           "logloss": 0.30330508472030593,
           "topn_hits": 1,
           "topn_fp": 3
@@ -160,6 +168,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.04963765322500001,
+          "brier_qualifiers": 0.6707559699125001,
           "logloss": 0.16385557441860044,
           "topn_hits": 1,
           "topn_fp": 1
@@ -167,6 +176,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.026358201739062503,
+          "brier_qualifiers": 0.7564737600250001,
           "logloss": 0.09240543645880231,
           "topn_hits": 0,
           "topn_fp": 1
@@ -275,6 +285,7 @@
         "R16": {
           "correct_05": 20,
           "brier": 0.2446330106703125,
+          "brier_qualifiers": 0.2539061793625,
           "logloss": 0.676723154903596,
           "topn_hits": 10,
           "topn_fp": 6
@@ -282,6 +293,7 @@
         "QF": {
           "correct_05": 27,
           "brier": 0.1236361662640625,
+          "brier_qualifiers": 0.33399828442812496,
           "logloss": 0.41256914051236926,
           "topn_hits": 5,
           "topn_fp": 3
@@ -289,6 +301,7 @@
         "SF": {
           "correct_05": 28,
           "brier": 0.06807308162343749,
+          "brier_qualifiers": 0.41078494516874997,
           "logloss": 0.22250024717411754,
           "topn_hits": 3,
           "topn_fp": 1
@@ -296,6 +309,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.044400183595312503,
+          "brier_qualifiers": 0.5825162965625,
           "logloss": 0.14256029963355857,
           "topn_hits": 0,
           "topn_fp": 2
@@ -303,6 +317,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.026464029195312502,
+          "brier_qualifiers": 0.746591043025,
           "logloss": 0.09111719678216676,
           "topn_hits": 0,
           "topn_fp": 1
@@ -363,6 +378,7 @@
         "R16": {
           "correct_05": 22,
           "brier": 0.21427112772031254,
+          "brier_qualifiers": 0.22115368328281243,
           "logloss": 0.6221050987517984,
           "topn_hits": 11,
           "topn_fp": 5
@@ -370,6 +386,7 @@
         "QF": {
           "correct_05": 28,
           "brier": 0.14158878002031244,
+          "brier_qualifiers": 0.39853212597812493,
           "logloss": 0.48032108465047496,
           "topn_hits": 5,
           "topn_fp": 3
@@ -377,6 +394,7 @@
         "SF": {
           "correct_05": 28,
           "brier": 0.08482139918593748,
+          "brier_qualifiers": 0.5449138572125,
           "logloss": 0.2874513681057769,
           "topn_hits": 2,
           "topn_fp": 2
@@ -384,6 +402,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.04837799917187501,
+          "brier_qualifiers": 0.6706648628125,
           "logloss": 0.1623076271959495,
           "topn_hits": 1,
           "topn_fp": 1
@@ -391,6 +410,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.028717531817187492,
+          "brier_qualifiers": 0.8413842529000001,
           "logloss": 0.1078595219689904,
           "topn_hits": 0,
           "topn_fp": 1
@@ -499,6 +519,7 @@
         "R16": {
           "correct_05": 28,
           "brier": 0.11977685582031249,
+          "brier_qualifiers": 0.11529571898281249,
           "logloss": 0.4090902583448053,
           "topn_hits": 14,
           "topn_fp": 2
@@ -506,6 +527,7 @@
         "QF": {
           "correct_05": 25,
           "brier": 0.1383952481046875,
+          "brier_qualifiers": 0.32999070978749995,
           "logloss": 0.4147874794286071,
           "topn_hits": 4,
           "topn_fp": 4
@@ -513,6 +535,7 @@
         "SF": {
           "correct_05": 27,
           "brier": 0.0928142606578125,
+          "brier_qualifiers": 0.5119801954375,
           "logloss": 0.26991140474532943,
           "topn_hits": 1,
           "topn_fp": 3
@@ -520,6 +543,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.060047276337500004,
+          "brier_qualifiers": 0.7674363188125,
           "logloss": 0.20004329755533476,
           "topn_hits": 0,
           "topn_fp": 2
@@ -527,6 +551,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.029689004325000004,
+          "brier_qualifiers": 0.8205823396,
           "logloss": 0.10446714499403394,
           "topn_hits": 0,
           "topn_fp": 1
@@ -587,6 +612,7 @@
         "R16": {
           "correct_05": 26,
           "brier": 0.171826381515625,
+          "brier_qualifiers": 0.1788307050546875,
           "logloss": 0.5226551411352945,
           "topn_hits": 13,
           "topn_fp": 3
@@ -594,6 +620,7 @@
         "QF": {
           "correct_05": 26,
           "brier": 0.11676950140781253,
+          "brier_qualifiers": 0.3090733642375001,
           "logloss": 0.3696009187071485,
           "topn_hits": 5,
           "topn_fp": 3
@@ -601,6 +628,7 @@
         "SF": {
           "correct_05": 28,
           "brier": 0.07692422103125005,
+          "brier_qualifiers": 0.4775577797375,
           "logloss": 0.24521167061096757,
           "topn_hits": 3,
           "topn_fp": 1
@@ -608,6 +636,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.053962153373437495,
+          "brier_qualifiers": 0.7403652406250001,
           "logloss": 0.1841124274056382,
           "topn_hits": 0,
           "topn_fp": 2
@@ -615,6 +644,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.027343071943750002,
+          "brier_qualifiers": 0.800389676025,
           "logloss": 0.09953489799622357,
           "topn_hits": 0,
           "topn_fp": 1
@@ -723,6 +753,7 @@
         "R16": {
           "correct_05": 19,
           "brier": 0.22067448760625,
+          "brier_qualifiers": 0.22570789724999998,
           "logloss": 0.6238903676024474,
           "topn_hits": 9,
           "topn_fp": 7
@@ -730,6 +761,7 @@
         "QF": {
           "correct_05": 27,
           "brier": 0.11717123654531252,
+          "brier_qualifiers": 0.300348337446875,
           "logloss": 0.37167594778593593,
           "topn_hits": 6,
           "topn_fp": 2
@@ -737,6 +769,7 @@
         "SF": {
           "correct_05": 27,
           "brier": 0.10604625867031252,
+          "brier_qualifiers": 0.63251973879375,
           "logloss": 0.3639967184647758,
           "topn_hits": 2,
           "topn_fp": 2
@@ -744,6 +777,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.05027087122656251,
+          "brier_qualifiers": 0.6476422376125,
           "logloss": 0.15861806198299364,
           "topn_hits": 1,
           "topn_fp": 1
@@ -751,6 +785,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.029787525181250003,
+          "brier_qualifiers": 0.8251451406250001,
           "logloss": 0.10543576333353127,
           "topn_hits": 0,
           "topn_fp": 1
@@ -811,6 +846,7 @@
         "R16": {
           "correct_05": 22,
           "brier": 0.21978837528749998,
+          "brier_qualifiers": 0.22087593280937498,
           "logloss": 0.6217286664618903,
           "topn_hits": 11,
           "topn_fp": 5
@@ -818,6 +854,7 @@
         "QF": {
           "correct_05": 28,
           "brier": 0.1235317729953125,
+          "brier_qualifiers": 0.3216829373875,
           "logloss": 0.39143175188960083,
           "topn_hits": 6,
           "topn_fp": 2
@@ -825,6 +862,7 @@
         "SF": {
           "correct_05": 28,
           "brier": 0.10018449437968749,
+          "brier_qualifiers": 0.6258945492437501,
           "logloss": 0.34686013458514625,
           "topn_hits": 2,
           "topn_fp": 2
@@ -832,6 +870,7 @@
         "final": {
           "correct_05": 30,
           "brier": 0.045431712240625005,
+          "brier_qualifiers": 0.6248502186125,
           "logloss": 0.1508472371758726,
           "topn_hits": 1,
           "topn_fp": 1
@@ -839,6 +878,7 @@
         "winner": {
           "correct_05": 31,
           "brier": 0.0254329156125,
+          "brier_qualifiers": 0.746055425025,
           "logloss": 0.09041491212793637,
           "topn_hits": 0,
           "topn_fp": 1
@@ -904,8 +944,8 @@
     ],
     "market_reference": {
       "R32": {
-        "mse_model_vs_market": 0.0038292567406250015,
-        "mae_model_vs_market": 0.04647604166666668
+        "mse_model_vs_market": 0.0038404733119583316,
+        "mae_model_vs_market": 0.046350083333333326
       }
     }
   }

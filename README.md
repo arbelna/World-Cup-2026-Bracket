@@ -121,7 +121,7 @@ flowchart LR
 
 The backtests indicate that a compact CatBoost model built from public pre-match signals can provide a useful foundation for full-tournament simulations.
 
-At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is competitive with the market-derived baseline and often improves the simulation fit, especially for later-stage outcomes.
+At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline — matching it on recall while trailing on calibration and qualifier Brier. The goal is not to beat the market (which aggregates far more information) but to track it closely enough to be a reliable simulation foundation.
 
 ### Match-level probability estimates
 
@@ -185,9 +185,9 @@ The full-bracket simulations are evaluated against the actual outcomes of the 20
 
 **All-teams-seen cumulative coverage** - how far down the ranked list of bracket scenarios must you go before every team that actually advanced has appeared in at least one simulated combo? Lower means the actual outcomes were concentrated near the top of the probability distribution.
 
-**Recall: model leads at every stage**
+**Recall: model edges market at every stage (but the gap is within noise)**
 
-The model improves average Top-N recall at every stage of the bracket:
+The model has higher average Top-N recall at every stage of the bracket. The direction is consistent — +1.6 pp at R16, +3.1 at QF, +6.2 at SF, +12.5 at the Final — but a tournament-level block bootstrap (10,000 resamples) produces confidence intervals that span zero at every stage. With only four historical tournaments, none of the individual gaps are statistically distinguishable from noise. The point estimates are encouraging; the sample size prevents stronger claims.
 
 ![Bracket stage recall](./docs/img/bracket_stage_recall.png)
 
@@ -205,16 +205,20 @@ The market-derived baseline has lower qualifier Brier at every stage, meaning it
 
 The gap between the market and the model is only 1-3 percentage points, depending on the stage, so the absolute improvement is modest. The more important pattern is the rising curve shared by both: even the eventual champion was assigned only around a 12% chance of winning the tournament by the market. This reflects the inherent uncertainty of knockout football, where a few upsets can reshape the entire bracket. That uncertainty is even more relevant for the 2026 World Cup, which expands to 48 teams and introduces an additional round of knockout matches.
 
+A separate check scoring all 32 teams as a binary reach/not-reach event shows the same direction- market leads through the semi-final, model marginally better at the Final and Winner- and the model produces fewer top-N false positives at every stage. This rules out probability inflation as an explanation for the model's recall advantage: a model that simply gave every team a high probability would look good on recall but would accumulate false positives, which the model does not.
+
 
 ![Qualifier Brier by stage](./docs/img/qualifier_brier_by_stage.png)
 
-**Cumulative coverage: model leads where it matters most**
+**Cumulative coverage: model better at late stages, market better early**
 
-The market edges ahead at early stages (R16 and QF), but the model pulls clearly ahead at the stages that matter most, cutting the error by **16.3 pp at the Final** and **13.5 pp at the Winner** stage:
+The market edges ahead at R16 and QF, but the model has lower cumulative error at the Final (−16.3 pp) and Winner (−13.5 pp) stages:
 
 ![All-teams-seen cumulative error by stage](./docs/img/cumulative_bracket_error.png)
 
-Taken together: the market calibrates slightly better on the teams that advance (lower qualifier Brier), but the model concentrates more probability mass on the scenarios that actually happen (better recall and cumulative coverage at late stages). For bracket prediction - where correctly identifying the likely finalists and winner matters most - the model's late-stage advantage is the more relevant result. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
+Taken together: the market is better calibrated overall (ECE 0.0095 vs 0.0237) and leads on qualifier Brier at every stage. The model's calibration deficit is concentrated in the 0.5–0.7 probability range, where it consistently underrates mid-range favourites. On recall and late-stage cumulative coverage the model holds its own or edges ahead, though these gaps do not clear statistical significance at four tournaments. The honest summary is that the two approaches are close — the model is a viable simulation foundation, and closing the calibration gap on favourites is the clearest remaining improvement. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
+
+**A note on simulation simplifications.** Because the simulator tracks only 1X2 outcomes and not exact scores, it cannot apply the real FIFA group-stage tiebreak sequence (goal difference → goals scored → head-to-head → lots). Instead it uses a pairwise-strength ranking among tied teams. For knockout draws, it replaces extra time and penalties with a single probabilistic advancement step weighted by each team's relative 90-minute win probability. These are known simplifications; the full treatment is in [`Bracket_Simulations/README.md`](Bracket_Simulations/README.md#simplifications-relative-to-real-fifa-rules).
 
 
 ## Quick start

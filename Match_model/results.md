@@ -223,3 +223,14 @@ The market's log-loss edge against actual outcomes is the **expected result**, n
 4. **Different objects.** Match-level log-loss scores isolated 1X2 lines. Bracket M1 and M4 score marginal reach and joint stage configurations after full Monte Carlo propagation - a harder and more tournament-relevant test where the model leads the market at every recall stage and on cumulative coverage at the Final and Winner.
 
 The bracket backtest results in `Bracket_Simulations/results.md` are not undermined by the match-level finding. The model is a purpose-built bracket input, not a replacement for the bookmaker consensus - and on the task it was built for, it outperforms the market where it counts most.
+
+## 8. Reproduce section 7
+
+From the `WorldCup2026 Bracket` repo root:
+
+```powershell
+cd Match_model
+python main_cli.py match-vs-market
+```
+
+This reads `data/output/experiments/loto_eval_predictions.csv`, joins actual 90-minute results from `data/reference/old_stats/`, and writes a full markdown report to `data/output/experiments/match_vs_market_report.md`. All defaults match the committed paths; pass `--help` for override options.

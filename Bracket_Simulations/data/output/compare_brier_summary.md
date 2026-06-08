@@ -2,7 +2,7 @@
 
 > The concise historical backtest summary lives in [`results.md`](../../results.md). The detailed stage-by-stage backtest lives in `data/output/simulations/stage_prediction_backtest.md`.
 
-Generated: 2026-06-03 10:18 UTC
+Generated: 2026-06-08 14:44 UTC
 
 Compares **market_all** (de-vigged bookmaker `target_soft`) vs **model_all** (core-7 CatBoost pairwise) against actual tournament outcomes for WC 2010-2022; WC 2026 forward comparison is included separately.
 
@@ -49,7 +49,7 @@ For tournaments without played results, compare `model_all` probabilities agains
 
 | Tournament | Stage | MAE(model vs market) | MSE(model vs market) |
 |------------|-------|----------------------|----------------------|
-| World Cup 2026 | R32 | 0.0465 | 0.0038 |
+| World Cup 2026 | R32 | 0.0464 | 0.0038 |
 
 ## World Cup 2010 (wc2010)
 

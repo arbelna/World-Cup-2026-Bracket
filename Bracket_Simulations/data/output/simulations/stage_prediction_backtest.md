@@ -1,6 +1,6 @@
 # Stage prediction backtest
 
-**Generated:** 2026-06-07 10:15 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
+**Generated:** 2026-06-08 15:52 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
 
 > For the concise human-facing summary, see [`results.md`](../../../results.md). This file keeps the full generated stage-by-stage breakdown.
 
@@ -58,6 +58,59 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 | **SF** | 24.11% | 27.19% | +3.08 | market |
 | **final** | 35.91% | 19.60% | -16.31 | model |
 | **winner** | 56.86% | 43.39% | -13.47 | model |
+
+---
+
+## Uncertainty -- bootstrap intervals on model vs market gap
+
+> The bracket backtest aggregates only 4 tournaments. Intervals are a tournament-level block bootstrap (10,000 resamples). A CI spanning 0 means the stage-level gap is not distinguishable from four-tournament noise; the point estimate still indicates direction.
+
+### Recall delta (model minus market)
+
+| Stage | Recall delta (pp) | 95% CI | Tournaments model better | Significant? |
+|-------|------------------|--------|--------------------------|--------------|
+| **R16** | +1.6 pp | [-6.2, +9.4] | 2 of 4 | no |
+| **QF** | +3.1 pp | [+0.0, +9.4] | 1 of 4 | no |
+| **SF** | +6.2 pp | [-18.8, +37.5] | 1 of 4 | no |
+| **final** | +12.5 pp | [+0.0, +37.5] | 1 of 4 | no |
+| **winner** | +0.0 pp | [+0.0, +0.0] | 0 of 4 | no |
+
+### Brier delta (model minus market, lower is better for the winner)
+
+| Stage | Brier delta | 95% CI | Tournaments model better | Significant? |
+|-------|------------|--------|--------------------------|--------------|
+| **R16** | +0.0087 | [-0.0193, +0.0388] | 2 of 4 | no |
+| **QF** | +0.0077 | [-0.0117, +0.0231] | 3 of 4 | no |
+| **SF** | +0.0014 | [-0.0109, +0.0137] | 2 of 4 | no |
+| **final** | -0.0008 | [-0.0055, +0.0039] | 2 of 4 | no |
+| **winner** | -0.0006 | [-0.0034, +0.0022] | 2 of 4 | no |
+
+---
+
+## Calibration -- reliability tables
+
+### Calibration -- market_all   (ECE 0.0095)
+
+| pred bin | n | avg pred | observed | 95% CI (obs) | gap |
+|----------|---|----------|----------|--------------|-----|
+| 0.0-0.1 | 348 | 0.026 | 0.023 | [0.012, 0.045] | +0.003 |
+| 0.1-0.2 | 82 | 0.150 | 0.146 | [0.086, 0.239] | +0.003 |
+| 0.2-0.3 | 51 | 0.242 | 0.275 | [0.171, 0.409] | -0.032 |
+| 0.3-0.5 | 76 | 0.402 | 0.408 | [0.304, 0.520] | -0.006 |
+| 0.5-0.7 | 46 | 0.610 | 0.630 | [0.486, 0.755] | -0.021 |
+| 0.7-0.9 | 25 | 0.819 | 0.760 | [0.566, 0.885] | +0.059 |
+| 0.9-1.0 | 12 | 0.931 | 0.917 | [0.646, 0.985] | +0.014 |
+
+### Calibration -- model_all   (ECE 0.0237)
+
+| pred bin | n | avg pred | observed | 95% CI (obs) | gap |
+|----------|---|----------|----------|--------------|-----|
+| 0.0-0.1 | 325 | 0.031 | 0.022 | [0.010, 0.044] | +0.009 |
+| 0.1-0.2 | 92 | 0.143 | 0.141 | [0.084, 0.227] | +0.002 |
+| 0.2-0.3 | 66 | 0.244 | 0.258 | [0.167, 0.374] | -0.014 |
+| 0.3-0.5 | 72 | 0.379 | 0.347 | [0.248, 0.462] | +0.032 |
+| 0.5-0.7 | 49 | 0.578 | 0.714 | [0.576, 0.822] | -0.136 |
+| 0.7-0.9 | 36 | 0.811 | 0.750 | [0.589, 0.862] | +0.061 |
 
 ---
 

@@ -9,6 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from bracket_simulations.actual_results import EXPECTED_N, STAGES, build_actual_outcome
+from bracket_simulations.uncertainty import block_bootstrap_delta
 from bracket_simulations.aggregates import (
     load_state,
     resolve_bracket_output_dir,
@@ -16,6 +17,7 @@ from bracket_simulations.aggregates import (
     top_config_for_stage,
 )
 from bracket_simulations.analysis import analyze_bracket_dir, combos_for_stage, cumulative_coverage
+from bracket_simulations.calibration import BIN_EDGES, collect_reliability_pairs, reliability_table
 from bracket_simulations.compare import (
     _load_preds,
     evaluate_joint,
@@ -165,7 +167,23 @@ def _render_team_block(title: str, teams: list[str]) -> list[str]:
     return lines
 
 
-def build_report(tournaments: list[str]) -> tuple[list[dict], str]:
+def aggregate_with_uncertainty(rows: list[dict]) -> dict[str, dict[str, dict]]:
+    """Bootstrap model-minus-market gap for recall and Brier, keyed by stage."""
+    out: dict[str, dict[str, dict]] = {}
+    for stage in STAGES:
+        n = EXPECTED_N[stage]
+        recall_model  = [r["model"][stage]["topn_hits"]  / n for r in rows]
+        recall_market = [r["market"][stage]["topn_hits"] / n for r in rows]
+        brier_model   = [r["model"][stage]["brier"]  for r in rows]
+        brier_market  = [r["market"][stage]["brier"] for r in rows]
+        out[stage] = {
+            "recall": block_bootstrap_delta(recall_model,  recall_market),
+            "brier":  block_bootstrap_delta(brier_model,   brier_market),
+        }
+    return out
+
+
+def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict]:
     rows: list[dict] = []
     for tournament in tournaments:
         cfg = load_tournament_config(tournament)
@@ -198,8 +216,16 @@ def build_report(tournaments: list[str]) -> tuple[list[dict], str]:
             }
         )
 
-    md = render_backtest_markdown(rows)
-    return rows, md
+    uncertainty = aggregate_with_uncertainty(rows)
+
+    calibration: dict[str, tuple[list[dict], float]] = {}
+    for mode in MODES:
+        pairs = collect_reliability_pairs(tournaments, mode)
+        cal_rows, ece = reliability_table(pairs, BIN_EDGES)
+        calibration[mode] = (cal_rows, ece)
+
+    md = render_backtest_markdown(rows, uncertainty=uncertainty, calibration=calibration)
+    return rows, md, uncertainty, calibration
 
 
 def _render_metric4_side(label: str, joint: dict) -> list[str]:
@@ -470,12 +496,12 @@ def analyze_all_outputs(tournaments: list[str] | None = None) -> None:
 
 def write_backtest_reports(tournaments: list[str] | None = None) -> None:
     tlist = tournaments or HISTORICAL_TOURNAMENTS
-    data, detailed_md = build_report(tlist)
+    data, detailed_md, uncertainty, calibration = build_report(tlist)
     summary_path = DATA_OUTPUT / "stage_prediction_backtest.md"
     summary_path.write_text(detailed_md + "\n", encoding="utf-8")
     print(f"Wrote {summary_path}")
     root_results = STAGE_ROOT / "results.md"
-    root_results.write_text(render_summary_markdown(data) + "\n", encoding="utf-8")
+    root_results.write_text(render_summary_markdown(data, uncertainty=uncertainty, calibration=calibration) + "\n", encoding="utf-8")
     print(f"Wrote {root_results}")
     json_path = DATA_OUTPUT / "stage_prediction_backtest.json"
     json_path.write_text(json.dumps(data, indent=2), encoding="utf-8")

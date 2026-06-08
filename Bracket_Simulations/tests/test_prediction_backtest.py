@@ -1,6 +1,13 @@
 from __future__ import annotations
 
-from bracket_simulations.prediction_backtest import _cumulative_at_actual
+import pytest
+
+from bracket_simulations.prediction_backtest import (
+    HISTORICAL_TOURNAMENTS,
+    _cumulative_at_actual,
+    aggregate_with_uncertainty,
+    build_report,
+)
 from bracket_simulations.prediction_backtest_report import NOT_OBSERVED_CUMULATIVE_FREQUENCY
 
 
@@ -36,3 +43,29 @@ def test_cumulative_at_actual_observed_uses_empirical_cumulative():
     assert result["p_joint_actual"] == 0.6
     assert result["cumulative_frequency"] == 0.6
     assert result["joint_actual_observed"] is True
+
+
+@pytest.mark.integration
+def test_build_report_contains_uncertainty_and_calibration_sections():
+    """Smoke test: build_report runs and the rendered markdown has new sections."""
+    rows, md = build_report(HISTORICAL_TOURNAMENTS)
+    assert "Uncertainty" in md or "uncertainty" in md
+    assert "Calibration" in md or "calibration" in md
+
+
+@pytest.mark.integration
+def test_aggregate_with_uncertainty_shape():
+    """aggregate_with_uncertainty returns expected keys for all stages."""
+    from bracket_simulations.actual_results import STAGES
+
+    rows, _ = build_report(HISTORICAL_TOURNAMENTS)
+    uncertainty = aggregate_with_uncertainty(rows)
+    for stage in STAGES:
+        assert stage in uncertainty
+        for metric in ("recall", "brier"):
+            assert metric in uncertainty[stage]
+            u = uncertainty[stage][metric]
+            assert "delta_mean" in u
+            assert "ci_low" in u
+            assert "ci_high" in u
+            assert u["n_tournaments"] == len(HISTORICAL_TOURNAMENTS)

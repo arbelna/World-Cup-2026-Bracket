@@ -13,6 +13,7 @@ if str(SRC_ROOT) not in sys.path:
 from match_model.dataset_builder import build_match_dataset
 from match_model.export import write_loto_outputs
 from match_model.loto import run_holdout_evaluation, run_loto_evaluation
+from match_model.match_vs_market import write_match_vs_market_report
 from match_model.paths import (
     DEFAULT_DATASET_PATH,
     EXPERIMENTS_DIR,
@@ -100,6 +101,17 @@ def cmd_run_holdout(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_match_vs_market(args: argparse.Namespace) -> int:
+    out = write_match_vs_market_report(
+        predictions_path=Path(args.predictions),
+        dataset_path=Path(args.dataset),
+        old_stats_dir=Path(args.old_stats_dir),
+        output_path=Path(args.output),
+    )
+    print(f"match-vs-market report: {out}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="WorldCup2026 Bracket Match_model stage")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -137,6 +149,22 @@ def build_parser() -> argparse.ArgumentParser:
     p_holdout.add_argument("--seed", type=int, default=42)
     p_holdout.add_argument("--quiet", action="store_true")
     p_holdout.set_defaults(func=cmd_run_holdout)
+
+    p_mvs = sub.add_parser(
+        "match-vs-market",
+        help="Score LOTO predictions against 90-min actual outcomes; writes Section 7 report",
+    )
+    p_mvs.add_argument(
+        "--predictions",
+        default=str(EXPERIMENTS_DIR / "loto_eval_predictions.csv"),
+    )
+    p_mvs.add_argument("--dataset", default=str(DEFAULT_DATASET_PATH))
+    p_mvs.add_argument("--old-stats-dir", default=str(OLD_STATS_DIR))
+    p_mvs.add_argument(
+        "--output",
+        default=str(EXPERIMENTS_DIR / "match_vs_market_report.md"),
+    )
+    p_mvs.set_defaults(func=cmd_match_vs_market)
 
     return parser
 
