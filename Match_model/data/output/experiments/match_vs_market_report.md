@@ -14,7 +14,7 @@ For each match the market probability is the de-vigged bookmaker consensus (`tar
 | Mean 3-class Brier vs actuals | **0.5739** | 0.5795 (+0.0056) |
 | Top-1 accuracy | 298/558 (53.4%) | **302/558 (54.1%)** |
 
-## World Cups only — 2010–2022
+## World Cups only - 2010–2022
 
 | Metric | Market | Model |
 |--------|--------|-------|
@@ -65,6 +65,6 @@ When model and market disagree on the favourite (13 games): log-loss essentially
 
 | Predictor | Beats market (log-loss) | Mean log-loss | Top-1 correct |
 |-----------|-------------------------|---------------|---------------|
-| **Market** | — | **0.9801** | 133/256 |
+| **Market** | - | **0.9801** | 133/256 |
 | **CatBoost** | 114/256 (44.5%) | 0.9876 | **137/256** |
 | **Elo** | 109/256 (42.6%) | 0.9871 | 141/256 |

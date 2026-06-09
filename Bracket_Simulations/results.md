@@ -8,13 +8,15 @@
 
 The goal of `model_all` is to be **competitive** with the betting market benchmark (`market_all`), not to beat it outright. Betting markets aggregate enormous amounts of information; matching them with a statistical model built from historical match data is already a strong result.
 
+> **Comparison note:** `market_all` uses historical bookmaker odds set per-match during each tournament, meaning knockout odds incorporated group-stage results, injuries, and in-tournament momentum. `model_all` uses only pre-tournament features (Elo, squad values, confederation) for every match. The model therefore operates under an informational disadvantage, and its competitive performance should be read in that light.
+
 Across four World Cups (2010-2022) the picture is mixed but broadly positive:
 
-- **Recall (M1):** `model_all` edges `market_all` at every stage (R16: 70.31% vs 70.31%, QF: 65.62% vs 62.50%, SF: 50.00% vs 43.75%, final: 37.50% vs 25.00%). The direction is consistent, but with only 4 tournaments the bootstrap confidence intervals all span zero — the gap is real in direction but not distinguishable from noise at this sample size.
+- **Recall (M1):** `model_all` matches or edges `market_all` at every stage (R16: 70.31% vs 70.31% tie, QF: 65.62% vs 62.50%, SF: 50.00% vs 43.75%, final: 37.50% vs 25.00%). The direction is consistent from QF onward; with only 4 tournaments the bootstrap confidence intervals all span zero - the gap is real in direction but not distinguishable from noise at this sample size.
 - **Qualifier Brier (M2):** `market_all` wins cleanly at every stage (lower is better). The model assigns less accurate probabilities to teams that actually qualified. This is the market's clearest advantage.
 - **All-team Brier (M5) and log loss (M6):** `market_all` also leads on both all-team metrics at R16/QF/SF on average, consistent with M2. The gap narrows at final/winner stages where the model is marginally competitive.
-- **Calibration:** `market_all` is better calibrated overall (ECE 0.0095 vs 0.0242). Both models are well-calibrated on low-probability teams — the large majority of cases — and sit close to the diagonal in the 0-0.3 range. The model's deficit is concentrated in the 0.5-0.7 bin (-0.128 (avg pred 0.57, observed 0.70)): it consistently underrates mid-range favourites. The market is sharper in that range (-0.021 (avg pred 0.61, observed 0.63)).
-- **Winner prediction:** neither model correctly identifies the actual champion as top pick in any of the four tournaments — consistent with the unpredictability of knockout football.
+- **Calibration:** `market_all` is better calibrated overall (ECE 0.0095 vs 0.0242). Both models are well-calibrated on low-probability teams - the large majority of cases - and sit close to the diagonal in the 0-0.3 range. The model's deficit is concentrated in the 0.5-0.7 bin (-0.128 (avg pred 0.57, observed 0.70)): it consistently underrates mid-range favourites. The market is sharper in that range (-0.021 (avg pred 0.61, observed 0.63)).
+- **Winner prediction:** neither model correctly identifies the actual champion as top pick in any of the four tournaments - consistent with the unpredictability of knockout football.
 
 **Overall verdict:** `model_all` is competitive with the market. It matches market on recall and holds its own on joint-distribution metrics (M3/M4 at SF and final). The market is better calibrated, particularly for favourites in the 0.5-0.7 probability range. Improving the model's confidence on strong favourites is the clearest remaining gap.
 
@@ -24,8 +26,8 @@ Across four World Cups (2010-2022) the picture is mixed but broadly positive:
 - M2: mean Brier on teams that actually reached the stage, using `p_at_least_{stage}`; lower is better.
 - M3: cumulative probability up to the exact actual set; lower is better, and 99.90% means the exact set was never observed in the simulated support.
 - M4: cumulative probability until every actual team has appeared somewhere in the high-probability joint support; lower is better.
-- M5: all-team binary Brier — mean squared error of `p_at_least_{stage}` vs 0/1 outcome across **all 32 teams**; lower is better.
-- M6: all-team binary log loss — mean cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across **all 32 teams**; lower is better.
+- M5: all-team binary Brier - mean squared error of `p_at_least_{stage}` vs 0/1 outcome across **all 32 teams**; lower is better.
+- M6: all-team binary log loss - mean cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across **all 32 teams**; lower is better.
 
 ## M1 recall edge
 
@@ -104,16 +106,6 @@ Mean binary cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across all 32 t
 
 > MCSE is estimated from fixed chunked batch means on the saved `sim_matrix.npz` runs. It measures simulation noise inside a single run, not four-tournament sampling uncertainty.
 
-### market_all
-
-| Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |
-|-------|----------------|-------------------------|------------------------|---------------------------|
-| **R16** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| **QF** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| **SF** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| **final** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-| **winner** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
-
 ### model_all
 
 | Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |
@@ -171,11 +163,11 @@ Mean binary cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across all 32 t
 
 ## Variant robustness
 
-> Deltas are measured against the base `model_all` probability surface. Positive M1 deltas are better; negative M2/M5/M6 deltas are better.
+> The first table counts how many of the 5 stages each variant beats `market_all` (M1: model recall > market recall; M2/M5/M6: model loss < market loss). The second table shows per-stage deltas measured against the base `model_all` probability surface — all zeros for `model_all` because it is the reference. Positive M1 deltas are better; negative M2/M5/M6 deltas are better.
 
 | Variant | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |
 |---------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|
-| Base core7 | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| model_all | 3/5 | 5/5 | 3/5 | 5/5 | no |
 | Elo only | 1/5 | 3/5 | 2/5 | 3/5 | no |
 | Elo plus values | 3/5 | 3/5 | 2/5 | 3/5 | no |
 | Remove confederation | 3/5 | 3/5 | 2/5 | 2/5 | no |
@@ -184,11 +176,11 @@ Mean binary cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across all 32 t
 
 | Variant | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |
 |---------|-------|---------------------|------------------|------------------|------------------|
-| Base core7 | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
 | Elo only | **R16** | -1.56 | -0.0062 | -0.0054 | -0.0155 |
 | Elo only | **QF** | -3.12 | +0.0150 | +0.0043 | +0.0070 |
 | Elo only | **SF** | +0.00 | +0.0021 | +0.0009 | +0.0040 |

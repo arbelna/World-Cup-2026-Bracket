@@ -134,6 +134,28 @@ python main_cli.py --partition wc2026 sync-manifest
 
 Manifest counts are derived from on-disk outputs, so `sync-manifest` is safe after manual cleanup.
 
+### Run all stages in sequence
+
+```powershell
+python main_cli.py --partition wc2026 run-all
+python main_cli.py --partition wc2026 run-all --skip-odds
+python main_cli.py --partition wc2026 run-all --skip-transfermarkt
+python main_cli.py --partition legacy12 run-all --odds-workers 4
+```
+
+`run-all` runs collect-elo, collect-confederations, collect-odds-all, match-odds, generate-missing-template, collect-transfermarkt, and sync-manifest in that order. Use `--skip-odds` or `--skip-transfermarkt` to bypass those stages. Use `--sanity-check` for a minimal wiring check without full data collection.
+
+### Optional flags
+
+| Flag | Applies to | Meaning |
+|------|------------|---------|
+| `--sanity-check` | collect-elo, collect-odds-all, run-all | Collect minimal data for wiring checks |
+| `--odds-workers N` | collect-odds-all, collect-odds-missing, run-all | Playwright parallelism (default 2) |
+| `--max-match-pages N` | collect-odds-all, run-all | Cap per-match page requests (0 = unlimited) |
+| `--skip-tm-api-backfill` | collect-transfermarkt, resolve-transfermarkt-existing | Skip Transfermarkt API fallback pass |
+| `--tm-db-url URL` | collect-transfermarkt, resolve-transfermarkt-existing, update-tm-db | Override DuckDB snapshot URL |
+| `--force` | update-tm-db | Force re-download even if local DB exists |
+
 ## Pulling WC2026 data
 
 The current committed `wc2026` snapshot already includes Elo fixtures, Elo ratings, team confederations, matched OddsPortal prices, and Transfermarkt-enriched squad outputs. Re-running the steps below is mainly useful when you want to refresh the snapshot or collect newer market and squad data.

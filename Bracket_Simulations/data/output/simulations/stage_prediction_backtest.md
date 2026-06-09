@@ -121,7 +121,7 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 ## Monte Carlo standard error
 
-> MCSE is estimated from fixed chunked batch means on the saved `sim_matrix.npz` runs. It measures simulation noise inside a single run, not four-tournament sampling uncertainty.
+> MCSE is estimated from fixed chunked batch means on the saved `sim_matrix.npz` runs. It measures simulation noise inside a single run, not four-tournament sampling uncertainty. `market_all` shows all zeros because its stage probabilities are read directly from external market data (a fixed lookup table), not derived by simulation — there is no Monte Carlo variance by construction.
 
 ### market_all
 
@@ -191,11 +191,11 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 ## Variant robustness
 
-> Deltas are measured against the base `model_all` probability surface. Positive M1 deltas are better; negative M2/M5/M6 deltas are better.
+> The first table counts how many of the 5 stages each variant beats `market_all` (M1: model recall > market recall; M2/M5/M6: model loss < market loss). The second table shows per-stage deltas measured against the base `model_all` probability surface — all zeros for `model_all` because it is the reference. Positive M1 deltas are better; negative M2/M5/M6 deltas are better.
 
 | Variant | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |
 |---------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|
-| Base core7 | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| model_all | 3/5 | 5/5 | 3/5 | 5/5 | no |
 | Elo only | 1/5 | 3/5 | 2/5 | 3/5 | no |
 | Elo plus values | 3/5 | 3/5 | 2/5 | 3/5 | no |
 | Remove confederation | 3/5 | 3/5 | 2/5 | 2/5 | no |
@@ -204,11 +204,11 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Variant | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |
 |---------|-------|---------------------|------------------|------------------|------------------|
-| Base core7 | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
-| Base core7 | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| model_all | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
 | Elo only | **R16** | -1.56 | -0.0062 | -0.0054 | -0.0155 |
 | Elo only | **QF** | -3.12 | +0.0150 | +0.0043 | +0.0070 |
 | Elo only | **SF** | +0.00 | +0.0021 | +0.0009 | +0.0040 |
@@ -321,7 +321,7 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 | 0.1-0.2 | 11 | 0.144 | 0.182 | [0.051, 0.477] | -0.038 |
 | 0.2-0.3 | 3 | 0.239 | 0.000 | [0.000, 0.562] | +0.239 |
 
-### market_all / pooled (secondary — all stages combined)   (ECE 0.0095)
+### market_all / pooled (secondary - all stages combined)   (ECE 0.0095)
 
 | pred bin | n | avg pred | observed | 95% CI (obs) | gap |
 |----------|---|----------|----------|--------------|-----|
@@ -383,7 +383,7 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 | 0.1-0.2 | 10 | 0.123 | 0.300 | [0.108, 0.603] | -0.177 |
 | 0.2-0.3 | 2 | 0.213 | 0.000 | [0.000, 0.658] | +0.213 |
 
-### model_all / pooled (secondary — all stages combined)   (ECE 0.0242)
+### model_all / pooled (secondary - all stages combined)   (ECE 0.0242)
 
 | pred bin | n | avg pred | observed | 95% CI (obs) | gap |
 |----------|---|----------|----------|--------------|-----|

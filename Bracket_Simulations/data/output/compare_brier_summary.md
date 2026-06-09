@@ -2,7 +2,7 @@
 
 > The concise historical backtest summary lives in [`results.md`](../../results.md). The detailed stage-by-stage backtest lives in `data/output/simulations/stage_prediction_backtest.md`.
 
-Generated: 2026-06-08 14:44 UTC
+Generated: 2026-06-09 (updated from results.md and stage_prediction_backtest.md)
 
 Compares **market_all** (de-vigged bookmaker `target_soft`) vs **model_all** (core-7 CatBoost pairwise) against actual tournament outcomes for WC 2010-2022; WC 2026 forward comparison is included separately.
 
@@ -12,7 +12,7 @@ Lower Brier is better; for a single binary reach event, a 50/50 guess scores 0.2
 
 | Stage | Market wins | Model wins | Ties |
 |-------|-------------|------------|------|
-| R16 | 2 | 2 | 0 |
+| R16 | 3 | 1 | 0 |
 | QF | 3 | 1 | 0 |
 | SF | 2 | 2 | 0 |
 | final | 2 | 2 | 0 |
@@ -29,7 +29,7 @@ Lower Brier is better; for a single binary reach event, a 50/50 guess scores 0.2
 | winner | 0 | 0 | 4 |
 
 **Champion top-1 correct:** market 0/4, model 0/4
-**Avg p(winner) on actual champion:** market 12.39%, model 11.36%
+**Avg p(winner) on actual champion:** market 12.39%, model 11.66%
 
 ## Joint stage-configuration metrics
 
@@ -39,9 +39,9 @@ For each stage, probability assigned to the exact set of teams that reached that
 |-------|----------------------|---------------------|------------------|-----------------|
 | R16 | 0.01% | 0.00% | 0/4 | 0/4 |
 | QF | 0.02% | 0.01% | 0/4 | 0/4 |
-| SF | 0.26% | 0.16% | 0/4 | 0/4 |
-| final | 2.75% | 2.04% | 0/4 | 0/4 |
-| winner | 12.39% | 11.36% | 0/4 | 0/4 |
+| SF | 0.26% | 0.15% | 0/4 | 0/4 |
+| final | 2.75% | 2.07% | 0/4 | 0/4 |
+| winner | 12.39% | 11.66% | 0/4 | 0/4 |
 
 ## Market-reference comparisons (no actual outcomes yet)
 
@@ -154,22 +154,22 @@ Teams that reached QF (8): Belgium, Brazil, Croatia, England, France, Russia, Sw
 
 Actual champion: **Argentina**
 - Market pick: Brazil (9.16% on actual)
-- Model pick: Portugal (13.63% on actual)
+- Model pick: Brazil (14.79% on actual)
 
 ### Marginal reach
 
 | Stage | Metric | Market | Model | Better |
 |-------|--------|--------|-------|--------|
-| R16 | top-16 | 9.0000 | 11.0000 | model |
-| R16 | Brier | 0.2207 | 0.2198 | model |
+| R16 | top-16 | 9.0000 | 10.0000 | model |
+| R16 | Brier | 0.2207 | 0.2326 | market |
 | QF | top-8 | 6.0000 | 6.0000 | tie |
-| QF | Brier | 0.1172 | 0.1235 | market |
+| QF | Brier | 0.1172 | 0.1182 | market |
 | SF | top-4 | 2.0000 | 2.0000 | tie |
-| SF | Brier | 0.1060 | 0.1002 | model |
+| SF | Brier | 0.1060 | 0.1007 | model |
 | final | top-2 | 1.0000 | 1.0000 | tie |
-| final | Brier | 0.0503 | 0.0454 | model |
+| final | Brier | 0.0503 | 0.0453 | model |
 | winner | top-1 | 0.0000 | 0.0000 | tie |
-| winner | Brier | 0.0298 | 0.0254 | model |
+| winner | Brier | 0.0298 | 0.0253 | model |
 
 ### Joint configurations
 
@@ -181,5 +181,4 @@ Teams that reached QF (8): Argentina, Brazil, Croatia, England, France, Morocco,
 | QF | 0.03% | 0.01% | 399 | 1064 | no | no |
 | SF | 0.01% | 0.02% | 990 | 964 | no | no |
 | final | 2.90% | 3.04% | 7 | 2 | no | no |
-| winner | 9.16% | 13.63% | 6 | 2 | no | no |
-
+| winner | 9.16% | 14.79% | 6 | 2 | no | no |

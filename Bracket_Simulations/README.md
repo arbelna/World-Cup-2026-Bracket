@@ -66,13 +66,25 @@ Typical order:
 python main_cli.py sync-inputs
 python main_cli.py build-data
 python main_cli.py precompute-pairs --tournament wc2022
+python main_cli.py precompute-pairs --tournament wc2022 --all-variants    # all ablation variants
 python main_cli.py simulate --tournament wc2022 --mode model_all --n-sims 200000 --reset -v
+python main_cli.py simulate --tournament wc2026 --mode model_all --n-sims 200000 --reset -v --stop-after-group
+python main_cli.py backtest write-actuals
+python main_cli.py backtest analyze
 python main_cli.py backtest report
+python main_cli.py backtest run-historical --n-sims 200000 --seed 42 -v
 python main_cli.py backtest robustness --tournaments wc2010 wc2014 wc2018 wc2022 --n-sims 200000 --batch-size 1000
 python main_cli.py compare
+python main_cli.py run-all --n-sims 200000 --seed 42 -v
 ```
 
-The `wc2022` `precompute-pairs` example above is a pattern. Run the same command per tournament (`wc2010`, `wc2014`, `wc2018`, `wc2022`, and any configured future tournament such as `wc2026`) before simulating that tournament.
+The `wc2022` `precompute-pairs` example above is a pattern. Run the same command per tournament (`wc2010`, `wc2014`, `wc2018`, `wc2022`, and any configured future tournament such as `wc2026`) before simulating that tournament. Use `--all-variants` to precompute all ablation variants in one call.
+
+`backtest write-actuals` writes `actual_participants.json` per tournament; `backtest analyze` writes the scenario-family analysis files under `data/output/simulations/wc*/`; `backtest report` reads those outputs and writes both `results.md` and `data/output/simulations/stage_prediction_backtest.md`. `backtest run-historical` is a convenience wrapper that runs actuals, sims, analyze, and report in sequence.
+
+`run-all` runs the full pipeline end-to-end: sync-inputs, build-data, precompute-pairs (all tournaments), simulate (all tournaments and modes), compare, write-actuals, analyze, and backtest report.
+
+`simulate --settings-tag TAG` stamps the output fingerprint with a custom tag so results land in a separate output folder without overwriting the base run. `simulate --stop-after-group` halts after the group stage, which is useful for inspecting third-place qualifier scenarios for WC2026.
 
 The helper script examples in this stage are written for PowerShell on Windows. On macOS or Linux, run the same `python main_cli.py ...` commands directly from this directory.
 

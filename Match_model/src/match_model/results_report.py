@@ -712,5 +712,91 @@ def write_results_markdown(
     if holdout_payload:
         _append_wc2026_holdout_section(lines, holdout_payload, tournament_rows)
 
+    _append_match_vs_market_section(lines, experiments_dir=experiments_dir, dataset_path=dataset_path, prefix=prefix)
+
     output_path.write_text("\n".join(lines), encoding="utf-8")
     return output_path
+
+
+def _append_match_vs_market_section(
+    lines: list[str],
+    *,
+    experiments_dir: Path,
+    dataset_path: Path,
+    prefix: str,
+) -> None:
+    """Append Section 7: match-level model vs market scored against 90-minute actual outcomes."""
+    from match_model.match_vs_market import _agg, compute_match_vs_market
+    from match_model.paths import OLD_STATS_DIR
+
+    _WC_TOURNAMENT_IDS = {"world-cup-2010", "world-cup-2014", "world-cup-2018", "world-cup-2022"}
+    predictions_path = experiments_dir / f"{prefix}_predictions.csv"
+    if not predictions_path.exists() or not dataset_path.exists():
+        return
+
+    try:
+        matches = compute_match_vs_market(predictions_path, dataset_path, OLD_STATS_DIR)
+    except Exception:
+        return
+
+    if not matches:
+        return
+
+    wc = [m for m in matches if m.get("tournament_id") in _WC_TOURNAMENT_IDS]
+    aa = _agg(matches)
+    wa = _agg(wc)
+
+    lines.append("## 7. Match-level model vs market — scored against 90-minute actual outcomes")
+    lines.append("")
+    lines.append(
+        "CatBoost LOTO predictions scored against the 90-minute result. "
+        "The market predictor is the de-vigged bookmaker consensus (`target_soft`); the model predictor is the "
+        "out-of-sample CatBoost `core7` prediction. "
+        "Full report: `data/output/experiments/match_vs_market_report.md`."
+    )
+    lines.append("")
+    lines.append(f"### All legacy12 tournaments ({aa['n']} matches)")
+    lines.append("")
+    lines.append("| Metric | Market | Model |")
+    lines.append("|--------|--------|-------|")
+    lines.append(
+        f"| Log-loss head-to-head wins | **{aa['mkt_ll_wins']} ({aa['mkt_ll_win_pct']:.1%})** "
+        f"| {aa['mdl_ll_wins']} ({aa['mdl_ll_win_pct']:.1%}) |"
+    )
+    lines.append(
+        f"| Mean log-loss | **{aa['mean_mkt_ll']:.4f}** "
+        f"| {aa['mean_mdl_ll']:.4f} ({aa['mean_mdl_ll'] - aa['mean_mkt_ll']:+.4f}) |"
+    )
+    lines.append(
+        f"| Top-1 accuracy | {aa['mkt_top1']}/{aa['n']} ({aa['mkt_top1_pct']:.1%}) "
+        f"| **{aa['mdl_top1']}/{aa['n']} ({aa['mdl_top1_pct']:.1%})** |"
+    )
+    lines.append("")
+
+    if wa["n"] > 0:
+        lines.append(f"### World Cups only — 2010–2022 ({wa['n']} matches)")
+        lines.append("")
+        lines.append("| Metric | Market | Model |")
+        lines.append("|--------|--------|-------|")
+        lines.append(
+            f"| Log-loss head-to-head wins | **{wa['mkt_ll_wins']} ({wa['mkt_ll_win_pct']:.1%})** "
+            f"| {wa['mdl_ll_wins']} ({wa['mdl_ll_win_pct']:.1%}) |"
+        )
+        lines.append(
+            f"| Mean log-loss | **{wa['mean_mkt_ll']:.4f}** "
+            f"| {wa['mean_mdl_ll']:.4f} ({wa['mean_mdl_ll'] - wa['mean_mkt_ll']:+.4f}) |"
+        )
+        lines.append(
+            f"| Top-1 accuracy | {wa['mkt_top1']}/{wa['n']} ({wa['mkt_top1_pct']:.1%}) "
+            f"| **{wa['mdl_top1']}/{wa['n']} ({wa['mdl_top1_pct']:.1%})** |"
+        )
+        lines.append("")
+        extra = wa["mdl_top1"] - wa["mkt_top1"]
+        sign = "+" if extra >= 0 else ""
+        lines.append(
+            f"The market wins slightly more per-game log-loss comparisons. "
+            f"The model has a {sign}{extra} top-1 edge on World Cup matches "
+            f"({wa['mdl_top1']} vs {wa['mkt_top1']}), picking the right favourite more often "
+            "even while trailing on mean log-loss (it is more confident on some wrong calls)."
+        )
+        lines.append("")

@@ -4,7 +4,6 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
@@ -153,30 +152,6 @@ def _enrich_joint(state: dict, actual_config: dict[str, tuple[str, ...]]) -> dic
     return base
 
 
-def _pct(x: float) -> str:
-    return f"{100 * x:.2f}%"
-
-
-def _yn(ok: bool) -> str:
-    return "✓" if ok else "—"
-
-
-def _team_rows(teams: list[str], *, per_row: int = 6) -> list[str]:
-    if not teams:
-        return ["_(none)_"]
-    rows: list[str] = []
-    for i in range(0, len(teams), per_row):
-        rows.append(" · ".join(teams[i : i + per_row]))
-    return rows
-
-
-def _render_team_block(title: str, teams: list[str]) -> list[str]:
-    lines = [f"**{title}** — {len(teams)} teams"]
-    for row in _team_rows(teams):
-        lines.append(f"> {row}")
-    return lines
-
-
 def aggregate_with_uncertainty(rows: list[dict]) -> dict[str, dict[str, dict]]:
     """Bootstrap model-minus-market gap for recall, all-team Brier (M5), and log loss (M6), keyed by stage."""
     out: dict[str, dict[str, dict]] = {}
@@ -266,238 +241,6 @@ def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict, d
         mcse=mcse,
     )
     return rows, md, uncertainty, calibration, mcse
-
-
-def _render_metric4_side(label: str, joint: dict) -> list[str]:
-    rank = int(joint.get("rank_teams_covered", 0))
-    actual = joint.get("teams_actual_in_union") or []
-    extras = joint.get("teams_extras_in_union") or []
-    lines = [
-        f"#### {label}",
-        "",
-        "| Field | Value |",
-        "|-------|-------|",
-        f"| Stop at combo rank | **{rank}** |",
-        f"| Cumulative probability | **{_pct(joint['cumulative_teams_covered'])}** |",
-        f"| Last actual team to appear | **{joint.get('last_team_covered', '')}** |",
-        f"| Combo at that rank | `{joint.get('combo_at_coverage', '')}` |",
-        f"| Union size (teams in ranks 1–{rank}) | {joint.get('teams_in_predictions_n', 0)} |",
-        "",
-    ]
-    lines.extend(_render_team_block("Actual teams covered", actual))
-    lines.append("")
-    lines.extend(_render_team_block("Other teams in union (not in actual set)", extras))
-    lines.append("")
-    return lines
-
-
-def _render_tournament_section(r: dict, tournament_id: str) -> list[str]:
-    comp = r["competition"]
-    lines = [f"## {comp} (`{tournament_id}`)", ""]
-    lines.append(f"**Champion (actual):** {r['champion_actual']}")
-    lines.append("")
-
-    lines.append("### At a glance")
-    lines.append("")
-    lines.append(
-        "| Stage | "
-        "M1 market | M1 model | "
-        "M2 mkt | M2 mdl | "
-        "M3 cum mkt | M3 cum mdl | "
-        "M4 cum mkt | M4 cum mdl |"
-    )
-    lines.append(
-        "|-------|"
-        "-----------|-----------|"
-        "--------|--------|"
-        "----------|----------|"
-        "----------|----------|"
-    )
-    for stage in STAGES:
-        n = EXPECTED_N[stage]
-        ms, ds = r["market"][stage], r["model"][stage]
-        mj, dj = r["market_joint"][stage], r["model_joint"][stage]
-        lines.append(
-            f"| **{stage}** | "
-            f"{int(ms['topn_hits'])}/{n} | {int(ds['topn_hits'])}/{n} | "
-            f"{_yn(mj['top1_correct'])} | {_yn(dj['top1_correct'])} | "
-            f"{_pct(mj['cumulative_frequency'])} | {_pct(dj['cumulative_frequency'])} | "
-            f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} |"
-        )
-    lines.append("")
-    lines.append(
-        "_M1 = top-N marginal recall · M2 = rank-1 exact set match (✓/—) · "
-        "M3 = cumulative to actual set · M4 = cumulative until all actual teams seen in some combo."
-    )
-    lines.append("")
-
-    market_preds = _load_preds(probabilities_csv(tournament_id, "market_all"))
-    model_preds = _load_preds(probabilities_csv(tournament_id, "model_all"))
-    all_teams = sorted(market_preds.keys())
-
-    for stage in STAGES:
-        n = EXPECTED_N[stage]
-        col = f"p_at_least_{stage}"
-        actual_sorted = sorted(r["actual_config"][stage])
-        actual_set = set(actual_sorted)
-        ms, ds = r["market"][stage], r["model"][stage]
-        mj, dj = r["market_joint"][stage], r["model_joint"][stage]
-        mr = sorted(all_teams, key=lambda t: market_preds[t][col], reverse=True)[:n]
-        dr = sorted(all_teams, key=lambda t: model_preds[t][col], reverse=True)[:n]
-
-        lines.append(f"### {stage}")
-        lines.append("")
-        lines.extend(_render_team_block(f"Actual participants ({n})", actual_sorted))
-        lines.append("")
-
-        lines.append("#### Metric 1 — Top-N by `p_at_least`")
-        lines.append("")
-        lines.append("| | Market | Model |")
-        lines.append("|--|--------|-------|")
-        lines.append(f"| Recall | **{int(ms['topn_hits'])}/{n}** | **{int(ds['topn_hits'])}/{n}** |")
-        lines.append(
-            f"| Perfect set | {_yn(ms['topn_hits'] == n and ms['topn_fp'] == 0)} | "
-            f"{_yn(ds['topn_hits'] == n and ds['topn_fp'] == 0)} |"
-        )
-        m_miss = sorted(actual_set - set(mr))
-        d_miss = sorted(actual_set - set(dr))
-        if m_miss:
-            lines.append(f"| Missed | {', '.join(m_miss)} | |")
-        if d_miss:
-            lines.append(f"| | | {', '.join(d_miss)} |")
-        lines.append("")
-        lines.extend(_render_team_block(f"Market top-{n} pick", mr))
-        lines.append("")
-        lines.extend(_render_team_block(f"Model top-{n} pick", dr))
-        lines.append("")
-
-        lines.append("#### Metric 2 — Most frequent exact set (rank 1)")
-        lines.append("")
-        lines.append("| | Market | Model |")
-        lines.append("|--|--------|-------|")
-        lines.append(
-            f"| Match actual set | {_yn(mj['top1_correct'])} | {_yn(dj['top1_correct'])} |"
-        )
-        lines.append(
-            f"| Probability | {_pct(mj['top1_probability'])} | {_pct(dj['top1_probability'])} |"
-        )
-        lines.append(f"| Set | `{mj.get('top1_teams', '')}` | `{dj.get('top1_teams', '')}` |")
-        lines.append("")
-
-        actual_pipe = "|".join(actual_sorted)
-        lines.append("#### Metric 3 — Exact actual set in joint distribution")
-        lines.append("")
-        lines.append(f"Target combo: `{actual_pipe}`")
-        lines.append("")
-        lines.append("| | Market | Model |")
-        lines.append("|--|--------|-------|")
-        lines.append(
-            f"| Rank | {mj['rank_actual']:,} / {mj['n_unique_configs']:,} | "
-            f"{dj['rank_actual']:,} / {dj['n_unique_configs']:,} |"
-        )
-        lines.append(
-            f"| p(actual set) | {_pct(mj['p_joint_actual'])} | {_pct(dj['p_joint_actual'])} |"
-        )
-        lines.append(
-            f"| Cumulative through that rank | {_pct(mj['cumulative_frequency'])} | "
-            f"{_pct(dj['cumulative_frequency'])} |"
-        )
-        lines.append("")
-
-        lines.append("#### Metric 4 — All actual teams seen in top combos")
-        lines.append("")
-        lines.extend(_render_metric4_side("Market", mj))
-        lines.extend(_render_metric4_side("Model", dj))
-
-    lines.append("---")
-    lines.append("")
-    return lines
-
-
-def _render_markdown(results: list[dict], tournaments: list[str]) -> str:
-    ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
-    n_t = len(results)
-    lines = [
-        "# Stage prediction backtest",
-        "",
-        f"**Generated:** {ts} · **Tournaments:** {n_t} (WC 2010–2022) · **Modes:** `market_all` vs `model_all`",
-        "",
-        "## How to read this report",
-        "",
-        "| Metric | Source | What it measures |",
-        "|--------|--------|------------------|",
-        "| **1** | `team_stage_probabilities.csv` | Top *N* teams by `p_at_least_{stage}` vs who really qualified "
-        f"(N: {', '.join(f'{s}={EXPECTED_N[s]}' for s in STAGES)}) |",
-        "| **2** | `stage_config_probabilities.csv` rank 1 | Did the **most simulated** exact team set match reality? |",
-        "| **3** | `analysis/stage_combinations_{stage}.csv` | Rank & cumulative probability of the **exact** actual team set |",
-        "| **4** | Same as 3 | Rank & cumulative probability when **each** actual team has appeared in "
-        "≥1 combo above; lists the **union** of teams in combos 1…stop rank |",
-        "",
-        "In tables: **✓** = yes / match · **—** = no / miss · Recall shown as `hits/N`.",
-        "",
-        "---",
-        "",
-        "## Aggregate (average across tournaments)",
-        "",
-        "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |",
-        "|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|",
-    ]
-
-    for stage in STAGES:
-        n = EXPECTED_N[stage]
-        m_hits = sum(r["market"][stage]["topn_hits"] for r in results) / (n_t * n)
-        d_hits = sum(r["model"][stage]["topn_hits"] for r in results) / (n_t * n)
-        m2m = sum(1 for r in results if r["market_joint"][stage]["top1_correct"])
-        m2d = sum(1 for r in results if r["model_joint"][stage]["top1_correct"])
-        m3 = sum(r["market_joint"][stage]["cumulative_frequency"] for r in results) / n_t
-        d3 = sum(r["model_joint"][stage]["cumulative_frequency"] for r in results) / n_t
-        m4 = sum(r["market_joint"][stage]["cumulative_teams_covered"] for r in results) / n_t
-        d4 = sum(r["model_joint"][stage]["cumulative_teams_covered"] for r in results) / n_t
-        lines.append(
-            f"| **{stage}** | {_pct(m_hits)} | {_pct(d_hits)} | {m2m}/{n_t} | {m2d}/{n_t} | "
-            f"{_pct(m3)} | {_pct(d3)} | {_pct(m4)} | {_pct(d4)} |"
-        )
-
-    lines.extend(
-        [
-            "",
-            "| Stage | M3 avg rank mkt | M3 avg rank mdl | M4 avg rank mkt | M4 avg rank mdl |",
-            "|-------|-----------------|-----------------|-----------------|-----------------|",
-        ]
-    )
-    for stage in STAGES:
-        m3r = sum(r["market_joint"][stage]["rank_actual"] for r in results) / n_t
-        d3r = sum(r["model_joint"][stage]["rank_actual"] for r in results) / n_t
-        m4r = sum(r["market_joint"][stage]["rank_teams_covered"] for r in results) / n_t
-        d4r = sum(r["model_joint"][stage]["rank_teams_covered"] for r in results) / n_t
-        lines.append(
-            f"| **{stage}** | {m3r:.0f} | {d3r:.0f} | {m4r:.0f} | {d4r:.0f} |"
-        )
-
-    lines.extend(["", "---", ""])
-
-    for r in results:
-        lines.extend(_render_tournament_section(r, r["tournament"]))
-
-    lines.extend(
-        [
-            "## Worked example — WC 2022 SF (model)",
-            "",
-            "| | Metric 3 (exact set) | Metric 4 (all teams seen) |",
-            "|--|----------------------|---------------------------|",
-            "| Target | `Argentina|Croatia|France|Morocco` | Same four teams, any combo |",
-            "| Stop rank | 1,068 | **298** |",
-            "| Cumulative | 84.38% | **58.92%** |",
-            "| Trigger combo | exact quartet | `Argentina|Brazil|France|Morocco` (Morocco last) |",
-            "",
-            "At rank 298 the model has seen every actual SF team at least once, but only "
-            "58.9% of simulated mass — the exact quartet needs rank 1,068 (84.4%).",
-            "",
-            "Union at rank 298 (**23** teams): all four actual plus 19 others that appeared in "
-            "high-frequency SF combos (see WC 2022 → SF → Metric 4 → Model).",
-        ]
-    )
-    return "\n".join(lines)
 
 
 def write_actual_participants(tournament: str, path: Path | None = None) -> Path:
@@ -624,8 +367,10 @@ def run_historical_sims(
                 seed=seed,
                 alpha_knockout=None,
                 alpha_group_tie=None,
+                settings_tag=None,
                 reset=reset,
                 force_reset=False,
+                stop_after_group=False,
                 verbose=verbose,
             )
             run_simulations(args)

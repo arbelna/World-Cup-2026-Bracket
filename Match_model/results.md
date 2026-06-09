@@ -47,7 +47,7 @@ CatBoost's weighted MAE is **4.17 percentage points** per outcome on average (0.
 
 The favorite is still home, but the model is 6.3 pp less confident; draw and away gain 3.1 pp and 3.2 pp. Macro MAE on this line is **4.20 pp**, matching the headline **4.17 pp**.
 
-Brier squares those same three gaps before averaging, so it punishes large misses more heavily; cross-entropy punishes confident wrong calls even more. None of the three numbers is a bracket probability by itself — they are per-match 1X2 inputs that feed the pairwise simulation stage.
+Brier squares those same three gaps before averaging, so it punishes large misses more heavily; cross-entropy punishes confident wrong calls even more. None of the three numbers is a bracket probability by itself - they are per-match 1X2 inputs that feed the pairwise simulation stage.
 
 ## 2. Per-tournament held-out errors
 
@@ -174,3 +174,49 @@ That does not validate future outcomes, but it does suggest the WC2026 pairwise 
 | **Macro MAE** | | | | **3.53** |
 
 On a representative group-stage line, home stays the favorite but drops 5.3 pp while draw and away rise 2.7 pp and 2.6 pp. Macro MAE on this line is **3.53 pp**, matching the WC2026 holdout **3.56 pp**.
+
+## 7. Match-level model vs market - scored against 90-minute actual outcomes
+
+CatBoost LOTO predictions scored against the 90-minute result. The market predictor is the de-vigged bookmaker consensus (`target_soft`); the model predictor is the out-of-sample CatBoost `core7` prediction. Knockout matches that went to extra time or penalties are scored on the 90-minute result. Full report: `data/output/experiments/match_vs_market_report.md`.
+
+### All legacy12 tournaments (558 matches)
+
+| Metric | Market | Model |
+|--------|--------|-------|
+| Log-loss head-to-head wins | **305 (54.7%)** | 253 (45.3%) |
+| Mean log-loss | **0.9631** | 0.9726 (+0.0095) |
+| Mean 3-class Brier vs actuals | **0.5739** | 0.5795 (+0.0056) |
+| Top-1 accuracy | 298/558 (53.4%) | **302/558 (54.1%)** |
+
+### World Cups only - 2010-2022 (256 matches)
+
+| Metric | Market | Model |
+|--------|--------|-------|
+| Log-loss head-to-head wins | **142 (55.5%)** | 114 (44.5%) |
+| Mean log-loss | **0.9801** | 0.9876 (+0.0076) |
+| Mean 3-class Brier vs actuals | **0.5821** | 0.5877 (+0.0056) |
+| Top-1 accuracy | 133/256 (52.0%) | **137/256 (53.5%)** |
+
+The market wins slightly more per-game log-loss comparisons. The model has a +4 top-1 edge on World Cup matches (137 vs 133), picking the right favourite more often even while trailing on mean log-loss (it is more confident on some wrong calls).
+
+### By stage (World Cups)
+
+| Stage | N | Model LL wins | Market LL wins | Mean delta log-loss (model - market) |
+|-------|---|---------------|----------------|--------------------------------------|
+| Group | 192 | 85 (44.3%) | 107 (55.7%) | +0.0090 |
+| Knockout | 64 | 29 (45.3%) | 35 (54.7%) | +0.0035 |
+
+| Stage | Market top-1 | Model top-1 |
+|-------|--------------|-------------|
+| Group | 101/192 (52.6%) | 104/192 (54.2%) |
+| Knockout | 32/64 (50.0%) | 33/64 (51.6%) |
+
+### Elo vs CatBoost vs market (World Cups)
+
+| Predictor | Beats market (log-loss) | Mean log-loss | Top-1 correct |
+|-----------|-------------------------|---------------|---------------|
+| **Market** | - | **0.9801** | 133/256 |
+| **CatBoost** | 114/256 (44.5%) | 0.9876 | **137/256** |
+| **Elo** | 109/256 (42.6%) | 0.9871 | 141/256 |
+
+> **Note:** Brier values here (~0.57) are computed against hard one-hot actual outcomes and are not comparable to the soft-label Brier (~0.008) in the LOTO leaderboard, which measures distance from the market consensus.

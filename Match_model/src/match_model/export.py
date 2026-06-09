@@ -107,6 +107,19 @@ def write_loto_outputs(
 
     ds_path = dataset_path or DEFAULT_DATASET_PATH
     if write_results_md and ds_path.exists():
+        from match_model.paths import OLD_STATS_DIR
+        from match_model.match_vs_market import write_match_vs_market_report
+
+        mvs_path = output_dir / "match_vs_market_report.md"
+        if predictions_path.exists():
+            write_match_vs_market_report(
+                predictions_path=predictions_path,
+                dataset_path=ds_path,
+                old_stats_dir=OLD_STATS_DIR,
+                output_path=mvs_path,
+            )
+            paths["match_vs_market_md"] = mvs_path
+
         report_path = write_results_markdown(
             experiments_dir=output_dir,
             dataset_path=ds_path,
