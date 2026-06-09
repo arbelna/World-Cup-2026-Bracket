@@ -976,14 +976,10 @@ function applyLang() {
 // =========================================================
 const state = {
   lang: 'en',
-  market: null,   // JSON data
   model: null,
-  marketMatrix: null,  // Float32Array or BoolArray parsed from npz
   modelMatrix: null,
-  marketMatrixIndex: null,
   modelMatrixIndex: null,
-  matrixLoading: { market: false, model: false },
-  probSrc: 'model',
+  matrixLoading: false,
   probSortCol: 'winner',
   probSortAsc: false,
   probConfFilter: 'ALL',
@@ -991,8 +987,6 @@ const state = {
   probSearch: '',
   basketTeams: [],
   basketStage: 'QF',
-  basketSrc: 'model',
-  configsSrc: 'model',
   configsStage: 'R16',
   configsSearch: '',
 };
@@ -1026,7 +1020,7 @@ async function loadData() {
   renderConfigs();
 
   // Prefetch the sim matrix in the background so the Basket tab is ready instantly
-  ensureMatrix('model');
+  ensureMatrix();
 }
 
 function showDataError() {
@@ -1040,13 +1034,13 @@ function showDataError() {
 }
 
 // Lazy-load sim matrix when basket panel opens
-async function ensureMatrix(src) {
-  if (state[`${src}Matrix`] || state.matrixLoading[src]) return;
-  const data = src === 'market' ? state.market : state.model;
+async function ensureMatrix() {
+  if (state.modelMatrix || state.matrixLoading) return;
+  const data = state.model;
   if (!data) return;
   const url = data.sim_matrix_url;
   if (!url) return;
-  state.matrixLoading[src] = true;
+  state.matrixLoading = true;
   try {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -1064,12 +1058,12 @@ async function ensureMatrix(src) {
       matrix = parsed.matrix;
       matrix.packed = false;
     }
-    state[`${src}Matrix`] = matrix;
-    state[`${src}MatrixIndex`] = data.sim_matrix_index;
+    state.modelMatrix = matrix;
+    state.modelMatrixIndex = data.sim_matrix_index;
   } catch (e) {
-    console.warn('Could not load sim matrix for', src, e);
+    console.warn('Could not load model sim matrix', e);
   } finally {
-    state.matrixLoading[src] = false;
+    state.matrixLoading = false;
   }
   renderBasket();
 }
@@ -1176,7 +1170,7 @@ function updateMetaLine() {
 // PROBABILITY TABLE
 // =========================================================
 function renderProbTable() {
-  const data = state.probSrc === 'market' ? state.market : state.model;
+  const data = state.model;
   const skel = document.getElementById('prob-skeleton');
   const wrap = document.getElementById('prob-table-wrap');
   if (!data) { skel.style.display=''; wrap.style.display='none'; return; }
@@ -1257,7 +1251,7 @@ function sortTeams(teams, col, asc, data) {
 }
 
 function buildGroupChips() {
-  const data = state.market || state.model;
+  const data = state.model;
   if (!data) return;
   const groups = [...new Set(data.teams.map(t => t.group))].sort();
   const wrap = document.getElementById('group-chips');
@@ -1329,7 +1323,7 @@ function buildBasketStageRadios() {
 }
 
 function getTeamList() {
-  const data = state.market || state.model;
+  const data = state.model;
   return data ? data.teams.map(t => t.name).sort() : [];
 }
 
@@ -1433,14 +1427,13 @@ function renderBasket() {
     placeholder.style.display = ''; output.style.display = 'none'; return;
   }
 
-  const src = state.basketSrc;
-  const matrix = state[`${src}Matrix`];
-  const matIdx = state[`${src}MatrixIndex`];
+  const matrix = state.modelMatrix;
+  const matIdx = state.modelMatrixIndex;
 
   if (!matrix || !matIdx) {
     placeholder.innerHTML = L.basketMatrixLoading;
     placeholder.style.display = ''; output.style.display = 'none';
-    ensureMatrix(src);
+    ensureMatrix();
     return;
   }
 
@@ -1544,7 +1537,7 @@ function computeExactDist(arr, shape, teamIndices, stageIdx, N, packed) {
 function renderConfigs() {
   const skel = document.getElementById('configs-skeleton');
   const list = document.getElementById('configs-list');
-  const data = state.configsSrc === 'market' ? state.market : state.model;
+  const data = state.model;
   if (!data) { skel.style.display=''; list.style.display='none'; return; }
   skel.style.display = 'none';
   list.style.display = '';
@@ -1641,7 +1634,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btn) { btn.classList.add('active'); btn.setAttribute('aria-selected','true'); }
     if (panel) panel.classList.add('active');
     if (panelId === 'basket') {
-      ensureMatrix(state.basketSrc);
+      ensureMatrix();
     }
   }
 
@@ -1672,7 +1665,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Table sort
   wireTableSort('prob-table', 'probSortCol', 'probSortAsc', renderProbTable);
 
-  // Basket source toggle
   // Configs stage tabs
   document.getElementById('configs-stage-tabs').querySelectorAll('.toggle-btn').forEach(btn => {
     btn.addEventListener('click', () => {
