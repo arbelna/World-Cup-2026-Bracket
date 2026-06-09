@@ -73,8 +73,11 @@ class CatBoostCore7Model:
         return normalize_probs(np.asarray(raw, dtype=float))
 
 
-def rows_to_feature_matrix(rows: list[MatchRow]) -> np.ndarray:
-    return np.vstack([row.feature_vector() for row in rows])
+def rows_to_feature_matrix(
+    rows: list[MatchRow],
+    feature_names: tuple[str, ...] = CORE7_FEATURE_NAMES,
+) -> np.ndarray:
+    return np.vstack([row.feature_vector(feature_names) for row in rows])
 
 
 def rows_to_label_matrix(rows: list[MatchRow]) -> np.ndarray:

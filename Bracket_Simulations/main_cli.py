@@ -26,11 +26,14 @@ def cmd_build_data(_: argparse.Namespace) -> None:
 
 def cmd_precompute_pairs(args: argparse.Namespace) -> None:
     from bracket_simulations.config import list_tournament_config_names
+    from bracket_simulations.model_variants import list_model_variant_ids
     from bracket_simulations.pairwise.precompute import precompute_for_config
 
     tournaments = [args.tournament] if args.tournament else list_tournament_config_names()
+    variants = list_model_variant_ids() if args.all_variants else [args.variant]
     for t in tournaments:
-        precompute_for_config(t)
+        for variant in variants:
+            precompute_for_config(t, variant_id=variant)
 
 
 def cmd_simulate(args: argparse.Namespace) -> None:
@@ -43,6 +46,8 @@ def cmd_simulate(args: argparse.Namespace) -> None:
         argv.extend(["--batch-size", str(args.batch_size)])
     if args.seed is not None:
         argv.extend(["--seed", str(args.seed)])
+    if args.settings_tag is not None:
+        argv.extend(["--settings-tag", str(args.settings_tag)])
     if args.reset:
         argv.append("--reset")
     if args.force_reset:
@@ -73,6 +78,14 @@ def cmd_backtest(args: argparse.Namespace) -> None:
         pb.analyze_all_outputs(list(tournaments) if tournaments else None)
     elif args.backtest_cmd == "report":
         pb.write_backtest_reports(list(tournaments) if tournaments else None)
+    elif args.backtest_cmd == "robustness":
+        pb.write_robustness_reports(
+            n_sims=args.n_sims,
+            batch_size=args.batch_size,
+            reset=not args.no_reset,
+            verbose=args.verbose,
+            tournaments=list(tournaments) if tournaments else None,
+        )
     elif args.backtest_cmd == "run-historical":
         pb.run_historical_pipeline(
             n_sims=args.n_sims,
@@ -114,6 +127,7 @@ def cmd_run_all(args: argparse.Namespace) -> None:
 
 def main() -> None:
     from bracket_simulations.config import list_tournament_config_names
+    from bracket_simulations.model_variants import list_simulation_modes, list_model_variant_ids
 
     p = argparse.ArgumentParser(description="WorldCup2026 Bracket Bracket_Simulations")
     sub = p.add_subparsers(dest="command", required=True)
@@ -123,13 +137,16 @@ def main() -> None:
 
     pp = sub.add_parser("precompute-pairs")
     pp.add_argument("--tournament", choices=list_tournament_config_names())
+    pp.add_argument("--variant", choices=list_model_variant_ids(), default="base")
+    pp.add_argument("--all-variants", action="store_true")
 
     ps = sub.add_parser("simulate")
     ps.add_argument("--tournament", choices=list_tournament_config_names(), required=True)
-    ps.add_argument("--mode", choices=["market_all", "model_all"], required=True)
+    ps.add_argument("--mode", choices=list_simulation_modes(), required=True)
     ps.add_argument("--n-sims", type=int)
     ps.add_argument("--batch-size", type=int)
     ps.add_argument("--seed", type=int, default=42)
+    ps.add_argument("--settings-tag", default=None)
     ps.add_argument("--reset", action="store_true")
     ps.add_argument("--force-reset", action="store_true")
     ps.add_argument("-v", "--verbose", action="store_true")
@@ -145,6 +162,12 @@ def main() -> None:
     pba.add_argument("--tournaments", nargs="*", default=None)
     pbr = pbt_sub.add_parser("report")
     pbr.add_argument("--tournaments", nargs="*", default=None)
+    pbrob = pbt_sub.add_parser("robustness")
+    pbrob.add_argument("--tournaments", nargs="*", default=None)
+    pbrob.add_argument("--n-sims", type=int, default=200_000)
+    pbrob.add_argument("--batch-size", type=int, default=1000)
+    pbrob.add_argument("--no-reset", action="store_true")
+    pbrob.add_argument("-v", "--verbose", action="store_true", default=True)
     pbrun = pbt_sub.add_parser("run-historical")
     pbrun.add_argument("--tournaments", nargs="*", default=None)
     pbrun.add_argument("--n-sims", type=int, default=200_000)

@@ -27,8 +27,17 @@ def parse_config_key(key: str) -> tuple[str, tuple[str, ...]]:
     return stage, ()
 
 
-def settings_fingerprint(*, tournament: str, mode: str, alphas: dict[str, float]) -> str:
-    payload = json.dumps({"tournament": tournament, "mode": mode, "alphas": alphas}, sort_keys=True)
+def settings_fingerprint(
+    *,
+    tournament: str,
+    mode: str,
+    alphas: dict[str, float],
+    tag: str | None = None,
+) -> str:
+    payload_dict = {"tournament": tournament, "mode": mode, "alphas": alphas}
+    if tag:
+        payload_dict["tag"] = tag
+    payload = json.dumps(payload_dict, sort_keys=True)
     return hashlib.sha256(payload.encode()).hexdigest()[:16]
 
 
@@ -36,14 +45,28 @@ def resolve_bracket_output_dir(tournament_output_dir: Path, *, mode: str, settin
     return tournament_output_dir / mode / settings_fp
 
 
-def write_settings_json(path: Path, *, tournament: str, mode: str, alphas: dict[str, float]) -> None:
+def write_settings_json(
+    path: Path,
+    *,
+    tournament: str,
+    mode: str,
+    alphas: dict[str, float],
+    tag: str | None = None,
+) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     payload = {
         "tournament": tournament,
         "mode": mode,
         "alphas": alphas,
-        "settings_fingerprint": settings_fingerprint(tournament=tournament, mode=mode, alphas=alphas),
+        "settings_fingerprint": settings_fingerprint(
+            tournament=tournament,
+            mode=mode,
+            alphas=alphas,
+            tag=tag,
+        ),
     }
+    if tag:
+        payload["tag"] = tag
     path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
 
 

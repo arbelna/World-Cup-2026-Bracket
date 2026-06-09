@@ -8,6 +8,7 @@ $LegacyDst = Join-Path $Root "data\input\legacy12"
 New-Item -ItemType Directory -Force -Path $LegacyDst | Out-Null
 Copy-Item (Join-Path $LegacySrc "fixtures_stats.json") -Destination $LegacyDst -Force
 Copy-Item (Join-Path $LegacySrc "matched_odds.json") -Destination $LegacyDst -Force
+Copy-Item (Join-Path $LegacySrc "teams_ratings.json") -Destination (Join-Path $LegacyDst "team_ratings.json") -Force
 Copy-Item (Join-Path $LegacySrc "team_confederations.json") -Destination $LegacyDst -Force
 Copy-Item (Join-Path $LegacySrc "tournament_squads_with_value.json") -Destination $LegacyDst -Force
 

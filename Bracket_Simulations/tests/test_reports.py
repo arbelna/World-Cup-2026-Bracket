@@ -15,6 +15,11 @@ def test_root_results_matches_output_mirror():
 
     assert "# Bracket_Simulations - historical backtest summary" in root_text
     assert "detailed generated report lives in `data/output/simulations/stage_prediction_backtest.md`" in root_text
+    assert "## M5 all-team binary Brier" in root_text
+    assert "## M6 all-team binary log loss" in root_text
+    assert "## Monte Carlo standard error" in root_text
     assert "# Stage prediction backtest" in mirror_text
     assert "For the concise human-facing summary" in mirror_text
+    assert "## Calibration -- reliability tables" in mirror_text
+    assert "## Monte Carlo standard error" in mirror_text
     assert root_text != mirror_text

@@ -21,10 +21,14 @@ class TournamentConfig:
     train_dataset: Path
     exclude_tournament_from_train: str | None
     match_dataset_filter_competition: str
+    fixtures_file: Path
+    team_ratings_file: Path
     groups_file: Path
     knockout_bracket_file: Path
     r32_scenarios_file: Path | None
-    pairwise_predictions_file: Path
+    group_pairwise_predictions_file: Path
+    knockout_pairwise_predictions_file: Path
+    knockout_context_file: Path
     default_batch_size: int
     default_n_sims: int
     alphas: dict[str, float]
@@ -34,6 +38,10 @@ class TournamentConfig:
     @property
     def output_dir(self) -> Path:
         return DATA_OUTPUT / self.output_slug
+
+    @property
+    def pairwise_predictions_file(self) -> Path:
+        return self.group_pairwise_predictions_file
 
 
 def _resolve(path_str: str) -> Path:
@@ -46,6 +54,7 @@ def _resolve(path_str: str) -> Path:
 def load_tournament_config(name: str) -> TournamentConfig:
     path = CONFIG_DIR / f"{name}.yaml"
     raw = yaml.safe_load(path.read_text(encoding="utf-8"))
+    legacy_pairwise = raw.get("pairwise_predictions_file", "data/input/pairwise_predictions.csv")
     return TournamentConfig(
         tournament_id=str(raw["tournament_id"]),
         competition=str(raw["competition"]),
@@ -58,10 +67,20 @@ def load_tournament_config(name: str) -> TournamentConfig:
         train_dataset=_resolve(raw.get("train_dataset", str(MATCH_DATASET.relative_to(STAGE_ROOT)))),
         exclude_tournament_from_train=raw.get("exclude_tournament_from_train"),
         match_dataset_filter_competition=str(raw["match_dataset_filter_competition"]),
+        fixtures_file=_resolve(raw.get("fixtures_file", "data/input/fixtures_stats.json")),
+        team_ratings_file=_resolve(raw.get("team_ratings_file", "data/input/team_ratings.json")),
         groups_file=_resolve(raw["groups_file"]),
         knockout_bracket_file=_resolve(raw["knockout_bracket_file"]),
         r32_scenarios_file=_resolve(raw["r32_scenarios_file"]) if raw.get("r32_scenarios_file") else None,
-        pairwise_predictions_file=_resolve(raw["pairwise_predictions_file"]),
+        group_pairwise_predictions_file=_resolve(
+            raw.get("group_pairwise_predictions_file", legacy_pairwise)
+        ),
+        knockout_pairwise_predictions_file=_resolve(
+            raw.get("knockout_pairwise_predictions_file", legacy_pairwise)
+        ),
+        knockout_context_file=_resolve(
+            raw.get("knockout_context_file", "data/input/knockout_context.json")
+        ),
         default_batch_size=int(raw.get("default_batch_size", 1000)),
         default_n_sims=int(raw.get("default_n_sims", 10000)),
         alphas={str(k): float(v) for k, v in (raw.get("alphas") or {}).items()},
@@ -89,9 +108,13 @@ train_dataset: data/input/match_dataset.json
 exclude_tournament_from_train: world-cup-{year}
 match_dataset_filter_competition: World Cup {year}
 
+fixtures_file: data/input/fixtures_stats.json
+team_ratings_file: data/input/team_ratings.json
 groups_file: data/input/{slug}_groups.json
 knockout_bracket_file: data/input/{slug}_knockout_bracket.json
-pairwise_predictions_file: data/input/{slug}_pairwise_predictions.csv
+group_pairwise_predictions_file: data/input/{slug}_group_pairwise_predictions.csv
+knockout_pairwise_predictions_file: data/input/{slug}_knockout_pairwise_predictions.csv
+knockout_context_file: data/input/{slug}_knockout_context.json
 
 default_batch_size: 1000
 default_n_sims: 100000

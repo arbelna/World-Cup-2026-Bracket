@@ -36,15 +36,44 @@ docs_audit.md
 Bracket_Simulations/data/output/simulations/**/*.json
 Bracket_Simulations/data/output/simulations/*.json
 
-# Per tournament market_all/model_all fingerprint dirs: only two CSVs
+# Synced rating snapshots and generated pairwise/context artifacts
+Match_model/data/input/legacy12/team_ratings.json
+Bracket_Simulations/data/input/team_ratings.json
+Bracket_Simulations/data/input/wc2026_team_ratings.json
+Bracket_Simulations/data/input/wc*_group_pairwise_predictions*.csv
+Bracket_Simulations/data/input/wc*_knockout_pairwise_predictions*.csv
+Bracket_Simulations/data/input/wc*_knockout_context.json
+
+# Per tournament market_all/model_all fingerprint dirs:
+# keep only the curated committed CSVs, ignore every other run directory.
 Bracket_Simulations/data/output/simulations/wc*/market_all/**/*
 !Bracket_Simulations/data/output/simulations/wc*/market_all/**/
-!Bracket_Simulations/data/output/simulations/wc*/market_all/**/stage_config_probabilities.csv
-!Bracket_Simulations/data/output/simulations/wc*/market_all/**/team_stage_probabilities.csv
 Bracket_Simulations/data/output/simulations/wc*/model_all/**/*
 !Bracket_Simulations/data/output/simulations/wc*/model_all/**/
-!Bracket_Simulations/data/output/simulations/wc*/model_all/**/stage_config_probabilities.csv
-!Bracket_Simulations/data/output/simulations/wc*/model_all/**/team_stage_probabilities.csv
+
+!Bracket_Simulations/data/output/simulations/wc2010/market_all/b7c68fefc1a02859/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2010/market_all/b7c68fefc1a02859/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2010/model_all/f9580638f29e45b1/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2010/model_all/f9580638f29e45b1/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2014/market_all/df2bf10200e2ffec/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2014/market_all/df2bf10200e2ffec/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2014/model_all/cf4c7b81895ca7df/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2014/model_all/cf4c7b81895ca7df/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2018/market_all/b25456972cb5488a/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2018/market_all/b25456972cb5488a/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2018/model_all/1651e12ac4baa048/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2018/model_all/1651e12ac4baa048/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2022/market_all/ea56c368dec4f96e/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2022/market_all/ea56c368dec4f96e/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2022/model_all/ecac64810e747335/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2022/model_all/ecac64810e747335/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2026/market_all/07d5a3e5abc3696d/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2026/market_all/07d5a3e5abc3696d/team_stage_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2026/model_all/9da9cc8d018fd239/stage_config_probabilities.csv
+!Bracket_Simulations/data/output/simulations/wc2026/model_all/9da9cc8d018fd239/team_stage_probabilities.csv
+
+# Robustness and variant-only simulation directories
+Bracket_Simulations/data/output/simulations/wc*/model_*/**
 
 docs/data/market.json
 docs/data/market_sim_matrix.npz

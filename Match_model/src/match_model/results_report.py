@@ -359,6 +359,96 @@ def _load_holdout_payload(experiments_dir: Path) -> dict[str, Any] | None:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def _append_ablation_section(
+    lines: list[str],
+    loto_payload: dict[str, Any],
+    holdout_payload: dict[str, Any] | None,
+) -> None:
+    label_map = {
+        CATBOOST_EXPERIMENT_ID: "Base core7",
+        "catboost_loto_elo_only": "Elo only",
+        "catboost_loto_elo_plus_values": "Elo plus squad values",
+        "catboost_loto_minus_values": "Remove squad values",
+        "catboost_loto_minus_confed": "Remove confederation",
+        "catboost_loto_minus_stage": "Remove stage context",
+        "catboost_loto_minus_host": "Remove host advantage",
+    }
+    ordered_ids = list(label_map)
+
+    def _rows(payload: dict[str, Any]) -> list[dict[str, Any]]:
+        experiments = {str(exp.get("experiment_id")): exp for exp in payload.get("experiments", [])}
+        base = experiments.get(CATBOOST_EXPERIMENT_ID)
+        if base is None:
+            return []
+        base_ce = float(base["summary"]["weighted_ce"])
+        base_brier = float(base["summary"]["weighted_brier"])
+        rows: list[dict[str, Any]] = []
+        for exp_id in ordered_ids:
+            exp = experiments.get(exp_id)
+            if exp is None:
+                continue
+            summary = exp["summary"]
+            rows.append(
+                {
+                    "label": label_map[exp_id],
+                    "ce": float(summary["weighted_ce"]),
+                    "brier": float(summary["weighted_brier"]),
+                    "mae": float(summary["weighted_mae_macro"]),
+                    "delta_ce": float(summary["weighted_ce"]) - base_ce,
+                    "delta_brier": float(summary["weighted_brier"]) - base_brier,
+                }
+            )
+        return rows
+
+    loto_rows = _rows(loto_payload)
+    holdout_rows = _rows(holdout_payload or {})
+    if not loto_rows:
+        return
+
+    lines.append("## 4. Ablation and sensitivity analysis")
+    lines.append("")
+    lines.append(
+        "These fixed ablations test whether the match-level gains depend on a single feature block. "
+        "Negative deltas are better for cross-entropy and Brier because the base `core7` model is the reference."
+    )
+    lines.append("")
+    lines.append("### Historical LOTO")
+    lines.append("")
+    lines.append("| Variant | CE | delta CE vs base | Brier | delta Brier vs base | MAE |")
+    lines.append("|---------|----|------------------|-------|---------------------|-----|")
+    for row in loto_rows:
+        lines.append(
+            f"| {row['label']} | {row['ce']:.4f} | {row['delta_ce']:+.4f} | "
+            f"{row['brier']:.4f} | {row['delta_brier']:+.4f} | {row['mae']:.4f} |"
+        )
+    lines.append("")
+
+    if holdout_rows:
+        lines.append("### WC2026 holdout")
+        lines.append("")
+        lines.append("| Variant | CE | delta CE vs base | Brier | delta Brier vs base | MAE |")
+        lines.append("|---------|----|------------------|-------|---------------------|-----|")
+        for row in holdout_rows:
+            lines.append(
+                f"| {row['label']} | {row['ce']:.4f} | {row['delta_ce']:+.4f} | "
+                f"{row['brier']:.4f} | {row['delta_brier']:+.4f} | {row['mae']:.4f} |"
+            )
+        lines.append("")
+
+    strongest_drop = max(
+        (row for row in loto_rows if row["label"] != "Base core7"),
+        key=lambda row: row["delta_ce"],
+        default=None,
+    )
+    if strongest_drop is not None:
+        lines.append(
+            f"The largest historical degradation comes from **{strongest_drop['label'].lower()}** "
+            f"(delta CE {strongest_drop['delta_ce']:+.4f}). This is the quickest read on which block the "
+            "base model is leaning on most heavily."
+        )
+        lines.append("")
+
+
 def _append_wc2026_holdout_section(
     lines: list[str],
     holdout_payload: dict[str, Any],
@@ -369,7 +459,7 @@ def _append_wc2026_holdout_section(
         return
     held_out_name = str(holdout_payload.get("held_out_competition") or "World Cup 2026")
     test_dataset_path = holdout_payload.get("test_dataset_path", "unknown")
-    lines.append("## 5. WC2026 explicit holdout (train legacy12, test WC2026)")
+    lines.append("## 6. WC2026 explicit holdout (train legacy12, test WC2026)")
     lines.append("")
     lines.append(
         f"Train/test split evaluation with train set from legacy12 and held-out test set `{held_out_name}`."
@@ -445,6 +535,7 @@ def write_results_markdown(
     bucket_rows, bucket_examples = _stage_bucket_table(prediction_rows)
     old_stats_index = _load_old_stats_index(OLD_STATS_DIR)
     worst_rows = _worst_predictions(prediction_rows, dataset_by_id, old_stats_index)
+    holdout_payload = _load_holdout_payload(experiments_dir)
 
     all_experiments = results_payload.get("experiments", [])
     predictive_exps, _ = _split_experiments(all_experiments)
@@ -576,7 +667,9 @@ def write_results_markdown(
         )
     lines.append("")
 
-    lines.append("## 4. Highest cross-entropy predictions (CatBoost)")
+    _append_ablation_section(lines, results_payload, holdout_payload)
+
+    lines.append("## 5. Highest cross-entropy predictions (CatBoost)")
     lines.append("")
     lines.append(
         "These are the 10 worst single-match CatBoost CE errors on held-out folds. "
@@ -616,7 +709,6 @@ def write_results_markdown(
         note_idx += 1
     lines.append("")
 
-    holdout_payload = _load_holdout_payload(experiments_dir)
     if holdout_payload:
         _append_wc2026_holdout_section(lines, holdout_payload, tournament_rows)
 

@@ -27,7 +27,12 @@ from bracket_simulations.simulator.bracket_resolver import (  # noqa: E402
     load_knockout_bracket,
     load_r32_scenarios,
 )
+from bracket_simulations.simulator.group_stage import GroupMatch  # noqa: E402
 from bracket_simulations.simulator.simulator import run_single_simulation  # noqa: E402
+from bracket_simulations.tournament_data import (  # noqa: E402
+    build_group_schedule,
+    load_tournament_fixtures,
+)
 
 TOURNAMENT = "wc2026"
 MODE = "model_all"
@@ -66,6 +71,12 @@ def main() -> None:
 
     groups = load_groups(cfg.groups_file)
     all_teams = sorted({t for ts in groups.values() for t in ts})
+    fixtures = load_tournament_fixtures(cfg.fixtures_file, cfg.tournament_id)
+    raw_schedule = build_group_schedule(groups, fixtures)
+    group_fixtures = {
+        label: [GroupMatch(team_a=a, team_b=b) for a, b in matches]
+        for label, matches in raw_schedule.items()
+    }
 
     probs_tmp = bracket_dir / "team_stage_probabilities.csv.new"
     configs_tmp = bracket_dir / "stage_config_probabilities.csv.new"
@@ -89,6 +100,7 @@ def main() -> None:
     for i in range(N_SIMS):
         outcome = run_single_simulation(
             groups,
+            group_fixtures,
             group_probs,
             ko_probs,
             bracket,

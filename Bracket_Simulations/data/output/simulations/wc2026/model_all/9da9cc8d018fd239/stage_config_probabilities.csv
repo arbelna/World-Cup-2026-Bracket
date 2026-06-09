@@ -1,299 +1,299 @@
 stage,teams,count,probability,rank
-QF,Argentina|Belgium|Brazil|England|France|Netherlands|Portugal|Spain,148,0.00014800,1
-QF,Argentina|Belgium|Brazil|England|Germany|Netherlands|Portugal|Spain,137,0.00013700,2
-QF,Argentina|Belgium|Brazil|England|France|Netherlands|Spain|Switzerland,135,0.00013500,3
-QF,Argentina|Belgium|Brazil|England|Germany|Netherlands|Spain|Switzerland,108,0.00010800,4
-QF,Argentina|Belgium|Ecuador|England|Germany|Netherlands|Portugal|Spain,91,0.00009100,5
-QF,Argentina|Belgium|Brazil|Canada|England|France|Spain|Switzerland,91,0.00009100,6
-QF,Argentina|Belgium|England|France|Germany|Netherlands|Spain|Switzerland,91,0.00009100,7
-QF,Argentina|Belgium|Ecuador|England|Germany|Netherlands|Spain|Switzerland,89,0.00008900,8
-QF,Argentina|Belgium|Canada|Ecuador|England|Germany|Spain|Switzerland,87,0.00008700,9
-QF,Argentina|Belgium|Brazil|Canada|England|Germany|Spain|Switzerland,85,0.00008500,10
-QF,Argentina|Brazil|England|France|Netherlands|Portugal|Spain|Turkey,84,0.00008400,11
-QF,Argentina|Belgium|Brazil|England|France|Morocco|Spain|Switzerland,84,0.00008400,12
-QF,Argentina|Belgium|Brazil|England|Germany|Morocco|Spain|Switzerland,83,0.00008300,13
-QF,Argentina|Brazil|England|Germany|Netherlands|Portugal|Spain|Turkey,83,0.00008300,14
-QF,Argentina|Belgium|Brazil|England|France|Morocco|Portugal|Spain,81,0.00008100,15
-QF,Argentina|Belgium|England|France|Germany|Netherlands|Portugal|Spain,80,0.00008000,16
-QF,Belgium|Brazil|England|France|Netherlands|Portugal|Spain|Uruguay,78,0.00007800,17
-QF,Argentina|Brazil|England|France|Netherlands|Spain|Switzerland|Turkey,75,0.00007500,18
-QF,Belgium|Brazil|England|Germany|Netherlands|Portugal|Spain|Uruguay,73,0.00007300,19
-QF,Argentina|Belgium|Canada|England|France|Germany|Spain|Switzerland,73,0.00007300,20
-QF,Argentina|Brazil|England|Germany|Morocco|Spain|Switzerland|Turkey,73,0.00007300,21
-QF,Argentina|Belgium|Brazil|Colombia|England|France|Netherlands|Portugal,72,0.00007200,22
-QF,Argentina|Belgium|Brazil|Ecuador|England|Netherlands|Portugal|Spain,71,0.00007100,23
-QF,Argentina|Belgium|Ecuador|England|France|Netherlands|Portugal|Spain,70,0.00007000,24
-QF,Argentina|Brazil|England|Germany|Netherlands|Spain|Switzerland|Turkey,69,0.00006900,25
-QF,Argentina|Ecuador|England|Germany|Netherlands|Portugal|Spain|Turkey,67,0.00006700,26
-QF,Argentina|Belgium|Brazil|Ecuador|England|Netherlands|Spain|Switzerland,65,0.00006500,27
-QF,Argentina|Belgium|Brazil|Colombia|England|Germany|Netherlands|Portugal,65,0.00006500,28
-QF,Argentina|Belgium|Colombia|Ecuador|England|Germany|Netherlands|Portugal,65,0.00006500,29
-QF,Argentina|Brazil|Canada|England|France|Spain|Switzerland|Turkey,64,0.00006400,30
-QF,Belgium|Brazil|England|Germany|Netherlands|Spain|Switzerland|Uruguay,64,0.00006400,31
-QF,Belgium|Brazil|England|France|Netherlands|Spain|Switzerland|Uruguay,63,0.00006300,32
-QF,Argentina|Belgium|Canada|England|France|Norway|Spain|Switzerland,61,0.00006100,33
-QF,Argentina|Belgium|Brazil|England|Germany|Morocco|Portugal|Spain,61,0.00006100,34
-QF,Argentina|Belgium|Brazil|Canada|England|France|Netherlands|Spain,61,0.00006100,35
-QF,Argentina|England|France|Germany|Netherlands|Portugal|Spain|Turkey,61,0.00006100,36
-QF,Argentina|Belgium|England|France|Netherlands|Norway|Spain|Switzerland,61,0.00006100,37
-QF,Argentina|Canada|Ecuador|England|Germany|Spain|Switzerland|Turkey,60,0.00006000,38
-QF,Argentina|Belgium|Ecuador|England|Germany|Portugal|Spain|Switzerland,58,0.00005800,39
-QF,Argentina|Ecuador|England|Germany|Netherlands|Spain|Switzerland|Turkey,58,0.00005800,40
-QF,Belgium|Brazil|England|Germany|Morocco|Portugal|Spain|Uruguay,58,0.00005800,41
-QF,Argentina|England|France|Germany|Netherlands|Spain|Switzerland|Turkey,57,0.00005700,42
-QF,Argentina|Belgium|Brazil|Croatia|France|Netherlands|Portugal|Spain,55,0.00005500,43
-QF,Belgium|Ecuador|England|Germany|Netherlands|Portugal|Spain|Uruguay,55,0.00005500,44
-QF,Argentina|Belgium|Brazil|England|France|Germany|Spain|Switzerland,55,0.00005500,45
-QF,Argentina|Canada|England|France|Germany|Spain|Switzerland|Turkey,55,0.00005500,46
-QF,Argentina|Belgium|Brazil|England|France|Japan|Spain|Switzerland,54,0.00005400,47
-QF,Belgium|England|France|Germany|Netherlands|Spain|Switzerland|Uruguay,53,0.00005300,48
-QF,Argentina|Belgium|Brazil|Croatia|France|Netherlands|Spain|Switzerland,53,0.00005300,49
-QF,Argentina|Belgium|Brazil|France|Mexico|Netherlands|Portugal|Spain,53,0.00005300,50
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland,8,0.00000800,1
-R16,Argentina|Belgium|Brazil|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|South Korea|Spain|Switzerland|Turkey,7,0.00000700,2
-R16,Argentina|Belgium|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey,7,0.00000700,3
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Ecuador|Egypt|France|Germany|Netherlands|Portugal|South Korea|Spain|Switzerland,6,0.00000600,4
-R16,Brazil|Canada|Croatia|Czechia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey|United States|Uruguay,6,0.00000600,5
-R16,Argentina|Belgium|Brazil|Croatia|England|France|Germany|Mexico|Netherlands|Norway|Paraguay|Portugal|South Korea|Spain|Switzerland|Turkey,6,0.00000600,6
-R16,Argentina|Belgium|Brazil|Croatia|Czechia|England|France|Germany|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,6,0.00000600,7
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Croatia|Ecuador|Egypt|England|France|Germany|Netherlands|Portugal|Spain|Switzerland|Turkey,5,0.00000500,8
-R16,Argentina|Belgium|Canada|Colombia|Ecuador|England|France|Germany|Japan|Mexico|Netherlands|Paraguay|Portugal|Spain|Switzerland|Turkey,5,0.00000500,9
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Egypt|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey,5,0.00000500,10
-R16,Belgium|Bosnia and Herzegovina|Brazil|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|Spain|Switzerland|Turkey|Uruguay,5,0.00000500,11
-R16,Belgium|Brazil|Canada|Colombia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey|Uruguay,5,0.00000500,12
-R16,Argentina|Brazil|Colombia|Czechia|England|France|Germany|Mexico|Morocco|Norway|Paraguay|Portugal|South Korea|Spain|Switzerland|Turkey,5,0.00000500,13
-R16,Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey|United States|Uruguay,5,0.00000500,14
-R16,Belgium|Brazil|Canada|Croatia|England|France|Germany|Mexico|Morocco|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey|Uruguay,5,0.00000500,15
-R16,Argentina|Belgium|Canada|Colombia|Ecuador|England|France|Germany|Japan|Mexico|Netherlands|Portugal|South Korea|Spain|Switzerland|Turkey,5,0.00000500,16
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Mexico|Morocco|Paraguay|Portugal|Spain|Switzerland|Turkey,5,0.00000500,17
-R16,Argentina|Belgium|Brazil|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey,5,0.00000500,18
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Spain|Switzerland,5,0.00000500,19
-R16,Belgium|Brazil|Canada|Croatia|Ecuador|England|France|Germany|Mexico|Morocco|Paraguay|Portugal|Spain|Switzerland|Turkey|Uruguay,5,0.00000500,20
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Czechia|Ecuador|Egypt|England|France|Germany|Netherlands|Portugal|Spain|Switzerland,5,0.00000500,21
-R16,Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Ecuador|Egypt|England|France|Germany|Mexico|Morocco|Portugal|Spain|Switzerland|Uruguay,5,0.00000500,22
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Croatia|Egypt|England|France|Germany|Mexico|Morocco|Norway|Spain|Switzerland|Turkey,5,0.00000500,23
-R16,Argentina|Belgium|Canada|Colombia|England|France|Germany|Japan|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,5,0.00000500,24
-R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey|United States,5,0.00000500,25
-R16,Argentina|Belgium|Brazil|Canada|Croatia|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey|United States,5,0.00000500,26
-R16,Argentina|Australia|Belgium|Brazil|Canada|Croatia|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey,5,0.00000500,27
-R16,Brazil|Colombia|Czechia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|South Korea|Spain|Switzerland|Turkey|Uruguay,5,0.00000500,28
-R16,Argentina|Australia|Belgium|Brazil|Colombia|Czechia|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey,4,0.00000400,29
-R16,Australia|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Mexico|Netherlands|Portugal|Senegal|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,30
-R16,Belgium|Brazil|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|South Korea|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,31
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Morocco|Portugal|Spain|Switzerland,4,0.00000400,32
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|South Korea|Spain|Turkey,4,0.00000400,33
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Ecuador|Egypt|England|France|Japan|Norway|Portugal|Senegal|Spain|Switzerland,4,0.00000400,34
-R16,Argentina|Belgium|Canada|Croatia|Ecuador|England|France|Japan|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,4,0.00000400,35
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Iran|Mexico|Netherlands|Portugal|Spain|Switzerland,4,0.00000400,36
-R16,Brazil|Canada|Colombia|Czechia|Ecuador|England|France|Germany|Mexico|Morocco|Paraguay|Portugal|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,37
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Germany|Morocco|Panama|Portugal|Spain|Switzerland,4,0.00000400,38
-R16,Argentina|Belgium|Brazil|Canada|Croatia|Czechia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey,4,0.00000400,39
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Egypt|England|France|Germany|Netherlands|Norway|Portugal|South Korea|Spain|Switzerland,4,0.00000400,40
-R16,Argentina|Belgium|Brazil|Colombia|Czechia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey,4,0.00000400,41
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Netherlands|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,4,0.00000400,42
-R16,Argentina|Belgium|Brazil|Colombia|Czechia|Ecuador|England|France|Mexico|Netherlands|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,4,0.00000400,43
-R16,Belgium|Brazil|Canada|Colombia|Egypt|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,44
-R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Morocco|Norway|Portugal|Spain|Switzerland|Turkey|United States,4,0.00000400,45
-R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey,4,0.00000400,46
-R16,Belgium|Bosnia and Herzegovina|Canada|Colombia|Egypt|England|France|Germany|Japan|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Uruguay,4,0.00000400,47
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Netherlands|Portugal|Senegal|Spain|Switzerland|Turkey|United States,4,0.00000400,48
-R16,Belgium|Brazil|Colombia|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|South Korea|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,49
-R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey,4,0.00000400,50
-R32,Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,26,0.00002600,1
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,25,0.00002500,2
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,23,0.00002300,3
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,23,0.00002300,4
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,23,0.00002300,5
-R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,21,0.00002100,6
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,21,0.00002100,7
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,20,0.00002000,8
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,19,0.00001900,9
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,18,0.00001800,10
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay|Uzbekistan,17,0.00001700,11
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,17,0.00001700,12
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,13
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,17,0.00001700,14
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,15
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,17,0.00001700,16
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,16,0.00001600,17
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,16,0.00001600,18
-R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,15,0.00001500,19
-R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,15,0.00001500,20
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|New Zealand|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,15,0.00001500,21
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|Uruguay,15,0.00001500,22
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay|Uzbekistan,15,0.00001500,23
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay|Uzbekistan,15,0.00001500,24
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,14,0.00001400,25
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,14,0.00001400,26
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,14,0.00001400,27
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,14,0.00001400,28
-R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,14,0.00001400,29
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,14,0.00001400,30
-R32,Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|Uruguay|Uzbekistan,14,0.00001400,31
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay|Uzbekistan,14,0.00001400,32
-R32,Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,14,0.00001400,33
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,14,0.00001400,34
-R32,Algeria|Argentina|Australia|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay|Uzbekistan,14,0.00001400,35
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,14,0.00001400,36
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,14,0.00001400,37
-R32,Algeria|Argentina|Australia|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,14,0.00001400,38
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,13,0.00001300,39
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|Uruguay,13,0.00001300,40
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,13,0.00001300,41
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,13,0.00001300,42
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,13,0.00001300,43
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,13,0.00001300,44
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,13,0.00001300,45
-R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay|Uzbekistan,13,0.00001300,46
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,13,0.00001300,47
-R32,Algeria|Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,13,0.00001300,48
-R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,12,0.00001200,49
-R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|Spain|Sweden|Switzerland|Turkey|Uruguay,12,0.00001200,50
-SF,Argentina|England|France|Spain,4335,0.00433500,1
-SF,Argentina|Brazil|France|Spain,3741,0.00374100,2
-SF,Argentina|England|Germany|Spain,3714,0.00371400,3
-SF,Argentina|Brazil|Germany|Spain,3238,0.00323800,4
-SF,Argentina|France|Germany|Spain,3158,0.00315800,5
-SF,Argentina|England|Netherlands|Spain,2835,0.00283500,6
-SF,Argentina|Ecuador|Germany|Spain,2733,0.00273300,7
-SF,Argentina|Brazil|Netherlands|Spain,2731,0.00273100,8
-SF,England|France|Portugal|Spain,2140,0.00214000,9
-SF,Argentina|Ecuador|France|Spain,2017,0.00201700,10
-SF,Argentina|France|Netherlands|Spain,2008,0.00200800,11
-SF,Argentina|Ecuador|England|Spain,1992,0.00199200,12
-SF,Argentina|Brazil|Ecuador|Spain,1949,0.00194900,13
-SF,England|Germany|Portugal|Spain,1856,0.00185600,14
-SF,Argentina|France|Norway|Spain,1844,0.00184400,15
-SF,Argentina|Brazil|England|Spain,1819,0.00181900,16
-SF,Brazil|France|Portugal|Spain,1808,0.00180800,17
-SF,Argentina|Germany|Netherlands|Spain,1670,0.00167000,18
-SF,England|France|Spain|Uruguay,1631,0.00163100,19
-SF,Brazil|Germany|Portugal|Spain,1595,0.00159500,20
-SF,England|Netherlands|Portugal|Spain,1506,0.00150600,21
-SF,France|Germany|Portugal|Spain,1492,0.00149200,22
-SF,England|France|Spain|Switzerland,1468,0.00146800,23
-SF,Argentina|England|Spain|Switzerland,1447,0.00144700,24
-SF,Argentina|Brazil|Morocco|Spain,1424,0.00142400,25
-SF,Brazil|France|Spain|Uruguay,1415,0.00141500,26
-SF,Brazil|Netherlands|Portugal|Spain,1381,0.00138100,27
-SF,Brazil|France|Spain|Switzerland,1358,0.00135800,28
-SF,England|Germany|Spain|Switzerland,1355,0.00135500,29
-SF,England|Germany|Spain|Uruguay,1349,0.00134900,30
-SF,Brazil|Germany|Spain|Uruguay,1326,0.00132600,31
-SF,Argentina|France|Mexico|Spain,1322,0.00132200,32
-SF,Argentina|Belgium|England|France,1321,0.00132100,33
-SF,Ecuador|Germany|Portugal|Spain,1295,0.00129500,34
-SF,Argentina|Belgium|Brazil|France,1227,0.00122700,35
-SF,Argentina|Croatia|England|France,1225,0.00122500,36
-SF,Brazil|Germany|Spain|Switzerland,1209,0.00120900,37
-SF,Argentina|Ecuador|Netherlands|Spain,1182,0.00118200,38
-SF,Argentina|France|Senegal|Spain,1160,0.00116000,39
-SF,England|Netherlands|Spain|Switzerland,1152,0.00115200,40
-SF,Argentina|Belgium|England|Germany,1150,0.00115000,41
-SF,France|Germany|Spain|Uruguay,1150,0.00115000,42
-SF,England|Netherlands|Spain|Uruguay,1143,0.00114300,43
-SF,Argentina|Croatia|France|Spain,1111,0.00111100,44
-SF,Brazil|Netherlands|Spain|Switzerland,1108,0.00110800,45
-SF,Argentina|England|France|Portugal,1096,0.00109600,46
-SF,Belgium|England|France|Spain,1093,0.00109300,47
-SF,Belgium|Brazil|France|Spain,1080,0.00108000,48
-SF,France|Germany|Spain|Switzerland,1076,0.00107600,49
-SF,Argentina|Belgium|Brazil|Germany,1035,0.00103500,50
-final,France|Spain,43212,0.04321200,1
-final,England|Spain,38778,0.03877800,2
-final,Brazil|Spain,38313,0.03831300,3
-final,Germany|Spain,35686,0.03568600,4
-final,Argentina|France,27964,0.02796400,5
-final,Argentina|Brazil,24751,0.02475100,6
-final,Netherlands|Spain,24742,0.02474200,7
-final,Argentina|England,24617,0.02461700,8
-final,Argentina|Germany,23095,0.02309500,9
-final,Ecuador|Spain,20435,0.02043500,10
-final,Argentina|Netherlands,15998,0.01599800,11
-final,France|Portugal,13959,0.01395900,12
-final,England|Portugal,13324,0.01332400,13
-final,Brazil|Portugal,12859,0.01285900,14
-final,Argentina|Ecuador,12701,0.01270100,15
-final,Germany|Portugal,11698,0.01169800,16
-final,Belgium|France,10860,0.01086000,17
-final,Belgium|England,9869,0.00986900,18
-final,Belgium|Brazil,9741,0.00974100,19
-final,Norway|Spain,9689,0.00968900,20
-final,Mexico|Spain,9597,0.00959700,21
-final,Belgium|Germany,9082,0.00908200,22
-final,France|Switzerland,8792,0.00879200,23
-final,England|Switzerland,8743,0.00874300,24
-final,Netherlands|Portugal,8228,0.00822800,25
-final,Brazil|Switzerland,8082,0.00808200,26
-final,Spain|Switzerland,7707,0.00770700,27
-final,Croatia|Spain,7471,0.00747100,28
-final,Germany|Switzerland,7252,0.00725200,29
-final,England|France,7057,0.00705700,30
-final,France|Turkey,7007,0.00700700,31
-final,Brazil|England,6978,0.00697800,32
-final,Morocco|Spain,6768,0.00676800,33
-final,Croatia|England,6758,0.00675800,34
-final,Ecuador|Portugal,6534,0.00653400,35
-final,Argentina|Norway,6380,0.00638000,36
-final,Brazil|Turkey,6223,0.00622300,37
-final,Belgium|Netherlands,6214,0.00621400,38
-final,England|Turkey,6150,0.00615000,39
-final,Colombia|France,6063,0.00606300,40
-final,France|Uruguay,6062,0.00606200,41
-final,Colombia|England,5941,0.00594100,42
-final,Argentina|Mexico,5903,0.00590300,43
-final,Germany|Turkey,5825,0.00582500,44
-final,England|Germany,5755,0.00575500,45
-final,England|Uruguay,5741,0.00574100,46
-final,Senegal|Spain,5668,0.00566800,47
-final,Netherlands|Switzerland,5425,0.00542500,48
-final,Brazil|Uruguay,5394,0.00539400,49
-final,Japan|Spain,5359,0.00535900,50
-winner,Spain,192367,0.19236700,1
-winner,Argentina,113412,0.11341200,2
-winner,England,95135,0.09513500,3
-winner,France,83850,0.08385000,4
-winner,Brazil,75025,0.07502500,5
-winner,Germany,65886,0.06588600,6
-winner,Portugal,49850,0.04985000,7
-winner,Netherlands,46499,0.04649900,8
-winner,Switzerland,38112,0.03811200,9
-winner,Belgium,33994,0.03399400,10
-winner,Ecuador,32167,0.03216700,11
-winner,Croatia,19185,0.01918500,12
-winner,Turkey,18872,0.01887200,13
-winner,Colombia,18001,0.01800100,14
-winner,Uruguay,16730,0.01673000,15
-winner,Mexico,14373,0.01437300,16
-winner,Norway,14154,0.01415400,17
-winner,Canada,11476,0.01147600,18
-winner,Morocco,9991,0.00999100,19
-winner,Japan,8246,0.00824600,20
-winner,Senegal,7512,0.00751200,21
-winner,Ivory Coast,4413,0.00441300,22
-winner,Paraguay,3925,0.00392500,23
-winner,Czechia,3886,0.00388600,24
-winner,South Korea,3798,0.00379800,25
-winner,Austria,3194,0.00319400,26
-winner,Sweden,2851,0.00285100,27
-winner,Scotland,2734,0.00273400,28
-winner,Egypt,2239,0.00223900,29
-winner,United States,1927,0.00192700,30
-winner,Bosnia and Herzegovina,1492,0.00149200,31
-winner,Algeria,1387,0.00138700,32
-winner,Iran,944,0.00094400,33
-winner,Australia,803,0.00080300,34
-winner,Uzbekistan,332,0.00033200,35
-winner,DR Congo,332,0.00033200,36
-winner,Panama,216,0.00021600,37
-winner,Ghana,190,0.00019000,38
-winner,Tunisia,139,0.00013900,39
-winner,New Zealand,99,0.00009900,40
-winner,South Africa,63,0.00006300,41
-winner,Cape Verde,60,0.00006000,42
-winner,Haiti,46,0.00004600,43
-winner,Saudi Arabia,41,0.00004100,44
-winner,Jordan,24,0.00002400,45
-winner,Curaçao,11,0.00001100,46
-winner,Iraq,10,0.00001000,47
-winner,Qatar,7,0.00000700,48
+QF,Argentina|Belgium|Brazil|England|France|Netherlands|Portugal|Spain,156,0.00015600,1
+QF,Argentina|Belgium|England|France|Netherlands|Norway|Portugal|Spain,115,0.00011500,2
+QF,Argentina|Brazil|England|France|Netherlands|Portugal|Spain|Turkey,115,0.00011500,3
+QF,Argentina|Belgium|Brazil|England|Germany|Netherlands|Portugal|Spain,104,0.00010400,4
+QF,Argentina|Belgium|Brazil|England|France|Morocco|Portugal|Spain,100,0.00010000,5
+QF,Argentina|Belgium|England|France|Germany|Netherlands|Portugal|Spain,98,0.00009800,6
+QF,Argentina|Belgium|Brazil|Colombia|England|France|Netherlands|Portugal,85,0.00008500,7
+QF,Argentina|Belgium|Brazil|Colombia|England|France|Netherlands|Spain,83,0.00008300,8
+QF,Argentina|Belgium|Ecuador|England|Germany|Netherlands|Portugal|Spain,80,0.00008000,9
+QF,Argentina|Belgium|Brazil|Croatia|England|France|Netherlands|Portugal,80,0.00008000,10
+QF,Argentina|England|France|Netherlands|Norway|Portugal|Spain|Turkey,79,0.00007900,11
+QF,Argentina|Belgium|Brazil|England|France|Netherlands|Spain|Switzerland,76,0.00007600,12
+QF,Argentina|Brazil|England|Germany|Netherlands|Portugal|Spain|Turkey,76,0.00007600,13
+QF,Argentina|England|France|Germany|Netherlands|Portugal|Spain|Turkey,75,0.00007500,14
+QF,Argentina|Belgium|Colombia|England|France|Netherlands|Norway|Portugal,72,0.00007200,15
+QF,Argentina|Brazil|England|France|Morocco|Portugal|Spain|Turkey,69,0.00006900,16
+QF,Argentina|Belgium|England|France|Netherlands|Portugal|Senegal|Spain,68,0.00006800,17
+QF,Belgium|Brazil|England|France|Netherlands|Portugal|Spain|Uruguay,68,0.00006800,18
+QF,Argentina|Brazil|Colombia|England|France|Netherlands|Portugal|Turkey,64,0.00006400,19
+QF,Argentina|Brazil|England|France|Netherlands|Spain|Switzerland|Turkey,64,0.00006400,20
+QF,Argentina|Belgium|Croatia|England|France|Netherlands|Norway|Portugal,64,0.00006400,21
+QF,Brazil|England|France|Netherlands|Portugal|Spain|Turkey|Uruguay,63,0.00006300,22
+QF,Argentina|Belgium|Brazil|Croatia|France|Netherlands|Portugal|Spain,63,0.00006300,23
+QF,Argentina|Belgium|Ecuador|England|France|Netherlands|Portugal|Spain,60,0.00006000,24
+QF,Argentina|Ecuador|England|France|Netherlands|Portugal|Spain|Turkey,60,0.00006000,25
+QF,Argentina|Belgium|France|Netherlands|Norway|Portugal|Senegal|Spain,57,0.00005700,26
+QF,Argentina|Belgium|Brazil|England|France|Japan|Netherlands|Spain,57,0.00005700,27
+QF,Argentina|Belgium|Brazil|England|Germany|Morocco|Portugal|Spain,57,0.00005700,28
+QF,Belgium|Brazil|England|Germany|Netherlands|Portugal|Spain|Uruguay,56,0.00005600,29
+QF,Argentina|England|France|Netherlands|Norway|Portugal|Senegal|Spain,56,0.00005600,30
+QF,Argentina|Belgium|Brazil|England|Netherlands|Norway|Portugal|Spain,55,0.00005500,31
+QF,Argentina|Belgium|England|France|Japan|Netherlands|Portugal|Spain,53,0.00005300,32
+QF,Argentina|Brazil|Ecuador|England|Netherlands|Portugal|Spain|Turkey,53,0.00005300,33
+QF,Argentina|Belgium|Brazil|England|France|Portugal|Spain|Switzerland,53,0.00005300,34
+QF,Belgium|England|France|Germany|Netherlands|Portugal|Spain|Uruguay,53,0.00005300,35
+QF,Argentina|Belgium|England|France|Germany|Netherlands|Spain|Switzerland,52,0.00005200,36
+QF,Argentina|Brazil|Colombia|England|Germany|Netherlands|Portugal|Turkey,52,0.00005200,37
+QF,Belgium|England|France|Netherlands|Norway|Portugal|Spain|Uruguay,52,0.00005200,38
+QF,Argentina|Belgium|Colombia|England|France|Germany|Netherlands|Portugal,52,0.00005200,39
+QF,Argentina|Colombia|England|France|Netherlands|Norway|Portugal|Turkey,51,0.00005100,40
+QF,Argentina|England|France|Japan|Netherlands|Portugal|Spain|Turkey,51,0.00005100,41
+QF,Argentina|Belgium|Colombia|England|France|Netherlands|Norway|Spain,51,0.00005100,42
+QF,Argentina|Brazil|Colombia|England|France|Netherlands|Spain|Turkey,50,0.00005000,43
+QF,Argentina|Brazil|Croatia|England|France|Netherlands|Portugal|Turkey,50,0.00005000,44
+QF,Argentina|Ecuador|England|Germany|Netherlands|Portugal|Spain|Turkey,50,0.00005000,45
+QF,Argentina|Brazil|England|France|Morocco|Portugal|Spain|United States,49,0.00004900,46
+QF,Argentina|Belgium|Brazil|Colombia|England|France|Morocco|Portugal,48,0.00004800,47
+QF,Belgium|Brazil|England|France|Netherlands|Portugal|Spain|Turkey,48,0.00004800,48
+QF,Argentina|Belgium|England|France|Norway|Portugal|Spain|Switzerland,48,0.00004800,49
+QF,Argentina|Belgium|Croatia|England|France|Germany|Netherlands|Portugal,48,0.00004800,50
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Netherlands|Norway|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,8,0.00000800,1
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey|United States,7,0.00000700,2
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Croatia|France|Germany|Morocco|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|United States,6,0.00000600,3
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Croatia|France|Germany|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,6,0.00000600,4
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Netherlands|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|United States,6,0.00000600,5
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Croatia|France|Germany|Netherlands|Norway|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,6,0.00000600,6
+R16,Argentina|Belgium|Brazil|Colombia|England|France|Germany|Mexico|Morocco|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|United States,5,0.00000500,7
+R16,Argentina|Belgium|Brazil|Canada|Croatia|England|France|Germany|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,5,0.00000500,8
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|Turkey|United States,5,0.00000500,9
+R16,Argentina|Belgium|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Morocco|Norway|Portugal|Senegal|Spain|Switzerland|Turkey,5,0.00000500,10
+R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Turkey|United States,5,0.00000500,11
+R16,Argentina|Belgium|Brazil|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|South Korea|Spain|Turkey|United States,5,0.00000500,12
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Morocco|Portugal|Senegal|Spain|Switzerland|Turkey|United States,5,0.00000500,13
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,5,0.00000500,14
+R16,Argentina|Belgium|Brazil|Canada|Croatia|England|France|Germany|Japan|Mexico|Netherlands|Norway|Paraguay|Spain|Switzerland|Turkey,5,0.00000500,15
+R16,Argentina|Belgium|Brazil|Canada|Croatia|England|France|Germany|Morocco|Norway|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,5,0.00000500,16
+R16,Argentina|Belgium|Brazil|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|South Korea|Spain|Switzerland|Turkey|United States,5,0.00000500,17
+R16,Argentina|Brazil|Colombia|England|France|Germany|Mexico|Morocco|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Switzerland|Turkey,4,0.00000400,18
+R16,Argentina|Belgium|Brazil|Colombia|Ecuador|England|France|Germany|Mexico|Morocco|Paraguay|Portugal|Spain|Switzerland|Turkey|United States,4,0.00000400,19
+R16,Belgium|Bosnia and Herzegovina|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay,4,0.00000400,20
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|Spain|Switzerland|United States,4,0.00000400,21
+R16,Argentina|Belgium|Canada|Croatia|England|France|Germany|Japan|Mexico|Netherlands|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,4,0.00000400,22
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Iran|Netherlands|Norway|Portugal|Senegal|Spain|Switzerland|Turkey,4,0.00000400,23
+R16,Argentina|Belgium|Brazil|Canada|Croatia|England|France|Germany|Netherlands|Norway|Paraguay|Portugal|Senegal|Spain|Switzerland|United States,4,0.00000400,24
+R16,Brazil|Colombia|Czechia|England|France|Germany|Mexico|Morocco|Portugal|Scotland|Senegal|South Korea|Spain|Turkey|United States|Uruguay,4,0.00000400,25
+R16,Argentina|Belgium|Brazil|Croatia|Ecuador|England|France|Germany|Mexico|Paraguay|Portugal|Scotland|South Korea|Spain|Turkey|United States,4,0.00000400,26
+R16,Belgium|Brazil|Canada|Croatia|England|France|Germany|Iran|Japan|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,27
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Ivory Coast|Mexico|Netherlands|Paraguay|Portugal|Spain|Switzerland|Turkey,4,0.00000400,28
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Ecuador|England|France|Germany|Mexico|Morocco|Portugal|Spain|Switzerland|Turkey|United States,4,0.00000400,29
+R16,Argentina|Belgium|Brazil|Canada|Croatia|Czechia|England|France|Germany|Mexico|Netherlands|Norway|Paraguay|Portugal|Spain|Turkey,4,0.00000400,30
+R16,Argentina|Belgium|Brazil|Canada|Colombia|France|Germany|Mexico|Morocco|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|United States,4,0.00000400,31
+R16,Belgium|Brazil|Canada|Colombia|Croatia|Ecuador|England|France|Japan|Norway|Portugal|Spain|Switzerland|Turkey|United States|Uruguay,4,0.00000400,32
+R16,Belgium|Brazil|Canada|Colombia|England|France|Germany|Netherlands|Norway|Paraguay|Portugal|Senegal|Spain|Switzerland|United States|Uruguay,4,0.00000400,33
+R16,Argentina|Belgium|Brazil|Colombia|Czechia|Ecuador|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|Spain|Switzerland|Turkey,4,0.00000400,34
+R16,Argentina|Belgium|Brazil|Canada|Croatia|England|France|Germany|Mexico|Morocco|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,4,0.00000400,35
+R16,Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Croatia|Ecuador|Egypt|England|France|Germany|Mexico|Morocco|Portugal|Spain|Switzerland,4,0.00000400,36
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Norway|Portugal|Scotland|Spain|Switzerland|Turkey|United States,4,0.00000400,37
+R16,Argentina|Belgium|Brazil|Canada|Colombia|England|France|Germany|Mexico|Morocco|Norway|Portugal|Spain|Switzerland|Turkey|United States,4,0.00000400,38
+R16,Argentina|Belgium|Canada|Croatia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Sweden|Switzerland|Turkey|United States,4,0.00000400,39
+R16,Argentina|Belgium|Brazil|Croatia|Ecuador|England|France|Mexico|Morocco|Norway|Paraguay|Portugal|South Korea|Spain|Switzerland|Turkey,4,0.00000400,40
+R16,Argentina|Brazil|Canada|Colombia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|United States,4,0.00000400,41
+R16,Belgium|Bosnia and Herzegovina|Brazil|Canada|Croatia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Spain|Switzerland|United States|Uruguay,4,0.00000400,42
+R16,Belgium|Brazil|Croatia|Czechia|Ecuador|England|France|Germany|Mexico|Morocco|Portugal|Spain|Switzerland|Turkey|United States|Uruguay,4,0.00000400,43
+R16,Belgium|Brazil|Croatia|Czechia|England|France|Germany|Mexico|Netherlands|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,44
+R16,Argentina|Belgium|Brazil|Canada|Croatia|Ecuador|England|France|Mexico|Morocco|Norway|Paraguay|Portugal|Spain|Switzerland|Turkey,4,0.00000400,45
+R16,Argentina|Brazil|Colombia|Czechia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|South Korea|Spain|Switzerland|Turkey|United States,4,0.00000400,46
+R16,Belgium|Croatia|Egypt|England|France|Germany|Japan|Mexico|Netherlands|Norway|Portugal|South Korea|Spain|Switzerland|Turkey|Uruguay,4,0.00000400,47
+R16,Argentina|Brazil|Canada|Croatia|England|France|Germany|Mexico|Netherlands|Norway|Portugal|Senegal|Spain|Switzerland|Turkey|United States,4,0.00000400,48
+R16,Argentina|Belgium|Brazil|Colombia|Czechia|England|France|Germany|Ivory Coast|Mexico|Netherlands|Paraguay|Portugal|Spain|Switzerland|Turkey,4,0.00000400,49
+R16,Argentina|Belgium|Brazil|Canada|Colombia|Croatia|England|France|Germany|Netherlands|Paraguay|Portugal|Senegal|Spain|Switzerland|Turkey,4,0.00000400,50
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,36,0.00003600,1
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,33,0.00003300,2
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,32,0.00003200,3
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,29,0.00002900,4
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,28,0.00002800,5
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,27,0.00002700,6
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,25,0.00002500,7
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,24,0.00002400,8
+R32,Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,23,0.00002300,9
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,23,0.00002300,10
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay|Uzbekistan,23,0.00002300,11
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,23,0.00002300,12
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,22,0.00002200,13
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,21,0.00002100,14
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,20,0.00002000,15
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,20,0.00002000,16
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,20,0.00002000,17
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,20,0.00002000,18
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay|Uzbekistan,20,0.00002000,19
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,20,0.00002000,20
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,19,0.00001900,21
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,19,0.00001900,22
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,19,0.00001900,23
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,19,0.00001900,24
+R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,19,0.00001900,25
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,18,0.00001800,26
+R32,Algeria|Argentina|Australia|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,18,0.00001800,27
+R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,18,0.00001800,28
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Cape Verde|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,18,0.00001800,29
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,18,0.00001800,30
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,18,0.00001800,31
+R32,Algeria|Argentina|Australia|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay|Uzbekistan,18,0.00001800,32
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,17,0.00001700,33
+R32,Algeria|Argentina|Australia|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,34
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,17,0.00001700,35
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,36
+R32,Algeria|Argentina|Australia|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,37
+R32,Algeria|Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,38
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,39
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Switzerland|Turkey|United States|Uruguay,17,0.00001700,40
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,17,0.00001700,41
+R32,Algeria|Argentina|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,17,0.00001700,42
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Ivory Coast|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,43
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,17,0.00001700,44
+R32,Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Panama|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,16,0.00001600,45
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Senegal|South Korea|Spain|Switzerland|Tunisia|Turkey|United States|Uruguay,16,0.00001600,46
+R32,Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|DR Congo|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,16,0.00001600,47
+R32,Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Iran|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay|Uzbekistan,16,0.00001600,48
+R32,Algeria|Argentina|Austria|Belgium|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Saudi Arabia|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|United States|Uruguay,16,0.00001600,49
+R32,Algeria|Argentina|Austria|Belgium|Bosnia and Herzegovina|Brazil|Canada|Colombia|Croatia|Czechia|Ecuador|Egypt|England|France|Germany|Ghana|Ivory Coast|Japan|Mexico|Morocco|Netherlands|Norway|Paraguay|Portugal|Scotland|Senegal|South Korea|Spain|Sweden|Switzerland|Turkey|Uruguay,16,0.00001600,50
+SF,Argentina|England|France|Spain,4903,0.00490300,1
+SF,Argentina|Brazil|France|Spain,4143,0.00414300,2
+SF,Argentina|France|Norway|Spain,3734,0.00373400,3
+SF,Argentina|England|Netherlands|Spain,3196,0.00319600,4
+SF,Argentina|France|Germany|Spain,3148,0.00314800,5
+SF,Argentina|England|Germany|Spain,2988,0.00298800,6
+SF,Argentina|Brazil|Netherlands|Spain,2830,0.00283000,7
+SF,Argentina|France|Netherlands|Spain,2813,0.00281300,8
+SF,England|France|Portugal|Spain,2732,0.00273200,9
+SF,Argentina|Brazil|Germany|Spain,2379,0.00237900,10
+SF,Brazil|France|Portugal|Spain,2316,0.00231600,11
+SF,Argentina|France|Senegal|Spain,2288,0.00228800,12
+SF,Argentina|Ecuador|France|Spain,1922,0.00192200,13
+SF,France|Norway|Portugal|Spain,1914,0.00191400,14
+SF,Argentina|Brazil|England|Spain,1772,0.00177200,15
+SF,England|Netherlands|Portugal|Spain,1735,0.00173500,16
+SF,England|France|Spain|Uruguay,1689,0.00168900,17
+SF,Argentina|Croatia|England|France,1660,0.00166000,18
+SF,Argentina|Ecuador|Germany|Spain,1639,0.00163900,19
+SF,England|Germany|Portugal|Spain,1622,0.00162200,20
+SF,France|Germany|Portugal|Spain,1597,0.00159700,21
+SF,Brazil|Netherlands|Portugal|Spain,1563,0.00156300,22
+SF,Argentina|England|France|Portugal,1550,0.00155000,23
+SF,Argentina|Ecuador|England|Spain,1507,0.00150700,24
+SF,Argentina|Germany|Netherlands|Spain,1506,0.00150600,25
+SF,France|Netherlands|Portugal|Spain,1504,0.00150400,26
+SF,Argentina|Croatia|France|Spain,1424,0.00142400,27
+SF,Argentina|Brazil|Norway|Spain,1424,0.00142400,28
+SF,Brazil|France|Spain|Uruguay,1413,0.00141300,29
+SF,Argentina|Brazil|Morocco|Spain,1388,0.00138800,30
+SF,Argentina|Brazil|Ecuador|Spain,1352,0.00135200,31
+SF,Argentina|Belgium|England|France,1324,0.00132400,32
+SF,Argentina|Germany|Norway|Spain,1318,0.00131800,33
+SF,Argentina|Netherlands|Norway|Spain,1310,0.00131000,34
+SF,France|Portugal|Senegal|Spain,1306,0.00130600,35
+SF,Brazil|Germany|Portugal|Spain,1287,0.00128700,36
+SF,Argentina|France|Mexico|Spain,1264,0.00126400,37
+SF,Argentina|England|Norway|Spain,1256,0.00125600,38
+SF,France|Norway|Spain|Uruguay,1233,0.00123300,39
+SF,Colombia|England|France|Portugal,1208,0.00120800,40
+SF,England|France|Spain|Turkey,1175,0.00117500,41
+SF,Argentina|England|France|Turkey,1151,0.00115100,42
+SF,Colombia|England|France|Spain,1124,0.00112400,43
+SF,England|Netherlands|Spain|Uruguay,1116,0.00111600,44
+SF,Argentina|Belgium|Brazil|France,1115,0.00111500,45
+SF,Argentina|England|Morocco|Spain,1094,0.00109400,46
+SF,Argentina|France|Morocco|Spain,1067,0.00106700,47
+SF,France|Germany|Spain|Uruguay,1052,0.00105200,48
+SF,Argentina|Croatia|England|Netherlands,1051,0.00105100,49
+SF,Argentina|Brazil|France|Portugal,1046,0.00104600,50
+final,France|Spain,51178,0.05117800,1
+final,Argentina|France,40198,0.04019800,2
+final,England|Spain,33572,0.03357200,3
+final,Brazil|Spain,31597,0.03159700,4
+final,Netherlands|Spain,25929,0.02592900,5
+final,Germany|Spain,25823,0.02582300,6
+final,Argentina|England,25594,0.02559400,7
+final,Argentina|Brazil,24413,0.02441300,8
+final,France|Portugal,22963,0.02296300,9
+final,Argentina|Netherlands,19925,0.01992500,10
+final,Argentina|Germany,19736,0.01973600,11
+final,Norway|Spain,16373,0.01637300,12
+final,England|Portugal,16002,0.01600200,13
+final,Brazil|Portugal,14023,0.01402300,14
+final,Ecuador|Spain,12810,0.01281000,15
+final,Argentina|Norway,12639,0.01263900,16
+final,Netherlands|Portugal,11526,0.01152600,17
+final,Germany|Portugal,11233,0.01123300,18
+final,France|Turkey,10880,0.01088000,19
+final,Argentina|Ecuador,10037,0.01003700,20
+final,Senegal|Spain,9872,0.00987200,21
+final,Belgium|France,9626,0.00962600,22
+final,Colombia|France,9235,0.00923500,23
+final,England|France,8859,0.00885900,24
+final,Argentina|Senegal,7828,0.00782800,25
+final,France|Uruguay,7688,0.00768800,26
+final,Croatia|Spain,7578,0.00757800,27
+final,Norway|Portugal,7113,0.00711300,28
+final,England|Turkey,7111,0.00711100,29
+final,Morocco|Spain,6912,0.00691200,30
+final,Brazil|Turkey,6806,0.00680600,31
+final,Colombia|England,6782,0.00678200,32
+final,Croatia|England,6716,0.00671600,33
+final,Mexico|Spain,6432,0.00643200,34
+final,Belgium|England,6323,0.00632300,35
+final,Belgium|Brazil,6066,0.00606600,36
+final,Brazil|England,5877,0.00587700,37
+final,Argentina|Croatia,5864,0.00586400,38
+final,Brazil|Colombia,5744,0.00574400,39
+final,Ecuador|Portugal,5669,0.00566900,40
+final,Germany|Turkey,5517,0.00551700,41
+final,Netherlands|Turkey,5515,0.00551500,42
+final,Argentina|Morocco,5327,0.00532700,43
+final,England|Netherlands,5210,0.00521000,44
+final,Argentina|Mexico,5067,0.00506700,45
+final,France|Switzerland,5036,0.00503600,46
+final,England|Uruguay,4989,0.00498900,47
+final,Japan|Spain,4927,0.00492700,48
+final,Belgium|Germany,4799,0.00479900,49
+final,Belgium|Netherlands,4782,0.00478200,50
+winner,Spain,172224,0.17222400,1
+winner,Argentina,127670,0.12767000,2
+winner,France,116957,0.11695700,3
+winner,England,88600,0.08860000,4
+winner,Portugal,67025,0.06702500,5
+winner,Brazil,65106,0.06510600,6
+winner,Netherlands,52949,0.05294900,7
+winner,Germany,47413,0.04741300,8
+winner,Norway,28917,0.02891700,9
+winner,Turkey,24080,0.02408000,10
+winner,Colombia,23767,0.02376700,11
+winner,Belgium,21083,0.02108300,12
+winner,Croatia,21001,0.02100100,13
+winner,Ecuador,20640,0.02064000,14
+winner,Uruguay,16519,0.01651900,15
+winner,Senegal,16387,0.01638700,16
+winner,Switzerland,15015,0.01501500,17
+winner,Morocco,11247,0.01124700,18
+winner,Japan,8714,0.00871400,19
+winner,Mexico,8709,0.00870900,20
+winner,United States,7934,0.00793400,21
+winner,Austria,5409,0.00540900,22
+winner,Paraguay,5246,0.00524600,23
+winner,Sweden,4490,0.00449000,24
+winner,Canada,4242,0.00424200,25
+winner,Ivory Coast,3669,0.00366900,26
+winner,Scotland,2729,0.00272900,27
+winner,Algeria,2551,0.00255100,28
+winner,Czechia,2436,0.00243600,29
+winner,South Korea,1975,0.00197500,30
+winner,Egypt,1216,0.00121600,31
+winner,Australia,924,0.00092400,32
+winner,DR Congo,588,0.00058800,33
+winner,Uzbekistan,530,0.00053000,34
+winner,Bosnia and Herzegovina,523,0.00052300,35
+winner,Iran,441,0.00044100,36
+winner,Ghana,273,0.00027300,37
+winner,Panama,250,0.00025000,38
+winner,Tunisia,157,0.00015700,39
+winner,Cape Verde,93,0.00009300,40
+winner,New Zealand,59,0.00005900,41
+winner,Haiti,54,0.00005400,42
+winner,Saudi Arabia,49,0.00004900,43
+winner,South Africa,48,0.00004800,44
+winner,Jordan,39,0.00003900,45
+winner,Iraq,23,0.00002300,46
+winner,Qatar,22,0.00002200,47
+winner,Curaçao,7,0.00000700,48

@@ -39,6 +39,27 @@ class ExperimentSpec:
     model_name: str
     baseline_name: str | None = None
     is_reference: bool = False
+    feature_names: tuple[str, ...] | None = None
+
+
+ELO_ONLY_FEATURES: tuple[str, ...] = ("elo_diff",)
+ELO_PLUS_VALUES_FEATURES: tuple[str, ...] = (
+    "elo_diff",
+    "z_log_top_15_average_value_team_a",
+    "z_log_top_15_average_value_team_b",
+)
+MINUS_VALUES_FEATURES: tuple[str, ...] = tuple(
+    name for name in CORE7_FEATURE_NAMES if not name.startswith("z_log_")
+)
+MINUS_CONFED_FEATURES: tuple[str, ...] = tuple(
+    name for name in CORE7_FEATURE_NAMES if "confederation" not in name
+)
+MINUS_STAGE_FEATURES: tuple[str, ...] = tuple(
+    name for name in CORE7_FEATURE_NAMES if name != "stage_binary"
+)
+MINUS_HOST_FEATURES: tuple[str, ...] = tuple(
+    name for name in CORE7_FEATURE_NAMES if name != "host_diff"
+)
 
 
 def experiment_specs() -> list[ExperimentSpec]:
@@ -46,6 +67,37 @@ def experiment_specs() -> list[ExperimentSpec]:
         ExperimentSpec(
             experiment_id=CATBOOST_EXPERIMENT_ID,
             model_name="catboost",
+            feature_names=CORE7_FEATURE_NAMES,
+        ),
+        ExperimentSpec(
+            experiment_id="catboost_loto_elo_only",
+            model_name="catboost",
+            feature_names=ELO_ONLY_FEATURES,
+        ),
+        ExperimentSpec(
+            experiment_id="catboost_loto_elo_plus_values",
+            model_name="catboost",
+            feature_names=ELO_PLUS_VALUES_FEATURES,
+        ),
+        ExperimentSpec(
+            experiment_id="catboost_loto_minus_values",
+            model_name="catboost",
+            feature_names=MINUS_VALUES_FEATURES,
+        ),
+        ExperimentSpec(
+            experiment_id="catboost_loto_minus_confed",
+            model_name="catboost",
+            feature_names=MINUS_CONFED_FEATURES,
+        ),
+        ExperimentSpec(
+            experiment_id="catboost_loto_minus_stage",
+            model_name="catboost",
+            feature_names=MINUS_STAGE_FEATURES,
+        ),
+        ExperimentSpec(
+            experiment_id="catboost_loto_minus_host",
+            model_name="catboost",
+            feature_names=MINUS_HOST_FEATURES,
         )
     ]
     for baseline in PREDICTIVE_BASELINE_NAMES:
@@ -120,9 +172,10 @@ def run_single_fold(
     if spec.baseline_name is not None:
         y_pred = predict_baseline(spec.baseline_name, train_rows, test_rows)
     else:
-        x_train = rows_to_feature_matrix(train_rows)
+        feature_names = spec.feature_names or CORE7_FEATURE_NAMES
+        x_train = rows_to_feature_matrix(train_rows, feature_names)
         y_train = rows_to_label_matrix(train_rows)
-        x_test = rows_to_feature_matrix(test_rows)
+        x_test = rows_to_feature_matrix(test_rows, feature_names)
         scaler = FoldScaler.fit(x_train)
         x_train_s = scaler.transform(x_train)
         x_test_s = scaler.transform(x_test)
@@ -130,6 +183,7 @@ def run_single_fold(
             random_state=random_state,
             train_dir=catboost_train_dir,
         ).fit(x_train_s, y_train)
+        model.feature_names = feature_names
         y_pred = model.predict_proba(x_test_s)
 
     metrics = evaluate_probs(y_true, y_pred)
@@ -177,7 +231,7 @@ def run_experiment(
         "model_name": spec.model_name,
         "baseline_name": spec.baseline_name,
         "is_reference": spec.is_reference,
-        "feature_names": list(CORE7_FEATURE_NAMES),
+        "feature_names": list(spec.feature_names or CORE7_FEATURE_NAMES),
         "per_fold": [{k: v for k, v in fold.items() if k != "predictions"} for fold in per_fold],
         "summary": summary_metrics,
         "predictions": all_predictions,
@@ -281,7 +335,7 @@ def run_holdout_evaluation(
                 "model_name": spec.model_name,
                 "baseline_name": spec.baseline_name,
                 "is_reference": spec.is_reference,
-                "feature_names": list(CORE7_FEATURE_NAMES),
+                "feature_names": list(spec.feature_names or CORE7_FEATURE_NAMES),
                 "per_fold": [{k: v for k, v in one_fold.items() if k != "predictions"}],
                 "summary": summary_metrics,
                 "predictions": one_fold["predictions"],

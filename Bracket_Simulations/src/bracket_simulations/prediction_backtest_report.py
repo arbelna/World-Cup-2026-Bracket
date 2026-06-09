@@ -328,11 +328,224 @@ def _aggregate_rows(results: list[dict[str, Any]]) -> list[dict[str, str]]:
     return rows
 
 
+def _summarize_mcse(
+    mcse: dict[str, dict[str, dict[str, dict[str, float | int]]]] | None,
+) -> dict[str, dict[str, dict[str, float]]]:
+    if not mcse:
+        return {}
+    metric_names = ("m1_recall_mcse", "m2_brier_qualifiers_mcse", "m5_brier_mcse", "m6_logloss_mcse")
+    summary: dict[str, dict[str, dict[str, float]]] = {}
+    for mode, tournaments in mcse.items():
+        summary[mode] = {}
+        stages = sorted({stage for stage_map in tournaments.values() for stage in stage_map})
+        for stage in stages:
+            summary[mode][stage] = {}
+            for metric in metric_names:
+                values = [
+                    float(stage_map[stage][metric])
+                    for stage_map in tournaments.values()
+                    if stage in stage_map and metric in stage_map[stage]
+                ]
+                summary[mode][stage][metric] = float(sum(values) / len(values)) if values else 0.0
+    return summary
+
+
+def _render_mcse_section(
+    mcse: dict[str, dict[str, dict[str, dict[str, float | int]]]] | None,
+) -> list[str]:
+    summary = _summarize_mcse(mcse)
+    if not summary:
+        return []
+    lines = [
+        "## Monte Carlo standard error",
+        "",
+        "> MCSE is estimated from fixed chunked batch means on the saved `sim_matrix.npz` runs. "
+        "It measures simulation noise inside a single run, not four-tournament sampling uncertainty.",
+        "",
+    ]
+    for mode in ("market_all", "model_all"):
+        if mode not in summary:
+            continue
+        lines.append(f"### {mode}")
+        lines.append("")
+        lines.append("| Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |")
+        lines.append("|-------|----------------|-------------------------|------------------------|---------------------------|")
+        for stage in STAGES:
+            row = summary[mode].get(stage, {})
+            lines.append(
+                f"| **{stage}** | {row.get('m1_recall_mcse', 0.0):.4f} | "
+                f"{row.get('m2_brier_qualifiers_mcse', 0.0):.4f} | "
+                f"{row.get('m5_brier_mcse', 0.0):.4f} | "
+                f"{row.get('m6_logloss_mcse', 0.0):.4f} |"
+            )
+        lines.append("")
+    return lines
+
+
+def _render_seed_sensitivity_section(robustness: dict[str, Any] | None) -> list[str]:
+    if not robustness or "seed_sensitivity" not in robustness:
+        return []
+    payload = robustness["seed_sensitivity"]
+    summary = payload.get("summary") or {}
+    seeds = payload.get("seeds") or []
+    if not summary:
+        return []
+    metric_specs = (
+        ("m1_recall_model", "M1 recall", True),
+        ("m2_brier_qualifiers_model", "M2 qualifier Brier", False),
+        ("m5_brier_model", "M5 all-team Brier", False),
+        ("m6_logloss_model", "M6 all-team log loss", False),
+    )
+    lines = [
+        "## Seed sensitivity",
+        "",
+        f"> Historical `model_all` was rerun with seeds {', '.join(str(seed) for seed in seeds)}. "
+        "The tables report the cross-tournament mean, range, and maximum absolute deviation from the seed mean.",
+        "",
+    ]
+    for metric_key, title, as_pct in metric_specs:
+        lines.append(f"### {title}")
+        lines.append("")
+        lines.append("| Stage | Mean | Range | Max abs deviation |")
+        lines.append("|-------|------|-------|-------------------|")
+        for stage in STAGES:
+            row = summary.get(stage, {}).get(metric_key, {})
+            mean_value = float(row.get("mean", 0.0))
+            range_value = float(row.get("range", 0.0))
+            max_dev = float(row.get("max_abs_deviation", 0.0))
+            if as_pct:
+                lines.append(
+                    f"| **{stage}** | {100.0 * mean_value:.2f}% | {100.0 * range_value:.2f} pp | "
+                    f"{100.0 * max_dev:.2f} pp |"
+                )
+            else:
+                lines.append(
+                    f"| **{stage}** | {mean_value:.4f} | {range_value:.4f} | {max_dev:.4f} |"
+                )
+        lines.append("")
+    return lines
+
+
+def _render_variant_robustness_section(robustness: dict[str, Any] | None) -> list[str]:
+    if not robustness or "variants" not in robustness:
+        return []
+    variants = robustness["variants"]
+    if not variants:
+        return []
+    lines = [
+        "## Variant robustness",
+        "",
+        "> Deltas are measured against the base `model_all` probability surface. "
+        "Positive M1 deltas are better; negative M2/M5/M6 deltas are better.",
+        "",
+        "| Variant | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |",
+        "|---------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|",
+    ]
+    ordered_variant_ids = ["base", "elo_only", "elo_plus_values", "minus_confed", "host_off", "stage_neutral"]
+    for variant_id in ordered_variant_ids:
+        variant = variants.get(variant_id)
+        if not variant:
+            continue
+        claims = variant.get("claims", {})
+        lines.append(
+            f"| {variant.get('label', variant_id)} | "
+            f"{claims.get('m1_model_better_stages', 0)}/{len(STAGES)} | "
+            f"{claims.get('m2_market_better_stages', 0)}/{len(STAGES)} | "
+            f"{claims.get('m5_market_better_stages', 0)}/{len(STAGES)} | "
+            f"{claims.get('m6_market_better_stages', 0)}/{len(STAGES)} | "
+            f"{_yn(bool(claims.get('holds_base_claims', False)))} |"
+        )
+    lines.extend(
+        [
+            "",
+            "| Variant | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |",
+            "|---------|-------|---------------------|------------------|------------------|------------------|",
+        ]
+    )
+    for variant_id in ordered_variant_ids:
+        variant = variants.get(variant_id)
+        if not variant:
+            continue
+        delta_vs_base = variant.get("delta_vs_base", {})
+        for stage in STAGES:
+            delta = delta_vs_base.get(stage, {})
+            lines.append(
+                f"| {variant.get('label', variant_id)} | **{stage}** | "
+                f"{100.0 * float(delta.get('m1_recall_model', 0.0)):+.2f} | "
+                f"{float(delta.get('m2_brier_qualifiers_model', 0.0)):+.4f} | "
+                f"{float(delta.get('m5_brier_model', 0.0)):+.4f} | "
+                f"{float(delta.get('m6_logloss_model', 0.0)):+.4f} |"
+            )
+    lines.append("")
+    return lines
+
+
+def _render_alpha_sensitivity_section(robustness: dict[str, Any] | None) -> list[str]:
+    if not robustness or "alpha_sensitivity" not in robustness:
+        return []
+    payload = robustness["alpha_sensitivity"]
+    values = payload.get("alpha_knockout_values") or []
+    delta_vs_base = payload.get("delta_vs_base") or {}
+    runs = payload.get("runs") or {}
+    if not delta_vs_base:
+        return []
+    lines = [
+        "## Knockout alpha sensitivity",
+        "",
+        f"> Base `model_all` was rerun with `alpha_knockout` values {', '.join(values)}. "
+        "Deltas are measured against the base model probability surface.",
+        "",
+        "| alpha_knockout | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |",
+        "|----------------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|",
+    ]
+    for alpha_key in values:
+        run = runs.get(alpha_key, {})
+        claims = run.get("claims", {})
+        lines.append(
+            f"| {alpha_key} | {claims.get('m1_model_better_stages', 0)}/{len(STAGES)} | "
+            f"{claims.get('m2_market_better_stages', 0)}/{len(STAGES)} | "
+            f"{claims.get('m5_market_better_stages', 0)}/{len(STAGES)} | "
+            f"{claims.get('m6_market_better_stages', 0)}/{len(STAGES)} | "
+            f"{_yn(bool(claims.get('holds_base_claims', False)))} |"
+        )
+    lines.extend(
+        [
+            "",
+            "| alpha_knockout | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |",
+            "|----------------|-------|---------------------|------------------|------------------|------------------|",
+        ]
+    )
+    for alpha_key in values:
+        for stage in STAGES:
+            delta = delta_vs_base.get(alpha_key, {}).get(stage, {})
+            lines.append(
+                f"| {alpha_key} | **{stage}** | "
+                f"{100.0 * float(delta.get('m1_recall_model', 0.0)):+.2f} | "
+                f"{float(delta.get('m2_brier_qualifiers_model', 0.0)):+.4f} | "
+                f"{float(delta.get('m5_brier_model', 0.0)):+.4f} | "
+                f"{float(delta.get('m6_logloss_model', 0.0)):+.4f} |"
+            )
+    lines.append("")
+    return lines
+
+
+def _render_robustness_section(robustness: dict[str, Any] | None) -> list[str]:
+    if not robustness:
+        return []
+    lines: list[str] = []
+    lines.extend(_render_seed_sensitivity_section(robustness))
+    lines.extend(_render_variant_robustness_section(robustness))
+    lines.extend(_render_alpha_sensitivity_section(robustness))
+    return lines
+
+
 def render_summary_markdown(
     results: list[dict[str, Any]],
     *,
     uncertainty: dict[str, dict[str, dict]] | None = None,
     calibration: dict[str, tuple[list[dict], float]] | None = None,
+    mcse: dict[str, dict[str, dict[str, dict[str, float | int]]]] | None = None,
+    robustness: dict[str, Any] | None = None,
 ) -> str:
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     n_t = len(results)
@@ -520,6 +733,14 @@ def render_summary_markdown(
             f"{row['m6_delta']:+.4f} | {better} |"
         )
 
+    if mcse:
+        lines.extend([""])
+        lines.extend(_render_mcse_section(mcse))
+
+    if robustness:
+        lines.extend([""])
+        lines.extend(_render_robustness_section(robustness))
+
     for r in results:
         lines.extend(
             [
@@ -686,6 +907,8 @@ def render_backtest_markdown(
     *,
     uncertainty: dict | None = None,
     calibration: dict | None = None,
+    mcse: dict | None = None,
+    robustness: dict | None = None,
 ) -> str:
     from datetime import datetime, timezone
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
@@ -764,6 +987,14 @@ def render_backtest_markdown(
 
     if uncertainty is not None:
         lines.extend(_render_uncertainty_section(uncertainty))
+        lines.extend(["---", ""])
+
+    if mcse is not None:
+        lines.extend(_render_mcse_section(mcse))
+        lines.extend(["---", ""])
+
+    if robustness is not None:
+        lines.extend(_render_robustness_section(robustness))
         lines.extend(["---", ""])
 
     if calibration is not None:

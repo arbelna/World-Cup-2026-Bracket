@@ -6,7 +6,7 @@ import numpy as np
 from sklearn.preprocessing import StandardScaler
 
 from bracket_simulations.pairwise.metrics import normalize_probs
-from bracket_simulations.pairwise.rows import MatchRow
+from bracket_simulations.pairwise.rows import CORE7_FEATURE_NAMES, MatchRow
 
 
 class CatBoostCore7Model:
@@ -50,12 +50,18 @@ class CatBoostCore7Model:
         return normalize_probs(np.asarray(raw, dtype=float))
 
 
-def fit_predict(train_rows: list[MatchRow], test_rows: list[MatchRow], *, random_state: int = 42) -> np.ndarray:
+def fit_predict(
+    train_rows: list[MatchRow],
+    test_rows: list[MatchRow],
+    *,
+    feature_names: tuple[str, ...] = CORE7_FEATURE_NAMES,
+    random_state: int = 42,
+) -> np.ndarray:
     from bracket_simulations.pairwise.rows import rows_to_feature_matrix, rows_to_label_matrix
 
-    x_train = rows_to_feature_matrix(train_rows)
+    x_train = rows_to_feature_matrix(train_rows, feature_names)
     y_train = rows_to_label_matrix(train_rows)
-    x_test = rows_to_feature_matrix(test_rows)
+    x_test = rows_to_feature_matrix(test_rows, feature_names)
     model = CatBoostCore7Model(random_state=random_state)
     model.fit(x_train, y_train)
     return model.predict_proba(x_test)

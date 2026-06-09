@@ -1,6 +1,6 @@
 # Stage prediction backtest
 
-**Generated:** 2026-06-09 08:12 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
+**Generated:** 2026-06-09 10:44 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
 
 > For the concise human-facing summary, see [`results.md`](../../../results.md). This file keeps the full generated stage-by-stage breakdown.
 
@@ -25,7 +25,7 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Stage | M1 market | M1 model |
 |-------|-----------|-----------|
-| **R16** | 70.31% | 71.88% |
+| **R16** | 70.31% | 70.31% |
 | **QF** | 62.50% | 65.62% |
 | **SF** | 43.75% | 50.00% |
 | **final** | 25.00% | 37.50% |
@@ -35,51 +35,51 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Stage | M2 market | M2 model |
 |-------|-----------|----------|
-| **R16** | 0.1955 | 0.2045 |
-| **QF** | 0.3246 | 0.3612 |
-| **SF** | 0.5138 | 0.5597 |
-| **final** | 0.6489 | 0.6767 |
-| **winner** | 0.7687 | 0.7861 |
+| **R16** | 0.1955 | 0.2086 |
+| **QF** | 0.3246 | 0.3585 |
+| **SF** | 0.5138 | 0.5580 |
+| **final** | 0.6489 | 0.6725 |
+| **winner** | 0.7687 | 0.7811 |
 
 ### M3 exact-set cumulative
 
 | Stage | M3 cum market | M3 cum model | Delta pp (model - market) | Better side |
 |-------|---------------|--------------|---------------------------|-------------|
 | **R16** | 62.05% | 97.21% | +35.16 | market |
-| **QF** | 40.01% | 59.74% | +19.73 | market |
-| **SF** | 45.02% | 42.47% | -2.55 | model |
-| **final** | 39.12% | 25.39% | -13.73 | model |
-| **winner** | 56.86% | 43.39% | -13.47 | model |
+| **QF** | 40.01% | 60.13% | +20.11 | market |
+| **SF** | 45.02% | 43.61% | -1.41 | model |
+| **final** | 39.12% | 25.66% | -13.46 | model |
+| **winner** | 56.86% | 45.23% | -11.63 | model |
 
 ### M4 all-teams-seen cumulative
 
 | Stage | M4 cum market | M4 cum model | Delta pp (model - market) | Better side |
 |-------|---------------|--------------|---------------------------|-------------|
-| **R16** | 9.29% | 6.24% | -3.05 | model |
-| **QF** | 14.38% | 15.75% | +1.37 | market |
-| **SF** | 24.11% | 27.19% | +3.08 | market |
-| **final** | 35.91% | 19.60% | -16.31 | model |
-| **winner** | 56.86% | 43.39% | -13.47 | model |
+| **R16** | 9.29% | 7.85% | -1.44 | model |
+| **QF** | 14.38% | 15.04% | +0.66 | market |
+| **SF** | 24.11% | 27.55% | +3.44 | market |
+| **final** | 35.91% | 19.87% | -16.03 | model |
+| **winner** | 56.86% | 45.23% | -11.63 | model |
 
 ### M5 all-team binary Brier
 
 | Stage | M5 market | M5 model | Delta (model - market) | Better side |
 |-------|-----------|----------|------------------------|-------------|
-| **R16** | 0.1920 | 0.2007 | +0.0087 | market |
-| **QF** | 0.1261 | 0.1338 | +0.0077 | market |
-| **SF** | 0.0882 | 0.0896 | +0.0014 | market |
-| **final** | 0.0502 | 0.0494 | -0.0008 | model |
-| **winner** | 0.0275 | 0.0270 | -0.0006 | model |
+| **R16** | 0.1920 | 0.2039 | +0.0119 | market |
+| **QF** | 0.1261 | 0.1325 | +0.0064 | market |
+| **SF** | 0.0882 | 0.0897 | +0.0015 | market |
+| **final** | 0.0502 | 0.0493 | -0.0008 | model |
+| **winner** | 0.0275 | 0.0269 | -0.0006 | model |
 
 ### M6 all-team binary log loss
 
 | Stage | M6 market | M6 model | Delta (model - market) | Better side |
 |-------|-----------|----------|------------------------|-------------|
-| **R16** | 0.5611 | 0.5842 | +0.0231 | market |
-| **QF** | 0.4001 | 0.4296 | +0.0295 | market |
-| **SF** | 0.2811 | 0.2957 | +0.0146 | market |
-| **final** | 0.1622 | 0.1653 | +0.0031 | market |
-| **winner** | 0.0958 | 0.0976 | +0.0018 | market |
+| **R16** | 0.5611 | 0.5907 | +0.0296 | market |
+| **QF** | 0.4001 | 0.4279 | +0.0278 | market |
+| **SF** | 0.2811 | 0.2984 | +0.0173 | market |
+| **final** | 0.1622 | 0.1645 | +0.0024 | market |
+| **winner** | 0.0958 | 0.0969 | +0.0011 | market |
 
 ---
 
@@ -91,7 +91,7 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Stage | Recall delta (pp) | 95% CI | Tournaments model better | Significant? |
 |-------|------------------|--------|--------------------------|--------------|
-| **R16** | +1.6 pp | [-6.2, +9.4] | 2 of 4 | no |
+| **R16** | +0.0 pp | [-6.2, +6.2] | 2 of 4 | no |
 | **QF** | +3.1 pp | [+0.0, +9.4] | 1 of 4 | no |
 | **SF** | +6.2 pp | [-18.8, +37.5] | 1 of 4 | no |
 | **final** | +12.5 pp | [+0.0, +37.5] | 1 of 4 | no |
@@ -101,9 +101,9 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Stage | Brier delta | 95% CI | Tournaments model better | Significant? |
 |-------|------------|--------|--------------------------|--------------|
-| **R16** | +0.0087 | [-0.0193, +0.0388] | 2 of 4 | no |
-| **QF** | +0.0077 | [-0.0117, +0.0231] | 3 of 4 | no |
-| **SF** | +0.0014 | [-0.0109, +0.0137] | 2 of 4 | no |
+| **R16** | +0.0119 | [-0.0193, +0.0420] | 3 of 4 | no |
+| **QF** | +0.0064 | [-0.0117, +0.0231] | 3 of 4 | no |
+| **SF** | +0.0015 | [-0.0106, +0.0137] | 2 of 4 | no |
 | **final** | -0.0008 | [-0.0055, +0.0039] | 2 of 4 | no |
 | **winner** | -0.0006 | [-0.0034, +0.0022] | 2 of 4 | no |
 
@@ -111,11 +111,157 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 | Stage | Log-loss delta | 95% CI | Tournaments model better | Significant? |
 |-------|---------------|--------|--------------------------|--------------|
-| **R16** | +0.0231 | [-0.0321, +0.0846] | 2 of 4 | no |
-| **QF** | +0.0295 | [-0.0170, +0.0717] | 3 of 4 | no |
-| **SF** | +0.0146 | [-0.0209, +0.0501] | 2 of 4 | no |
-| **final** | +0.0031 | [-0.0119, +0.0181] | 2 of 4 | no |
-| **winner** | +0.0018 | [-0.0100, +0.0136] | 2 of 4 | no |
+| **R16** | +0.0296 | [-0.0321, +0.0911] | 3 of 4 | no |
+| **QF** | +0.0278 | [-0.0170, +0.0717] | 3 of 4 | no |
+| **SF** | +0.0173 | [-0.0155, +0.0501] | 2 of 4 | no |
+| **final** | +0.0024 | [-0.0133, +0.0181] | 2 of 4 | no |
+| **winner** | +0.0011 | [-0.0113, +0.0136] | 2 of 4 | no |
+
+---
+
+## Monte Carlo standard error
+
+> MCSE is estimated from fixed chunked batch means on the saved `sim_matrix.npz` runs. It measures simulation noise inside a single run, not four-tournament sampling uncertainty.
+
+### market_all
+
+| Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |
+|-------|----------------|-------------------------|------------------------|---------------------------|
+| **R16** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **QF** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **SF** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **final** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **winner** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+
+### model_all
+
+| Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |
+|-------|----------------|-------------------------|------------------------|---------------------------|
+| **R16** | 0.0025 | 0.0002 | 0.0002 | 0.0005 |
+| **QF** | 0.0000 | 0.0003 | 0.0001 | 0.0003 |
+| **SF** | 0.0000 | 0.0005 | 0.0001 | 0.0004 |
+| **final** | 0.0000 | 0.0009 | 0.0001 | 0.0002 |
+| **winner** | 0.0000 | 0.0017 | 0.0001 | 0.0002 |
+
+---
+
+## Seed sensitivity
+
+> Historical `model_all` was rerun with seeds 42, 43, 44. The tables report the cross-tournament mean, range, and maximum absolute deviation from the seed mean.
+
+### M1 recall
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 70.31% | 0.00 pp | 0.00 pp |
+| **QF** | 62.50% | 0.00 pp | 0.00 pp |
+| **SF** | 43.75% | 0.00 pp | 0.00 pp |
+| **final** | 25.00% | 0.00 pp | 0.00 pp |
+| **winner** | 25.00% | 0.00 pp | 0.00 pp |
+
+### M2 qualifier Brier
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 0.2067 | 0.0001 | 0.0001 |
+| **QF** | 0.3510 | 0.0005 | 0.0003 |
+| **SF** | 0.5189 | 0.0002 | 0.0001 |
+| **final** | 0.6352 | 0.0016 | 0.0010 |
+| **winner** | 0.7298 | 0.0007 | 0.0004 |
+
+### M5 all-team Brier
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 0.2038 | 0.0001 | 0.0001 |
+| **QF** | 0.1346 | 0.0001 | 0.0001 |
+| **SF** | 0.0867 | 0.0000 | 0.0000 |
+| **final** | 0.0482 | 0.0001 | 0.0001 |
+| **winner** | 0.0259 | 0.0000 | 0.0000 |
+
+### M6 all-team log loss
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 0.5939 | 0.0002 | 0.0001 |
+| **QF** | 0.4315 | 0.0004 | 0.0002 |
+| **SF** | 0.2833 | 0.0003 | 0.0002 |
+| **final** | 0.1608 | 0.0005 | 0.0004 |
+| **winner** | 0.0893 | 0.0001 | 0.0001 |
+
+## Variant robustness
+
+> Deltas are measured against the base `model_all` probability surface. Positive M1 deltas are better; negative M2/M5/M6 deltas are better.
+
+| Variant | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |
+|---------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|
+| Base core7 | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| Elo only | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| Elo plus values | 3/5 | 3/5 | 2/5 | 3/5 | no |
+| Remove confederation | 3/5 | 3/5 | 2/5 | 2/5 | no |
+| Host off | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| Stage neutral | 0/5 | 2/5 | 2/5 | 2/5 | no |
+
+| Variant | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |
+|---------|-------|---------------------|------------------|------------------|------------------|
+| Base core7 | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Elo only | **R16** | -1.56 | -0.0062 | -0.0054 | -0.0155 |
+| Elo only | **QF** | -3.12 | +0.0150 | +0.0043 | +0.0070 |
+| Elo only | **SF** | +0.00 | +0.0021 | +0.0009 | +0.0040 |
+| Elo only | **final** | +0.00 | -0.0230 | -0.0011 | -0.0020 |
+| Elo only | **winner** | +0.00 | -0.0474 | -0.0011 | -0.0039 |
+| Elo plus values | **R16** | +1.56 | -0.0028 | -0.0017 | -0.0051 |
+| Elo plus values | **QF** | -3.12 | +0.0034 | +0.0018 | +0.0047 |
+| Elo plus values | **SF** | +6.25 | -0.0009 | +0.0004 | -0.0010 |
+| Elo plus values | **final** | +0.00 | -0.0107 | -0.0010 | -0.0033 |
+| Elo plus values | **winner** | +0.00 | -0.0094 | -0.0005 | -0.0015 |
+| Remove confederation | **R16** | +1.56 | -0.0019 | -0.0015 | -0.0034 |
+| Remove confederation | **QF** | -3.12 | +0.0004 | +0.0000 | -0.0006 |
+| Remove confederation | **SF** | +6.25 | -0.0040 | -0.0008 | -0.0031 |
+| Remove confederation | **final** | +0.00 | -0.0017 | -0.0003 | -0.0012 |
+| Remove confederation | **winner** | +0.00 | +0.0024 | -0.0000 | +0.0003 |
+| Host off | **R16** | +0.00 | -0.0016 | -0.0008 | -0.0031 |
+| Host off | **QF** | +0.00 | +0.0023 | +0.0007 | +0.0020 |
+| Host off | **SF** | +0.00 | +0.0044 | +0.0010 | +0.0008 |
+| Host off | **final** | +0.00 | -0.0021 | -0.0003 | -0.0006 |
+| Host off | **winner** | +0.00 | -0.0001 | -0.0001 | -0.0001 |
+| Stage neutral | **R16** | +0.00 | -0.0023 | -0.0016 | -0.0028 |
+| Stage neutral | **QF** | -3.12 | -0.0026 | -0.0009 | -0.0022 |
+| Stage neutral | **SF** | -6.25 | -0.0051 | -0.0006 | -0.0037 |
+| Stage neutral | **final** | +0.00 | -0.0013 | +0.0000 | -0.0006 |
+| Stage neutral | **winner** | -25.00 | +0.0006 | +0.0001 | +0.0003 |
+
+## Knockout alpha sensitivity
+
+> Base `model_all` was rerun with `alpha_knockout` values 0.25, 0.50, 0.75. Deltas are measured against the base model probability surface.
+
+| alpha_knockout | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |
+|----------------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|
+| 0.25 | 0/5 | 3/5 | 2/5 | 4/5 | no |
+| 0.50 | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| 0.75 | 1/5 | 2/5 | 2/5 | 3/5 | no |
+
+| alpha_knockout | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |
+|----------------|-------|---------------------|------------------|------------------|------------------|
+| 0.25 | **R16** | +0.00 | -0.0001 | -0.0000 | -0.0000 |
+| 0.25 | **QF** | +0.00 | +0.0032 | +0.0003 | +0.0007 |
+| 0.25 | **SF** | +0.00 | +0.0080 | +0.0003 | +0.0013 |
+| 0.25 | **final** | +0.00 | +0.0093 | +0.0001 | +0.0011 |
+| 0.25 | **winner** | -25.00 | +0.0109 | +0.0001 | +0.0014 |
+| 0.50 | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.75 | **R16** | +0.00 | -0.0000 | -0.0000 | -0.0000 |
+| 0.75 | **QF** | +0.00 | -0.0024 | -0.0001 | -0.0003 |
+| 0.75 | **SF** | +0.00 | -0.0060 | -0.0001 | -0.0003 |
+| 0.75 | **final** | +0.00 | -0.0082 | -0.0001 | -0.0010 |
+| 0.75 | **winner** | +0.00 | -0.0079 | -0.0000 | -0.0009 |
 
 ---
 
@@ -189,63 +335,65 @@ In tables, `yes` means the condition held, `no` means it did not, and recall is 
 
 ### Calibration -- model_all
 
-### model_all / R16   (ECE 0.0718)
+### model_all / R16   (ECE 0.0640)
 
 | pred bin | n | avg pred | observed | 95% CI (obs) | gap |
 |----------|---|----------|----------|--------------|-----|
-| 0.0-0.1 | 3 | 0.082 | 0.000 | [0.000, 0.562] | +0.082 |
-| 0.1-0.2 | 11 | 0.149 | 0.182 | [0.051, 0.477] | -0.033 |
-| 0.2-0.3 | 22 | 0.252 | 0.364 | [0.197, 0.570] | -0.112 |
-| 0.3-0.5 | 29 | 0.385 | 0.310 | [0.173, 0.492] | +0.074 |
-| 0.5-0.7 | 27 | 0.601 | 0.667 | [0.478, 0.814] | -0.066 |
-| 0.7-0.9 | 36 | 0.811 | 0.750 | [0.589, 0.862] | +0.061 |
+| 0.0-0.1 | 3 | 0.080 | 0.000 | [0.000, 0.562] | +0.080 |
+| 0.1-0.2 | 11 | 0.138 | 0.182 | [0.051, 0.477] | -0.044 |
+| 0.2-0.3 | 19 | 0.253 | 0.368 | [0.191, 0.590] | -0.116 |
+| 0.3-0.5 | 33 | 0.383 | 0.364 | [0.222, 0.534] | +0.019 |
+| 0.5-0.7 | 25 | 0.586 | 0.640 | [0.445, 0.798] | -0.054 |
+| 0.7-0.9 | 36 | 0.812 | 0.722 | [0.560, 0.842] | +0.090 |
+| 0.9-1.0 | 1 | 0.925 | 1.000 | [0.207, 1.000] | -0.075 |
 
-### model_all / QF   (ECE 0.0767)
-
-| pred bin | n | avg pred | observed | 95% CI (obs) | gap |
-|----------|---|----------|----------|--------------|-----|
-| 0.0-0.1 | 38 | 0.059 | 0.053 | [0.015, 0.173] | +0.007 |
-| 0.1-0.2 | 26 | 0.143 | 0.115 | [0.040, 0.290] | +0.028 |
-| 0.2-0.3 | 16 | 0.236 | 0.125 | [0.035, 0.360] | +0.111 |
-| 0.3-0.5 | 26 | 0.390 | 0.308 | [0.165, 0.500] | +0.083 |
-| 0.5-0.7 | 22 | 0.550 | 0.773 | [0.566, 0.899] | -0.223 |
-
-### model_all / SF   (ECE 0.0429)
+### model_all / QF   (ECE 0.0856)
 
 | pred bin | n | avg pred | observed | 95% CI (obs) | gap |
 |----------|---|----------|----------|--------------|-----|
-| 0.0-0.1 | 72 | 0.036 | 0.042 | [0.014, 0.115] | -0.005 |
-| 0.1-0.2 | 21 | 0.142 | 0.048 | [0.008, 0.227] | +0.094 |
-| 0.2-0.3 | 19 | 0.251 | 0.211 | [0.085, 0.433] | +0.041 |
-| 0.3-0.5 | 16 | 0.353 | 0.500 | [0.280, 0.720] | -0.147 |
+| 0.0-0.1 | 37 | 0.059 | 0.081 | [0.028, 0.213] | -0.022 |
+| 0.1-0.2 | 29 | 0.146 | 0.069 | [0.019, 0.220] | +0.077 |
+| 0.2-0.3 | 17 | 0.239 | 0.176 | [0.062, 0.410] | +0.063 |
+| 0.3-0.5 | 23 | 0.399 | 0.304 | [0.156, 0.509] | +0.094 |
+| 0.5-0.7 | 22 | 0.561 | 0.773 | [0.566, 0.899] | -0.212 |
 
-### model_all / final   (ECE 0.0277)
-
-| pred bin | n | avg pred | observed | 95% CI (obs) | gap |
-|----------|---|----------|----------|--------------|-----|
-| 0.0-0.1 | 96 | 0.025 | 0.010 | [0.002, 0.057] | +0.015 |
-| 0.1-0.2 | 23 | 0.150 | 0.174 | [0.070, 0.371] | -0.024 |
-| 0.2-0.3 | 8 | 0.222 | 0.375 | [0.137, 0.694] | -0.153 |
-| 0.3-0.5 | 1 | 0.331 | 0.000 | [0.000, 0.793] | +0.331 |
-
-### model_all / winner   (ECE 0.0257)
+### model_all / SF   (ECE 0.0331)
 
 | pred bin | n | avg pred | observed | 95% CI (obs) | gap |
 |----------|---|----------|----------|--------------|-----|
-| 0.0-0.1 | 116 | 0.021 | 0.009 | [0.002, 0.047] | +0.012 |
-| 0.1-0.2 | 11 | 0.123 | 0.273 | [0.097, 0.566] | -0.149 |
-| 0.2-0.3 | 1 | 0.223 | 0.000 | [0.000, 0.793] | +0.223 |
+| 0.0-0.1 | 74 | 0.037 | 0.041 | [0.014, 0.113] | -0.003 |
+| 0.1-0.2 | 19 | 0.140 | 0.053 | [0.009, 0.246] | +0.087 |
+| 0.2-0.3 | 18 | 0.248 | 0.222 | [0.090, 0.452] | +0.026 |
+| 0.3-0.5 | 17 | 0.360 | 0.471 | [0.262, 0.690] | -0.110 |
 
-### model_all / pooled (secondary — all stages combined)   (ECE 0.0237)
+### model_all / final   (ECE 0.0309)
 
 | pred bin | n | avg pred | observed | 95% CI (obs) | gap |
 |----------|---|----------|----------|--------------|-----|
-| 0.0-0.1 | 325 | 0.031 | 0.022 | [0.010, 0.044] | +0.009 |
-| 0.1-0.2 | 92 | 0.143 | 0.141 | [0.084, 0.227] | +0.002 |
-| 0.2-0.3 | 66 | 0.244 | 0.258 | [0.167, 0.374] | -0.014 |
-| 0.3-0.5 | 72 | 0.379 | 0.347 | [0.248, 0.462] | +0.032 |
-| 0.5-0.7 | 49 | 0.578 | 0.714 | [0.576, 0.822] | -0.136 |
-| 0.7-0.9 | 36 | 0.811 | 0.750 | [0.589, 0.862] | +0.061 |
+| 0.0-0.1 | 96 | 0.024 | 0.010 | [0.002, 0.057] | +0.014 |
+| 0.1-0.2 | 23 | 0.151 | 0.174 | [0.070, 0.371] | -0.023 |
+| 0.2-0.3 | 7 | 0.223 | 0.429 | [0.158, 0.750] | -0.206 |
+| 0.3-0.5 | 2 | 0.315 | 0.000 | [0.000, 0.658] | +0.315 |
+
+### model_all / winner   (ECE 0.0277)
+
+| pred bin | n | avg pred | observed | 95% CI (obs) | gap |
+|----------|---|----------|----------|--------------|-----|
+| 0.0-0.1 | 116 | 0.020 | 0.009 | [0.002, 0.047] | +0.012 |
+| 0.1-0.2 | 10 | 0.123 | 0.300 | [0.108, 0.603] | -0.177 |
+| 0.2-0.3 | 2 | 0.213 | 0.000 | [0.000, 0.658] | +0.213 |
+
+### model_all / pooled (secondary — all stages combined)   (ECE 0.0242)
+
+| pred bin | n | avg pred | observed | 95% CI (obs) | gap |
+|----------|---|----------|----------|--------------|-----|
+| 0.0-0.1 | 326 | 0.030 | 0.025 | [0.012, 0.048] | +0.006 |
+| 0.1-0.2 | 92 | 0.142 | 0.130 | [0.076, 0.214] | +0.012 |
+| 0.2-0.3 | 63 | 0.243 | 0.270 | [0.176, 0.390] | -0.027 |
+| 0.3-0.5 | 75 | 0.381 | 0.360 | [0.261, 0.473] | +0.021 |
+| 0.5-0.7 | 47 | 0.574 | 0.702 | [0.560, 0.813] | -0.128 |
+| 0.7-0.9 | 36 | 0.812 | 0.722 | [0.560, 0.842] | +0.090 |
+| 0.9-1.0 | 1 | 0.925 | 1.000 | [0.207, 1.000] | -0.075 |
 
 ---
 
@@ -1654,11 +1802,11 @@ Target combo: France
 
 | Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl | M5 mkt | M5 mdl | M6 mkt | M6 mdl |
 |-------|-----------|-----------|--------|--------|----------|----------|----------|----------|--------|--------|--------|--------|
-| **R16** | 9/16 | 11/16 | 0.2257 | 0.2209 | 68.25% | 99.90% | 17.27% | 8.23% | 0.2207 | 0.2198 | 0.6239 | 0.6217 |
-| **QF** | 6/8 | 6/8 | 0.3003 | 0.3217 | 29.92% | 31.55% | 14.43% | 18.82% | 0.1172 | 0.1235 | 0.3717 | 0.3914 |
-| **SF** | 2/4 | 2/4 | 0.6325 | 0.6259 | 87.03% | 78.88% | 51.77% | 61.33% | 0.1060 | 0.1002 | 0.3640 | 0.3469 |
-| **final** | 1/2 | 1/2 | 0.6476 | 0.6249 | 30.82% | 6.51% | 30.82% | 6.51% | 0.0503 | 0.0454 | 0.1586 | 0.1508 |
-| **winner** | 0/1 | 0/1 | 0.8251 | 0.7461 | 76.15% | 27.74% | 76.15% | 27.74% | 0.0298 | 0.0254 | 0.1054 | 0.0904 |
+| **R16** | 9/16 | 10/16 | 0.2257 | 0.2374 | 68.25% | 99.90% | 17.27% | 14.66% | 0.2207 | 0.2326 | 0.6239 | 0.6477 |
+| **QF** | 6/8 | 6/8 | 0.3003 | 0.3109 | 29.92% | 33.09% | 14.43% | 15.97% | 0.1172 | 0.1182 | 0.3717 | 0.3847 |
+| **SF** | 2/4 | 2/4 | 0.6325 | 0.6191 | 87.03% | 83.43% | 51.77% | 62.75% | 0.1060 | 0.1007 | 0.3640 | 0.3577 |
+| **final** | 1/2 | 1/2 | 0.6476 | 0.6084 | 30.82% | 7.59% | 30.82% | 7.59% | 0.0503 | 0.0453 | 0.1586 | 0.1479 |
+| **winner** | 0/1 | 0/1 | 0.8251 | 0.7261 | 76.15% | 35.08% | 76.15% | 35.08% | 0.0298 | 0.0253 | 0.1054 | 0.0878 |
 
 _M1 = top-N marginal recall; M2 = qualifier Brier; M3 = cumulative to exact actual set (if never simulated, 99.90%); M4 = cumulative until all actual teams seen; M5 = all-team binary Brier; M6 = all-team binary log loss._
 
@@ -1673,10 +1821,10 @@ _M1 = top-N marginal recall; M2 = qualifier Brier; M3 = cumulative to exact actu
 
 | | Market | Model |
 |--|--------|-------|
-| Recall | **9/16** | **11/16** |
+| Recall | **9/16** | **10/16** |
 | Perfect set | no | no |
 | Missed | Australia, Japan, Morocco, Poland, Senegal, South Korea, Switzerland | |
-| | | Australia, Japan, Morocco, Senegal, South Korea |
+| | | Australia, Japan, Morocco, Senegal, South Korea, Switzerland |
 
 **Market top-16 pick** - 16 teams
 > Argentina | England | Brazil | France | Netherlands | Germany
@@ -1684,16 +1832,16 @@ _M1 = top-N marginal recall; M2 = qualifier Brier; M3 = cumulative to exact actu
 > Mexico | Ecuador | Serbia | United States
 
 **Model top-16 pick** - 16 teams
-> Argentina | France | Portugal | Netherlands | Spain | Brazil
-> Denmark | England | Germany | Belgium | Switzerland | Uruguay
-> Croatia | Ecuador | Poland | United States
+> Argentina | Brazil | France | Netherlands | Spain | Portugal
+> England | Denmark | Germany | Belgium | Uruguay | Croatia
+> Ecuador | Poland | Serbia | United States
 
 #### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Mean Brier (qualifiers only) | 0.2257 | 0.2209 |
-| Avg p on qualifiers | 60.81% | 60.41% |
+| Mean Brier (qualifiers only) | 0.2257 | 0.2374 |
+| Avg p on qualifiers | 60.81% | 59.39% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1701,7 +1849,7 @@ Target combo: Argentina, Australia, Brazil, Croatia, England, France, Japan, Mor
 
 | | Market | Model |
 |--|--------|-------|
-| Rank | 8,405 / 51,686 | not observed / 64,660 |
+| Rank | 8,405 / 51,686 | not observed / 58,389 |
 | p(actual set) | 0.00% | 0.00% |
 | Cumulative through that rank | 68.25% | 99.90% |
 
@@ -1731,11 +1879,11 @@ Target combo: Argentina, Australia, Brazil, Croatia, England, France, Japan, Mor
 
 | Field | Value |
 |-------|-------|
-| Stop at combo rank | **69** |
-| Cumulative probability | **8.23%** |
+| Stop at combo rank | **189** |
+| Cumulative probability | **14.66%** |
 | Last actual team to appear | **Australia** |
-| Combo at that rank | Argentina, Australia, Belgium, Brazil, Croatia, Ecuador, England, France, Germany, Netherlands, Poland, Portugal, Spain, Switzerland, Uruguay, Wales |
-| Union size (teams in ranks 1-69) | 31 |
+| Combo at that rank | Argentina, Australia, Belgium, Brazil, Croatia, Ecuador, England, France, Germany, Mexico, Netherlands, Portugal, Spain, Switzerland, United States, Uruguay |
+| Union size (teams in ranks 1-189) | 31 |
 
 **Actual teams covered** - 16 teams
 > Argentina | Australia | Brazil | Croatia | England | France
@@ -1751,15 +1899,15 @@ Target combo: Argentina, Australia, Brazil, Croatia, England, France, Japan, Mor
 
 | | Market | Model |
 |--|--------|-------|
-| All-team Brier | 0.2207 | 0.2198 |
-| Delta (model - market) | | -0.0009 (model wins) |
+| All-team Brier | 0.2207 | 0.2326 |
+| Delta (model - market) | | +0.0119 (market wins) |
 
 #### Metric 6 - All-team binary log loss
 
 | | Market | Model |
 |--|--------|-------|
-| All-team log loss | 0.6239 | 0.6217 |
-| Delta (model - market) | | -0.0022 (model wins) |
+| All-team log loss | 0.6239 | 0.6477 |
+| Delta (model - market) | | +0.0238 (market wins) |
 
 ### QF
 
@@ -1781,15 +1929,15 @@ Target combo: Argentina, Australia, Brazil, Croatia, England, France, Japan, Mor
 > Netherlands | Portugal
 
 **Model top-8 pick** - 8 teams
-> Argentina | Portugal | Netherlands | France | Spain | Brazil
-> Germany | England
+> Brazil | Argentina | Netherlands | Spain | France | England
+> Germany | Portugal
 
 #### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Mean Brier (qualifiers only) | 0.3003 | 0.3217 |
-| Avg p on qualifiers | 49.19% | 45.53% |
+| Mean Brier (qualifiers only) | 0.3003 | 0.3109 |
+| Avg p on qualifiers | 49.19% | 47.51% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1797,9 +1945,9 @@ Target combo: Argentina, Brazil, Croatia, England, France, Morocco, Netherlands,
 
 | | Market | Model |
 |--|--------|-------|
-| Rank | 399 / 38,891 | 1,064 / 50,372 |
-| p(actual set) | 0.03% | 0.01% |
-| Cumulative through that rank | 29.92% | 31.55% |
+| Rank | 399 / 38,891 | 894 / 45,637 |
+| p(actual set) | 0.03% | 0.02% |
+| Cumulative through that rank | 29.92% | 33.09% |
 
 #### Metric 4 - All actual teams seen in top combos
 
@@ -1826,34 +1974,34 @@ Target combo: Argentina, Brazil, Croatia, England, France, Morocco, Netherlands,
 
 | Field | Value |
 |-------|-------|
-| Stop at combo rank | **375** |
-| Cumulative probability | **18.82%** |
+| Stop at combo rank | **202** |
+| Cumulative probability | **15.97%** |
 | Last actual team to appear | **Morocco** |
-| Combo at that rank | Argentina, Belgium, Brazil, England, France, Morocco, Netherlands, Portugal |
-| Union size (teams in ranks 1-375) | 23 |
+| Combo at that rank | Argentina, Brazil, England, France, Morocco, Netherlands, Portugal, Spain |
+| Union size (teams in ranks 1-202) | 26 |
 
 **Actual teams covered** - 8 teams
 > Argentina | Brazil | Croatia | England | France | Morocco
 > Netherlands | Portugal
 
-**Other teams in union (not in actual set)** - 15 teams
-> Belgium | Denmark | Ecuador | Germany | Japan | Mexico
-> Poland | Senegal | Serbia | South Korea | Spain | Switzerland
-> United States | Uruguay | Wales
+**Other teams in union (not in actual set)** - 18 teams
+> Belgium | Canada | Denmark | Ecuador | Germany | Iran
+> Japan | Mexico | Poland | Qatar | Senegal | Serbia
+> South Korea | Spain | Switzerland | United States | Uruguay | Wales
 
 #### Metric 5 - All-team binary Brier
 
 | | Market | Model |
 |--|--------|-------|
-| All-team Brier | 0.1172 | 0.1235 |
-| Delta (model - market) | | +0.0064 (market wins) |
+| All-team Brier | 0.1172 | 0.1182 |
+| Delta (model - market) | | +0.0011 (market wins) |
 
 #### Metric 6 - All-team binary log loss
 
 | | Market | Model |
 |--|--------|-------|
-| All-team log loss | 0.3717 | 0.3914 |
-| Delta (model - market) | | +0.0198 (market wins) |
+| All-team log loss | 0.3717 | 0.3847 |
+| Delta (model - market) | | +0.0130 (market wins) |
 
 ### SF
 
@@ -1873,14 +2021,14 @@ Target combo: Argentina, Brazil, Croatia, England, France, Morocco, Netherlands,
 > Brazil | France | Argentina | England
 
 **Model top-4 pick** - 4 teams
-> Argentina | Portugal | France | Spain
+> Brazil | Argentina | France | Spain
 
 #### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Mean Brier (qualifiers only) | 0.6325 | 0.6259 |
-| Avg p on qualifiers | 22.45% | 22.28% |
+| Mean Brier (qualifiers only) | 0.6325 | 0.6191 |
+| Avg p on qualifiers | 22.45% | 23.24% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1888,9 +2036,9 @@ Target combo: Argentina, Croatia, France, Morocco
 
 | | Market | Model |
 |--|--------|-------|
-| Rank | 990 / 5,732 | 964 / 6,978 |
+| Rank | 990 / 5,732 | 1,023 / 6,528 |
 | p(actual set) | 0.01% | 0.02% |
-| Cumulative through that rank | 87.03% | 78.88% |
+| Cumulative through that rank | 87.03% | 83.43% |
 
 #### Metric 4 - All actual teams seen in top combos
 
@@ -1916,33 +2064,34 @@ Target combo: Argentina, Croatia, France, Morocco
 
 | Field | Value |
 |-------|-------|
-| Stop at combo rank | **429** |
-| Cumulative probability | **61.33%** |
+| Stop at combo rank | **356** |
+| Cumulative probability | **62.75%** |
 | Last actual team to appear | **Morocco** |
-| Combo at that rank | Argentina, France, Morocco, Portugal |
-| Union size (teams in ranks 1-429) | 21 |
+| Combo at that rank | Argentina, Brazil, France, Morocco |
+| Union size (teams in ranks 1-356) | 25 |
 
 **Actual teams covered** - 4 teams
 > Argentina | Croatia | France | Morocco
 
-**Other teams in union (not in actual set)** - 17 teams
-> Belgium | Brazil | Denmark | Ecuador | England | Germany
-> Japan | Mexico | Netherlands | Poland | Portugal | South Korea
-> Spain | Switzerland | United States | Uruguay | Wales
+**Other teams in union (not in actual set)** - 21 teams
+> Belgium | Brazil | Canada | Denmark | Ecuador | England
+> Germany | Japan | Mexico | Netherlands | Poland | Portugal
+> Qatar | Senegal | Serbia | South Korea | Spain | Switzerland
+> United States | Uruguay | Wales
 
 #### Metric 5 - All-team binary Brier
 
 | | Market | Model |
 |--|--------|-------|
-| All-team Brier | 0.1060 | 0.1002 |
-| Delta (model - market) | | -0.0059 (model wins) |
+| All-team Brier | 0.1060 | 0.1007 |
+| Delta (model - market) | | -0.0054 (model wins) |
 
 #### Metric 6 - All-team binary log loss
 
 | | Market | Model |
 |--|--------|-------|
-| All-team log loss | 0.3640 | 0.3469 |
-| Delta (model - market) | | -0.0171 (model wins) |
+| All-team log loss | 0.3640 | 0.3577 |
+| Delta (model - market) | | -0.0063 (model wins) |
 
 ### final
 
@@ -1962,14 +2111,14 @@ Target combo: Argentina, Croatia, France, Morocco
 > Brazil | France
 
 **Model top-2 pick** - 2 teams
-> Portugal | Argentina
+> Brazil | Argentina
 
 #### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Mean Brier (qualifiers only) | 0.6476 | 0.6249 |
-| Avg p on qualifiers | 19.53% | 20.98% |
+| Mean Brier (qualifiers only) | 0.6476 | 0.6084 |
+| Avg p on qualifiers | 19.53% | 22.04% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -1977,9 +2126,9 @@ Target combo: Argentina, France
 
 | | Market | Model |
 |--|--------|-------|
-| Rank | 7 / 405 | 2 / 448 |
-| p(actual set) | 2.90% | 3.04% |
-| Cumulative through that rank | 30.82% | 6.51% |
+| Rank | 7 / 405 | 2 / 441 |
+| p(actual set) | 2.90% | 3.68% |
+| Cumulative through that rank | 30.82% | 7.59% |
 
 #### Metric 4 - All actual teams seen in top combos
 
@@ -2004,8 +2153,8 @@ Target combo: Argentina, France
 | Field | Value |
 |-------|-------|
 | Stop at combo rank | **2** |
-| Cumulative probability | **6.51%** |
-| Last actual team to appear | **France** |
+| Cumulative probability | **7.59%** |
+| Last actual team to appear | **Argentina** |
 | Combo at that rank | Argentina, France |
 | Union size (teams in ranks 1-2) | 3 |
 
@@ -2013,21 +2162,21 @@ Target combo: Argentina, France
 > Argentina | France
 
 **Other teams in union (not in actual set)** - 1 teams
-> Portugal
+> Brazil
 
 #### Metric 5 - All-team binary Brier
 
 | | Market | Model |
 |--|--------|-------|
-| All-team Brier | 0.0503 | 0.0454 |
-| Delta (model - market) | | -0.0048 (model wins) |
+| All-team Brier | 0.0503 | 0.0453 |
+| Delta (model - market) | | -0.0049 (model wins) |
 
 #### Metric 6 - All-team binary log loss
 
 | | Market | Model |
 |--|--------|-------|
-| All-team log loss | 0.1586 | 0.1508 |
-| Delta (model - market) | | -0.0078 (model wins) |
+| All-team log loss | 0.1586 | 0.1479 |
+| Delta (model - market) | | -0.0107 (model wins) |
 
 ### winner
 
@@ -2047,14 +2196,14 @@ Target combo: Argentina, France
 > Brazil
 
 **Model top-1 pick** - 1 teams
-> Portugal
+> Brazil
 
 #### Metric 2 - Brier on actual qualifiers (`p_at_least`)
 
 | | Market | Model |
 |--|--------|-------|
-| Mean Brier (qualifiers only) | 0.8251 | 0.7461 |
-| Avg p on qualifiers | 9.16% | 13.63% |
+| Mean Brier (qualifiers only) | 0.8251 | 0.7261 |
+| Avg p on qualifiers | 9.16% | 14.79% |
 
 #### Metric 3 - Exact actual set in joint distribution
 
@@ -2063,8 +2212,8 @@ Target combo: Argentina
 | | Market | Model |
 |--|--------|-------|
 | Rank | 6 / 32 | 2 / 32 |
-| p(actual set) | 9.16% | 13.63% |
-| Cumulative through that rank | 76.15% | 27.74% |
+| p(actual set) | 9.16% | 14.79% |
+| Cumulative through that rank | 76.15% | 35.08% |
 
 #### Metric 4 - All actual teams seen in top combos
 
@@ -2089,7 +2238,7 @@ Target combo: Argentina
 | Field | Value |
 |-------|-------|
 | Stop at combo rank | **2** |
-| Cumulative probability | **27.74%** |
+| Cumulative probability | **35.08%** |
 | Last actual team to appear | **Argentina** |
 | Combo at that rank | Argentina |
 | Union size (teams in ranks 1-2) | 2 |
@@ -2098,21 +2247,21 @@ Target combo: Argentina
 > Argentina
 
 **Other teams in union (not in actual set)** - 1 teams
-> Portugal
+> Brazil
 
 #### Metric 5 - All-team binary Brier
 
 | | Market | Model |
 |--|--------|-------|
-| All-team Brier | 0.0298 | 0.0254 |
-| Delta (model - market) | | -0.0044 (model wins) |
+| All-team Brier | 0.0298 | 0.0253 |
+| Delta (model - market) | | -0.0045 (model wins) |
 
 #### Metric 6 - All-team binary log loss
 
 | | Market | Model |
 |--|--------|-------|
-| All-team log loss | 0.1054 | 0.0904 |
-| Delta (model - market) | | -0.0150 (model wins) |
+| All-team log loss | 0.1054 | 0.0878 |
+| Delta (model - market) | | -0.0176 (model wins) |
 
 ---
 
@@ -2121,10 +2270,10 @@ Target combo: Argentina
 | | Metric 3 (exact set) | Metric 4 (all teams seen) |
 |--|----------------------|---------------------------|
 | Target | Argentina, Croatia, France, Morocco | Same four teams, any combo |
-| Stop rank | 964 | **429** |
-| Cumulative | 78.88% | **61.33%** |
-| Trigger combo | exact quartet | Argentina, France, Morocco, Portugal (Morocco last) |
+| Stop rank | 1,023 | **356** |
+| Cumulative | 83.43% | **62.75%** |
+| Trigger combo | exact quartet | Argentina, Brazil, France, Morocco (Morocco last) |
 
-At rank 429 the model has seen every actual SF team at least once, but only 61.33% of simulated mass; the exact quartet needs rank 964 (78.88%).
+At rank 356 the model has seen every actual SF team at least once, but only 62.75% of simulated mass; the exact quartet needs rank 1,023 (83.43%).
 
-Union at rank 429 (**21** teams): all four actual plus 17 others that appeared in high-frequency SF combos (see WC 2022 -> SF -> Metric 4 -> Model).
+Union at rank 356 (**25** teams): all four actual plus 21 others that appeared in high-frequency SF combos (see WC 2022 -> SF -> Metric 4 -> Model).

@@ -12,10 +12,14 @@ train_dataset: data/input/match_dataset_with_wc2026.json
 exclude_tournament_from_train: world-cup-2026
 match_dataset_filter_competition: World Cup 2026
 
+fixtures_file: data/input/wc2026_fixtures_stats.json
+team_ratings_file: data/input/wc2026_team_ratings.json
 groups_file: data/input/wc2026_groups.json
 knockout_bracket_file: data/input/wc2026_knockout_bracket.json
 r32_scenarios_file: data/input/wc2026_r32_scenarios.json
-pairwise_predictions_file: data/input/wc2026_pairwise_predictions.csv
+group_pairwise_predictions_file: data/input/wc2026_group_pairwise_predictions.csv
+knockout_pairwise_predictions_file: data/input/wc2026_knockout_pairwise_predictions.csv
+knockout_context_file: data/input/wc2026_knockout_context.json
 
 default_batch_size: 1000
 default_n_sims: 200000

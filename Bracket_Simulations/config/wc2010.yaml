@@ -11,9 +11,13 @@ train_dataset: data/input/match_dataset.json
 exclude_tournament_from_train: world-cup-2010
 match_dataset_filter_competition: World Cup 2010
 
+fixtures_file: data/input/fixtures_stats.json
+team_ratings_file: data/input/team_ratings.json
 groups_file: data/input/wc2010_groups.json
 knockout_bracket_file: data/input/wc2010_knockout_bracket.json
-pairwise_predictions_file: data/input/wc2010_pairwise_predictions.csv
+group_pairwise_predictions_file: data/input/wc2010_group_pairwise_predictions.csv
+knockout_pairwise_predictions_file: data/input/wc2010_knockout_pairwise_predictions.csv
+knockout_context_file: data/input/wc2010_knockout_context.json
 
 default_batch_size: 1000
 default_n_sims: 200000

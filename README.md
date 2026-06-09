@@ -4,7 +4,7 @@
 
 `WorldCup2026 Bracket` is a three-stage pipeline for collecting international tournament data, training a match-level 1X2 probability model, and backtesting full tournament bracket simulations.
 
-The project asks whether a small set of public pre-match signals can recover bookmaker-style match probabilities and still remain useful once those probabilities are pushed through full tournament brackets. In practice, the repo tests how far Elo, squad market values, confederation membership, and de-vigged bookmaker consensus can take the pipeline from historical data collection to bracket-level backtests.
+The project asks whether a small set of public tournament-start signals can recover bookmaker-style match probabilities and still remain useful once those probabilities are pushed through full tournament brackets. In practice, the repo tests how far tournament-start Elo, squad market values, confederation membership, and de-vigged bookmaker consensus can take the pipeline from historical data collection to bracket-level backtests.
 
 ## Pipeline
 
@@ -119,9 +119,9 @@ flowchart LR
 
 ## Results at a glance
 
-The backtests indicate that a compact CatBoost model built from public pre-match signals can provide a useful foundation for full-tournament simulations.
+The backtests indicate that a compact CatBoost model built from public tournament-start signals can provide a useful foundation for full-tournament simulations.
 
-At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline - matching it on recall while trailing on calibration and qualifier Brier. The goal is not to beat the market (which aggregates far more information) but to track it closely enough to be a reliable simulation foundation.
+At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline: the reader-facing summaries now publish qualifier-only Brier alongside all-team Brier, all-team log loss, reliability tables, ECE, and Monte Carlo standard errors. The goal is not to beat the market, which aggregates far more information, but to track it closely enough to be a reliable simulation foundation.
 
 ### Match-level probability estimates
 
@@ -129,7 +129,7 @@ The CatBoost model produces substantially lower held-out Brier scores than the E
 
 ![Held-out Brier score by match phase](./docs/img/brier_by_phase.png)
 
-A note on the baseline: Elo is primarily a team-strength rating. It is conceptually related to the FIFA world ranking, which also uses an Elo-style update procedure, although the two systems are not identical. Elo provides a strong and interpretable signal of relative team strength, but using it alone as a match-probability estimator is intentionally simple: it cannot fully capture factors such as squad composition, recent trends, tournament stage, or other match-specific conditions. The improvement below should therefore be interpreted as the value of combining a richer feature set with a more flexible probability model, rather than as evidence that Elo is a weak rating system. For the bracket backtests, the more demanding benchmark is the market-derived baseline.
+A note on the baseline: Elo is primarily a team-strength rating. It is conceptually related to the FIFA world ranking, which also uses an Elo-style update procedure, although the two systems are not identical. This repo now uses the tournament-start Elo snapshot as the rating source of truth for every tournament, including the historical backtests, so the match model and bracket simulator read the same rating surface. Elo provides a strong and interpretable signal of relative team strength, but using it alone as a match-probability estimator is intentionally simple: it cannot fully capture factors such as squad composition, recent trends, tournament stage, or other match-specific conditions. The improvement below should therefore be interpreted as the value of combining a richer feature set with a more flexible probability model, rather than as evidence that Elo is a weak rating system. For the bracket backtests, the more demanding benchmark is the market-derived baseline.
 
 The improvement is not driven by a single tournament. CatBoost achieves a lower Brier score than Elo in every historical leave-one-tournament-out fold shown below, with reductions ranging from **41% to 71%**. On the WC2026 holdout, the model records a **70% lower** Brier score than Elo.
 
@@ -177,17 +177,19 @@ This is the expected result rather than a failure: the model is trained to appro
 
 ### Bracket-level backtesting
 
+The bracket stage is now context-aware at pairwise generation time. Group-stage probabilities are built from the real scheduled fixtures with `stage_binary=1.0` and venue-derived host advantage, while knockout probabilities are generated separately by stage and slot with `stage_binary=0.0` and host context supplied from committed slot maps. This means the same team pairing can legitimately receive different probabilities in group and knockout contexts.
+
 The full-bracket simulations are evaluated against the actual outcomes of the 2010–2022 World Cups. Three complementary metrics capture different dimensions of bracket quality.
 
 **Top-N recall** - for each stage, does the simulation rank the teams that actually advanced among its highest-probability picks? A simulation that assigns high marginal probability to a team that genuinely reached, say, the semi-finals scores well here. Higher is better.
 
 **Qualifier Brier** - for teams that actually reached a given stage, how confident was the simulation that they would? This measures calibration against actual outcomes: lower Brier means the simulation assigned higher probability to the teams that genuinely advanced.
 
-**All-teams-seen cumulative coverage** - how far down the ranked list of bracket scenarios must you go before every team that actually advanced has appeared in at least one simulated combo? This is a scenario-coverage diagnostic: lower means all actual teams are reachable within a smaller probability budget. It does not directly measure whether the model assigns high probability to the right teams — a team satisfies the condition by appearing in any combo above the threshold, even a low-probability one.
+**All-teams-seen cumulative coverage** - how far down the ranked list of bracket scenarios must you go before every team that actually advanced has appeared in at least one simulated combo? This is a scenario-coverage diagnostic: lower means all actual teams are reachable within a smaller probability budget. It does not directly measure whether the model assigns high probability to the right teams - a team satisfies the condition by appearing in any combo above the threshold, even a low-probability one.
 
 **Recall: model edges market at every stage, but evidence is inconclusive at four tournaments**
 
-The model has higher average Top-N recall at every stage of the bracket. The direction is consistent- +1.6 pp at R16, +3.1 at QF, +6.2 at SF, +12.5 at the Final.But with only four World Cups, a tournament-level block bootstrap (10,000 resamples) shows wide uncertainty, and the confidence interval for the model-minus-market recall gap includes zero at every stage.
+The model has higher average Top-N recall at every stage of the bracket. The direction is consistent- +1.6 pp at R16, +3.1 at QF, +6.2 at SF, +12.5 at the Final. But with only four World Cups, a tournament-level block bootstrap (10,000 resamples) shows wide uncertainty, and the confidence interval for the model-minus-market recall gap includes zero at every stage.
 
 ![Bracket stage recall](./docs/img/bracket_stage_recall.png)
 
@@ -212,11 +214,13 @@ Scoring all 32 teams as a binary reach/not-reach event (all-team Brier M5 and lo
 
 **Cumulative coverage: model needs less probability mass to cover actual teams at late stages**
 
-As a coverage diagnostic, a lower value means all actual teams appeared somewhere in the simulated joint distribution earlier (i.e. within a smaller slice of cumulative probability). The market needs less mass to cover actual teams at R16 and QF; the model needs less at the Final (−16.3 pp) and Winner (−13.5 pp). This does not mean the model assigns higher probability to the right teams at those stages — recall and Brier are the right metrics for that — but it does suggest its late-stage scenario space is less diffuse:
+As a coverage diagnostic, a lower value means all actual teams appeared somewhere in the simulated joint distribution earlier (i.e. within a smaller slice of cumulative probability). The market needs less mass to cover actual teams at R16 and QF; the model needs less at the Final (−16.3 pp) and Winner (−13.5 pp). This does not mean the model assigns higher probability to the right teams at those stages - recall and Brier are the right metrics for that - but it does suggest its late-stage scenario space is less diffuse:
 
 ![All-teams-seen cumulative error by stage](./docs/img/cumulative_bracket_error.png)
 
-Taken together: the market is better calibrated overall (ECE 0.0095 vs 0.0237) and leads on qualifier Brier at every stage. The model's calibration deficit is concentrated in the 0.5–0.7 probability range, where it consistently underrates mid-range favourites. On recall the model edges ahead at every stage; on late-stage cumulative coverage (a scenario-coverage diagnostic) it needs less probability mass to reach the actual finalists, though neither gap clears statistical significance at four tournaments. The honest summary is that the two approaches are close - the model is a viable simulation foundation, and closing the calibration gap on favourites is the clearest remaining improvement. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
+Taken together: the market is better calibrated overall (ECE 0.0095 vs 0.0237) and leads on qualifier Brier at every stage. The model's calibration deficit is concentrated in the 0.5–0.7 probability range, where it consistently underrates mid-range favourites. On recall the model edges ahead at every stage; on late-stage cumulative coverage (a scenario-coverage diagnostic) it needs less probability mass to reach the actual finalists, though neither gap clears statistical significance at four tournaments. Monte Carlo standard errors are now published alongside M1, M2, M5, and M6 so the simulation noise is visible, not implicit. The honest summary is that the two approaches are close: the model is a viable simulation foundation, and closing the calibration gap on favourites is the clearest remaining improvement. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
+
+The robustness pass is now published as well. Across three repeat seeds (`42`, `43`, `44`), the historical stage-level results are very stable: M1 recall is identical at every stage, while the seed ranges are at most **0.0016** on qualifier Brier and **0.0005** on all-team log loss. The model-variant runs show that stage context matters most for bracket behavior: removing `stage_binary` costs **25.0 pp** of Winner recall and **6.25 pp** of SF recall versus the base model. By contrast, removing confederation or host advantage moves the bracket metrics only slightly, and the Elo-plus-values variant stays close to the base surface. Knockout tie-resolution sensitivity is similarly modest across `alpha_knockout = 0.25 / 0.50 / 0.75`; the sharpest change is at Winner recall, where `0.25` drops **25.0 pp** versus the base `0.50` setting. Full tables live in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
 
 **A note on simulation simplifications.** Because the simulator tracks only 1X2 outcomes and not exact scores, it cannot apply the real FIFA group-stage tiebreak sequence (goal difference → goals scored → head-to-head → lots). Instead it uses a pairwise-strength ranking among tied teams. For knockout draws, it replaces extra time and penalties with a single probabilistic advancement step weighted by each team's relative 90-minute win probability. These are known simplifications; the full treatment is in [`Bracket_Simulations/README.md`](Bracket_Simulations/README.md#simplifications-relative-to-real-fifa-rules).
 

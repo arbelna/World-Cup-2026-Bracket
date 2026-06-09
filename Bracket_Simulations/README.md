@@ -56,10 +56,11 @@ Typical order:
 
 1. `sync-inputs` - copy the committed match-model outputs needed by this stage.
 2. `build-data` - build the tournament input files and bracket structures from config.
-3. `precompute-pairs` - compute pairwise match probabilities for one tournament at a time.
+3. `precompute-pairs` - compute split group-stage and knockout-stage pairwise probabilities for one tournament at a time.
 4. `simulate` - run Monte Carlo simulations for a chosen tournament and probability mode.
 5. `backtest report` or `backtest run-historical` - write the human-facing summary and the detailed historical backtest report.
-6. `compare` - write the market-vs-model comparison summaries.
+6. `backtest robustness` - run the published model-variant, seed, and knockout-alpha sensitivity suite.
+7. `compare` - write the market-vs-model comparison summaries.
 
 ```powershell
 python main_cli.py sync-inputs
@@ -67,6 +68,7 @@ python main_cli.py build-data
 python main_cli.py precompute-pairs --tournament wc2022
 python main_cli.py simulate --tournament wc2022 --mode model_all --n-sims 200000 --reset -v
 python main_cli.py backtest report
+python main_cli.py backtest robustness --tournaments wc2010 wc2014 wc2018 wc2022 --n-sims 200000 --batch-size 1000
 python main_cli.py compare
 ```
 
@@ -83,6 +85,16 @@ The historical backtest report is written to:
 
 - `results.md`
 - `data/output/simulations/stage_prediction_backtest.md`
+
+The published robustness suite writes:
+
+- `data/output/simulations/stage_prediction_robustness.json`
+
+That JSON contains:
+
+- bracket-facing model variants: `base`, `elo_only`, `elo_plus_values`, `minus_confed`, `host_off`, `stage_neutral`
+- seed sensitivity for seeds `42`, `43`, `44`
+- knockout tie-resolution sensitivity for `alpha_knockout = 0.25 / 0.50 / 0.75`
 
 ## Simulation behavior
 
@@ -102,8 +114,10 @@ The historical backtest report is written to:
 
 - In `market_all`, direct market 1X2 odds are used whenever the pairing already exists in the historical market data.
 - If a knockout pairing is missing from the direct market set, the stage fits a Davidson model on the tournament's market soft labels and uses that model to supply the missing 90-minute probabilities.
-- In `model_all`, both the group stage and the knockout stage use the committed pairwise predictions produced upstream by `Match_model`.
-- Historical backtests use pre-match Elo inside the upstream match-model pipeline. WC2026 forward simulation uses the pre-tournament Elo snapshot for every pairing because no played-match Elo updates exist yet.
+- In `model_all`, the group stage and knockout stage use separate committed pairwise tables produced upstream by `Match_model`: `*_group_pairwise_predictions.csv` for scheduled group fixtures and `*_knockout_pairwise_predictions.csv` for knockout slots.
+- The upstream pairwise generator now uses the same tournament-start Elo snapshots for every tournament. Historical backtests and WC2026 forward simulation both read Elo from committed `team_ratings.json` snapshots instead of row-level pre-match updates.
+- Group pairwise rows carry real fixture context: `stage_binary=1.0` and `host_diff` from the scheduled venue country in `*_fixtures_stats.json`.
+- Knockout pairwise rows are slot-aware: `stage_binary=0.0` and `host_diff` from the committed `*_knockout_context.json` venue map. Historical World Cups use the single host nation; WC2026 uses an explicit co-host slot map.
 
 ### Bradley-Terry and Davidson
 
@@ -140,6 +154,10 @@ The repo intentionally keeps only curated summary outputs at the root level of t
 | `results.md` | curated human-facing historical backtest summary |
 | `data/output/simulations/stage_prediction_backtest.md` | fuller generated historical backtest report in the output location |
 | `data/output/simulations/stage_prediction_backtest.json` | machine-readable backtest summary |
+| `data/output/simulations/stage_prediction_robustness.json` | machine-readable seed, variant, and alpha sensitivity summary |
+| `data/input/*_group_pairwise_predictions.csv` | scheduled group-stage pairwise predictions |
+| `data/input/*_knockout_pairwise_predictions.csv` | slot-aware knockout pairwise predictions |
+| `data/input/*_knockout_context.json` | knockout slot to host-country context |
 | `data/output/compare_summary.json` | compare output from `main_cli.py compare` |
 | `data/output/compare_brier_summary.md` | compare markdown summary |
 

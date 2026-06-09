@@ -103,7 +103,15 @@ class MarketProbabilityProvider:
             impute_unplayed=False,
         )
 
-    def get(self, team_a: str, team_b: str) -> tuple[float, float, float]:
+    def get(
+        self,
+        team_a: str,
+        team_b: str,
+        *,
+        stage: str | None = None,
+        slot_id: str | None = None,
+    ) -> tuple[float, float, float]:
+        _ = stage, slot_id
         key = (team_a, team_b)
         if key not in self._by_pair:
             if self._impute_unplayed:

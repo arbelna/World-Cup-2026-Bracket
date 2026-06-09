@@ -41,7 +41,7 @@ def _sorted_winners(winners: list[str]) -> tuple[str, ...]:
 
 
 def _play_round(
-    matches: list[tuple[str, str]],
+    matches: list[tuple[str, str, str]],
     stage: str,
     ko_probs: Any,
     rng: random.Random,
@@ -51,8 +51,16 @@ def _play_round(
     winners: list[str] = []
     losers: list[str] = []
     next_stage = {"R32": "R16", "R16": "QF", "QF": "SF", "SF": "final", "final": "winner"}.get(stage, stage)
-    for a, b in matches:
-        w = play_knockout_match(a, b, ko_probs, rng, alpha_knockout=alpha)
+    for slot_id, a, b in matches:
+        w = play_knockout_match(
+            a,
+            b,
+            ko_probs,
+            rng,
+            alpha_knockout=alpha,
+            stage=stage,
+            slot_id=slot_id,
+        )
         l = b if w == a else a
         winners.append(w)
         losers.append(l)
@@ -62,7 +70,7 @@ def _play_round(
 
 def _run_knockout_tree(
     bracket: dict[str, Any],
-    first_round: list[tuple[str, str, str]],
+    first_round: list[tuple[str, str, str, str]],
     ko_probs: Any,
     rng: random.Random,
     alphas: dict[str, float],
@@ -71,28 +79,42 @@ def _run_knockout_tree(
 ) -> SimulationOutcome:
     stage_name = first_round[0][0] if first_round else "R16"
     alpha = alphas.get(stage_name, 0.5)
-    pairs = [(a, b) for _s, a, b in first_round]
+    pairs = [(slot_id, a, b) for _s, slot_id, a, b in first_round]
     first_winners, _ = _play_round(pairs, stage_name, ko_probs, rng, alpha, reach)
     if stage_name == "R32":
         participants["R16"] = _sorted_winners(first_winners)
-        r16_pairs = [(first_winners[m["home_idx"]], first_winners[m["away_idx"]]) for m in bracket["r16"]]
+        r16_pairs = [
+            (str(idx + 1), first_winners[m["home_idx"]], first_winners[m["away_idx"]])
+            for idx, m in enumerate(bracket["r16"])
+        ]
         r16_winners, _ = _play_round(r16_pairs, "R16", ko_probs, rng, alphas.get("R16", 0.5), reach)
     else:
         r16_winners = first_winners
     participants["QF"] = _sorted_winners(r16_winners)
 
-    qf_pairs = [(r16_winners[m["home_idx"]], r16_winners[m["away_idx"]]) for m in bracket["qf"]]
+    qf_pairs = [
+        (str(idx + 1), r16_winners[m["home_idx"]], r16_winners[m["away_idx"]])
+        for idx, m in enumerate(bracket["qf"])
+    ]
     qf_winners, _ = _play_round(qf_pairs, "QF", ko_probs, rng, alphas.get("QF", 0.5), reach)
     participants["SF"] = _sorted_winners(qf_winners)
 
-    sf_pairs = [(qf_winners[m["home_idx"]], qf_winners[m["away_idx"]]) for m in bracket["sf"]]
+    sf_pairs = [
+        (str(idx + 1), qf_winners[m["home_idx"]], qf_winners[m["away_idx"]])
+        for idx, m in enumerate(bracket["sf"])
+    ]
     sf_winners, sf_losers = _play_round(sf_pairs, "SF", ko_probs, rng, alphas.get("SF", 0.5), reach)
     participants["final"] = _sorted_winners(sf_winners)
 
     fi = bracket["final"]
     final_pair = (sf_winners[fi["home_idx"]], sf_winners[fi["away_idx"]])
     final_winners, final_losers = _play_round(
-        [final_pair], "final", ko_probs, rng, alphas.get("final", 0.5), reach
+        [("1", final_pair[0], final_pair[1])],
+        "final",
+        ko_probs,
+        rng,
+        alphas.get("final", 0.5),
+        reach,
     )
     participants["winner"] = _sorted_winners(final_winners)
     _record_stage(reach, final_losers[0], "final")
@@ -109,6 +131,8 @@ def _run_knockout_tree(
             ko_probs,
             rng,
             alpha_knockout=alphas.get("third_place", 0.5),
+            stage="third_place",
+            slot_id="1",
         )
 
     return SimulationOutcome(stages=dict(reach.stages), participants=participants)
@@ -116,6 +140,7 @@ def _run_knockout_tree(
 
 def simulate_wc32(
     groups: dict[str, list[str]],
+    group_fixtures: dict[str, list[Any]],
     group_probs: Any,
     ko_probs: Any,
     bracket: dict[str, Any],
@@ -128,24 +153,31 @@ def simulate_wc32(
     for t in (team for ts in groups.values() for team in ts):
         reach.stages[t] = "group"
 
-    gs = simulate_all_groups(groups, group_probs, rng, alpha_group_tie=alphas.get("group_tie", 1.0))
+    gs = simulate_all_groups(
+        groups,
+        group_probs,
+        rng,
+        fixtures_by_group=group_fixtures,
+        alpha_group_tie=alphas.get("group_tie", 1.0),
+    )
     participants["R16"] = r16_participants(gs)
 
     for _label, gr in gs.groups.items():
         _record_stage(reach, gr.team_at_rank(1), "R16")
         _record_stage(reach, gr.team_at_rank(2), "R16")
 
-    r16_matches: list[tuple[str, str, str]] = []
-    for m in bracket["r16"]:
+    r16_matches: list[tuple[str, str, str, str]] = []
+    for idx, m in enumerate(bracket["r16"]):
         a = resolve_team_ref(str(m["home"]), gs.groups)
         b = resolve_team_ref(str(m["away"]), gs.groups)
-        r16_matches.append(("R16", a, b))
+        r16_matches.append(("R16", str(idx + 1), a, b))
 
     return _run_knockout_tree(bracket, r16_matches, ko_probs, rng, alphas, reach, participants)
 
 
 def simulate_wc48(
     groups: dict[str, list[str]],
+    group_fixtures: dict[str, list[Any]],
     group_probs: Any,
     ko_probs: Any,
     bracket: dict[str, Any],
@@ -161,7 +193,13 @@ def simulate_wc48(
     for t in (team for ts in groups.values() for team in ts):
         reach.stages[t] = "group"
 
-    gs = simulate_all_groups(groups, group_probs, rng, alpha_group_tie=alphas.get("group_tie", 1.0))
+    gs = simulate_all_groups(
+        groups,
+        group_probs,
+        rng,
+        fixtures_by_group=group_fixtures,
+        alpha_group_tie=alphas.get("group_tie", 1.0),
+    )
 
     for _label, gr in gs.groups.items():
         first = gr.team_at_rank(1)
@@ -196,11 +234,27 @@ def simulate_wc48(
     for m in bracket["r32"]:
         mid = int(m["id"])
         a, b = resolve_r32_pairing(m, gs.groups, scenario)
-        w = play_knockout_match(a, b, ko_probs, rng, alpha_knockout=alphas.get("R32", 0.5))
+        w = play_knockout_match(
+            a,
+            b,
+            ko_probs,
+            rng,
+            alpha_knockout=alphas.get("R32", 0.5),
+            stage="R32",
+            slot_id=str(mid),
+        )
         r32_winners[mid] = w
         _record_stage(reach, w, "R16")
     participants["R16"] = _sorted_winners(list(r32_winners.values()))
-    r16_matches = [("R16", r32_winners[int(m["home_match"])], r32_winners[int(m["away_match"])]) for m in bracket["r16"]]
+    r16_matches = [
+        (
+            "R16",
+            str(idx + 1),
+            r32_winners[int(m["home_match"])],
+            r32_winners[int(m["away_match"])],
+        )
+        for idx, m in enumerate(bracket["r16"])
+    ]
     outcome = _run_knockout_tree(bracket, r16_matches, ko_probs, rng, alphas, reach, participants)
     return SimulationOutcome(
         stages=outcome.stages,
@@ -212,6 +266,7 @@ def simulate_wc48(
 
 def run_single_simulation(
     groups: dict[str, list[str]],
+    group_fixtures: dict[str, list[Any]],
     group_probs: Any,
     ko_probs: Any,
     bracket: dict[str, Any],
@@ -227,6 +282,7 @@ def run_single_simulation(
             raise ValueError("R32 scenarios required for WC2026")
         return simulate_wc48(
             groups,
+            group_fixtures,
             group_probs,
             ko_probs,
             bracket,
@@ -236,4 +292,4 @@ def run_single_simulation(
             stop_after_group=stop_after_group,
             alphas=alphas,
         )
-    return simulate_wc32(groups, group_probs, ko_probs, bracket, rng, alphas=alphas)
+    return simulate_wc32(groups, group_fixtures, group_probs, ko_probs, bracket, rng, alphas=alphas)

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-02T08:37:48.330257+00:00",
+  "generated_at": "2026-06-09T09:46:36.856826+00:00",
   "evaluation_type": "single_holdout",
   "dataset_path": "data/output/datasets/match_dataset.json",
   "test_dataset_path": "data/output/datasets/wc2026_match_dataset.json",
@@ -36,43 +36,369 @@
         {
           "held_out_competition": "World Cup 2026",
           "n_test_matches": 72,
-          "ce": 0.9219003688256147,
-          "brier": 0.006872798035439385,
-          "mae_a": 0.04541482259364868,
-          "mae_draw": 0.02424290226599312,
-          "mae_b": 0.04061456240631125,
-          "mae_macro": 0.03675742908865102,
-          "avg_prob_error_pp": 3.675742908865102
+          "ce": 0.9214075958387973,
+          "brier": 0.006549407947997455,
+          "mae_a": 0.044463841796377246,
+          "mae_draw": 0.023832986123476688,
+          "mae_b": 0.03850947548315184,
+          "mae_macro": 0.035602101134335255,
+          "avg_prob_error_pp": 3.5602101134335253
         }
       ],
       "summary": {
         "ce": {
-          "mean": 0.9219003688256147,
+          "mean": 0.9214075958387973,
           "std": 0.0,
-          "ci_low": 0.9219003688256147,
-          "ci_high": 0.9219003688256147
+          "ci_low": 0.9214075958387973,
+          "ci_high": 0.9214075958387973
         },
         "brier": {
-          "mean": 0.006872798035439385,
+          "mean": 0.006549407947997455,
           "std": 0.0,
-          "ci_low": 0.006872798035439385,
-          "ci_high": 0.006872798035439385
+          "ci_low": 0.006549407947997455,
+          "ci_high": 0.006549407947997455
         },
         "mae_macro": {
-          "mean": 0.03675742908865102,
+          "mean": 0.035602101134335255,
           "std": 0.0,
-          "ci_low": 0.03675742908865102,
-          "ci_high": 0.03675742908865102
+          "ci_low": 0.035602101134335255,
+          "ci_high": 0.035602101134335255
         },
         "avg_prob_error_pp": {
-          "mean": 3.675742908865102,
+          "mean": 3.5602101134335253,
           "std": 0.0,
-          "ci_low": 3.675742908865102,
-          "ci_high": 3.675742908865102
+          "ci_low": 3.5602101134335253,
+          "ci_high": 3.5602101134335253
         },
-        "weighted_ce": 0.9219003688256147,
-        "weighted_brier": 0.006872798035439385,
-        "weighted_mae_macro": 0.03675742908865102
+        "weighted_ce": 0.9214075958387973,
+        "weighted_brier": 0.006549407947997455,
+        "weighted_mae_macro": 0.035602101134335255
+      }
+    },
+    {
+      "experiment_id": "catboost_loto_elo_only",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "World Cup 2026",
+          "n_test_matches": 72,
+          "ce": 0.9405255260746641,
+          "brier": 0.019321995603413807,
+          "mae_a": 0.07274907712189209,
+          "mae_draw": 0.031384468519350076,
+          "mae_b": 0.06548922465605839,
+          "mae_macro": 0.05654092343243352,
+          "avg_prob_error_pp": 5.654092343243352
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9405255260746641,
+          "std": 0.0,
+          "ci_low": 0.9405255260746641,
+          "ci_high": 0.9405255260746641
+        },
+        "brier": {
+          "mean": 0.019321995603413807,
+          "std": 0.0,
+          "ci_low": 0.019321995603413807,
+          "ci_high": 0.019321995603413807
+        },
+        "mae_macro": {
+          "mean": 0.05654092343243352,
+          "std": 0.0,
+          "ci_low": 0.05654092343243352,
+          "ci_high": 0.05654092343243352
+        },
+        "avg_prob_error_pp": {
+          "mean": 5.654092343243352,
+          "std": 0.0,
+          "ci_low": 5.654092343243352,
+          "ci_high": 5.654092343243352
+        },
+        "weighted_ce": 0.9405255260746641,
+        "weighted_brier": 0.019321995603413807,
+        "weighted_mae_macro": 0.05654092343243352
+      }
+    },
+    {
+      "experiment_id": "catboost_loto_elo_plus_values",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "World Cup 2026",
+          "n_test_matches": 72,
+          "ce": 0.9224655686403437,
+          "brier": 0.007332575394161466,
+          "mae_a": 0.047928932371054445,
+          "mae_draw": 0.027194693361450254,
+          "mae_b": 0.03896636010094061,
+          "mae_macro": 0.0380299952778151,
+          "avg_prob_error_pp": 3.8029995277815107
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9224655686403437,
+          "std": 0.0,
+          "ci_low": 0.9224655686403437,
+          "ci_high": 0.9224655686403437
+        },
+        "brier": {
+          "mean": 0.007332575394161466,
+          "std": 0.0,
+          "ci_low": 0.007332575394161466,
+          "ci_high": 0.007332575394161466
+        },
+        "mae_macro": {
+          "mean": 0.0380299952778151,
+          "std": 0.0,
+          "ci_low": 0.0380299952778151,
+          "ci_high": 0.0380299952778151
+        },
+        "avg_prob_error_pp": {
+          "mean": 3.8029995277815107,
+          "std": 0.0,
+          "ci_low": 3.8029995277815107,
+          "ci_high": 3.8029995277815107
+        },
+        "weighted_ce": 0.9224655686403437,
+        "weighted_brier": 0.007332575394161466,
+        "weighted_mae_macro": 0.0380299952778151
+      }
+    },
+    {
+      "experiment_id": "catboost_loto_minus_values",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "World Cup 2026",
+          "n_test_matches": 72,
+          "ce": 0.9279869464629686,
+          "brier": 0.010960938329718858,
+          "mae_a": 0.054896669162417436,
+          "mae_draw": 0.02643586387140402,
+          "mae_b": 0.04748133238904748,
+          "mae_macro": 0.04293795514095631,
+          "avg_prob_error_pp": 4.29379551409563
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9279869464629686,
+          "std": 0.0,
+          "ci_low": 0.9279869464629686,
+          "ci_high": 0.9279869464629686
+        },
+        "brier": {
+          "mean": 0.010960938329718858,
+          "std": 0.0,
+          "ci_low": 0.010960938329718858,
+          "ci_high": 0.010960938329718858
+        },
+        "mae_macro": {
+          "mean": 0.04293795514095631,
+          "std": 0.0,
+          "ci_low": 0.04293795514095631,
+          "ci_high": 0.04293795514095631
+        },
+        "avg_prob_error_pp": {
+          "mean": 4.29379551409563,
+          "std": 0.0,
+          "ci_low": 4.29379551409563,
+          "ci_high": 4.29379551409563
+        },
+        "weighted_ce": 0.9279869464629686,
+        "weighted_brier": 0.010960938329718858,
+        "weighted_mae_macro": 0.04293795514095631
+      }
+    },
+    {
+      "experiment_id": "catboost_loto_minus_confed",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "host_diff",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "World Cup 2026",
+          "n_test_matches": 72,
+          "ce": 0.9209623785298895,
+          "brier": 0.006253477017178443,
+          "mae_a": 0.04298776806511076,
+          "mae_draw": 0.02547558943507701,
+          "mae_b": 0.03606205008605943,
+          "mae_macro": 0.03484180252874907,
+          "avg_prob_error_pp": 3.484180252874907
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.9209623785298895,
+          "std": 0.0,
+          "ci_low": 0.9209623785298895,
+          "ci_high": 0.9209623785298895
+        },
+        "brier": {
+          "mean": 0.006253477017178443,
+          "std": 0.0,
+          "ci_low": 0.006253477017178443,
+          "ci_high": 0.006253477017178443
+        },
+        "mae_macro": {
+          "mean": 0.03484180252874907,
+          "std": 0.0,
+          "ci_low": 0.03484180252874907,
+          "ci_high": 0.03484180252874907
+        },
+        "avg_prob_error_pp": {
+          "mean": 3.484180252874907,
+          "std": 0.0,
+          "ci_low": 3.484180252874907,
+          "ci_high": 3.484180252874907
+        },
+        "weighted_ce": 0.9209623785298895,
+        "weighted_brier": 0.006253477017178443,
+        "weighted_mae_macro": 0.03484180252874907
+      }
+    },
+    {
+      "experiment_id": "catboost_loto_minus_stage",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "host_diff",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "World Cup 2026",
+          "n_test_matches": 72,
+          "ce": 0.921529965277204,
+          "brier": 0.006635909288516736,
+          "mae_a": 0.04516928787731273,
+          "mae_draw": 0.025461072686218052,
+          "mae_b": 0.037943097655653804,
+          "mae_macro": 0.03619115273972819,
+          "avg_prob_error_pp": 3.61911527397282
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.921529965277204,
+          "std": 0.0,
+          "ci_low": 0.921529965277204,
+          "ci_high": 0.921529965277204
+        },
+        "brier": {
+          "mean": 0.006635909288516736,
+          "std": 0.0,
+          "ci_low": 0.006635909288516736,
+          "ci_high": 0.006635909288516736
+        },
+        "mae_macro": {
+          "mean": 0.03619115273972819,
+          "std": 0.0,
+          "ci_low": 0.03619115273972819,
+          "ci_high": 0.03619115273972819
+        },
+        "avg_prob_error_pp": {
+          "mean": 3.61911527397282,
+          "std": 0.0,
+          "ci_low": 3.61911527397282,
+          "ci_high": 3.61911527397282
+        },
+        "weighted_ce": 0.921529965277204,
+        "weighted_brier": 0.006635909288516736,
+        "weighted_mae_macro": 0.03619115273972819
+      }
+    },
+    {
+      "experiment_id": "catboost_loto_minus_host",
+      "model_name": "catboost",
+      "baseline_name": null,
+      "is_reference": false,
+      "feature_names": [
+        "elo_diff",
+        "stage_binary",
+        "team_a_confederation_idx",
+        "team_b_confederation_idx",
+        "z_log_top_15_average_value_team_a",
+        "z_log_top_15_average_value_team_b"
+      ],
+      "per_fold": [
+        {
+          "held_out_competition": "World Cup 2026",
+          "n_test_matches": 72,
+          "ce": 0.921185122384738,
+          "brier": 0.006444271387982025,
+          "mae_a": 0.04427759900654942,
+          "mae_draw": 0.023398904004172383,
+          "mae_b": 0.03830944998985937,
+          "mae_macro": 0.03532865100019373,
+          "avg_prob_error_pp": 3.5328651000193725
+        }
+      ],
+      "summary": {
+        "ce": {
+          "mean": 0.921185122384738,
+          "std": 0.0,
+          "ci_low": 0.921185122384738,
+          "ci_high": 0.921185122384738
+        },
+        "brier": {
+          "mean": 0.006444271387982025,
+          "std": 0.0,
+          "ci_low": 0.006444271387982025,
+          "ci_high": 0.006444271387982025
+        },
+        "mae_macro": {
+          "mean": 0.03532865100019373,
+          "std": 0.0,
+          "ci_low": 0.03532865100019373,
+          "ci_high": 0.03532865100019373
+        },
+        "avg_prob_error_pp": {
+          "mean": 3.5328651000193725,
+          "std": 0.0,
+          "ci_low": 3.5328651000193725,
+          "ci_high": 3.5328651000193725
+        },
+        "weighted_ce": 0.921185122384738,
+        "weighted_brier": 0.006444271387982025,
+        "weighted_mae_macro": 0.03532865100019373
       }
     },
     {

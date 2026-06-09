@@ -32,6 +32,54 @@ WC_COMPETITIONS: dict[str, str] = {
 WC2026_SQUADS_PATH = DATA_INPUT / "wc2026_tournament_squads_with_value.json"
 KNOCKOUT_TEMPLATE = DATA_INPUT / "knockout_bracket_template.json"
 KNOCKOUT_COPY_TO = ("wc2010", "wc2014", "wc2018", "wc2022")
+HISTORICAL_HOST_COUNTRIES: dict[str, str] = {
+    "wc2010": "South Africa",
+    "wc2014": "Brazil",
+    "wc2018": "Russia",
+    "wc2022": "Qatar",
+}
+WC2026_KNOCKOUT_CONTEXT: dict[str, dict[str, str]] = {
+    "R32": {
+        "73": "Mexico",
+        "74": "United States",
+        "75": "United States",
+        "76": "Canada",
+        "77": "United States",
+        "78": "Mexico",
+        "79": "United States",
+        "80": "Canada",
+        "81": "United States",
+        "82": "Mexico",
+        "83": "Canada",
+        "84": "United States",
+        "85": "Mexico",
+        "86": "United States",
+        "87": "Canada",
+        "88": "United States",
+    },
+    "R16": {
+        "1": "Mexico",
+        "2": "United States",
+        "3": "Canada",
+        "4": "United States",
+        "5": "Mexico",
+        "6": "United States",
+        "7": "Canada",
+        "8": "United States",
+    },
+    "QF": {
+        "1": "United States",
+        "2": "Mexico",
+        "3": "United States",
+        "4": "Canada",
+    },
+    "SF": {
+        "1": "United States",
+        "2": "Mexico",
+    },
+    "final": {"1": "United States"},
+    "third_place": {"1": "Canada"},
+}
 
 
 def _build_wc2026_groups() -> dict[str, list[str]]:
@@ -173,6 +221,27 @@ def copy_knockout_brackets() -> None:
         print(f"Wrote {dest.name}")
 
 
+def _historical_knockout_context(slug: str) -> dict[str, dict[str, str]]:
+    host_country = HISTORICAL_HOST_COUNTRIES[slug]
+    return {
+        "R16": {str(idx + 1): host_country for idx in range(8)},
+        "QF": {str(idx + 1): host_country for idx in range(4)},
+        "SF": {str(idx + 1): host_country for idx in range(2)},
+        "final": {"1": host_country},
+        "third_place": {"1": host_country},
+    }
+
+
+def write_knockout_contexts() -> None:
+    for slug in KNOCKOUT_COPY_TO:
+        out = DATA_INPUT / f"{slug}_knockout_context.json"
+        out.write_text(json.dumps(_historical_knockout_context(slug), indent=2), encoding="utf-8")
+        print(f"Wrote {out.name}")
+    wc2026_out = DATA_INPUT / "wc2026_knockout_context.json"
+    wc2026_out.write_text(json.dumps(WC2026_KNOCKOUT_CONTEXT, indent=2), encoding="utf-8")
+    print(f"Wrote {wc2026_out.name}")
+
+
 def main() -> None:
     DATA_INPUT.mkdir(parents=True, exist_ok=True)
     _build_combined_match_dataset()
@@ -189,6 +258,7 @@ def main() -> None:
     print(f"wc2026: {len(wc2026_groups['groups'])} groups, {n_teams} teams -> {wc2026_out.name}")
     copy_knockout_brackets()
     _write_wc2026_knockout_bracket()
+    write_knockout_contexts()
 
 
 if __name__ == "__main__":

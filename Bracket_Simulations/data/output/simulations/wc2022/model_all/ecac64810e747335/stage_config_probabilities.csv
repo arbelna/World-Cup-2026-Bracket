@@ -1,233 +1,233 @@
 stage,teams,count,probability,rank
-QF,Argentina|Brazil|England|France|Germany|Netherlands|Portugal|Spain,390,0.00195000,1
-QF,Argentina|England|France|Germany|Netherlands|Portugal|Spain|Uruguay,376,0.00188000,2
-QF,Argentina|Brazil|Ecuador|France|Germany|Netherlands|Portugal|Spain,357,0.00178500,3
-QF,Brazil|Denmark|England|France|Germany|Netherlands|Portugal|Spain,357,0.00178500,4
-QF,Brazil|Denmark|Ecuador|France|Germany|Netherlands|Portugal|Spain,353,0.00176500,5
-QF,Denmark|Ecuador|France|Germany|Netherlands|Portugal|Spain|Uruguay,304,0.00152000,6
-QF,Argentina|Brazil|England|France|Germany|Netherlands|Spain|Switzerland,301,0.00150500,7
-QF,Argentina|Ecuador|France|Germany|Netherlands|Portugal|Spain|Uruguay,299,0.00149500,8
-QF,Denmark|England|France|Germany|Netherlands|Portugal|Spain|Uruguay,295,0.00147500,9
-QF,Brazil|Denmark|England|France|Germany|Netherlands|Spain|Switzerland,286,0.00143000,10
-QF,Brazil|Denmark|Ecuador|France|Germany|Netherlands|Spain|Switzerland,279,0.00139500,11
-QF,Argentina|Brazil|Ecuador|France|Germany|Netherlands|Spain|Switzerland,268,0.00134000,12
-QF,Argentina|Brazil|Denmark|England|Germany|Netherlands|Portugal|Spain,267,0.00133500,13
-QF,Argentina|Brazil|Denmark|Ecuador|Germany|Netherlands|Portugal|Spain,221,0.00110500,14
-QF,Argentina|Brazil|England|France|Germany|Portugal|Spain|United States,208,0.00104000,15
-QF,Denmark|England|France|Germany|Netherlands|Portugal|Spain|Switzerland,206,0.00103000,16
-QF,Argentina|Brazil|Denmark|England|Germany|Netherlands|Spain|Switzerland,201,0.00100500,17
-QF,Argentina|England|France|Germany|Netherlands|Portugal|Spain|Switzerland,198,0.00099000,18
-QF,Argentina|Ecuador|France|Germany|Netherlands|Portugal|Spain|Switzerland,197,0.00098500,19
-QF,Belgium|Brazil|Denmark|England|France|Netherlands|Portugal|Spain,195,0.00097500,20
-QF,Argentina|Denmark|England|Germany|Netherlands|Portugal|Spain|Uruguay,192,0.00096000,21
-QF,Denmark|Ecuador|France|Germany|Netherlands|Portugal|Spain|Switzerland,192,0.00096000,22
-QF,Argentina|Denmark|Ecuador|Germany|Netherlands|Portugal|Spain|Uruguay,191,0.00095500,23
-QF,Argentina|Belgium|Brazil|England|France|Netherlands|Portugal|Spain,183,0.00091500,24
-QF,Argentina|Brazil|Denmark|Ecuador|Germany|Netherlands|Spain|Switzerland,181,0.00090500,25
-QF,Argentina|Belgium|England|France|Netherlands|Portugal|Spain|Uruguay,181,0.00090500,26
-QF,Belgium|Brazil|Denmark|Ecuador|France|Netherlands|Portugal|Spain,181,0.00090500,27
-QF,Argentina|Brazil|England|Germany|Netherlands|Poland|Portugal|Spain,179,0.00089500,28
-QF,Argentina|Brazil|Ecuador|Germany|Netherlands|Poland|Portugal|Spain,178,0.00089000,29
-QF,Argentina|Belgium|Brazil|Croatia|England|France|Netherlands|Portugal,177,0.00088500,30
-QF,Brazil|Denmark|England|France|Germany|Portugal|Spain|United States,172,0.00086000,31
-QF,Argentina|Belgium|Brazil|Ecuador|France|Netherlands|Portugal|Spain,167,0.00083500,32
-QF,Argentina|Brazil|England|France|Germany|Portugal|Spain|Wales,165,0.00082500,33
-QF,Argentina|Belgium|Ecuador|France|Netherlands|Portugal|Spain|Uruguay,164,0.00082000,34
-QF,Argentina|Brazil|Ecuador|England|France|Germany|Portugal|Spain,162,0.00081000,35
-QF,Argentina|Belgium|Brazil|Croatia|Ecuador|France|Netherlands|Portugal,162,0.00081000,36
-QF,Argentina|Brazil|England|France|Germany|Netherlands|Spain|Uruguay,160,0.00080000,37
-QF,Argentina|Belgium|England|France|Germany|Netherlands|Portugal|Uruguay,158,0.00079000,38
-QF,Argentina|Ecuador|England|France|Germany|Portugal|Spain|Uruguay,158,0.00079000,39
-QF,Argentina|England|Germany|Netherlands|Poland|Portugal|Spain|Uruguay,157,0.00078500,40
-QF,Argentina|England|France|Germany|Portugal|Spain|United States|Uruguay,155,0.00077500,41
-QF,Brazil|Denmark|England|France|Germany|Portugal|Spain|Wales,155,0.00077500,42
-QF,Belgium|Brazil|Croatia|Denmark|England|France|Netherlands|Portugal,155,0.00077500,43
-QF,Argentina|Belgium|Brazil|England|France|Germany|Netherlands|Portugal,154,0.00077000,44
-QF,Argentina|Ecuador|Germany|Netherlands|Poland|Portugal|Spain|Uruguay,154,0.00077000,45
-QF,Argentina|England|France|Germany|Portugal|Spain|Uruguay|Wales,150,0.00075000,46
-QF,Belgium|Denmark|England|France|Netherlands|Portugal|Spain|Uruguay,147,0.00073500,47
-QF,Belgium|Denmark|Ecuador|France|Netherlands|Portugal|Spain|Uruguay,146,0.00073000,48
-QF,Argentina|Brazil|Ecuador|Germany|Mexico|Netherlands|Portugal|Spain,146,0.00073000,49
-QF,Argentina|Brazil|France|Germany|Netherlands|Portugal|Spain|United States,145,0.00072500,50
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,869,0.00434500,1
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,798,0.00399000,2
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,746,0.00373000,3
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,640,0.00320000,4
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Senegal|Spain|Switzerland|United States|Uruguay,365,0.00182500,5
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Iran|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay,339,0.00169500,6
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay|Wales,331,0.00165500,7
-R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,322,0.00161000,8
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|South Korea|Spain|Switzerland|United States,308,0.00154000,9
-R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,304,0.00152000,10
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Senegal|Spain|Switzerland|Uruguay|Wales,296,0.00148000,11
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Senegal|Spain|Switzerland|Uruguay|Wales,287,0.00143500,12
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay|Wales,287,0.00143500,13
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|South Korea|Spain|Switzerland|Wales,283,0.00141500,14
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Senegal|Spain|Switzerland|United States|Uruguay,270,0.00135000,15
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|Spain|United States|Uruguay,264,0.00132000,16
-R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,257,0.00128500,17
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|Spain|Uruguay|Wales,255,0.00127500,18
-R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,253,0.00126500,19
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Iran|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay,252,0.00126000,20
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|South Korea|Spain|Switzerland|United States,251,0.00125500,21
-R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,245,0.00122500,22
-R16,Argentina|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,242,0.00121000,23
-R16,Argentina|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,239,0.00119500,24
-R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,236,0.00118000,25
-R16,Argentina|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,229,0.00114500,26
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|United States|Uruguay,225,0.00112500,27
-R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,220,0.00110000,28
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Japan|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,220,0.00110000,29
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Japan|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,215,0.00107500,30
-R16,Argentina|Brazil|Canada|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,214,0.00107000,31
-R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,211,0.00105500,32
-R16,Argentina|Belgium|Brazil|Cameroon|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Uruguay|Wales,202,0.00101000,33
-R16,Argentina|Belgium|Brazil|Cameroon|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|United States|Uruguay,197,0.00098500,34
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|Uruguay|Wales,196,0.00098000,35
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Qatar|Spain|Switzerland|United States|Uruguay,196,0.00098000,36
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|South Korea|Spain|Switzerland|Wales,193,0.00096500,37
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Qatar|Spain|Switzerland|Uruguay|Wales,191,0.00095500,38
-R16,Argentina|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,186,0.00093000,39
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Japan|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,186,0.00093000,40
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Ghana|Netherlands|Poland|Portugal|Spain|Switzerland|United States,183,0.00091500,41
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Japan|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,182,0.00091000,42
-R16,Argentina|Belgium|Brazil|Cameroon|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Uruguay|Wales,179,0.00089500,43
-R16,Argentina|Brazil|Canada|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,177,0.00088500,44
-R16,Argentina|Brazil|Canada|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,176,0.00088000,45
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Japan|Netherlands|Poland|Portugal|Switzerland|United States|Uruguay,176,0.00088000,46
-R16,Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,173,0.00086500,47
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Qatar|Spain|Switzerland|United States|Uruguay,171,0.00085500,48
-R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Ghana|Netherlands|Poland|Portugal|Spain|Switzerland|Wales,168,0.00084000,49
-R16,Argentina|Belgium|Brazil|Cameroon|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|United States|Uruguay,160,0.00080000,50
-SF,Argentina|Brazil|France|Portugal,1465,0.00732500,1
-SF,Argentina|France|Portugal|Spain,1261,0.00630500,2
-SF,Argentina|France|Germany|Spain,1256,0.00628000,3
-SF,Brazil|Denmark|France|Portugal,1094,0.00547000,4
-SF,Denmark|France|Portugal|Spain,1007,0.00503500,5
-SF,Argentina|Brazil|England|Portugal,989,0.00494500,6
-SF,Argentina|France|Portugal|Uruguay,967,0.00483500,7
-SF,Brazil|France|Netherlands|Portugal,967,0.00483500,8
-SF,Denmark|France|Germany|Spain,950,0.00475000,9
-SF,France|Netherlands|Portugal|Spain,889,0.00444500,10
-SF,Argentina|France|Germany|Portugal,886,0.00443000,11
-SF,Argentina|Brazil|France|Switzerland,853,0.00426500,12
-SF,Argentina|England|Germany|Spain,827,0.00413500,13
-SF,Argentina|Brazil|Denmark|Portugal,820,0.00410000,14
-SF,Argentina|Brazil|France|Spain,807,0.00403500,15
-SF,France|Germany|Netherlands|Spain,792,0.00396000,16
-SF,Argentina|England|Portugal|Spain,781,0.00390500,17
-SF,Argentina|Brazil|Netherlands|Portugal,779,0.00389500,18
-SF,Denmark|France|Portugal|Uruguay,764,0.00382000,19
-SF,Argentina|Germany|Netherlands|Spain,748,0.00374000,20
-SF,Argentina|Netherlands|Portugal|Spain,715,0.00357500,21
-SF,Argentina|Denmark|Germany|Spain,710,0.00355000,22
-SF,Argentina|Denmark|Portugal|Spain,705,0.00352500,23
-SF,Brazil|England|Netherlands|Portugal,705,0.00352500,24
-SF,France|Netherlands|Portugal|Uruguay,681,0.00340500,25
-SF,Argentina|France|Portugal|Switzerland,678,0.00339000,26
-SF,England|Netherlands|Portugal|Spain,675,0.00337500,27
-SF,Denmark|France|Germany|Portugal,661,0.00330500,28
-SF,Brazil|Denmark|France|Switzerland,659,0.00329500,29
-SF,Argentina|England|Portugal|Uruguay,651,0.00325500,30
-SF,Argentina|Brazil|France|Germany,647,0.00323500,31
-SF,Argentina|Belgium|France|Portugal,646,0.00323000,32
-SF,France|Germany|Netherlands|Portugal,632,0.00316000,33
-SF,England|Germany|Netherlands|Spain,621,0.00310500,34
-SF,Brazil|France|Netherlands|Spain,579,0.00289500,35
-SF,Brazil|Denmark|France|Spain,577,0.00288500,36
-SF,Argentina|Belgium|Brazil|France,569,0.00284500,37
-SF,Argentina|Belgium|France|Spain,566,0.00283000,38
-SF,Argentina|England|Germany|Portugal,559,0.00279500,39
-SF,Brazil|England|France|Portugal,549,0.00274500,40
-SF,Argentina|Denmark|Portugal|Uruguay,546,0.00273000,41
-SF,Brazil|Denmark|Netherlands|Portugal,542,0.00271000,42
-SF,England|France|Germany|Spain,536,0.00268000,43
-SF,Denmark|France|Portugal|Switzerland,535,0.00267500,44
-SF,Brazil|France|Netherlands|Switzerland,535,0.00267500,45
-SF,Argentina|Brazil|England|Switzerland,532,0.00266000,46
-SF,England|France|Portugal|Spain,526,0.00263000,47
-SF,Argentina|Denmark|Germany|Portugal,524,0.00262000,48
-SF,Argentina|Brazil|England|Spain,515,0.00257500,49
-SF,Argentina|Netherlands|Portugal|Uruguay,513,0.00256500,50
-final,Argentina|Portugal,6946,0.03473000,1
-final,Argentina|France,6073,0.03036500,2
-final,Brazil|Portugal,5340,0.02670000,3
-final,Netherlands|Portugal,4637,0.02318500,4
-final,Portugal|Spain,4627,0.02313500,5
-final,France|Portugal,3918,0.01959000,6
-final,Germany|Spain,3820,0.01910000,7
-final,Brazil|France,3687,0.01843500,8
-final,Denmark|France,3669,0.01834500,9
-final,France|Netherlands,3633,0.01816500,10
-final,France|Spain,3585,0.01792500,11
-final,Argentina|Spain,3574,0.01787000,12
-final,Argentina|England,3505,0.01752500,13
-final,Argentina|Netherlands,3370,0.01685000,14
-final,Argentina|Brazil,3361,0.01680500,15
-final,Germany|Portugal,2971,0.01485500,16
-final,Argentina|Germany,2871,0.01435500,17
-final,Argentina|Denmark,2849,0.01424500,18
-final,Portugal|Uruguay,2824,0.01412000,19
-final,Brazil|Spain,2661,0.01330500,20
-final,Brazil|Switzerland,2496,0.01248000,21
-final,Netherlands|Spain,2491,0.01245500,22
-final,England|Netherlands,2438,0.01219000,23
-final,France|Germany,2423,0.01211500,24
-final,Argentina|Belgium,2409,0.01204500,25
-final,Brazil|England,2387,0.01193500,26
-final,Denmark|Portugal,2387,0.01193500,27
-final,Brazil|Netherlands,2380,0.01190000,28
-final,England|Portugal,2342,0.01171000,29
-final,England|Spain,2157,0.01078500,30
-final,Portugal|Switzerland,2153,0.01076500,31
-final,Belgium|Portugal,2072,0.01036000,32
-final,Brazil|Germany,2028,0.01014000,33
-final,England|France,1986,0.00993000,34
-final,Argentina|Switzerland,1950,0.00975000,35
-final,Germany|Netherlands,1886,0.00943000,36
-final,Brazil|Denmark,1852,0.00926000,37
-final,Denmark|Spain,1833,0.00916500,38
-final,Belgium|Spain,1805,0.00902500,39
-final,Denmark|Netherlands,1774,0.00887000,40
-final,Belgium|Brazil,1738,0.00869000,41
-final,Belgium|Netherlands,1723,0.00861500,42
-final,Belgium|France,1604,0.00802000,43
-final,France|Switzerland,1585,0.00792500,44
-final,England|Germany,1499,0.00749500,45
-final,Argentina|Uruguay,1471,0.00735500,46
-final,Argentina|Croatia,1453,0.00726500,47
-final,Spain|Switzerland,1399,0.00699500,48
-final,Ecuador|Netherlands,1347,0.00673500,49
-final,Croatia|Portugal,1324,0.00662000,50
-winner,Portugal,28233,0.14116500,1
-winner,Argentina,27251,0.13625500,2
-winner,France,20539,0.10269500,3
-winner,Brazil,18385,0.09192500,4
-winner,Spain,18021,0.09010500,5
-winner,Netherlands,16312,0.08156000,6
-winner,Germany,11614,0.05807000,7
-winner,England,11453,0.05726500,8
-winner,Denmark,9859,0.04929500,9
-winner,Belgium,8471,0.04235500,10
-winner,Switzerland,7476,0.03738000,11
-winner,Uruguay,5529,0.02764500,12
-winner,Croatia,4490,0.02245000,13
-winner,Ecuador,3394,0.01697000,14
-winner,Poland,1971,0.00985500,15
-winner,United States,1612,0.00806000,16
-winner,Wales,1374,0.00687000,17
-winner,Mexico,1310,0.00655000,18
-winner,Morocco,515,0.00257500,19
-winner,Serbia,402,0.00201000,20
-winner,Japan,376,0.00188000,21
-winner,South Korea,364,0.00182000,22
-winner,Canada,246,0.00123000,23
-winner,Senegal,219,0.00109500,24
-winner,Cameroon,156,0.00078000,25
-winner,Iran,154,0.00077000,26
-winner,Ghana,85,0.00042500,27
-winner,Qatar,73,0.00036500,28
-winner,Tunisia,64,0.00032000,29
-winner,Australia,31,0.00015500,30
-winner,Costa Rica,16,0.00008000,31
-winner,Saudi Arabia,5,0.00002500,32
+QF,Argentina|Brazil|England|France|Germany|Netherlands|Portugal|Spain,770,0.00385000,1
+QF,Brazil|Denmark|England|France|Germany|Netherlands|Portugal|Spain,571,0.00285500,2
+QF,Argentina|Brazil|England|France|Germany|Netherlands|Serbia|Spain,477,0.00238500,3
+QF,Argentina|Brazil|Denmark|England|Germany|Netherlands|Portugal|Spain,452,0.00226000,4
+QF,Argentina|Belgium|Brazil|England|France|Netherlands|Portugal|Spain,430,0.00215000,5
+QF,Argentina|England|France|Germany|Netherlands|Portugal|Spain|Uruguay,422,0.00211000,6
+QF,Argentina|Brazil|England|France|Germany|Netherlands|Spain|Switzerland,411,0.00205500,7
+QF,Argentina|Brazil|England|France|Germany|Netherlands|Spain|Uruguay,411,0.00205500,8
+QF,Argentina|Brazil|Ecuador|France|Germany|Netherlands|Portugal|Spain,397,0.00198500,9
+QF,Brazil|Denmark|England|France|Germany|Netherlands|Serbia|Spain,351,0.00175500,10
+QF,Denmark|England|France|Germany|Netherlands|Portugal|Spain|Uruguay,320,0.00160000,11
+QF,Argentina|Belgium|Brazil|England|France|Germany|Netherlands|Portugal,318,0.00159000,12
+QF,Argentina|Brazil|England|Germany|Netherlands|Poland|Portugal|Spain,317,0.00158500,13
+QF,Belgium|Brazil|Denmark|England|France|Netherlands|Portugal|Spain,315,0.00157500,14
+QF,Brazil|Denmark|England|France|Germany|Netherlands|Spain|Uruguay,311,0.00155500,15
+QF,Argentina|Brazil|England|France|Germany|Portugal|Spain|United States,294,0.00147000,16
+QF,Brazil|Denmark|Ecuador|France|Germany|Netherlands|Portugal|Spain,288,0.00144000,17
+QF,Brazil|Denmark|England|France|Germany|Netherlands|Spain|Switzerland,274,0.00137000,18
+QF,Argentina|Belgium|Brazil|Croatia|England|France|Netherlands|Portugal,263,0.00131500,19
+QF,Argentina|Denmark|England|Germany|Netherlands|Portugal|Spain|Uruguay,257,0.00128500,20
+QF,Argentina|Brazil|Croatia|England|France|Netherlands|Portugal|Spain,257,0.00128500,21
+QF,Argentina|Ecuador|France|Germany|Netherlands|Portugal|Spain|Uruguay,255,0.00127500,22
+QF,Argentina|Belgium|Brazil|England|France|Netherlands|Serbia|Spain,253,0.00126500,23
+QF,Argentina|Belgium|England|France|Netherlands|Portugal|Spain|Uruguay,245,0.00122500,24
+QF,Argentina|Brazil|England|Germany|Mexico|Netherlands|Portugal|Spain,244,0.00122000,25
+QF,Argentina|Belgium|Brazil|Ecuador|France|Netherlands|Portugal|Spain,240,0.00120000,26
+QF,Argentina|Brazil|Ecuador|France|Germany|Netherlands|Spain|Switzerland,238,0.00119000,27
+QF,Argentina|Brazil|Denmark|England|Germany|Netherlands|Serbia|Spain,233,0.00116500,28
+QF,Argentina|Brazil|Ecuador|France|Germany|Netherlands|Serbia|Spain,229,0.00114500,29
+QF,Argentina|Brazil|Denmark|England|Germany|Netherlands|Spain|Switzerland,225,0.00112500,30
+QF,Argentina|Belgium|Brazil|England|France|Netherlands|Spain|Uruguay,224,0.00112000,31
+QF,Belgium|Brazil|Denmark|England|France|Germany|Netherlands|Portugal,222,0.00111000,32
+QF,Argentina|Belgium|Brazil|Denmark|England|Netherlands|Portugal|Spain,217,0.00108500,33
+QF,Argentina|Brazil|Denmark|England|Germany|Netherlands|Spain|Uruguay,217,0.00108500,34
+QF,Argentina|Brazil|England|France|Germany|Portugal|Spain|Wales,215,0.00107500,35
+QF,Brazil|Denmark|England|France|Germany|Portugal|Spain|United States,212,0.00106000,36
+QF,Argentina|Brazil|Ecuador|France|Germany|Netherlands|Spain|Uruguay,209,0.00104500,37
+QF,Argentina|Belgium|Brazil|England|France|Netherlands|Spain|Switzerland,207,0.00103500,38
+QF,Argentina|Brazil|France|Germany|Netherlands|Portugal|Spain|United States,207,0.00103500,39
+QF,Belgium|Brazil|Croatia|Denmark|England|France|Netherlands|Portugal,196,0.00098000,40
+QF,Argentina|Brazil|Denmark|Ecuador|Germany|Netherlands|Portugal|Spain,194,0.00097000,41
+QF,Argentina|Brazil|Denmark|England|Germany|Portugal|Spain|United States,189,0.00094500,42
+QF,Brazil|Croatia|Denmark|England|France|Netherlands|Portugal|Spain,187,0.00093500,43
+QF,Argentina|Belgium|Brazil|England|France|Germany|Netherlands|Uruguay,185,0.00092500,44
+QF,Brazil|Denmark|England|France|Germany|Portugal|Spain|Wales,184,0.00092000,45
+QF,Belgium|Denmark|England|France|Netherlands|Portugal|Spain|Uruguay,183,0.00091500,46
+QF,Argentina|Brazil|Ecuador|England|France|Germany|Portugal|Spain,179,0.00089500,47
+QF,Argentina|Brazil|England|Germany|Netherlands|Poland|Serbia|Spain,174,0.00087000,48
+QF,Argentina|Belgium|Brazil|England|France|Germany|Netherlands|Serbia,173,0.00086500,49
+QF,Belgium|Brazil|Denmark|England|France|Netherlands|Spain|Switzerland,173,0.00086500,50
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|Spain|United States|Uruguay,598,0.00299000,1
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|Spain|Uruguay|Wales,573,0.00286500,2
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,570,0.00285000,3
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,541,0.00270500,4
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,519,0.00259500,5
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|United States|Uruguay,516,0.00258000,6
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,462,0.00231000,7
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|Uruguay|Wales,436,0.00218000,8
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Senegal|Serbia|Spain|United States|Uruguay,359,0.00179500,9
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Senegal|Spain|Switzerland|United States|Uruguay,312,0.00156000,10
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Iran|Netherlands|Poland|Portugal|Serbia|Spain|Uruguay,307,0.00153500,11
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Iran|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay,306,0.00153000,12
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Senegal|Serbia|Spain|Uruguay|Wales,304,0.00152000,13
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Iran|Mexico|Netherlands|Portugal|Serbia|Spain|Uruguay,296,0.00148000,14
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Senegal|Serbia|Spain|United States|Uruguay,290,0.00145000,15
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Senegal|Serbia|Spain|Uruguay|Wales,288,0.00144000,16
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Qatar|Serbia|Spain|United States|Uruguay,287,0.00143500,17
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Senegal|Spain|Switzerland|Uruguay|Wales,286,0.00143000,18
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Qatar|Spain|Switzerland|United States|Uruguay,278,0.00139000,19
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Iran|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay,275,0.00137500,20
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Senegal|Spain|Switzerland|United States|Uruguay,266,0.00133000,21
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|Spain|United States|Uruguay,266,0.00133000,22
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Qatar|Serbia|Spain|Uruguay|Wales,262,0.00131000,23
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Qatar|Serbia|Spain|United States|Uruguay,260,0.00130000,24
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Qatar|Spain|Switzerland|United States|Uruguay,257,0.00128500,25
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Qatar|Serbia|Spain|Uruguay|Wales,252,0.00126000,26
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Senegal|Spain|Switzerland|Uruguay|Wales,252,0.00126000,27
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|United States|Uruguay,247,0.00123500,28
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Netherlands|Poland|Portugal|Qatar|Spain|Switzerland|Uruguay|Wales,231,0.00115500,29
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Serbia|Spain|United States|Uruguay,230,0.00115000,30
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,226,0.00113000,31
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|Spain|Uruguay|Wales,217,0.00108500,32
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|England|France|Germany|Mexico|Netherlands|Portugal|Qatar|Spain|Switzerland|Uruguay|Wales,217,0.00108500,33
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,216,0.00108000,34
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Serbia|Spain|Uruguay|Wales,206,0.00103000,35
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|Spain|Uruguay|Wales,203,0.00101500,36
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,200,0.00100000,37
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Spain|Switzerland|United States|Uruguay,200,0.00100000,38
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Serbia|Spain|Uruguay|Wales,198,0.00099000,39
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Morocco|Netherlands|Poland|Portugal|Spain|Switzerland|Uruguay|Wales,198,0.00099000,40
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|South Korea|Spain|Switzerland|United States,194,0.00097000,41
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|United States|Uruguay,194,0.00097000,42
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Serbia|Spain|United States|Uruguay,194,0.00097000,43
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Serbia|South Korea|Spain|United States,191,0.00095500,44
+R16,Argentina|Belgium|Brazil|Canada|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,184,0.00092000,45
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|South Korea|Spain|Switzerland|Wales,178,0.00089000,46
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|South Korea|Spain|United States,176,0.00088000,47
+R16,Argentina|Belgium|Brazil|Denmark|Ecuador|England|France|Germany|Mexico|Morocco|Netherlands|Portugal|Spain|Switzerland|Uruguay|Wales,173,0.00086500,48
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Netherlands|Poland|Portugal|Serbia|South Korea|Spain|Wales,172,0.00086000,49
+R16,Argentina|Belgium|Brazil|Croatia|Denmark|Ecuador|England|France|Germany|Mexico|Netherlands|Portugal|South Korea|Spain|Switzerland|Wales,167,0.00083500,50
+SF,Argentina|Brazil|France|Portugal,2265,0.01132500,1
+SF,Argentina|Brazil|France|Spain,1853,0.00926500,2
+SF,Argentina|France|Germany|Spain,1679,0.00839500,3
+SF,Argentina|Brazil|England|Portugal,1479,0.00739500,4
+SF,Argentina|Brazil|France|Germany,1457,0.00728500,5
+SF,Argentina|Belgium|Brazil|France,1452,0.00726000,6
+SF,Brazil|France|Netherlands|Portugal,1280,0.00640000,7
+SF,Argentina|Brazil|England|Spain,1254,0.00627000,8
+SF,Brazil|Denmark|France|Portugal,1220,0.00610000,9
+SF,Argentina|France|Portugal|Spain,1206,0.00603000,10
+SF,Argentina|England|Germany|Spain,1169,0.00584500,11
+SF,Brazil|England|Netherlands|Portugal,1168,0.00584000,12
+SF,Brazil|France|Netherlands|Spain,1152,0.00576000,13
+SF,France|Germany|Netherlands|Spain,1033,0.00516500,14
+SF,Argentina|Belgium|Brazil|England,1017,0.00508500,15
+SF,Argentina|Brazil|Netherlands|Portugal,999,0.00499500,16
+SF,Argentina|Brazil|England|Germany,999,0.00499500,17
+SF,Brazil|Denmark|France|Spain,985,0.00492500,18
+SF,Denmark|France|Germany|Spain,981,0.00490500,19
+SF,Argentina|Brazil|Denmark|Portugal,969,0.00484500,20
+SF,Brazil|England|Netherlands|Spain,927,0.00463500,21
+SF,Argentina|Brazil|France|Uruguay,906,0.00453000,22
+SF,Belgium|Brazil|France|Netherlands,897,0.00448500,23
+SF,Argentina|Brazil|France|Serbia,879,0.00439500,24
+SF,Argentina|England|Portugal|Spain,868,0.00434000,25
+SF,Argentina|Belgium|France|Spain,866,0.00433000,26
+SF,Brazil|France|Germany|Netherlands,852,0.00426000,27
+SF,Belgium|Brazil|Denmark|France,851,0.00425500,28
+SF,Argentina|Brazil|Netherlands|Spain,851,0.00425500,29
+SF,England|Germany|Netherlands|Spain,846,0.00423000,30
+SF,Brazil|Denmark|France|Germany,842,0.00421000,31
+SF,Argentina|Germany|Netherlands|Spain,841,0.00420500,32
+SF,Argentina|Brazil|Denmark|Spain,828,0.00414000,33
+SF,Argentina|Denmark|Germany|Spain,818,0.00409000,34
+SF,Brazil|England|France|Portugal,764,0.00382000,35
+SF,Argentina|France|Portugal|Uruguay,749,0.00374500,36
+SF,Belgium|Brazil|England|Netherlands,748,0.00374000,37
+SF,Brazil|England|Germany|Netherlands,748,0.00374000,38
+SF,Argentina|Brazil|France|Switzerland,746,0.00373000,39
+SF,Argentina|France|Germany|Portugal,720,0.00360000,40
+SF,Argentina|Brazil|Croatia|France,706,0.00353000,41
+SF,Argentina|Belgium|England|Spain,700,0.00350000,42
+SF,France|Netherlands|Portugal|Spain,698,0.00349000,43
+SF,Denmark|France|Portugal|Spain,698,0.00349000,44
+SF,Argentina|Brazil|England|Uruguay,682,0.00341000,45
+SF,Argentina|Brazil|Denmark|Germany,659,0.00329500,46
+SF,Argentina|Belgium|Brazil|Denmark,656,0.00328000,47
+SF,Argentina|Belgium|Brazil|Netherlands,653,0.00326500,48
+SF,Brazil|Denmark|Netherlands|Portugal,629,0.00314500,49
+SF,England|France|Germany|Spain,625,0.00312500,50
+final,Brazil|France,7828,0.03914000,1
+final,Argentina|France,7359,0.03679500,2
+final,Brazil|Portugal,6987,0.03493500,3
+final,Brazil|Spain,5922,0.02961000,4
+final,Argentina|Brazil,5691,0.02845500,5
+final,Brazil|England,5396,0.02698000,6
+final,Argentina|Portugal,5128,0.02564000,7
+final,Argentina|England,4631,0.02315500,8
+final,Argentina|Spain,4474,0.02237000,9
+final,Germany|Spain,4451,0.02225500,10
+final,Belgium|Brazil,4254,0.02127000,11
+final,Brazil|Germany,4208,0.02104000,12
+final,France|Spain,3998,0.01999000,13
+final,Brazil|Netherlands,3844,0.01922000,14
+final,France|Netherlands,3547,0.01773500,15
+final,Argentina|Netherlands,3318,0.01659000,16
+final,Portugal|Spain,3312,0.01656000,17
+final,Argentina|Germany,3226,0.01613000,18
+final,Argentina|Belgium,3184,0.01592000,19
+final,Brazil|Denmark,3085,0.01542500,20
+final,Denmark|France,2972,0.01486000,21
+final,England|Netherlands,2843,0.01421500,22
+final,Netherlands|Portugal,2758,0.01379000,23
+final,Netherlands|Spain,2700,0.01350000,24
+final,England|Spain,2668,0.01334000,25
+final,Argentina|Denmark,2643,0.01321500,26
+final,Brazil|Uruguay,2374,0.01187000,27
+final,France|Portugal,2342,0.01171000,28
+final,Belgium|Spain,2282,0.01141000,29
+final,France|Germany,2253,0.01126500,30
+final,Brazil|Serbia,2087,0.01043500,31
+final,Germany|Netherlands,1958,0.00979000,32
+final,Belgium|Netherlands,1901,0.00950500,33
+final,England|France,1877,0.00938500,34
+final,Germany|Portugal,1814,0.00907000,35
+final,Denmark|Spain,1793,0.00896500,36
+final,Argentina|Uruguay,1766,0.00883000,37
+final,Brazil|Switzerland,1744,0.00872000,38
+final,Brazil|Croatia,1674,0.00837000,39
+final,Portugal|Uruguay,1650,0.00825000,40
+final,Belgium|France,1591,0.00795500,41
+final,Denmark|Netherlands,1535,0.00767500,42
+final,England|Germany,1484,0.00742000,43
+final,England|Portugal,1439,0.00719500,44
+final,Belgium|Portugal,1302,0.00651000,45
+final,Argentina|Croatia,1284,0.00642000,46
+final,Denmark|Portugal,1271,0.00635500,47
+final,Spain|Uruguay,1237,0.00618500,48
+final,Belgium|Germany,1211,0.00605500,49
+final,Argentina|Serbia,1190,0.00595000,50
+winner,Brazil,40578,0.20289000,1
+winner,Argentina,29579,0.14789500,2
+winner,Spain,20704,0.10352000,3
+winner,France,19639,0.09819500,4
+winner,Portugal,15285,0.07642500,5
+winner,Netherlands,15014,0.07507000,6
+winner,Germany,11756,0.05878000,7
+winner,England,11372,0.05686000,8
+winner,Belgium,9184,0.04592000,9
+winner,Denmark,7207,0.03603500,10
+winner,Uruguay,5277,0.02638500,11
+winner,Croatia,3398,0.01699000,12
+winner,Serbia,2447,0.01223500,13
+winner,Switzerland,2008,0.01004000,14
+winner,Ecuador,1072,0.00536000,15
+winner,Poland,1042,0.00521000,16
+winner,United States,841,0.00420500,17
+winner,Mexico,703,0.00351500,18
+winner,Wales,615,0.00307500,19
+winner,Japan,406,0.00203000,20
+winner,Canada,354,0.00177000,21
+winner,Morocco,322,0.00161000,22
+winner,Qatar,303,0.00151500,23
+winner,South Korea,298,0.00149000,24
+winner,Senegal,253,0.00126500,25
+winner,Iran,135,0.00067500,26
+winner,Tunisia,64,0.00032000,27
+winner,Ghana,48,0.00024000,28
+winner,Cameroon,44,0.00022000,29
+winner,Australia,26,0.00013000,30
+winner,Costa Rica,20,0.00010000,31
+winner,Saudi Arabia,6,0.00003000,32

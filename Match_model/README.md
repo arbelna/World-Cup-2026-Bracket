@@ -7,7 +7,7 @@ Stage 2 of the local pipeline: build the modeling dataset and run leave-one-tour
 - Build `match_dataset.json` from committed historical inputs plus vendored `old_stats` reference files.
 - Run LOTO evaluation for:
   - `catboost_loto_core7`
-  - `baseline__elo`: a rating-only baseline built from the pre-match Elo gap
+  - `baseline__elo`: a rating-only baseline built from the tournament-start Elo gap
   - `baseline__marginal`: the unconditional historical 1X2 distribution with no match-specific inputs
   - `baseline__market_dispersion`: a market-aware reference baseline that uses bookmaker-price dispersion and is closer to a calibration reference than a fair standalone predictor
 - Write plots and a human-readable report to `results.md`.
@@ -20,7 +20,7 @@ The seven committed model features are built in `src/match_model/dataset_builder
 
 | Feature | Meaning |
 |------|---------|
-| `elo_diff` | pre-match Elo gap, team A minus team B |
+| `elo_diff` | tournament-start Elo gap, team A minus team B |
 | `stage_binary` | `1` for group stage, `0` for knockout |
 | `host_diff` | host-advantage difference in `{-1, 0, 1}` |
 | `team_a_confederation_idx` | fixed confederation index for team A |
@@ -69,7 +69,7 @@ pip install -r requirements.txt
 ```
 
 This refreshes the committed `legacy12` collection inputs from `..\Data_Collection\data\legacy12`.
-It copies `fixtures_stats.json`, `matched_odds.json`, `team_confederations.json`, and `tournament_squads_with_value.json` into this stage's `data/input/legacy12/`.
+It copies `fixtures_stats.json`, `matched_odds.json`, `team_confederations.json`, `team_ratings.json`, and `tournament_squads_with_value.json` into this stage's `data/input/legacy12/`.
 
 The helper script above is written for PowerShell on Windows. On macOS or Linux, skip the script and run the Python CLI commands in this stage directly after copying or syncing the required inputs.
 

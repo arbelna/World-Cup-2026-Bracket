@@ -58,12 +58,6 @@ def build_dataset_match_id(tournament_id: str, team_a: str, team_b: str, date_va
     )
 
 
-def _elo_before(rating: int | None, diff: int | None) -> int | None:
-    if rating is None or diff is None:
-        return None
-    return rating - diff
-
-
 def _fixture_date(fixture: dict[str, Any]) -> str:
     return normalize_date(str(fixture.get("date_utc")))
 
@@ -155,6 +149,39 @@ def _load_confederation_map(collection_dir: Path) -> dict[str, str]:
     path = collection_dir / "team_confederations.json"
     payload = json.loads(path.read_text(encoding="utf-8"))
     return dict(payload.get("teams", {}))
+
+
+def _resolve_team_ratings_path(collection_dir: Path) -> Path:
+    for filename in ("team_ratings.json", "teams_ratings.json"):
+        path = collection_dir / filename
+        if path.exists():
+            return path
+    raise FileNotFoundError(f"Missing team ratings file in {collection_dir}")
+
+
+def _load_team_ratings_index(collection_dir: Path) -> dict[tuple[str, str], int]:
+    path = _resolve_team_ratings_path(collection_dir)
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, list):
+        raise ValueError(f"team ratings file must be a list: {path}")
+
+    index: dict[tuple[str, str], int] = {}
+    for row in payload:
+        tournament_id = str(row.get("tournament_id", "")).strip()
+        team_name = str(row.get("team_name", "")).strip()
+        elo_rating = row.get("elo_rating")
+        if not tournament_id or not team_name or elo_rating is None:
+            continue
+        index[(tournament_id, normalize_team_name(team_name))] = int(elo_rating)
+    return index
+
+
+def _lookup_tournament_start_elo(
+    ratings_index: dict[tuple[str, str], int],
+    tournament_id: str,
+    team_name: str,
+) -> int | None:
+    return ratings_index.get((tournament_id, normalize_team_name(team_name)))
 
 
 def _lookup_confederation(teams: dict[str, str], name: str) -> str | None:
@@ -336,6 +363,7 @@ def build_match_dataset(
     odds_rows: list[dict[str, Any]] = json.loads(odds_path.read_text(encoding="utf-8"))
     squads_with_values = json.loads(squads_path.read_text(encoding="utf-8"))
     conf_teams = _load_confederation_map(collection_dir)
+    ratings_index = _load_team_ratings_index(collection_dir)
 
     old_stats_index, OldStatsMatch = _load_old_stats_index(old_stats_dir)
 
@@ -363,10 +391,13 @@ def build_match_dataset(
         tournament_id = str(fixture["tournament_id"])
         competition = str(fixture.get("tournament_name") or fixture.get("competition", ""))
 
-        elo_a = _elo_before(fixture["elo_rating"]["home"], fixture["elo_rating_diff"]["home"])
-        elo_b = _elo_before(fixture["elo_rating"]["away"], fixture["elo_rating_diff"]["away"])
+        elo_a = _lookup_tournament_start_elo(ratings_index, tournament_id, team_a)
+        elo_b = _lookup_tournament_start_elo(ratings_index, tournament_id, team_b)
         if elo_a is None or elo_b is None:
             skipped_no_elo += 1
+            warnings.append(
+                f"missing_tournament_start_elo: {tournament_id} {date_value} {team_a} vs {team_b}"
+            )
             continue
         elo_diff = float(elo_a - elo_b)
 
@@ -446,6 +477,9 @@ def build_match_dataset(
         "track": "final_bracket_match_model",
         "field_order": list(ROW_FIELD_ORDER),
         "core7_features": list(CORE7_FEATURE_FIELDS),
+        "feature_notes": {
+            "elo_diff": "Tournament-start Elo difference from collection team_ratings/teams_ratings snapshots.",
+        },
         "totals": {
             "fixtures": len(fixtures),
             "matches": len(dataset),

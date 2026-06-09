@@ -38,21 +38,22 @@ class MatchModelSmokeTest(unittest.TestCase):
         self.assertNotIn("Target oracle CE", text)
         self.assertIn("## 0. Experiment pipeline", text)
         self.assertIn("## 3. Group stage vs knockout matches", text)
+        self.assertIn("## 4. Ablation and sensitivity analysis", text)
         self.assertNotIn("![", text)
-        self.assertIn("## 4. Highest cross-entropy predictions (CatBoost)", text)
+        self.assertIn("## 5. Highest cross-entropy predictions (CatBoost)", text)
         self.assertIn("| # | Match | Stage | Actual 90m | Market top call | Model top call | CE | Brier |", text)
         self.assertNotIn("## 5. Interpretation notes", text)
         self.assertNotIn("## 5. Reproduce", text)
         self.assertNotIn("python main_cli.py run-all", text)
-        self.assertIn("## 5. WC2026 explicit holdout (train legacy12, test WC2026)", text)
+        self.assertIn("## 6. WC2026 explicit holdout (train legacy12, test WC2026)", text)
         self.assertIn("reasonable inputs for the bracket simulation stage", text)
         self.assertNotRegex(text, r"[A-Z]:\\")
 
-        section4 = text.split("## 4. Highest cross-entropy predictions (CatBoost)", 1)[1]
-        section4 = section4.split("## 5. WC2026 explicit holdout", 1)[0]
+        section5 = text.split("## 5. Highest cross-entropy predictions (CatBoost)", 1)[1]
+        section5 = section5.split("## 6. WC2026 explicit holdout", 1)[0]
         rows = [
             line
-            for line in section4.splitlines()
+            for line in section5.splitlines()
             if line.startswith("| ") and " vs " in line and "Market top call" not in line
         ]
         self.assertEqual(len(rows), 10)

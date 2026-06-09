@@ -1,6 +1,6 @@
 # Bracket_Simulations - historical backtest summary
 
-**Generated:** 2026-06-09 08:12 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
+**Generated:** 2026-06-09 10:44 UTC | **Tournaments:** 4 (WC 2010-2022) | **Modes:** `market_all` vs `model_all`
 
 > This is the curated reader-facing summary. The detailed generated report lives in `data/output/simulations/stage_prediction_backtest.md`.
 
@@ -10,10 +10,10 @@ The goal of `model_all` is to be **competitive** with the betting market benchma
 
 Across four World Cups (2010-2022) the picture is mixed but broadly positive:
 
-- **Recall (M1):** `model_all` edges `market_all` at every stage (R16: 71.88% vs 70.31%, QF: 65.62% vs 62.50%, SF: 50.00% vs 43.75%, final: 37.50% vs 25.00%). The direction is consistent, but with only 4 tournaments the bootstrap confidence intervals all span zero — the gap is real in direction but not distinguishable from noise at this sample size.
+- **Recall (M1):** `model_all` edges `market_all` at every stage (R16: 70.31% vs 70.31%, QF: 65.62% vs 62.50%, SF: 50.00% vs 43.75%, final: 37.50% vs 25.00%). The direction is consistent, but with only 4 tournaments the bootstrap confidence intervals all span zero — the gap is real in direction but not distinguishable from noise at this sample size.
 - **Qualifier Brier (M2):** `market_all` wins cleanly at every stage (lower is better). The model assigns less accurate probabilities to teams that actually qualified. This is the market's clearest advantage.
 - **All-team Brier (M5) and log loss (M6):** `market_all` also leads on both all-team metrics at R16/QF/SF on average, consistent with M2. The gap narrows at final/winner stages where the model is marginally competitive.
-- **Calibration:** `market_all` is better calibrated overall (ECE 0.0095 vs 0.0237). Both models are well-calibrated on low-probability teams — the large majority of cases — and sit close to the diagonal in the 0-0.3 range. The model's deficit is concentrated in the 0.5-0.7 bin (-0.136 (avg pred 0.58, observed 0.71)): it consistently underrates mid-range favourites. The market is sharper in that range (-0.021 (avg pred 0.61, observed 0.63)).
+- **Calibration:** `market_all` is better calibrated overall (ECE 0.0095 vs 0.0242). Both models are well-calibrated on low-probability teams — the large majority of cases — and sit close to the diagonal in the 0-0.3 range. The model's deficit is concentrated in the 0.5-0.7 bin (-0.128 (avg pred 0.57, observed 0.70)): it consistently underrates mid-range favourites. The market is sharper in that range (-0.021 (avg pred 0.61, observed 0.63)).
 - **Winner prediction:** neither model correctly identifies the actual champion as top pick in any of the four tournaments — consistent with the unpredictability of knockout football.
 
 **Overall verdict:** `model_all` is competitive with the market. It matches market on recall and holds its own on joint-distribution metrics (M3/M4 at SF and final). The market is better calibrated, particularly for favourites in the 0.5-0.7 probability range. Improving the model's confidence on strong favourites is the clearest remaining gap.
@@ -31,7 +31,7 @@ Across four World Cups (2010-2022) the picture is mixed but broadly positive:
 
 | Stage | Market M1 recall | Model M1 recall | Delta pp (model - market) | Better side |
 |-------|------------------|-----------------|---------------------------|-------------|
-| **R16** | 70.31% | 71.88% | +1.56 | model |
+| **R16** | 70.31% | 70.31% | +0.00 | tie |
 | **QF** | 62.50% | 65.62% | +3.12 | model |
 | **SF** | 43.75% | 50.00% | +6.25 | model |
 | **final** | 25.00% | 37.50% | +12.50 | model |
@@ -44,11 +44,11 @@ Mean squared error on actual qualifiers only: average of `(p_at_least - 1)^2` ov
 
 | Stage | Market M2 Brier | Model M2 Brier | Delta (model - market) | Better side |
 |-------|-----------------|----------------|------------------------|-------------|
-| **R16** | 0.1955 | 0.2045 | +0.0090 | market |
-| **QF** | 0.3246 | 0.3612 | +0.0365 | market |
-| **SF** | 0.5138 | 0.5597 | +0.0459 | market |
-| **final** | 0.6489 | 0.6767 | +0.0278 | market |
-| **winner** | 0.7687 | 0.7861 | +0.0174 | market |
+| **R16** | 0.1955 | 0.2086 | +0.0131 | market |
+| **QF** | 0.3246 | 0.3585 | +0.0338 | market |
+| **SF** | 0.5138 | 0.5580 | +0.0442 | market |
+| **final** | 0.6489 | 0.6725 | +0.0236 | market |
+| **winner** | 0.7687 | 0.7811 | +0.0124 | market |
 
 `market_all` has lower average qualifier Brier at every stage in the historical backtest.
 
@@ -59,10 +59,10 @@ Cumulative simulated probability through the rank of the exact actual team set; 
 | Stage | Market M3 cum | Model M3 cum | Delta pp (model - market) | Better side |
 |-------|---------------|--------------|---------------------------|-------------|
 | **R16** | 62.05% | 97.21% | +35.16 | market |
-| **QF** | 40.01% | 59.74% | +19.73 | market |
-| **SF** | 45.02% | 42.47% | -2.55 | model |
-| **final** | 39.12% | 25.39% | -13.73 | model |
-| **winner** | 56.86% | 43.39% | -13.47 | model |
+| **QF** | 40.01% | 60.13% | +20.11 | market |
+| **SF** | 45.02% | 43.61% | -1.41 | model |
+| **final** | 39.12% | 25.66% | -13.46 | model |
+| **winner** | 56.86% | 45.23% | -11.63 | model |
 
 ## M4 all-teams-seen cumulative
 
@@ -70,11 +70,11 @@ Cumulative simulated probability through the first rank where every actual team 
 
 | Stage | Market M4 cum | Model M4 cum | Delta pp (model - market) | Better side |
 |-------|---------------|--------------|---------------------------|-------------|
-| **R16** | 9.29% | 6.24% | -3.05 | model |
-| **QF** | 14.38% | 15.75% | +1.37 | market |
-| **SF** | 24.11% | 27.19% | +3.08 | market |
-| **final** | 35.91% | 19.60% | -16.31 | model |
-| **winner** | 56.86% | 43.39% | -13.47 | model |
+| **R16** | 9.29% | 7.85% | -1.44 | model |
+| **QF** | 14.38% | 15.04% | +0.66 | market |
+| **SF** | 24.11% | 27.55% | +3.44 | market |
+| **final** | 35.91% | 19.87% | -16.03 | model |
+| **winner** | 56.86% | 45.23% | -11.63 | model |
 
 ## M5 all-team binary Brier
 
@@ -82,11 +82,11 @@ Mean squared error of `p_at_least_{stage}` vs 0/1 outcome across all 32 teams (q
 
 | Stage | Market M5 Brier | Model M5 Brier | Delta (model - market) | Better side |
 |-------|-----------------|----------------|------------------------|-------------|
-| **R16** | 0.1920 | 0.2007 | +0.0087 | market |
-| **QF** | 0.1261 | 0.1338 | +0.0077 | market |
-| **SF** | 0.0882 | 0.0896 | +0.0014 | market |
-| **final** | 0.0502 | 0.0494 | -0.0008 | model |
-| **winner** | 0.0275 | 0.0270 | -0.0006 | model |
+| **R16** | 0.1920 | 0.2039 | +0.0119 | market |
+| **QF** | 0.1261 | 0.1325 | +0.0064 | market |
+| **SF** | 0.0882 | 0.0897 | +0.0015 | market |
+| **final** | 0.0502 | 0.0493 | -0.0008 | model |
+| **winner** | 0.0275 | 0.0269 | -0.0006 | model |
 
 ## M6 all-team binary log loss
 
@@ -94,11 +94,155 @@ Mean binary cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across all 32 t
 
 | Stage | Market M6 log loss | Model M6 log loss | Delta (model - market) | Better side |
 |-------|-------------------|-------------------|------------------------|-------------|
-| **R16** | 0.5611 | 0.5842 | +0.0231 | market |
-| **QF** | 0.4001 | 0.4296 | +0.0295 | market |
-| **SF** | 0.2811 | 0.2957 | +0.0146 | market |
-| **final** | 0.1622 | 0.1653 | +0.0031 | market |
-| **winner** | 0.0958 | 0.0976 | +0.0018 | market |
+| **R16** | 0.5611 | 0.5907 | +0.0296 | market |
+| **QF** | 0.4001 | 0.4279 | +0.0278 | market |
+| **SF** | 0.2811 | 0.2984 | +0.0173 | market |
+| **final** | 0.1622 | 0.1645 | +0.0024 | market |
+| **winner** | 0.0958 | 0.0969 | +0.0011 | market |
+
+## Monte Carlo standard error
+
+> MCSE is estimated from fixed chunked batch means on the saved `sim_matrix.npz` runs. It measures simulation noise inside a single run, not four-tournament sampling uncertainty.
+
+### market_all
+
+| Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |
+|-------|----------------|-------------------------|------------------------|---------------------------|
+| **R16** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **QF** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **SF** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **final** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+| **winner** | 0.0000 | 0.0000 | 0.0000 | 0.0000 |
+
+### model_all
+
+| Stage | M1 recall MCSE | M2 qualifier Brier MCSE | M5 all-team Brier MCSE | M6 all-team log-loss MCSE |
+|-------|----------------|-------------------------|------------------------|---------------------------|
+| **R16** | 0.0025 | 0.0002 | 0.0002 | 0.0005 |
+| **QF** | 0.0000 | 0.0003 | 0.0001 | 0.0003 |
+| **SF** | 0.0000 | 0.0005 | 0.0001 | 0.0004 |
+| **final** | 0.0000 | 0.0009 | 0.0001 | 0.0002 |
+| **winner** | 0.0000 | 0.0017 | 0.0001 | 0.0002 |
+
+
+## Seed sensitivity
+
+> Historical `model_all` was rerun with seeds 42, 43, 44. The tables report the cross-tournament mean, range, and maximum absolute deviation from the seed mean.
+
+### M1 recall
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 70.31% | 0.00 pp | 0.00 pp |
+| **QF** | 62.50% | 0.00 pp | 0.00 pp |
+| **SF** | 43.75% | 0.00 pp | 0.00 pp |
+| **final** | 25.00% | 0.00 pp | 0.00 pp |
+| **winner** | 25.00% | 0.00 pp | 0.00 pp |
+
+### M2 qualifier Brier
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 0.2067 | 0.0001 | 0.0001 |
+| **QF** | 0.3510 | 0.0005 | 0.0003 |
+| **SF** | 0.5189 | 0.0002 | 0.0001 |
+| **final** | 0.6352 | 0.0016 | 0.0010 |
+| **winner** | 0.7298 | 0.0007 | 0.0004 |
+
+### M5 all-team Brier
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 0.2038 | 0.0001 | 0.0001 |
+| **QF** | 0.1346 | 0.0001 | 0.0001 |
+| **SF** | 0.0867 | 0.0000 | 0.0000 |
+| **final** | 0.0482 | 0.0001 | 0.0001 |
+| **winner** | 0.0259 | 0.0000 | 0.0000 |
+
+### M6 all-team log loss
+
+| Stage | Mean | Range | Max abs deviation |
+|-------|------|-------|-------------------|
+| **R16** | 0.5939 | 0.0002 | 0.0001 |
+| **QF** | 0.4315 | 0.0004 | 0.0002 |
+| **SF** | 0.2833 | 0.0003 | 0.0002 |
+| **final** | 0.1608 | 0.0005 | 0.0004 |
+| **winner** | 0.0893 | 0.0001 | 0.0001 |
+
+## Variant robustness
+
+> Deltas are measured against the base `model_all` probability surface. Positive M1 deltas are better; negative M2/M5/M6 deltas are better.
+
+| Variant | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |
+|---------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|
+| Base core7 | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| Elo only | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| Elo plus values | 3/5 | 3/5 | 2/5 | 3/5 | no |
+| Remove confederation | 3/5 | 3/5 | 2/5 | 2/5 | no |
+| Host off | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| Stage neutral | 0/5 | 2/5 | 2/5 | 2/5 | no |
+
+| Variant | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |
+|---------|-------|---------------------|------------------|------------------|------------------|
+| Base core7 | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Base core7 | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| Elo only | **R16** | -1.56 | -0.0062 | -0.0054 | -0.0155 |
+| Elo only | **QF** | -3.12 | +0.0150 | +0.0043 | +0.0070 |
+| Elo only | **SF** | +0.00 | +0.0021 | +0.0009 | +0.0040 |
+| Elo only | **final** | +0.00 | -0.0230 | -0.0011 | -0.0020 |
+| Elo only | **winner** | +0.00 | -0.0474 | -0.0011 | -0.0039 |
+| Elo plus values | **R16** | +1.56 | -0.0028 | -0.0017 | -0.0051 |
+| Elo plus values | **QF** | -3.12 | +0.0034 | +0.0018 | +0.0047 |
+| Elo plus values | **SF** | +6.25 | -0.0009 | +0.0004 | -0.0010 |
+| Elo plus values | **final** | +0.00 | -0.0107 | -0.0010 | -0.0033 |
+| Elo plus values | **winner** | +0.00 | -0.0094 | -0.0005 | -0.0015 |
+| Remove confederation | **R16** | +1.56 | -0.0019 | -0.0015 | -0.0034 |
+| Remove confederation | **QF** | -3.12 | +0.0004 | +0.0000 | -0.0006 |
+| Remove confederation | **SF** | +6.25 | -0.0040 | -0.0008 | -0.0031 |
+| Remove confederation | **final** | +0.00 | -0.0017 | -0.0003 | -0.0012 |
+| Remove confederation | **winner** | +0.00 | +0.0024 | -0.0000 | +0.0003 |
+| Host off | **R16** | +0.00 | -0.0016 | -0.0008 | -0.0031 |
+| Host off | **QF** | +0.00 | +0.0023 | +0.0007 | +0.0020 |
+| Host off | **SF** | +0.00 | +0.0044 | +0.0010 | +0.0008 |
+| Host off | **final** | +0.00 | -0.0021 | -0.0003 | -0.0006 |
+| Host off | **winner** | +0.00 | -0.0001 | -0.0001 | -0.0001 |
+| Stage neutral | **R16** | +0.00 | -0.0023 | -0.0016 | -0.0028 |
+| Stage neutral | **QF** | -3.12 | -0.0026 | -0.0009 | -0.0022 |
+| Stage neutral | **SF** | -6.25 | -0.0051 | -0.0006 | -0.0037 |
+| Stage neutral | **final** | +0.00 | -0.0013 | +0.0000 | -0.0006 |
+| Stage neutral | **winner** | -25.00 | +0.0006 | +0.0001 | +0.0003 |
+
+## Knockout alpha sensitivity
+
+> Base `model_all` was rerun with `alpha_knockout` values 0.25, 0.50, 0.75. Deltas are measured against the base model probability surface.
+
+| alpha_knockout | M1 model-better stages | M2 market-better stages | M5 market-better stages | M6 market-better stages | Base claims hold? |
+|----------------|------------------------|-------------------------|-------------------------|-------------------------|-------------------|
+| 0.25 | 0/5 | 3/5 | 2/5 | 4/5 | no |
+| 0.50 | 1/5 | 3/5 | 2/5 | 3/5 | no |
+| 0.75 | 1/5 | 2/5 | 2/5 | 3/5 | no |
+
+| alpha_knockout | Stage | delta M1 pp vs base | delta M2 vs base | delta M5 vs base | delta M6 vs base |
+|----------------|-------|---------------------|------------------|------------------|------------------|
+| 0.25 | **R16** | +0.00 | -0.0001 | -0.0000 | -0.0000 |
+| 0.25 | **QF** | +0.00 | +0.0032 | +0.0003 | +0.0007 |
+| 0.25 | **SF** | +0.00 | +0.0080 | +0.0003 | +0.0013 |
+| 0.25 | **final** | +0.00 | +0.0093 | +0.0001 | +0.0011 |
+| 0.25 | **winner** | -25.00 | +0.0109 | +0.0001 | +0.0014 |
+| 0.50 | **R16** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **QF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **SF** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **final** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.50 | **winner** | +0.00 | +0.0000 | +0.0000 | +0.0000 |
+| 0.75 | **R16** | +0.00 | -0.0000 | -0.0000 | -0.0000 |
+| 0.75 | **QF** | +0.00 | -0.0024 | -0.0001 | -0.0003 |
+| 0.75 | **SF** | +0.00 | -0.0060 | -0.0001 | -0.0003 |
+| 0.75 | **final** | +0.00 | -0.0082 | -0.0001 | -0.0010 |
+| 0.75 | **winner** | +0.00 | -0.0079 | -0.0000 | -0.0009 |
+
 
 ## World Cup 2010 (`wc2010`)
 
@@ -152,15 +296,15 @@ _M1 = top-N marginal recall; M2 = qualifier Brier; M3 = cumulative to exact actu
 
 **Champion (actual):** Argentina
 - Market winner pick: Brazil
-- Model winner pick: Portugal
+- Model winner pick: Brazil
 
 | Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl | M5 mkt | M5 mdl | M6 mkt | M6 mdl |
 |-------|-----------|-----------|--------|--------|------------|------------|------------|------------|--------|--------|--------|--------|
-| **R16** | 9/16 | 11/16 | 0.2257 | 0.2209 | 68.25% | 99.90% | 17.27% | 8.23% | 0.2207 | 0.2198 | 0.6239 | 0.6217 |
-| **QF** | 6/8 | 6/8 | 0.3003 | 0.3217 | 29.92% | 31.55% | 14.43% | 18.82% | 0.1172 | 0.1235 | 0.3717 | 0.3914 |
-| **SF** | 2/4 | 2/4 | 0.6325 | 0.6259 | 87.03% | 78.88% | 51.77% | 61.33% | 0.1060 | 0.1002 | 0.3640 | 0.3469 |
-| **final** | 1/2 | 1/2 | 0.6476 | 0.6249 | 30.82% | 6.51% | 30.82% | 6.51% | 0.0503 | 0.0454 | 0.1586 | 0.1508 |
-| **winner** | 0/1 | 0/1 | 0.8251 | 0.7461 | 76.15% | 27.74% | 76.15% | 27.74% | 0.0298 | 0.0254 | 0.1054 | 0.0904 |
+| **R16** | 9/16 | 10/16 | 0.2257 | 0.2374 | 68.25% | 99.90% | 17.27% | 14.66% | 0.2207 | 0.2326 | 0.6239 | 0.6477 |
+| **QF** | 6/8 | 6/8 | 0.3003 | 0.3109 | 29.92% | 33.09% | 14.43% | 15.97% | 0.1172 | 0.1182 | 0.3717 | 0.3847 |
+| **SF** | 2/4 | 2/4 | 0.6325 | 0.6191 | 87.03% | 83.43% | 51.77% | 62.75% | 0.1060 | 0.1007 | 0.3640 | 0.3577 |
+| **final** | 1/2 | 1/2 | 0.6476 | 0.6084 | 30.82% | 7.59% | 30.82% | 7.59% | 0.0503 | 0.0453 | 0.1586 | 0.1479 |
+| **winner** | 0/1 | 0/1 | 0.8251 | 0.7261 | 76.15% | 35.08% | 76.15% | 35.08% | 0.0298 | 0.0253 | 0.1054 | 0.0878 |
 
 _M1 = top-N marginal recall; M2 = qualifier Brier; M3 = cumulative to exact actual set (if never simulated, 99.90%); M4 = cumulative until all actual teams seen; M5 = all-team binary Brier; M6 = all-team binary log loss._
 
@@ -169,11 +313,11 @@ _M1 = top-N marginal recall; M2 = qualifier Brier; M3 = cumulative to exact actu
 | | Metric 3 (exact set) | Metric 4 (all teams seen) |
 |--|----------------------|---------------------------|
 | Target | Argentina, Croatia, France, Morocco | Same four teams, any combo |
-| Stop rank | 964 | **429** |
-| Cumulative | 78.88% | **61.33%** |
-| Trigger combo | exact quartet | Argentina, France, Morocco, Portugal (Morocco last) |
+| Stop rank | 1,023 | **356** |
+| Cumulative | 83.43% | **62.75%** |
+| Trigger combo | exact quartet | Argentina, Brazil, France, Morocco (Morocco last) |
 
-At rank 429 the model has seen every actual SF team at least once, but only 61.33% of simulated mass; the exact quartet needs rank 964 (78.88%).
+At rank 356 the model has seen every actual SF team at least once, but only 62.75% of simulated mass; the exact quartet needs rank 1,023 (83.43%).
 
-Union at rank 429 (**21** teams): all four actual plus 17 others that appeared in high-frequency SF combos (see WC 2022 -> SF -> Metric 4 -> Model).
+Union at rank 356 (**25** teams): all four actual plus 21 others that appeared in high-frequency SF combos (see WC 2022 -> SF -> Metric 4 -> Model).
 

@@ -42,7 +42,15 @@ class MarketKnockoutProbabilityProvider:
         )
         return ko
 
-    def get(self, team_a: str, team_b: str) -> tuple[float, float, float]:
+    def get(
+        self,
+        team_a: str,
+        team_b: str,
+        *,
+        stage: str | None = None,
+        slot_id: str | None = None,
+    ) -> tuple[float, float, float]:
+        _ = stage, slot_id
         if self._market.has(team_a, team_b):
             return self._market.get(team_a, team_b)
         return self._davidson.probs_90min(team_a, team_b)
@@ -50,5 +58,13 @@ class MarketKnockoutProbabilityProvider:
     def has(self, team_a: str, team_b: str) -> bool:
         return True
 
-    def et_win_prob_team_a(self, team_a: str, team_b: str) -> float:
+    def et_win_prob_team_a(
+        self,
+        team_a: str,
+        team_b: str,
+        *,
+        stage: str | None = None,
+        slot_id: str | None = None,
+    ) -> float:
+        _ = stage, slot_id
         return self._davidson.et_win_prob_team_a(team_a, team_b)

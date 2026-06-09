@@ -31,9 +31,20 @@ def _load_preds(path: Path) -> dict[str, dict[str, float]]:
     return rows
 
 
-def probabilities_csv(tournament: str, mode: str) -> Path:
+def probabilities_csv(
+    tournament: str,
+    mode: str,
+    *,
+    alphas: dict[str, float] | None = None,
+    tag: str | None = None,
+) -> Path:
     cfg = load_tournament_config(tournament)
-    fp = settings_fingerprint(tournament=tournament, mode=mode, alphas=dict(cfg.alphas))
+    fp = settings_fingerprint(
+        tournament=tournament,
+        mode=mode,
+        alphas=dict(alphas or cfg.alphas),
+        tag=tag,
+    )
     path = resolve_bracket_output_dir(cfg.output_dir, mode=mode, settings_fp=fp) / "team_stage_probabilities.csv"
     if not path.exists():
         raise FileNotFoundError(
@@ -42,9 +53,20 @@ def probabilities_csv(tournament: str, mode: str) -> Path:
     return path
 
 
-def state_json(tournament: str, mode: str) -> Path:
+def state_json(
+    tournament: str,
+    mode: str,
+    *,
+    alphas: dict[str, float] | None = None,
+    tag: str | None = None,
+) -> Path:
     cfg = load_tournament_config(tournament)
-    fp = settings_fingerprint(tournament=tournament, mode=mode, alphas=dict(cfg.alphas))
+    fp = settings_fingerprint(
+        tournament=tournament,
+        mode=mode,
+        alphas=dict(alphas or cfg.alphas),
+        tag=tag,
+    )
     return resolve_bracket_output_dir(cfg.output_dir, mode=mode, settings_fp=fp) / "state.json"
 
 

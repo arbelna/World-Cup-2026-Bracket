@@ -14,6 +14,9 @@ CORE7_FEATURE_NAMES: tuple[str, ...] = (
     "z_log_top_15_average_value_team_a",
     "z_log_top_15_average_value_team_b",
 )
+FEATURE_INDEX: dict[str, int] = {
+    name: idx for idx, name in enumerate(CORE7_FEATURE_NAMES)
+}
 
 
 @dataclass(slots=True)
@@ -34,8 +37,8 @@ class MatchRow:
     y_soft: np.ndarray
     odds: list[list[float]] | None
 
-    def feature_vector(self) -> np.ndarray:
-        return np.array(
+    def feature_vector(self, feature_names: tuple[str, ...] = CORE7_FEATURE_NAMES) -> np.ndarray:
+        full = np.array(
             [
                 self.elo_diff,
                 self.stage_binary,
@@ -47,6 +50,9 @@ class MatchRow:
             ],
             dtype=float,
         )
+        if feature_names == CORE7_FEATURE_NAMES:
+            return full
+        return np.array([full[FEATURE_INDEX[name]] for name in feature_names], dtype=float)
 
     def mirror(self) -> MatchRow:
         y = self.y_soft

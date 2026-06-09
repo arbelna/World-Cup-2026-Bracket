@@ -13,7 +13,14 @@ from bracket_simulations.simulator.tiebreak import (
 
 
 class ProbabilityProvider(Protocol):
-    def get(self, team_a: str, team_b: str) -> tuple[float, float, float]: ...
+    def get(
+        self,
+        team_a: str,
+        team_b: str,
+        *,
+        stage: str | None = None,
+        slot_id: str | None = None,
+    ) -> tuple[float, float, float]: ...
 
 
 @dataclass
@@ -129,12 +136,15 @@ def simulate_all_groups(
     group_probs: ProbabilityProvider,
     rng: random.Random,
     *,
+    fixtures_by_group: dict[str, list[GroupMatch]] | None = None,
     alpha_group_tie: float = 1.0,
 ) -> GroupStageResult:
     results: dict[str, GroupResult] = {}
     third_place: list[tuple[str, str, int]] = []
     for label, teams in groups.items():
-        fixtures = build_group_fixtures(teams)
+        fixtures = fixtures_by_group.get(label, []) if fixtures_by_group is not None else []
+        if not fixtures:
+            fixtures = build_group_fixtures(teams)
         gr = simulate_group(label, teams, fixtures, group_probs, rng, alpha_group_tie=alpha_group_tie)
         results[label] = gr
         third = gr.team_at_rank(3)
@@ -158,6 +168,7 @@ def rank_third_place_teams(
     *,
     alpha: float = 1.0,
     take: int = 8,
+    stage_context: str = "R32",
 ) -> list[tuple[str, str]]:
     def points_fn(entry: tuple[str, str, int]) -> int:
         return entry[2]
@@ -166,7 +177,7 @@ def rank_third_place_teams(
         teams = [e[0] for e in cluster]
 
         def prob_beats(i: str, j: str) -> float:
-            pa, _, _ = model_probs.get(i, j)
+            pa, _, _ = model_probs.get(i, j, stage=stage_context)
             return pa
 
         strengths = [

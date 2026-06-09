@@ -14,8 +14,9 @@ The sync script copies the files from the sibling `Data_Collection` stage into t
 
 ## Required committed files
 
-- `fixtures_stats.json`: normalized historical fixtures and Elo-related match fields; each row includes the teams, match date, pre-match Elo context, and final score used later in dataset construction
+- `fixtures_stats.json`: normalized historical fixtures and match metadata; rows are matched back to the tournament-start rating snapshots during dataset construction
 - `matched_odds.json`: fixture-level bookmaker odds already matched to the historical fixtures
+- `team_ratings.json`: tournament-start Elo snapshots used as the rating source of truth for `elo_diff`
 - `team_confederations.json`: national-team to confederation mapping
 - `tournament_squads_with_value.json`: tournament squads with attached market values
 

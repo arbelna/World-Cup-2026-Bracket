@@ -28,7 +28,9 @@ from bracket_simulations.simulator.bracket_resolver import (
     load_knockout_bracket,
     load_r32_scenarios,
 )
+from bracket_simulations.simulator.group_stage import GroupMatch
 from bracket_simulations.simulator.simulator import run_single_simulation
+from bracket_simulations.tournament_data import build_group_schedule, load_tournament_fixtures
 
 
 def _setup_logging(verbose: bool) -> None:
@@ -47,10 +49,22 @@ def run_simulations(args: argparse.Namespace) -> None:
         alphas["group_tie"] = args.alpha_group_tie
 
     mode = args.mode
-    settings_fp = settings_fingerprint(tournament=args.tournament, mode=mode, alphas=alphas)
+    settings_tag = getattr(args, "settings_tag", None)
+    settings_fp = settings_fingerprint(
+        tournament=args.tournament,
+        mode=mode,
+        alphas=alphas,
+        tag=settings_tag,
+    )
     bracket_dir = resolve_bracket_output_dir(cfg.output_dir, mode=mode, settings_fp=settings_fp)
     bracket_dir.mkdir(parents=True, exist_ok=True)
-    write_settings_json(bracket_dir / "settings.json", tournament=args.tournament, mode=mode, alphas=alphas)
+    write_settings_json(
+        bracket_dir / "settings.json",
+        tournament=args.tournament,
+        mode=mode,
+        alphas=alphas,
+        tag=settings_tag,
+    )
 
     state_path = bracket_dir / "state.json"
     if args.reset and state_path.exists():
@@ -68,11 +82,22 @@ def run_simulations(args: argparse.Namespace) -> None:
             "reach_counts": {},
             "config_counts": {},
             "settings_fingerprint": settings_fp,
-            "settings": {"tournament": args.tournament, "mode": mode, "alphas": alphas},
+            "settings": {
+                "tournament": args.tournament,
+                "mode": mode,
+                "alphas": alphas,
+                "tag": settings_tag,
+            },
         }
 
     groups = load_groups(cfg.groups_file)
     bracket = load_knockout_bracket(cfg.knockout_bracket_file)
+    fixtures = load_tournament_fixtures(cfg.fixtures_file, cfg.tournament_id)
+    raw_group_schedule = build_group_schedule(groups, fixtures)
+    group_fixtures = {
+        label: [GroupMatch(team_a=a, team_b=b) for a, b in matches]
+        for label, matches in raw_group_schedule.items()
+    }
     scenarios_index = (
         load_r32_scenarios(cfg.r32_scenarios_file)
         if cfg.has_r32 and cfg.r32_scenarios_file is not None
@@ -107,6 +132,7 @@ def run_simulations(args: argparse.Namespace) -> None:
         for _ in range(this_batch):
             outcome = run_single_simulation(
                 groups,
+                group_fixtures,
                 group_probs,
                 ko_probs,
                 bracket,
@@ -158,6 +184,7 @@ def run_simulations(args: argparse.Namespace) -> None:
         "batch_size": batch_size,
         "duration_sec": round(total_elapsed, 3),
         "seed": args.seed,
+        "settings_tag": settings_tag,
         "settings_fingerprint": settings_fp,
         "bracket_dir": stage_relative_path(bracket_dir),
     }
@@ -170,12 +197,15 @@ def build_simulate_parser() -> argparse.ArgumentParser:
 
     p = argparse.ArgumentParser(description="Monte Carlo bracket simulation")
     p.add_argument("--tournament", choices=list_tournament_config_names(), required=True)
-    p.add_argument("--mode", choices=["market_all", "model_all"], required=True)
+    from bracket_simulations.model_variants import list_simulation_modes
+
+    p.add_argument("--mode", choices=list_simulation_modes(), required=True)
     p.add_argument("--n-sims", type=int, default=None)
     p.add_argument("--batch-size", type=int, default=None)
     p.add_argument("--seed", type=int, default=42)
     p.add_argument("--alpha-knockout", type=float, default=None)
     p.add_argument("--alpha-group-tie", type=float, default=None)
+    p.add_argument("--settings-tag", default=None)
     p.add_argument("--reset", action="store_true")
     p.add_argument("--force-reset", action="store_true")
     p.add_argument("--stop-after-group", action="store_true")

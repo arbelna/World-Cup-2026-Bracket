@@ -9,7 +9,7 @@ from pathlib import Path
 from typing import Any
 
 from bracket_simulations.actual_results import EXPECTED_N, STAGES, build_actual_outcome
-from bracket_simulations.uncertainty import block_bootstrap_delta
+from bracket_simulations.uncertainty import block_bootstrap_delta, metric_mcse_from_sim_matrix
 from bracket_simulations.aggregates import (
     load_state,
     resolve_bracket_output_dir,
@@ -36,6 +36,11 @@ from bracket_simulations.prediction_backtest_report import (
     NOT_OBSERVED_CUMULATIVE_FREQUENCY,
     render_backtest_markdown,
     render_summary_markdown,
+)
+from bracket_simulations.robustness import (
+    build_robustness_payload,
+    load_robustness_payload,
+    write_robustness_payload,
 )
 from bracket_simulations.simulator.bracket_resolver import load_groups
 
@@ -191,8 +196,11 @@ def aggregate_with_uncertainty(rows: list[dict]) -> dict[str, dict[str, dict]]:
     return out
 
 
-def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict]:
+def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict, dict]:
     rows: list[dict] = []
+    mcse: dict[str, dict[str, dict[str, dict[str, float | int]]]] = {
+        mode: {} for mode in MODES
+    }
     for tournament in tournaments:
         cfg = load_tournament_config(tournament)
         groups = load_groups(cfg.groups_file)
@@ -208,6 +216,16 @@ def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict]:
         d_state = load_state(state_json(tournament, "model_all"))
         market_joint = _enrich_joint(m_state, actual.actual_config)
         model_joint = _enrich_joint(d_state, actual.actual_config)
+
+        for mode in MODES:
+            fp = settings_fingerprint(tournament=tournament, mode=mode, alphas=dict(cfg.alphas))
+            bracket_dir = resolve_bracket_output_dir(cfg.output_dir, mode=mode, settings_fp=fp)
+            sim_matrix_path = bracket_dir / "sim_matrix.npz"
+            if sim_matrix_path.exists():
+                mcse[mode][tournament] = metric_mcse_from_sim_matrix(
+                    sim_matrix_path,
+                    actual_at_least=actual.actual_at_least,
+                )
 
         rows.append(
             {
@@ -239,10 +257,15 @@ def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict]:
             "pooled_rows": pooled_rows,
             "pooled_ece": pooled_ece,
             "by_stage": by_stage,
-        }
+    }
 
-    md = render_backtest_markdown(rows, uncertainty=uncertainty, calibration=calibration)
-    return rows, md, uncertainty, calibration
+    md = render_backtest_markdown(
+        rows,
+        uncertainty=uncertainty,
+        calibration=calibration,
+        mcse=mcse,
+    )
+    return rows, md, uncertainty, calibration, mcse
 
 
 def _render_metric4_side(label: str, joint: dict) -> list[str]:
@@ -513,16 +536,68 @@ def analyze_all_outputs(tournaments: list[str] | None = None) -> None:
 
 def write_backtest_reports(tournaments: list[str] | None = None) -> None:
     tlist = tournaments or HISTORICAL_TOURNAMENTS
-    data, detailed_md, uncertainty, calibration = build_report(tlist)
+    data, detailed_md, uncertainty, calibration, mcse = build_report(tlist)
+    robustness = load_robustness_payload()
+    if robustness is not None:
+        detailed_md = render_backtest_markdown(
+            data,
+            uncertainty=uncertainty,
+            calibration=calibration,
+            mcse=mcse,
+            robustness=robustness,
+        )
     summary_path = DATA_OUTPUT / "stage_prediction_backtest.md"
     summary_path.write_text(detailed_md + "\n", encoding="utf-8")
     print(f"Wrote {summary_path}")
     root_results = STAGE_ROOT / "results.md"
-    root_results.write_text(render_summary_markdown(data, uncertainty=uncertainty, calibration=calibration) + "\n", encoding="utf-8")
+    root_results.write_text(
+        render_summary_markdown(
+            data,
+            uncertainty=uncertainty,
+            calibration=calibration,
+            mcse=mcse,
+            robustness=robustness,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
     print(f"Wrote {root_results}")
     json_path = DATA_OUTPUT / "stage_prediction_backtest.json"
-    json_path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+    json_path.write_text(
+        json.dumps(
+            {
+                "rows": data,
+                "uncertainty": uncertainty,
+                "calibration": calibration,
+                "mcse": mcse,
+                "robustness": robustness,
+            },
+            indent=2,
+        ),
+        encoding="utf-8",
+    )
     print(f"Wrote {json_path}")
+
+
+def write_robustness_reports(
+    *,
+    n_sims: int = 200_000,
+    batch_size: int = 1000,
+    reset: bool = True,
+    verbose: bool = True,
+    tournaments: list[str] | None = None,
+) -> None:
+    tlist = tournaments or HISTORICAL_TOURNAMENTS
+    payload = build_robustness_payload(
+        tlist,
+        n_sims=n_sims,
+        batch_size=batch_size,
+        reset=reset,
+        verbose=verbose,
+    )
+    out = write_robustness_payload(payload)
+    print(f"Wrote {out}")
+    write_backtest_reports(tlist)
 
 
 def run_historical_sims(
@@ -593,6 +668,13 @@ def main() -> None:
     pb = sub.add_parser("backtest", help="Write stage_prediction_backtest.md reports")
     pb.add_argument("--tournaments", nargs="*", default=HISTORICAL_TOURNAMENTS)
 
+    ps = sub.add_parser("robustness", help="Run model-variant, seed, and alpha robustness backtests")
+    ps.add_argument("--tournaments", nargs="*", default=HISTORICAL_TOURNAMENTS)
+    ps.add_argument("--n-sims", type=int, default=200_000)
+    ps.add_argument("--batch-size", type=int, default=1000)
+    ps.add_argument("--no-reset", action="store_true")
+    ps.add_argument("-v", "--verbose", action="store_true", default=True)
+
     pr = sub.add_parser("run-historical", help="Full pipeline: actuals, sims, analyze, backtest")
     pr.add_argument("--n-sims", type=int, default=200_000)
     pr.add_argument("--batch-size", type=int, default=1000)
@@ -609,6 +691,14 @@ def main() -> None:
         analyze_all_outputs(list(args.tournaments))
     elif args.command == "backtest":
         write_backtest_reports(list(args.tournaments))
+    elif args.command == "robustness":
+        write_robustness_reports(
+            n_sims=args.n_sims,
+            batch_size=args.batch_size,
+            reset=not args.no_reset,
+            verbose=args.verbose,
+            tournaments=list(args.tournaments),
+        )
     elif args.command == "run-historical":
         run_historical_pipeline(
             n_sims=args.n_sims,
