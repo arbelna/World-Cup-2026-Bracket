@@ -369,7 +369,7 @@ def _append_wc2026_holdout_section(
         return
     held_out_name = str(holdout_payload.get("held_out_competition") or "World Cup 2026")
     test_dataset_path = holdout_payload.get("test_dataset_path", "unknown")
-    lines.append("## 6. WC2026 explicit holdout (train legacy12, test WC2026)")
+    lines.append("## 5. WC2026 explicit holdout (train legacy12, test WC2026)")
     lines.append("")
     lines.append(
         f"Train/test split evaluation with train set from legacy12 and held-out test set `{held_out_name}`."
@@ -421,18 +421,6 @@ def _append_wc2026_holdout_section(
             lines,
             mae_macro=float(catboost["summary"]["weighted_mae_macro"]),
         )
-    lines.append("Reproduce from the `WorldCup2026 Bracket` repo root:")
-    lines.append("")
-    lines.append("```powershell")
-    lines.append("cd Match_model")
-    lines.append(
-        "python main_cli.py build-dataset --collection-dir ..\\Data_Collection\\data\\wc2026 --old-stats-dir data/reference/old_stats --output data/output/datasets/wc2026_match_dataset.json"
-    )
-    lines.append(
-        "python main_cli.py run-holdout --train-dataset data/output/datasets/match_dataset.json --test-dataset data/output/datasets/wc2026_match_dataset.json --held-out-competition \"World Cup 2026\""
-    )
-    lines.append("```")
-    lines.append("")
 
 
 def write_results_markdown(
@@ -626,16 +614,6 @@ def write_results_markdown(
             f"{note_idx}. **{row['team_a']} vs {row['team_b']}**: {_brief_reason(row)}"
         )
         note_idx += 1
-    lines.append("")
-
-    lines.append("## 5. Reproduce")
-    lines.append("")
-    lines.append("From the `WorldCup2026 Bracket` repo root:")
-    lines.append("")
-    lines.append("```powershell")
-    lines.append("cd Match_model")
-    lines.append("python main_cli.py run-all")
-    lines.append("```")
     lines.append("")
 
     holdout_payload = _load_holdout_payload(experiments_dir)

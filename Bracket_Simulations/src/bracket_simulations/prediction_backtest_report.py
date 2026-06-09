@@ -89,7 +89,9 @@ def _render_tournament_section(r: dict[str, Any], tournament_id: str) -> list[st
         "M1 market | M1 model | "
         "M2 mkt | M2 mdl | "
         "M3 cum mkt | M3 cum mdl | "
-        "M4 cum mkt | M4 cum mdl |"
+        "M4 cum mkt | M4 cum mdl | "
+        "M5 mkt | M5 mdl | "
+        "M6 mkt | M6 mdl |"
     )
     lines.append(
         "|-------|"
@@ -97,6 +99,8 @@ def _render_tournament_section(r: dict[str, Any], tournament_id: str) -> list[st
         "--------|--------|"
         "----------|----------|"
         "----------|----------|"
+        "--------|--------|"
+        "--------|--------|"
     )
     for stage in STAGES:
         n = EXPECTED_N[stage]
@@ -107,14 +111,17 @@ def _render_tournament_section(r: dict[str, Any], tournament_id: str) -> list[st
             f"{int(ms['topn_hits'])}/{n} | {int(ds['topn_hits'])}/{n} | "
             f"{_brier(ms['brier_qualifiers'])} | {_brier(ds['brier_qualifiers'])} | "
             f"{_pct(mj['cumulative_frequency'])} | {_pct(dj['cumulative_frequency'])} | "
-            f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} |"
+            f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} | "
+            f"{_brier(ms['brier'])} | {_brier(ds['brier'])} | "
+            f"{_brier(ms['logloss'])} | {_brier(ds['logloss'])} |"
         )
     lines.append("")
     lines.append(
-        "_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}` "
-        "(lower is better); M3 = cumulative probability up to the exact actual set "
+        "_M1 = top-N marginal recall; M2 = qualifier Brier; "
+        "M3 = cumulative to exact actual set "
         f"(if never simulated, {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}); "
-        "M4 = cumulative probability until all actual teams have appeared in some combo._"
+        "M4 = cumulative until all actual teams seen; "
+        "M5 = all-team binary Brier; M6 = all-team binary log loss._"
     )
     lines.append("")
 
@@ -193,6 +200,30 @@ def _render_tournament_section(r: dict[str, Any], tournament_id: str) -> list[st
         lines.extend(_render_metric4_side("Market", mj))
         lines.extend(_render_metric4_side("Model", dj))
 
+        lines.append("#### Metric 5 - All-team binary Brier")
+        lines.append("")
+        lines.append("| | Market | Model |")
+        lines.append("|--|--------|-------|")
+        lines.append(
+            f"| All-team Brier | {_brier(ms['brier'])} | {_brier(ds['brier'])} |"
+        )
+        delta5 = ds["brier"] - ms["brier"]
+        better5 = "market" if delta5 > 0 else "model"
+        lines.append(f"| Delta (model - market) | | {delta5:+.4f} ({better5} wins) |")
+        lines.append("")
+
+        lines.append("#### Metric 6 - All-team binary log loss")
+        lines.append("")
+        lines.append("| | Market | Model |")
+        lines.append("|--|--------|-------|")
+        lines.append(
+            f"| All-team log loss | {_brier(ms['logloss'])} | {_brier(ds['logloss'])} |"
+        )
+        delta6 = ds["logloss"] - ms["logloss"]
+        better6 = "market" if delta6 > 0 else "model"
+        lines.append(f"| Delta (model - market) | | {delta6:+.4f} ({better6} wins) |")
+        lines.append("")
+
     lines.append("---")
     lines.append("")
     return lines
@@ -251,6 +282,10 @@ def _aggregate_rows(results: list[dict[str, Any]]) -> list[dict[str, str]]:
         d3r = sum(r["model_joint"][stage]["rank_actual"] for r in results) / n_t
         m4r = sum(r["market_joint"][stage]["rank_teams_covered"] for r in results) / n_t
         d4r = sum(r["model_joint"][stage]["rank_teams_covered"] for r in results) / n_t
+        m5m = sum(r["market"][stage]["brier"]   for r in results) / n_t
+        m5d = sum(r["model"][stage]["brier"]    for r in results) / n_t
+        m6m = sum(r["market"][stage]["logloss"] for r in results) / n_t
+        m6d = sum(r["model"][stage]["logloss"]  for r in results) / n_t
         rows.append(
             {
                 "stage": stage,
@@ -278,6 +313,16 @@ def _aggregate_rows(results: list[dict[str, Any]]) -> list[dict[str, str]]:
                 "m3_rank_model": f"{d3r:.0f}",
                 "m4_rank_market": f"{m4r:.0f}",
                 "m4_rank_model": f"{d4r:.0f}",
+                "m5_market": _brier(m5m),
+                "m5_model": _brier(m5d),
+                "m5_market_value": m5m,
+                "m5_model_value": m5d,
+                "m5_delta": m5d - m5m,
+                "m6_market": _brier(m6m),
+                "m6_model": _brier(m6d),
+                "m6_market_value": m6m,
+                "m6_model_value": m6d,
+                "m6_delta": m6d - m6m,
             }
         )
     return rows
@@ -299,16 +344,13 @@ def render_summary_markdown(
     mkt_cal_gap_str = ""
     mdl_cal_gap_str = ""
     if calibration:
-        mkt_ece = calibration["market_all"][1]
-        mdl_ece = calibration["model_all"][1]
+        mkt_ece = calibration["market_all"]["pooled_ece"]
+        mdl_ece = calibration["model_all"]["pooled_ece"]
         mkt_ece_str = f"{mkt_ece:.4f}"
         mdl_ece_str = f"{mdl_ece:.4f}"
-        # Find the 0.5-0.7 bin gap for both modes
-        for mode, label_str, gap_var in [
-            ("market_all", "mkt", "mkt_cal_gap_str"),
-            ("model_all",  "mdl", "mdl_cal_gap_str"),
-        ]:
-            for row in calibration[mode][0]:
+        # Find the 0.5-0.7 bin gap in the pooled rows for both modes
+        for mode, gap_attr in [("market_all", "mkt_cal_gap_str"), ("model_all", "mdl_cal_gap_str")]:
+            for row in calibration[mode]["pooled_rows"]:
                 if abs(row["lo"] - 0.5) < 0.01:
                     val = f"{row['gap']:+.3f} (avg pred {row['avg_pred']:.2f}, observed {row['observed']:.2f})"
                     if mode == "market_all":
@@ -343,6 +385,9 @@ def render_summary_markdown(
         f"- **Qualifier Brier (M2):** `market_all` wins cleanly at every stage (lower is better). "
         "The model assigns less accurate probabilities to teams that actually qualified. "
         "This is the market's clearest advantage.",
+        f"- **All-team Brier (M5) and log loss (M6):** `market_all` also leads on both all-team metrics "
+        f"at R16/QF/SF on average, consistent with M2. The gap narrows at final/winner stages where "
+        "the model is marginally competitive.",
         (
             f"- **Calibration:** `market_all` is better calibrated overall "
             f"(ECE {mkt_ece_str} vs {mdl_ece_str}). "
@@ -369,6 +414,8 @@ def render_summary_markdown(
         "- M2: mean Brier on teams that actually reached the stage, using `p_at_least_{stage}`; lower is better.",
         f"- M3: cumulative probability up to the exact actual set; lower is better, and {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)} means the exact set was never observed in the simulated support.",
         "- M4: cumulative probability until every actual team has appeared somewhere in the high-probability joint support; lower is better.",
+        "- M5: all-team binary Brier — mean squared error of `p_at_least_{stage}` vs 0/1 outcome across **all 32 teams**; lower is better.",
+        "- M6: all-team binary log loss — mean cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across **all 32 teams**; lower is better.",
         "",
         "## M1 recall edge",
         "",
@@ -437,6 +484,42 @@ def render_summary_markdown(
             f"{row['m4_delta_pp']:+.2f} | {better} |"
         )
 
+    lines.extend(
+        [
+            "",
+            "## M5 all-team binary Brier",
+            "",
+            "Mean squared error of `p_at_least_{stage}` vs 0/1 outcome across all 32 teams (qualifiers score toward 1, eliminated teams toward 0).",
+            "",
+            "| Stage | Market M5 Brier | Model M5 Brier | Delta (model - market) | Better side |",
+            "|-------|-----------------|----------------|------------------------|-------------|",
+        ]
+    )
+    for row in aggregate_rows:
+        better = "market" if row["m5_delta"] > 0 else ("model" if row["m5_delta"] < 0 else "tie")
+        lines.append(
+            f"| **{row['stage']}** | {row['m5_market']} | {row['m5_model']} | "
+            f"{row['m5_delta']:+.4f} | {better} |"
+        )
+
+    lines.extend(
+        [
+            "",
+            "## M6 all-team binary log loss",
+            "",
+            "Mean binary cross-entropy of `p_at_least_{stage}` vs 0/1 outcome across all 32 teams; lower is better.",
+            "",
+            "| Stage | Market M6 log loss | Model M6 log loss | Delta (model - market) | Better side |",
+            "|-------|-------------------|-------------------|------------------------|-------------|",
+        ]
+    )
+    for row in aggregate_rows:
+        better = "market" if row["m6_delta"] > 0 else ("model" if row["m6_delta"] < 0 else "tie")
+        lines.append(
+            f"| **{row['stage']}** | {row['m6_market']} | {row['m6_model']} | "
+            f"{row['m6_delta']:+.4f} | {better} |"
+        )
+
     for r in results:
         lines.extend(
             [
@@ -447,8 +530,8 @@ def render_summary_markdown(
                 f"- Market winner pick: {r['market_champion_pick']}",
                 f"- Model winner pick: {r['model_champion_pick']}",
                 "",
-                "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl |",
-                "|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|",
+                "| Stage | M1 market | M1 model | M2 mkt | M2 mdl | M3 cum mkt | M3 cum mdl | M4 cum mkt | M4 cum mdl | M5 mkt | M5 mdl | M6 mkt | M6 mdl |",
+                "|-------|-----------|-----------|--------|--------|------------|------------|------------|------------|--------|--------|--------|--------|",
             ]
         )
         for stage in STAGES:
@@ -459,14 +542,15 @@ def render_summary_markdown(
                 f"| **{stage}** | {int(ms['topn_hits'])}/{n} | {int(ds['topn_hits'])}/{n} | "
                 f"{_brier(ms['brier_qualifiers'])} | {_brier(ds['brier_qualifiers'])} | "
                 f"{_pct(mj['cumulative_frequency'])} | {_pct(dj['cumulative_frequency'])} | "
-                f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} |"
+                f"{_pct(mj['cumulative_teams_covered'])} | {_pct(dj['cumulative_teams_covered'])} | "
+                f"{_brier(ms['brier'])} | {_brier(ds['brier'])} | "
+                f"{_brier(ms['logloss'])} | {_brier(ds['logloss'])} |"
             )
         lines.append("")
         lines.append(
-            "_M1 = top-N marginal recall; M2 = mean Brier on actual qualifiers from `p_at_least_{stage}`; "
-            f"M3 = cumulative probability up to the exact actual set "
-            f"(if never simulated, {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}); "
-            "M4 = cumulative probability until all actual teams have appeared in some combo._"
+            "_M1 = top-N marginal recall; M2 = qualifier Brier; "
+            f"M3 = cumulative to exact actual set (if never simulated, {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}); "
+            "M4 = cumulative until all actual teams seen; M5 = all-team binary Brier; M6 = all-team binary log loss._"
         )
 
     lines.extend(["", * _render_worked_example(results), ""])
@@ -501,7 +585,7 @@ def _render_uncertainty_section(uncertainty: dict[str, dict[str, dict]]) -> list
     lines.extend(
         [
             "",
-            "### Brier delta (model minus market, lower is better for the winner)",
+            "### M5 all-team Brier delta (model minus market, lower is better for the winner)",
             "",
             "| Stage | Brier delta | 95% CI | Tournaments model better | Significant? |",
             "|-------|------------|--------|--------------------------|--------------|",
@@ -519,39 +603,91 @@ def _render_uncertainty_section(uncertainty: dict[str, dict[str, dict]]) -> list
             f"| **{stage}** | {delta:+.4f} | [{ci_low:+.4f}, {ci_high:+.4f}] | "
             f"{n_better} of {n} | {sig} |"
         )
+    lines.extend(
+        [
+            "",
+            "### M6 all-team log-loss delta (model minus market, lower is better for the winner)",
+            "",
+            "| Stage | Log-loss delta | 95% CI | Tournaments model better | Significant? |",
+            "|-------|---------------|--------|--------------------------|--------------|",
+        ]
+    )
+    for stage in STAGES:
+        u = uncertainty[stage]["logloss"]
+        delta = u["delta_mean"]
+        ci_low = u["ci_low"]
+        ci_high = u["ci_high"]
+        n = u["n_tournaments"]
+        n_better = u["n_model_better"]
+        sig = "yes" if u["significant"] else "no"
+        lines.append(
+            f"| **{stage}** | {delta:+.4f} | [{ci_low:+.4f}, {ci_high:+.4f}] | "
+            f"{n_better} of {n} | {sig} |"
+        )
     lines.append("")
     return lines
 
 
-def _render_calibration_section(calibration: dict[str, tuple[list[dict], float]]) -> list[str]:
-    lines = ["## Calibration -- reliability tables", ""]
-    for mode in ("market_all", "model_all"):
-        cal_rows, ece = calibration[mode]
-        lines.extend(
-            [
-                f"### Calibration -- {mode}   (ECE {ece:.4f})",
-                "",
-                "| pred bin | n | avg pred | observed | 95% CI (obs) | gap |",
-                "|----------|---|----------|----------|--------------|-----|",
-            ]
+
+def _render_calibration_table(cal_rows: list[dict], ece: float, title: str) -> list[str]:
+    """Render a single reliability table with its ECE."""
+    lines = [
+        f"### {title}   (ECE {ece:.4f})",
+        "",
+        "| pred bin | n | avg pred | observed | 95% CI (obs) | gap |",
+        "|----------|---|----------|----------|--------------|-----|",
+    ]
+    for row in cal_rows:
+        lo_s = f"{row['lo']:.1f}"
+        hi_s = f"{min(row['hi'], 1.0):.1f}"
+        lines.append(
+            f"| {lo_s}-{hi_s} | {row['n']} | {row['avg_pred']:.3f} | {row['observed']:.3f} | "
+            f"[{row['obs_ci_low']:.3f}, {row['obs_ci_high']:.3f}] | {row['gap']:+.3f} |"
         )
-        for row in cal_rows:
-            lo_s = f"{row['lo']:.1f}"
-            hi_s = f"{min(row['hi'], 1.0):.1f}"
-            lines.append(
-                f"| {lo_s}-{hi_s} | {row['n']} | {row['avg_pred']:.3f} | {row['observed']:.3f} | "
-                f"[{row['obs_ci_low']:.3f}, {row['obs_ci_high']:.3f}] | {row['gap']:+.3f} |"
-            )
+    lines.append("")
+    return lines
+
+
+def _render_calibration_section(calibration: dict[str, dict]) -> list[str]:
+    lines = [
+        "## Calibration -- reliability tables",
+        "",
+        "> Per-stage curves avoid mixing incompatible base rates (R16 ~63% vs Winner ~3%) "
+        "and keep each reliability diagram interpretable. "
+        "Pooled ECE is retained below as a secondary summary. "
+        "Wilson CIs treat each (team, stage, tournament) observation as independent; "
+        "outcomes within a tournament are correlated due to fixed stage capacity, "
+        "so the intervals understate true uncertainty.",
+        "",
+    ]
+    for mode in ("market_all", "model_all"):
+        cal = calibration[mode]
+        lines.append(f"### Calibration -- {mode}")
         lines.append("")
+        # Per-stage tables
+        for stage in STAGES:
+            stage_rows, stage_ece = cal["by_stage"][stage]
+            lines.extend(
+                _render_calibration_table(stage_rows, stage_ece, f"{mode} / {stage}")
+            )
+        # Pooled as secondary
+        lines.extend(
+            _render_calibration_table(
+                cal["pooled_rows"],
+                cal["pooled_ece"],
+                f"{mode} / pooled (secondary — all stages combined)",
+            )
+        )
     return lines
 
 
 def render_backtest_markdown(
-    results: list[dict[str, Any]],
+    results: list[dict],
     *,
-    uncertainty: dict[str, dict[str, dict]] | None = None,
-    calibration: dict[str, tuple[list[dict], float]] | None = None,
+    uncertainty: dict | None = None,
+    calibration: dict | None = None,
 ) -> str:
+    from datetime import datetime, timezone
     ts = datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
     n_t = len(results)
     lines = [
@@ -568,10 +704,12 @@ def render_backtest_markdown(
         "|--------|--------|------------------|",
         "| **1** | `team_stage_probabilities.csv` | Top *N* teams by `p_at_least_{stage}` vs who really qualified "
         f"(N: {', '.join(f'{s}={EXPECTED_N[s]}' for s in STAGES)}) |",
-        "| **2** | `team_stage_probabilities.csv` | Mean Brier on teams that actually reached the stage (`p_at_least_{stage}` vs outcome 1); lower is better |",
-        "| **3** | `analysis/stage_combinations_{stage}.csv` | Rank and cumulative probability of the exact actual team set "
+        "| **2** | `team_stage_probabilities.csv` | Mean Brier on teams that actually reached the stage (`p_at_least_{{stage}}` vs outcome 1); lower is better |",
+        "| **3** | `analysis/stage_combinations_{{stage}}.csv` | Rank and cumulative probability of the exact actual team set "
         f"(if never simulated in the run, cumulative is {_pct(NOT_OBSERVED_CUMULATIVE_FREQUENCY)}) |",
         "| **4** | Same as 3 | Cumulative probability until each actual team has appeared in >=1 combo; lists the union of teams in combos 1..stop rank |",
+        "| **5** | `team_stage_probabilities.csv` | All-team binary Brier: mean `(p_at_least_{{stage}} - outcome)^2` across all 32 teams; lower is better |",
+        "| **6** | `team_stage_probabilities.csv` | All-team binary log loss: mean cross-entropy across all 32 teams; lower is better |",
         "",
         "In tables, `yes` means the condition held, `no` means it did not, and recall is shown as `hits/N`.",
         "",
@@ -589,49 +727,38 @@ def render_backtest_markdown(
     for row in aggregate_rows:
         lines.append(f"| **{row['stage']}** | {row['m1_market']} | {row['m1_model']} |")
 
-    lines.extend(
-        [
-            "",
-            "### M2 qualifier Brier",
-            "",
-            "| Stage | M2 market | M2 model |",
-            "|-------|-----------|----------|",
-        ]
-    )
+    lines.extend(["", "### M2 qualifier Brier", "",
+        "| Stage | M2 market | M2 model |", "|-------|-----------|----------|"])
     for row in aggregate_rows:
         lines.append(f"| **{row['stage']}** | {row['m2_market']} | {row['m2_model']} |")
 
-    lines.extend(
-        [
-            "",
-            "### M3 exact-set cumulative",
-            "",
-            "| Stage | M3 cum market | M3 cum model | Delta pp (model - market) | Better side |",
-            "|-------|---------------|--------------|---------------------------|-------------|",
-        ]
-    )
+    lines.extend(["", "### M3 exact-set cumulative", "",
+        "| Stage | M3 cum market | M3 cum model | Delta pp (model - market) | Better side |",
+        "|-------|---------------|--------------|---------------------------|-------------|"])
     for row in aggregate_rows:
         better = "model" if row["m3_delta_pp"] < 0 else ("market" if row["m3_delta_pp"] > 0 else "tie")
-        lines.append(
-            f"| **{row['stage']}** | {row['m3_market']} | {row['m3_model']} | "
-            f"{row['m3_delta_pp']:+.2f} | {better} |"
-        )
+        lines.append(f"| **{row['stage']}** | {row['m3_market']} | {row['m3_model']} | {row['m3_delta_pp']:+.2f} | {better} |")
 
-    lines.extend(
-        [
-            "",
-            "### M4 all-teams-seen cumulative",
-            "",
-            "| Stage | M4 cum market | M4 cum model | Delta pp (model - market) | Better side |",
-            "|-------|---------------|--------------|---------------------------|-------------|",
-        ]
-    )
+    lines.extend(["", "### M4 all-teams-seen cumulative", "",
+        "| Stage | M4 cum market | M4 cum model | Delta pp (model - market) | Better side |",
+        "|-------|---------------|--------------|---------------------------|-------------|"])
     for row in aggregate_rows:
         better = "model" if row["m4_delta_pp"] < 0 else ("market" if row["m4_delta_pp"] > 0 else "tie")
-        lines.append(
-            f"| **{row['stage']}** | {row['m4_market']} | {row['m4_model']} | "
-            f"{row['m4_delta_pp']:+.2f} | {better} |"
-        )
+        lines.append(f"| **{row['stage']}** | {row['m4_market']} | {row['m4_model']} | {row['m4_delta_pp']:+.2f} | {better} |")
+
+    lines.extend(["", "### M5 all-team binary Brier", "",
+        "| Stage | M5 market | M5 model | Delta (model - market) | Better side |",
+        "|-------|-----------|----------|------------------------|-------------|"])
+    for row in aggregate_rows:
+        better = "market" if row["m5_delta"] > 0 else ("model" if row["m5_delta"] < 0 else "tie")
+        lines.append(f"| **{row['stage']}** | {row['m5_market']} | {row['m5_model']} | {row['m5_delta']:+.4f} | {better} |")
+
+    lines.extend(["", "### M6 all-team binary log loss", "",
+        "| Stage | M6 market | M6 model | Delta (model - market) | Better side |",
+        "|-------|-----------|----------|------------------------|-------------|"])
+    for row in aggregate_rows:
+        better = "market" if row["m6_delta"] > 0 else ("model" if row["m6_delta"] < 0 else "tie")
+        lines.append(f"| **{row['stage']}** | {row['m6_market']} | {row['m6_model']} | {row['m6_delta']:+.4f} | {better} |")
 
     lines.extend(["", "---", ""])
 

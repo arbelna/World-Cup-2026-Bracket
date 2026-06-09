@@ -33,8 +33,6 @@ class MatchModelSmokeTest(unittest.TestCase):
             )
             text = out_path.read_text(encoding="utf-8")
 
-        self.assertIn("From the `WorldCup2026 Bracket` repo root:", text)
-        self.assertIn("cd Match_model", text)
         self.assertIn("Cross-entropy (CE)", text)
         self.assertIn("delta Brier vs Elo", text)
         self.assertNotIn("Target oracle CE", text)
@@ -44,12 +42,14 @@ class MatchModelSmokeTest(unittest.TestCase):
         self.assertIn("## 4. Highest cross-entropy predictions (CatBoost)", text)
         self.assertIn("| # | Match | Stage | Actual 90m | Market top call | Model top call | CE | Brier |", text)
         self.assertNotIn("## 5. Interpretation notes", text)
-        self.assertIn("## 5. Reproduce", text)
+        self.assertNotIn("## 5. Reproduce", text)
+        self.assertNotIn("python main_cli.py run-all", text)
+        self.assertIn("## 5. WC2026 explicit holdout (train legacy12, test WC2026)", text)
         self.assertIn("reasonable inputs for the bracket simulation stage", text)
         self.assertNotRegex(text, r"[A-Z]:\\")
 
         section4 = text.split("## 4. Highest cross-entropy predictions (CatBoost)", 1)[1]
-        section4 = section4.split("## 5. Reproduce", 1)[0]
+        section4 = section4.split("## 5. WC2026 explicit holdout", 1)[0]
         rows = [
             line
             for line in section4.splitlines()

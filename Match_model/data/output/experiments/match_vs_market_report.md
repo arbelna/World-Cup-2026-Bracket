@@ -1,7 +1,7 @@
 # Match-level model vs market vs actual outcomes
 
-**Generated:** 2026-06-08 15:02 UTC
-**Scope:** 556 LOTO CatBoost predictions scored against 90-minute actual results.
+**Generated:** 2026-06-09 06:03 UTC
+**Scope:** 558 LOTO CatBoost predictions scored against 90-minute actual results.
 
 For each match the market probability is the de-vigged bookmaker consensus (`target_soft`). The model probability is the CatBoost `core7` LOTO out-of-sample prediction. Knockout matches that went to extra time or penalties are scored on the 90-minute result.
 
@@ -9,10 +9,10 @@ For each match the market probability is the de-vigged bookmaker consensus (`tar
 
 | Metric | Market | Model |
 |--------|--------|-------|
-| Log-loss head-to-head wins | **304 (54.7%)** | 252 (45.3%) |
-| Mean log-loss | **0.9629** | 0.9722 (+0.0093) |
-| Mean 3-class Brier vs actuals | **0.5739** | 0.5794 (+0.0055) |
-| Top-1 accuracy | 297/556 (53.4%) | **301/556 (54.1%)** |
+| Log-loss head-to-head wins | **305 (54.7%)** | 253 (45.3%) |
+| Mean log-loss | **0.9631** | 0.9726 (+0.0095) |
+| Mean 3-class Brier vs actuals | **0.5739** | 0.5795 (+0.0056) |
+| Top-1 accuracy | 298/558 (53.4%) | **302/558 (54.1%)** |
 
 ## World Cups only — 2010–2022
 

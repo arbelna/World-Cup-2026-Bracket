@@ -1,0 +1,18 @@
+[
+  "tests/test_collection_outputs.py::Legacy12CollectionOutputsTest::test_elo_fixture_and_rating_counts",
+  "tests/test_collection_outputs.py::Legacy12CollectionOutputsTest::test_legacy12_tournament_count",
+  "tests/test_collection_outputs.py::Legacy12CollectionOutputsTest::test_manifest_counts_match_disk_outputs",
+  "tests/test_collection_outputs.py::Legacy12CollectionOutputsTest::test_manifest_last_stage_present",
+  "tests/test_collection_outputs.py::Legacy12CollectionOutputsTest::test_odds_accounting",
+  "tests/test_collection_outputs.py::Legacy12CollectionOutputsTest::test_squad_player_accounting",
+  "tests/test_collection_outputs.py::TournamentConfigTest::test_legacy12_has_twelve_tournaments",
+  "tests/test_collection_outputs.py::TournamentConfigTest::test_wc2026_has_one_tournament",
+  "tests/test_manifest.py::ManifestAutoSyncTest::test_counts_from_outputs_squad_and_odds_keys",
+  "tests/test_manifest.py::ManifestAutoSyncTest::test_stage_count_keys_cover_transfermarkt_stages",
+  "tests/test_manifest.py::ManifestAutoSyncTest::test_sync_manifest_updates_all_known_stages",
+  "tests/test_manifest.py::ManifestAutoSyncTest::test_write_manifest_overwrites_counts_from_disk",
+  "tests/test_oddsportal_hub_urls.py::OddsPortalHubUrlTests::test_canonical_h2h_odds_url_strips_fragment_variants",
+  "tests/test_oddsportal_hub_urls.py::OddsPortalHubUrlTests::test_dedupe_h2h_odds_urls",
+  "tests/test_wikipedia_squad_collector.py::WikipediaSquadParseTest::test_parse_squad_page_html_extracts_utf8_names",
+  "tests/test_wikipedia_squad_collector.py::WikipediaSquadSourcesTest::test_default_page_titles"
+]

@@ -121,7 +121,7 @@ flowchart LR
 
 The backtests indicate that a compact CatBoost model built from public pre-match signals can provide a useful foundation for full-tournament simulations.
 
-At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline- matching it on recall while trailing on calibration and qualifier Brier. The goal is not to beat the market (which aggregates far more information) but to track it closely enough to be a reliable simulation foundation.
+At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline - matching it on recall while trailing on calibration and qualifier Brier. The goal is not to beat the market (which aggregates far more information) but to track it closely enough to be a reliable simulation foundation.
 
 ### Match-level probability estimates
 
@@ -163,12 +163,12 @@ The error is not uniform across match types. Group-stage matches average **4.17 
 
 #### Accuracy against actual match outcomes
 
-The evaluation above scores predictions against the de-vigged market consensus, measuring how closely the model tracks market pricing. When scored instead against the 90-minute result, the market wins roughly **55% of per-game log-loss comparisons** across 556 held-out matches. The model trails on mean log-loss but leads on **top-1 correct picks** (54.1% vs 53.4%), getting 4 extra correct calls across 256 World Cup matches. When model and market pick different favourites (37 games), they split even on log-loss but the model wins 14 vs 10 on top-1.
+The evaluation above scores predictions against the de-vigged market consensus, measuring how closely the model tracks market pricing. When scored instead against the 90-minute result, the market wins roughly **55% of per-game log-loss comparisons** across 558 held-out matches. The model trails on mean log-loss but leads on **top-1 correct picks** (54.1% vs 53.4%), getting 4 extra correct calls across 256 World Cup matches. When model and market pick different favourites (37 games), they split even on log-loss but the model wins 14 vs 10 on top-1.
 
 | Metric | Market | Model |
 |--------|--------|-------|
-| Log-loss wins - all matches (556) | **304 - 54.7%** | 252 - 45.3% |
-| Top-1 correct - all matches (556) | 297 - 53.4% | **301 - 54.1%** |
+| Log-loss wins - all matches (558) | **305 - 54.7%** | 253 - 45.3% |
+| Top-1 correct - all matches (558) | 298 - 53.4% | **302 - 54.1%** |
 | Top-1 correct - World Cups only (256) | 133 - 52.0% | **137 - 53.5%** |
 | Top-1 when favourites differ (37 games) | 10 | **14** |
 
@@ -183,40 +183,40 @@ The full-bracket simulations are evaluated against the actual outcomes of the 20
 
 **Qualifier Brier** - for teams that actually reached a given stage, how confident was the simulation that they would? This measures calibration against actual outcomes: lower Brier means the simulation assigned higher probability to the teams that genuinely advanced.
 
-**All-teams-seen cumulative coverage** - how far down the ranked list of bracket scenarios must you go before every team that actually advanced has appeared in at least one simulated combo? Lower means the actual outcomes were concentrated near the top of the probability distribution.
+**All-teams-seen cumulative coverage** - how far down the ranked list of bracket scenarios must you go before every team that actually advanced has appeared in at least one simulated combo? This is a scenario-coverage diagnostic: lower means all actual teams are reachable within a smaller probability budget. It does not directly measure whether the model assigns high probability to the right teams — a team satisfies the condition by appearing in any combo above the threshold, even a low-probability one.
 
-**Recall: model edges market at every stage (but the gap is within noise)**
+**Recall: model edges market at every stage, but evidence is inconclusive at four tournaments**
 
-The model has higher average Top-N recall at every stage of the bracket. The direction is consistent- +1.6 pp at R16, +3.1 at QF, +6.2 at SF, +12.5 at the Final- but a tournament-level block bootstrap (10,000 resamples) produces confidence intervals that span zero at every stage. With only four historical tournaments, none of the individual gaps are statistically distinguishable from noise. The point estimates are encouraging; the sample size prevents stronger claims.
+The model has higher average Top-N recall at every stage of the bracket. The direction is consistent- +1.6 pp at R16, +3.1 at QF, +6.2 at SF, +12.5 at the Final.But with only four World Cups, a tournament-level block bootstrap (10,000 resamples) shows wide uncertainty, and the confidence interval for the model-minus-market recall gap includes zero at every stage.
 
 ![Bracket stage recall](./docs/img/bracket_stage_recall.png)
 
 **Qualifier Brier: market leads at every stage**
 
-The market-derived baseline has lower qualifier Brier at every stage, meaning it assigned slightly higher probability to the teams that actually advanced. Because qualifier Brier is defined as the mean squared error of `(predicted probability − 1)` over qualifying teams, the implied average probability a team was given for reaching each stage is simply `1 − √Brier`. Translating the chart into those terms:
+The market-derived baseline has lower qualifier Brier at every stage, meaning it assigned slightly higher probability to the teams that actually advanced. The table below shows the arithmetic mean of the simulated reach-probabilities over the teams that actually qualified at each stage, computed directly from the committed simulation outputs:
 
 | Stage | Market avg probability for actual qualifiers | Model avg probability | Gap |
 |-------|----------------------------------------------|-----------------------|-----|
-| R16 | 55.8% | 54.8% | 1.0 pp |
-| QF | 43.0% | 39.9% | 3.1 pp |
-| SF | 28.3% | 25.2% | 3.1 pp |
-| Final | 19.4% | 17.7% | 1.7 pp |
-| Winner | 12.3% | 11.3% | 1.0 pp |
+| R16 | 63.2% | 61.0% | 2.2 pp |
+| QF | 46.9% | 42.5% | 4.4 pp |
+| SF | 29.7% | 26.1% | 3.6 pp |
+| Final | 19.7% | 17.9% | 1.8 pp |
+| Winner | 12.4% | 11.4% | 1.0 pp |
 
-The gap between the market and the model is only 1-3 percentage points, depending on the stage, so the absolute improvement is modest. The more important pattern is the rising curve shared by both: even the eventual champion was assigned only around a 12% chance of winning the tournament by the market. This reflects the inherent uncertainty of knockout football, where a few upsets can reshape the entire bracket. That uncertainty is even more relevant for the 2026 World Cup, which expands to 48 teams and introduces an additional round of knockout matches.
+The gap between the market and the model is 1–4 percentage points, depending on the stage, so the absolute improvement is modest. The more important pattern is the rising curve shared by both: even the eventual champion was assigned only around a 12% chance of winning the tournament by the market. This reflects the inherent uncertainty of knockout football, where a few upsets can reshape the entire bracket. That uncertainty is even more relevant for the 2026 World Cup, which expands to 48 teams and introduces an additional round of knockout matches.
 
-A separate check scoring all 32 teams as a binary reach/not-reach event shows the same direction- market leads through the semi-final, model marginally better at the Final and Winner- and the model produces fewer top-N false positives at every stage. This rules out probability inflation as an explanation for the model's recall advantage: a model that simply gave every team a high probability would look good on recall but would accumulate false positives, which the model does not.
+Scoring all 32 teams as a binary reach/not-reach event (all-team Brier M5 and log loss M6) confirms the same pattern. On M5, the market leads at R16 (0.1920 vs 0.2007), QF (0.1261 vs 0.1338), and SF (0.0882 vs 0.0896); the model is marginally better at the Final (0.0502 vs 0.0494) and Winner (0.0275 vs 0.0270). On M6 the market leads at every stage, though the gap at the Final (0.1622 vs 0.1653) and Winner (0.0958 vs 0.0976) is negligible. The model also produces fewer top-N false positives at every stage. This rules out probability inflation as an explanation for the model's recall advantage: a model that simply gave every team a high probability would look good on recall but would accumulate false positives, which the model does not.
 
 
 ![Qualifier Brier by stage](./docs/img/qualifier_brier_by_stage.png)
 
-**Cumulative coverage: model better at late stages, market better early**
+**Cumulative coverage: model needs less probability mass to cover actual teams at late stages**
 
-The market edges ahead at R16 and QF, but the model has lower cumulative error at the Final (−16.3 pp) and Winner (−13.5 pp) stages:
+As a coverage diagnostic, a lower value means all actual teams appeared somewhere in the simulated joint distribution earlier (i.e. within a smaller slice of cumulative probability). The market needs less mass to cover actual teams at R16 and QF; the model needs less at the Final (−16.3 pp) and Winner (−13.5 pp). This does not mean the model assigns higher probability to the right teams at those stages — recall and Brier are the right metrics for that — but it does suggest its late-stage scenario space is less diffuse:
 
 ![All-teams-seen cumulative error by stage](./docs/img/cumulative_bracket_error.png)
 
-Taken together: the market is better calibrated overall (ECE 0.0095 vs 0.0237) and leads on qualifier Brier at every stage. The model's calibration deficit is concentrated in the 0.5–0.7 probability range, where it consistently underrates mid-range favourites. On recall and late-stage cumulative coverage the model holds its own or edges ahead, though these gaps do not clear statistical significance at four tournaments. The honest summary is that the two approaches are close- the model is a viable simulation foundation, and closing the calibration gap on favourites is the clearest remaining improvement. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
+Taken together: the market is better calibrated overall (ECE 0.0095 vs 0.0237) and leads on qualifier Brier at every stage. The model's calibration deficit is concentrated in the 0.5–0.7 probability range, where it consistently underrates mid-range favourites. On recall the model edges ahead at every stage; on late-stage cumulative coverage (a scenario-coverage diagnostic) it needs less probability mass to reach the actual finalists, though neither gap clears statistical significance at four tournaments. The honest summary is that the two approaches are close - the model is a viable simulation foundation, and closing the calibration gap on favourites is the clearest remaining improvement. Full analysis in [`Bracket_Simulations/results.md`](Bracket_Simulations/results.md).
 
 **A note on simulation simplifications.** Because the simulator tracks only 1X2 outcomes and not exact scores, it cannot apply the real FIFA group-stage tiebreak sequence (goal difference → goals scored → head-to-head → lots). Instead it uses a pairwise-strength ranking among tied teams. For knockout draws, it replaces extra time and penalties with a single probabilistic advancement step weighted by each team's relative 90-minute win probability. These are known simplifications; the full treatment is in [`Bracket_Simulations/README.md`](Bracket_Simulations/README.md#simplifications-relative-to-real-fifa-rules).
 

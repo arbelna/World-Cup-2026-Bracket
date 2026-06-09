@@ -17,7 +17,12 @@ from bracket_simulations.aggregates import (
     top_config_for_stage,
 )
 from bracket_simulations.analysis import analyze_bracket_dir, combos_for_stage, cumulative_coverage
-from bracket_simulations.calibration import BIN_EDGES, collect_reliability_pairs, reliability_table
+from bracket_simulations.calibration import (
+    BIN_EDGES,
+    collect_reliability_pairs,
+    collect_reliability_pairs_by_stage,
+    reliability_table,
+)
 from bracket_simulations.compare import (
     _load_preds,
     evaluate_joint,
@@ -168,17 +173,20 @@ def _render_team_block(title: str, teams: list[str]) -> list[str]:
 
 
 def aggregate_with_uncertainty(rows: list[dict]) -> dict[str, dict[str, dict]]:
-    """Bootstrap model-minus-market gap for recall and Brier, keyed by stage."""
+    """Bootstrap model-minus-market gap for recall, all-team Brier (M5), and log loss (M6), keyed by stage."""
     out: dict[str, dict[str, dict]] = {}
     for stage in STAGES:
         n = EXPECTED_N[stage]
         recall_model  = [r["model"][stage]["topn_hits"]  / n for r in rows]
         recall_market = [r["market"][stage]["topn_hits"] / n for r in rows]
-        brier_model   = [r["model"][stage]["brier"]  for r in rows]
-        brier_market  = [r["market"][stage]["brier"] for r in rows]
+        brier_model   = [r["model"][stage]["brier"]    for r in rows]
+        brier_market  = [r["market"][stage]["brier"]   for r in rows]
+        ll_model      = [r["model"][stage]["logloss"]  for r in rows]
+        ll_market     = [r["market"][stage]["logloss"] for r in rows]
         out[stage] = {
-            "recall": block_bootstrap_delta(recall_model,  recall_market),
-            "brier":  block_bootstrap_delta(brier_model,   brier_market),
+            "recall":   block_bootstrap_delta(recall_model,  recall_market),
+            "brier":    block_bootstrap_delta(brier_model,   brier_market),
+            "logloss":  block_bootstrap_delta(ll_model,      ll_market),
         }
     return out
 
@@ -218,11 +226,20 @@ def build_report(tournaments: list[str]) -> tuple[list[dict], str, dict, dict]:
 
     uncertainty = aggregate_with_uncertainty(rows)
 
-    calibration: dict[str, tuple[list[dict], float]] = {}
+    calibration: dict[str, dict] = {}
     for mode in MODES:
         pairs = collect_reliability_pairs(tournaments, mode)
-        cal_rows, ece = reliability_table(pairs, BIN_EDGES)
-        calibration[mode] = (cal_rows, ece)
+        pooled_rows, pooled_ece = reliability_table(pairs, BIN_EDGES)
+        by_stage_pairs = collect_reliability_pairs_by_stage(tournaments, mode)
+        by_stage = {
+            stage: reliability_table(stage_pairs, BIN_EDGES)
+            for stage, stage_pairs in by_stage_pairs.items()
+        }
+        calibration[mode] = {
+            "pooled_rows": pooled_rows,
+            "pooled_ece": pooled_ece,
+            "by_stage": by_stage,
+        }
 
     md = render_backtest_markdown(rows, uncertainty=uncertainty, calibration=calibration)
     return rows, md, uncertainty, calibration

@@ -48,7 +48,7 @@ def test_cumulative_at_actual_observed_uses_empirical_cumulative():
 @pytest.mark.integration
 def test_build_report_contains_uncertainty_and_calibration_sections():
     """Smoke test: build_report runs and the rendered markdown has new sections."""
-    rows, md = build_report(HISTORICAL_TOURNAMENTS)
+    rows, md, uncertainty, calibration = build_report(HISTORICAL_TOURNAMENTS)
     assert "Uncertainty" in md or "uncertainty" in md
     assert "Calibration" in md or "calibration" in md
 
@@ -58,7 +58,7 @@ def test_aggregate_with_uncertainty_shape():
     """aggregate_with_uncertainty returns expected keys for all stages."""
     from bracket_simulations.actual_results import STAGES
 
-    rows, _ = build_report(HISTORICAL_TOURNAMENTS)
+    rows, _md, _unc, _cal = build_report(HISTORICAL_TOURNAMENTS)
     uncertainty = aggregate_with_uncertainty(rows)
     for stage in STAGES:
         assert stage in uncertainty

@@ -10,7 +10,13 @@ BIN_EDGES = [0.0, 0.1, 0.2, 0.3, 0.5, 0.7, 0.9, 1.01]
 
 
 def collect_reliability_pairs(tournaments: list[str], mode: str) -> list[tuple[float, int]]:
-    """Pool (predicted p_at_least, actual 0/1) over all teams x stages x tournaments."""
+    """Pool (predicted p_at_least, actual 0/1) over all teams x stages x tournaments.
+
+    Kept as the pooled summary. Note that this pools across stages with very different
+    base rates (R16 ~63%, Winner ~3%) and across nested outcomes (same team appears at
+    multiple stages), so the Wilson CIs understate true uncertainty. Use
+    collect_reliability_pairs_by_stage for stage-specific calibration curves.
+    """
     pairs: list[tuple[float, int]] = []
     for t in tournaments:
         actual = build_actual_outcome(t)
@@ -21,6 +27,30 @@ def collect_reliability_pairs(tournaments: list[str], mode: str) -> list[tuple[f
                 p = float(row[f"p_at_least_{stage}"])
                 pairs.append((p, 1 if team in reached else 0))
     return pairs
+
+
+def collect_reliability_pairs_by_stage(
+    tournaments: list[str], mode: str
+) -> dict[str, list[tuple[float, int]]]:
+    """Return per-stage (predicted p_at_least, actual 0/1) pairs.
+
+    Separating by stage avoids mixing incompatible base rates (reaching R16 vs winning
+    the tournament) and keeps the reliability diagram interpretable within each stage.
+    Outcomes are still nested across stages for the same team (a team that reached the
+    SF also contributed to R16 and QF), and teams within one tournament are not
+    independent because stage capacities are fixed -- so Wilson intervals remain
+    approximations. Use a tournament-level bootstrap for uncertainty if needed.
+    """
+    by_stage: dict[str, list[tuple[float, int]]] = {s: [] for s in STAGES}
+    for t in tournaments:
+        actual = build_actual_outcome(t)
+        preds = _load_preds(probabilities_csv(t, mode))
+        for stage in STAGES:
+            reached = actual.actual_at_least[stage]
+            for team, row in preds.items():
+                p = float(row[f"p_at_least_{stage}"])
+                by_stage[stage].append((p, 1 if team in reached else 0))
+    return by_stage
 
 
 def _wilson(k: int, n: int, z: float = 1.96) -> tuple[float, float]:

@@ -103,16 +103,7 @@ These are the 10 worst single-match CatBoost CE errors on held-out folds. The co
 5. **England vs Sweden**: The model and market leaned the same way, but the model concentrated too much probability mass.
 6. **England vs Italy**: The model flipped the favorite relative to the market consensus.
 
-## 5. Reproduce
-
-From the `WorldCup2026 Bracket` repo root:
-
-```powershell
-cd Match_model
-python main_cli.py run-all
-```
-
-## 6. WC2026 explicit holdout (train legacy12, test WC2026)
+## 5. WC2026 explicit holdout (train legacy12, test WC2026)
 
 Train/test split evaluation with train set from legacy12 and held-out test set `World Cup 2026`.
 WC2026 test dataset: `data/output/datasets/wc2026_match_dataset.json`
@@ -141,28 +132,20 @@ That does not validate future outcomes, but it does suggest the WC2026 pairwise 
 
 On a representative group-stage line, home stays the favorite but drops 5.5 pp while draw and away rise 2.8 pp and 2.7 pp. Macro MAE on this line is **3.67 pp**, matching the WC2026 holdout **3.68 pp**.
 
-Reproduce from the `WorldCup2026 Bracket` repo root:
+## 6. Match-level accuracy vs actual outcomes
 
-```powershell
-cd Match_model
-python main_cli.py build-dataset --collection-dir ..\Data_Collection\data\wc2026 --old-stats-dir data/reference/old_stats --output data/output/datasets/wc2026_match_dataset.json
-python main_cli.py run-holdout --train-dataset data/output/datasets/match_dataset.json --test-dataset data/output/datasets/wc2026_match_dataset.json --held-out-competition "World Cup 2026"
-```
+Sections 1–5 score predictions against **`target_soft`** (de-vigged bookmaker consensus), measuring how closely the model tracks market pricing. This section asks the harder question: who assigns better probability to what actually happened on the pitch?
 
-## 7. Match-level accuracy vs actual outcomes
+**Coverage:** all 558 LOTO CatBoost predictions joined to 90-minute actual results from `data/reference/old_stats/`. All predictions are out-of-sample. Knockout matches that went to extra time or penalties are scored on the 90-minute result, consistent with how `Bracket_Simulations` samples knockout draws.
 
-Sections 1–6 score predictions against **`target_soft`** (de-vigged bookmaker consensus), measuring how closely the model tracks market pricing. This section asks the harder question: who assigns better probability to what actually happened on the pitch?
-
-**Coverage:** 556 of 558 LOTO CatBoost predictions joined to 90-minute actual results from `data/reference/old_stats/`. All predictions are out-of-sample. Knockout matches that went to extra time or penalties are scored on the 90-minute result, consistent with how `Bracket_Simulations` samples knockout draws.
-
-### Headline results - all legacy12 tournaments (556 matches)
+### Headline results - all legacy12 tournaments (558 matches)
 
 | Metric | Market | Model |
 |--------|--------|-------|
-| Log-loss head-to-head wins | **304 (54.7%)** | 252 (45.3%) |
-| Mean log-loss | **0.9629** | 0.9722 (+0.0093) |
-| Mean 3-class Brier vs actuals | **0.5739** | 0.5794 (+0.0055) |
-| Top-1 accuracy | 297/556 (53.4%) | **301/556 (54.1%)** |
+| Log-loss head-to-head wins | **305 (54.7%)** | 253 (45.3%) |
+| Mean log-loss | **0.9631** | 0.9726 (+0.0095) |
+| Mean 3-class Brier vs actuals | **0.5739** | 0.5795 (+0.0056) |
+| Top-1 accuracy | 298/558 (53.4%) | **302/558 (54.1%)** |
 
 ### World Cups only - 2010–2022 (256 matches)
 
@@ -222,15 +205,4 @@ The market's log-loss edge against actual outcomes is the **expected result**, n
 3. **Compounding through the bracket.** Bracket simulation chains many matches. Small per-game shifts in probability - even ones the market wouldn't endorse - can change which teams rank in the top 8/4/2 across the full tournament in ways that accumulate in the model's favour.
 4. **Different objects.** Match-level log-loss scores isolated 1X2 lines. Bracket M1 and M4 score marginal reach and joint stage configurations after full Monte Carlo propagation - a harder and more tournament-relevant test where the model leads the market at every recall stage and on cumulative coverage at the Final and Winner.
 
-The bracket backtest results in `Bracket_Simulations/results.md` are not undermined by the match-level finding. The model is a purpose-built bracket input, not a replacement for the bookmaker consensus - and on the task it was built for, it outperforms the market where it counts most.
-
-## 8. Reproduce section 7
-
-From the `WorldCup2026 Bracket` repo root:
-
-```powershell
-cd Match_model
-python main_cli.py match-vs-market
-```
-
-This reads `data/output/experiments/loto_eval_predictions.csv`, joins actual 90-minute results from `data/reference/old_stats/`, and writes a full markdown report to `data/output/experiments/match_vs_market_report.md`. All defaults match the committed paths; pass `--help` for override options.
+The bracket backtest results in `Bracket_Simulations/results.md` are not undermined by the match-level finding. The model is a purpose-built bracket input, not a replacement for the bookmaker consensus, and on bracket-level metrics it is competitive with the market, showing a consistent recall edge and some stronger late-stage joint-distribution results despite weaker calibration and qualifier Brier.

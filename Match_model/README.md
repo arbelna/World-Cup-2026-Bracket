@@ -79,7 +79,10 @@ The helper script above is written for PowerShell on Windows. On macOS or Linux,
 python main_cli.py build-dataset
 python main_cli.py run-loto
 python main_cli.py run-all
+python main_cli.py match-vs-market
 ```
+
+`match-vs-market` scores LOTO CatBoost predictions against 90-minute actual results from `data/reference/old_stats/` and writes `data/output/experiments/match_vs_market_report.md`. Section 6 of `results.md` summarizes the same analysis; regenerate that report after changing predictions or the `old_stats` reference tree.
 
 Explicit WC2026 holdout:
 
@@ -112,6 +115,7 @@ Key committed outputs from historical LOTO:
 | `data/output/experiments/loto_eval_per_fold.csv` | per-fold metrics |
 | `data/output/experiments/loto_eval_predictions.csv` | per-match historical LOTO predictions |
 | `data/output/experiments/plots/` | committed diagnostic plots |
+| `data/output/experiments/match_vs_market_report.md` | match-level model vs market vs actual outcomes |
 | `results.md` | narrative report tied to the committed outputs |
 
 Committed outputs from the explicit WC2026 holdout:
@@ -135,6 +139,7 @@ The committed tests are smoke-level checks for path stability and report generat
 ## Notes
 
 - `old_stats` is vendored in `data/reference/old_stats`, so this stage does not depend on any folder outside `WorldCup2026 Bracket`.
+- Match-level actual outcomes are joined from the vendored `old_stats` text files on `(tournament_id, date, team pair)`. If a collection input date disagrees with `old_stats`, the match is dropped from the `match-vs-market` report; Euro 2016 Group E round-three fixtures (Belgium–Sweden, Ireland–Italy) were corrected from Jun 21 to Jun 22 in `euro-master/2016--france/euro.txt` to match the committed inputs.
 - `results.md` is generated from the committed experiment outputs and should be regenerated if those outputs change.
 - Reproduction instructions assume the repo root is `WorldCup2026 Bracket`.
 - The evaluation target is the de-vigged market consensus, so the target-oracle row is a sanity check for label handling, not a real forecasting benchmark.
