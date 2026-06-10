@@ -462,7 +462,7 @@ body {
   border-radius: var(--radius);
   padding: 16px;
 }
-.basket-chart-wrap { height: 200px; margin-bottom: 16px; position: relative; }
+.basket-chart-wrap { height: 240px; margin-bottom: 16px; position: relative; overflow: visible; }
 .basket-chart-wrap canvas { width: 100% !important; height: 100% !important; }
 .basket-summary {
   font-family: var(--mono);
@@ -1497,9 +1497,24 @@ function renderBasket() {
       },
       options: {
         animation: false,
-        responsive: false,
+        responsive: true,
         maintainAspectRatio: false,
-        plugins: { legend: { display: false } },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            backgroundColor: 'rgba(15,20,35,0.95)',
+            titleColor: '#e2e8f0',
+            bodyColor: '#cbd5e1',
+            borderColor: 'rgba(59,130,246,0.6)',
+            borderWidth: 1,
+            padding: 10,
+            displayColors: false,
+            callbacks: {
+              title: (items) => `${items[0].label} of ${N} teams`,
+              label: (item) => `P(exactly ${item.label}): ${item.raw.toFixed(2)}%`,
+            },
+          },
+        },
         scales: {
           x: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 } }, grid: { color: '#2c3347' } },
           y: { ticks: { color: '#8892a4', font: { family: 'DM Mono', size: 11 }, callback: v => v+'%' }, grid: { color: '#2c3347' } },
