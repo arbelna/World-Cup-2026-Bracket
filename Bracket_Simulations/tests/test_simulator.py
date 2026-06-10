@@ -18,7 +18,11 @@ from bracket_simulations.probabilities.model import (
     ModelGroupProbabilityProvider,
     ModelKnockoutProbabilityProvider,
 )
-from bracket_simulations.simulator.bracket_resolver import load_groups, load_knockout_bracket
+from bracket_simulations.simulator.bracket_resolver import (
+    load_groups,
+    load_knockout_bracket,
+    load_r32_scenarios,
+)
 from bracket_simulations.simulator.group_stage import GroupMatch
 from bracket_simulations.simulator.simulator import PARTICIPANT_STAGES, run_single_simulation
 from bracket_simulations.tournament_data import build_group_schedule, load_tournament_fixtures
@@ -102,3 +106,33 @@ def test_knockout_provider_can_average_stage_context_without_slot():
     assert pa == pytest.approx(0.55)
     assert pd == pytest.approx(0.25)
     assert pb == pytest.approx(0.20)
+
+
+def test_wc2026_r32_third_place_slots_match_expected_winners():
+    cfg = load_tournament_config("wc2026")
+    bracket = load_knockout_bracket(cfg.knockout_bracket_file)
+    scenarios = load_r32_scenarios(cfg.r32_scenarios_file)
+
+    allowed_groups_by_slot: dict[str, set[str]] = {}
+    for scenario in scenarios.values():
+        for slot, group in scenario["third_slots"].items():
+            allowed_groups_by_slot.setdefault(str(slot), set()).add(str(group))
+
+    expected = {
+        "1A": {"C", "E", "F", "H", "I"},
+        "1B": {"E", "F", "G", "I", "J"},
+        "1D": {"B", "E", "F", "I", "J"},
+        "1E": {"A", "B", "C", "D", "F"},
+        "1G": {"A", "E", "H", "I", "J"},
+        "1I": {"C", "D", "F", "G", "H"},
+        "1K": {"D", "E", "I", "J", "L"},
+        "1L": {"E", "H", "I", "J", "K"},
+    }
+
+    actual = {
+        str(match["home"]): allowed_groups_by_slot[str(match["away"]["slot"])]
+        for match in bracket["r32"]
+        if isinstance(match["away"], dict) and match["away"].get("type") == "third_slot"
+    }
+
+    assert actual == expected

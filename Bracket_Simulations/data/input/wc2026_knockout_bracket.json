@@ -10,7 +10,7 @@
       "home": "1E",
       "away": {
         "type": "third_slot",
-        "slot": "1A"
+        "slot": "1E"
       }
     },
     {
@@ -28,7 +28,7 @@
       "home": "1I",
       "away": {
         "type": "third_slot",
-        "slot": "1B"
+        "slot": "1I"
       }
     },
     {
@@ -41,7 +41,7 @@
       "home": "1A",
       "away": {
         "type": "third_slot",
-        "slot": "1K"
+        "slot": "1A"
       }
     },
     {
@@ -83,7 +83,7 @@
       "home": "1B",
       "away": {
         "type": "third_slot",
-        "slot": "1E"
+        "slot": "1B"
       }
     },
     {
@@ -96,7 +96,7 @@
       "home": "1K",
       "away": {
         "type": "third_slot",
-        "slot": "1I"
+        "slot": "1K"
       }
     },
     {
