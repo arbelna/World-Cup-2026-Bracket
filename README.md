@@ -121,7 +121,7 @@ flowchart LR
 
 The backtests indicate that a compact CatBoost model built from public tournament-start signals can provide a useful foundation for full-tournament simulations.
 
-At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline. The goal is not to beat the market, which aggregates far more information, but to track it closely enough to be a reliable simulation foundation.
+At the match level, the model consistently outperforms the Elo baseline under leave-one-tournament-out evaluation. The improvement is visible across historical tournaments and remains strong on the WC2026 out-of-sample holdout. At the bracket level, the model is **competitive** with the market-derived baseline. The goal is not to beat the market, which aggregates far more information, but to track it closely enough to be a reliable simulation foundation. The market is better calibrated for mid-range favourites (0.5-0.7 probability range), but this gap is concentrated at the group and R16 stages; from the quarter-finals onward it has negligible practical impact on bracket outcomes.
 
 ### Match-level probability estimates
 
@@ -135,7 +135,7 @@ The improvement is not driven by a single tournament. CatBoost achieves a lower 
 
 ![Brier score by tournament](./docs/img/brier_by_tournament.png)
 
-Because the WC2026 holdout Brier score (0.0065) is the best result across all 12 historical LOTO folds - below the historical range of 0.0071–0.0201 - and the model's error on knockout matches (Brier 0.0069) is lower than on group-stage matches (0.0107), I consider its probability estimates reliable enough to use as the foundation for the bracket simulations. Since the bracket consists mostly of knockout matches, the effective per-match error feeding into the simulations is even lower than the holdout headline.
+Because the WC2026 holdout Brier score (0.0065) is the best result across all 12 historical LOTO folds - below the historical range of 0.0071-0.0201 - and the model's error on knockout matches (Brier 0.0069) is lower than on group-stage matches (0.0107), I consider its probability estimates reliable enough to use as the foundation for the bracket simulations. Since the bracket consists mostly of knockout matches, the effective per-match error feeding into the simulations is even lower than the holdout headline.
 
 #### What the error looks like in practice
 
@@ -181,7 +181,7 @@ The bracket stage is now context-aware at pairwise generation time. Group-stage 
 
 > **A note on comparison fairness.** `market_all` uses historical bookmaker odds set per-match during each tournament. For knockout matches, those odds incorporated group-stage results, injuries, and in-tournament momentum - information that was not available at tournament start. `model_all` uses only pre-tournament features (Elo, squad values, confederation) for every match. The model therefore operates under an informational disadvantage in this comparison, and its broadly competitive performance should be read in that context.
 
-The full-bracket simulations are evaluated against the actual outcomes of the 2010–2022 World Cups. Three complementary metrics capture different dimensions of bracket quality.
+The full-bracket simulations are evaluated against the actual outcomes of the 2010-2022 World Cups. Three complementary metrics capture different dimensions of bracket quality.
 
 **Top-N recall** - for each stage, does the simulation rank the teams that actually advanced among its highest-probability picks? A simulation that assigns high marginal probability to a team that genuinely reached, say, the semi-finals scores well here. Higher is better.
 
@@ -207,7 +207,7 @@ The market-derived baseline has lower qualifier Brier at every stage, meaning it
 | Final | 19.7% | 18.1% | 1.6 pp |
 | Winner | 12.4% | 11.7% | 0.7 pp |
 
-The gap between the market and the model is 1–4 percentage points, depending on the stage, so the absolute improvement is modest. The more important pattern is the rising curve shared by both: even the eventual champion was assigned only around a 12% chance of winning the tournament by the market. This reflects the inherent uncertainty of knockout football, where a few upsets can reshape the entire bracket. That uncertainty is even more relevant for the 2026 World Cup, which expands to 48 teams and introduces an additional round of knockout matches.
+The gap between the market and the model is 1-4 percentage points, depending on the stage, so the absolute improvement is modest. The more important pattern is the rising curve shared by both: even the eventual champion was assigned only around a 12% chance of winning the tournament by the market. This reflects the inherent uncertainty of knockout football, where a few upsets can reshape the entire bracket. That uncertainty is even more relevant for the 2026 World Cup, which expands to 48 teams and introduces an additional round of knockout matches.
 
 Scoring all 32 teams as a binary reach/not-reach event (all-team Brier M5 and log loss M6) confirms the same pattern. On M5, the market leads at R16 (0.1920 vs 0.2039), QF (0.1261 vs 0.1325), and SF (0.0882 vs 0.0897); the model is marginally better at the Final (0.0502 vs 0.0493) and Winner (0.0275 vs 0.0269). On M6 the market leads at every stage, though the gap at the Final (0.1622 vs 0.1645) and Winner (0.0958 vs 0.0969) is negligible. The model also produces fewer top-N false positives at every stage. This rules out probability inflation as an explanation for the model's recall advantage: a model that simply gave every team a high probability would look good on recall but would accumulate false positives, which the model does not.
 

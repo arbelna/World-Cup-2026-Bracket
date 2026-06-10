@@ -7,19 +7,21 @@ The theme is intentionally WC26-inspired rather than a copy of FIFA artwork:
 - clean editorial layout suitable for README files and reports
 - consistent model/baseline semantics and compact annotations
 
-Generates 6 PNG files in docs/img/ (matching README.md image references):
+Generates 7 PNG files in docs/img/ (matching README.md image references):
   1. wc26_ce_holdout_vs_historical_refined.png  (no README reference, informational)
   2. brier_by_phase.png
   3. brier_by_tournament.png
   4. bracket_stage_recall.png
   5. cumulative_bracket_error.png
   6. qualifier_brier_by_stage.png
+  7. top10_knockout_paths.png
 
 Run from the WorldCup2026 Bracket repo root:
     python plot_wc26_refined.py
 """
 from __future__ import annotations
 
+import json
 from pathlib import Path
 
 import matplotlib
@@ -55,6 +57,8 @@ ELO_LABEL      = "Elo"
 
 OUT_DIR = Path(__file__).parent / "img"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+MODEL_JSON = Path(__file__).parent / "data" / "model.json"
 
 # ---------------------------------------------------------------------------
 # Shared style helpers
@@ -181,13 +185,44 @@ def _save(fig: plt.Figure, name: str) -> Path:
     out = OUT_DIR / name
     fig.savefig(out, dpi=180, bbox_inches="tight", facecolor=PAPER)
     plt.close(fig)
-    print(f"  saved → {out.name}")
+    print(f"  saved -> {out.name}")
     return out
 
 
 def _fmt_pp(value: float) -> str:
     sign = "+" if value > 0 else ""
     return f"{sign}{value:.1f} pp"
+
+
+def _load_model_json() -> dict:
+    with MODEL_JSON.open("r", encoding="utf-8", errors="replace") as fh:
+        raw = fh.read()
+    try:
+        return json.loads(raw)
+    except json.JSONDecodeError:
+        # File may be truncated after the teams array; close the outer object and retry
+        teams_end = raw.find('"top_configs"')
+        if teams_end == -1:
+            teams_end = len(raw)
+        # Walk back to the last ] before any incomplete key
+        last_bracket = raw.rfind("]", 0, teams_end)
+        if last_bracket != -1:
+            return json.loads(raw[: last_bracket + 1] + "\n}")
+        raise
+
+
+def _knockout_path_segments(probs: dict[str, float]) -> list[float]:
+    """Convert cumulative reach probabilities into exclusive finish buckets."""
+    segments = [
+        1.0 - probs["R32"],
+        probs["R32"] - probs["R16"],
+        probs["R16"] - probs["QF"],
+        probs["QF"] - probs["SF"],
+        probs["SF"] - probs["final"],
+        probs["final"] - probs["winner"],
+        probs["winner"],
+    ]
+    return [max(0.0, value) for value in segments]
 
 
 # ===========================================================================
@@ -526,6 +561,104 @@ def plot_m2_qualifier_brier() -> None:
     _save(fig, "qualifier_brier_by_stage.png")
 
 
+# ===========================================================================
+# Chart 7 - Top 10 WC2026 teams knockout path distribution
+# ===========================================================================
+def plot_top10_knockout_paths() -> None:
+    payload = _load_model_json()
+    teams = payload["teams"]
+    generated = payload.get("meta", {}).get("generated", "")[:10]
+    ranked = sorted(
+        teams,
+        key=lambda team: (
+            float(team["probs"]["winner"]),
+            float(team["probs"]["final"]),
+            float(team["probs"]["SF"]),
+        ),
+        reverse=True,
+    )[:10]
+
+    # 1 stacked bar per team, group-exit excluded.
+    # Segments are exclusive finish buckets, stacked bottom→top:
+    #   Winner (gold) at base, R32 exit at top — bar height = P(reach R32).
+    segment_labels = ["Winner", "Final loss", "SF exit", "QF exit", "R16 exit", "R32 exit"]
+    segment_colors = [GOLD, CANADA_RED, MEXICO_GREEN, "#14B8A6", USA_BLUE, "#BFDBFE"]
+
+    fig, ax = plt.subplots(figsize=(13.5, 7.2))
+    _add_wc26_header(fig)
+    _add_wc26_footer(fig)
+    _title(
+        fig,
+        "Top 10 teams - knockout path probabilities",
+        (
+            "WC2026 model probabilities ranked by title chance; "
+            f"stacked bars show exclusive knockout finish buckets"
+        ),
+        subtitle_y=FIG_SUBTITLE_Y_WIDE,
+    )
+    _apply_wc26_style(fig, ax, grid_axis="y")
+    plt.subplots_adjust(left=0.08, right=0.97, bottom=0.30, top=FIG_PLOT_TOP)
+
+    ordered = ranked  # best team on the left
+    x = np.arange(len(ordered))
+
+    # Compute exclusive segments in bottom→top order (reverse of _knockout_path_segments)
+    def _segments_reversed(probs: dict) -> list[float]:
+        segs = _knockout_path_segments(probs)  # [group_exit, R32_exit, R16_exit, QF_exit, SF_exit, final_loss, winner]
+        return [max(0.0, s) for s in [segs[6], segs[5], segs[4], segs[3], segs[2], segs[1]]]
+
+    bottom = np.zeros(len(ordered))
+    for idx, (label, color) in enumerate(zip(segment_labels, segment_colors)):
+        values = np.array([_segments_reversed(t["probs"])[idx] * 100.0 for t in ordered])
+        ax.bar(
+            x, values,
+            bottom=bottom,
+            width=0.68,
+            color=color,
+            edgecolor=CARD,
+            linewidth=0.8,
+            label=label,
+            zorder=3,
+        )
+        bottom += values
+
+    # Win% annotation above each bar (= above R32 probability)
+    for xi, team in zip(x, ordered):
+        winner_pct = float(team["probs"]["winner"]) * 100.0
+        bar_top    = float(team["probs"]["R32"])    * 100.0
+        ax.text(
+            xi, bar_top + 0.8,
+            f"{winner_pct:.1f}%",
+            ha="center", va="bottom",
+            fontsize=FS_ANNOT, color=INK, fontweight="bold",
+        )
+
+    max_bar = max(float(t["probs"]["R32"]) * 100.0 for t in ordered)
+    ax.set_xticks(x)
+    ax.set_xticklabels(
+        [team["name"] for team in ordered],
+        fontsize=FS_TICK, rotation=22, ha="right",
+    )
+    ax.set_ylim(0, max_bar + 9)
+    yticks = np.arange(0, int(max_bar) + 21, 20)
+    ax.set_yticks(yticks)
+    ax.set_yticklabels([f"{t:.0f}%" for t in yticks], fontsize=FS_TICK)
+    ax.set_ylabel("Tournament outcome share", fontsize=FS_AXIS_LABEL)
+    ax.set_xlim(-0.5, len(ordered) - 0.5)
+
+    ax.legend(
+        handles=[mpatches.Patch(color=c, label=l) for l, c in zip(segment_labels, segment_colors)],
+        loc="upper center",
+        bbox_to_anchor=(0.5, -0.28),
+        ncol=len(segment_labels),
+        frameon=False,
+        labelcolor=INK,
+        fontsize=FS_LEGEND,
+    )
+
+    _save(fig, "top10_knockout_paths.png")
+
+
 if __name__ == "__main__":
     print("Generating refined WC26-inspired plots …")
     plot_ce_holdout_vs_historical()
@@ -534,4 +667,5 @@ if __name__ == "__main__":
     plot_bracket_stage_recall()
     plot_m4_cumulative()
     plot_m2_qualifier_brier()
-    print(f"\nAll 6 refined plots saved to:\n  {OUT_DIR}")
+    plot_top10_knockout_paths()
+    print(f"\nAll 7 refined plots saved to:\n  {OUT_DIR}")
