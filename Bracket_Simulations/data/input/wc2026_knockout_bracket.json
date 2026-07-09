@@ -145,12 +145,12 @@
       "away_idx": 1
     },
     {
-      "home_idx": 2,
-      "away_idx": 3
-    },
-    {
       "home_idx": 4,
       "away_idx": 5
+    },
+    {
+      "home_idx": 2,
+      "away_idx": 3
     },
     {
       "home_idx": 6,
